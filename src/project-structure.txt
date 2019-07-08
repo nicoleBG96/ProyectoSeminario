@@ -5,15 +5,16 @@
 |   |   |   |--login.component.ts|.html|.css
 |   |   +--● shared
 |   |   |   |--authentification.service.ts
-|   |   |--authentification.routing.ts|.module.ts
+|   |   |--authentification.routing.ts
+|   |   |--authentification.module.ts
 |   |   |   |
 |   +--● core
 |   |   +--● navbar
 |   |   |   |--navbar.component.ts|.html|.css
 |   |   +--● footer
 |   |   |   |--footer.component.ts|.html|.css
-|   |   |   |
-|   |   |   |
+|   |   |--core.module.ts
+|   |   |   
 |   +--● shared
 |   |   +--● models
 |   |   |   |--child-register.model.ts
@@ -33,7 +34,8 @@
 |   |   |   |--expenses.service.ts
 |   |   |   |--attendance-list.service.ts
 |   |   |   |--financial-report.service.ts
-|   |   |   |
+|   |   |--shared.module.ts
+|   |   |   
 |   +--● child
 |   |   +--● child-register
 |   |   |   |--create.component.ts|.html|.css
@@ -51,7 +53,9 @@
 |   |   |   |--edit.component.ts|.html|.css
 |   |   |   |--form.component.ts|.html|.css
 |   |   |   |--profile.component.ts|.html|.css
-|   |   |   |
+|   |   |--child.module.ts 
+|   |   |--child.routing.ts
+|   |   |   
 |   +--● finance
 |   |   +--● income
 |   |   |   |--create.component.ts|.html|.css
@@ -71,7 +75,9 @@
 |   |   |   |--list.component.ts|.html|.css
 |   |   |   |--profile.component.ts|.html|.css
 |   |   |   |--generate.component.ts|.html|.css
-|   |   |   |
+|   |   |--finance.module.ts 
+|   |   |--finance.routing.ts
+|   |   |   
 |   +--● reports
 |   |   +--● financial-report
 |   |   |   |--form.component.ts|.html|.css
@@ -83,4 +89,8 @@
 |   |   |   |--list.component.ts|.html|.css
 |   |   |   |--create.component.ts|.html|.css
 |   |   |   |--profile.component.ts|.html|.css
-| |--app.module.ts
+|   |   |--reports.module.ts 
+|   |   |--reports.routing.ts
+|   |   |   
+|   |--app.module.ts
+|   |--app.routing.ts
