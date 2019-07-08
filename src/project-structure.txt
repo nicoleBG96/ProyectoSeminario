@@ -3,6 +3,11 @@
 |   +--● authentification
 |   |   +--● login
 |   |   |   |--login.component.ts|.html|.css
+|   |   |+--● user
+|   |   |   |--create.component.ts|.html|.css
+|   |   |   |--edit.component.ts|.html|.css
+|   |   |   |--delete.component.ts|.html|.css
+|   |   |   |--list.component.ts|.html|.css
 |   |   +--● shared
 |   |   |   |--authentification.service.ts
 |   |   |--authentification.routing.ts
