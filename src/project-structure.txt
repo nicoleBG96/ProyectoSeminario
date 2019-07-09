@@ -9,7 +9,11 @@
 |   |   |   |--delete.component.ts|.html|.css
 |   |   |   |--list.component.ts|.html|.css
 |   |   +--● shared
-|   |   |   |--authentification.service.ts
+|   |   |   +--● service
+|   |   |   |   |--authentification.service.ts
+|   |   |   |   |--user.service.ts
+|   |   |   +--● model
+|   |   |   |   |--user.model.ts
 |   |   |--authentification.routing.ts
 |   |   |--authentification.module.ts
 |   |   |   |
