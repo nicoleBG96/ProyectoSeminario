@@ -8,10 +8,36 @@ import * as fb from 'firebase';
 
 // model
 import { UserModel } from '../models/user.model';
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  userList: AngularFireList<any>;
 
-  constructor() { }
+  constructor(private firebase: AngularFireDatabase, private storage: AngularFireStorage) { }
+
+  createUser(user: UserModel) {
+    this.firebase.list('users').push(user);
+  }
+
+  getUser() {
+    return this.firebase.list('user').snapshotChanges().pipe(
+      map(action => action.map(data => {
+        return {
+          key: data.payload.key,
+          ...data.payload.val()
+        };
+      })));
+  }
+
+  getUserByID(id: string) {
+    const ref = fb.database().ref('users');
+    return ref.child(id).once('value').then((snapshot) => snapshot.val());
+  }
+
+  updateUser(id: string, user: UserModel) {
+    this.firebase.list('users').update(id, user);
+  }
+
 }

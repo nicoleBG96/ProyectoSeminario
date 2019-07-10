@@ -4,6 +4,7 @@ export class UserModel {
     lastName: string;
     email: string;
     password: string;
+    position: string;
     isDisable: boolean;
 
     constructor() {
@@ -11,6 +12,7 @@ export class UserModel {
         this.lastName = '';
         this.email = '';
         this.password = '';
+        this.position = '';
         this.isDisable = null;
     }
 }
