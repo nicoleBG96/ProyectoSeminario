@@ -40,7 +40,7 @@ export class AuthentificationService {
 
   logout() {
     this.loginSubject.next(false);
-    this.fAuth.auth.signOut().then((res) => this.router.navigate(['/']));
+    this.fAuth.auth.signOut().then((res) => this.router.navigate(['/home']));
     localStorage.clear();
   }
 

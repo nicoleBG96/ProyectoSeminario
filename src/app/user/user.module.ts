@@ -6,7 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { UserRoutingModule } from './user-routing.module';
 
 // Service
-import { AuthentificationService } from '../shared/services/authentification.service';
+import { AuthentificationService } from '../authentification/shared/authentification.service';
 
 // Components
 import { RegisterUserComponent } from './register-user/register-user.component';
@@ -20,7 +20,7 @@ import { UsersFormComponent } from './users-form/users-form.component';
     UserRoutingModule,
     SharedModule
   ],
-  exports: [RegisterUserComponent, EditUserComponent, UsersFormComponent,],
+  exports: [RegisterUserComponent, EditUserComponent, UsersFormComponent],
   providers: [AuthentificationService]
 })
 export class UserModule { }

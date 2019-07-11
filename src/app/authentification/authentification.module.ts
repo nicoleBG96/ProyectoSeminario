@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 // Routing
 import { AuthentificationRoutingModule } from './authentification-routing.module';
@@ -9,7 +9,7 @@ import { AuthentificationRoutingModule } from './authentification-routing.module
 import { LoginComponent } from './login/login.component';
 
 // Service
-import { AuthentificationService } from './shared/services/authentification.service';
+import { AuthentificationService } from './shared/authentification.service';
 
 @NgModule({
   declarations: [LoginComponent],
