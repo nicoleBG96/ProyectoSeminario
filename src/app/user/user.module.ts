@@ -6,7 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { UserRoutingModule } from './user-routing.module';
 
 // Service
-import { AuthentificationService } from '../authentification/shared/authentification.service';
+import { AuthentificationService } from '../authentification/authentification.service';
 
 // Components
 import { RegisterUserComponent } from './register-user/register-user.component';

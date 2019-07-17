@@ -11,11 +11,15 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+
+
 // Routing
 import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { AppComponent } from './app.component';
+
+
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { AppComponent } from './app.component';
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

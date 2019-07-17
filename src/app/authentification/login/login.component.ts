@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // Service
-import { AuthentificationService } from '../shared/authentification.service';
+import { AuthentificationService } from '../authentification.service';
 
 @Component({
   selector: 'app-login',
@@ -17,28 +17,28 @@ export class LoginComponent {
 
   constructor(private authService: AuthentificationService, private router: Router, private fb: FormBuilder) {
     this.createForm();
-   }
+  }
 
-   createForm() {
-     this.loginForm = this.fb.group({
-       email: ['', Validators.required],
-       password: ['', Validators.required]
-     });
-   }
+  createForm() {
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 
-   gmailLogin() {
-     this.authService.loginWithGoogle().then((res) => {
-       window.location.replace('/home');
-     });
-   }
+  gmailLogin() {
+    this.authService.loginWithGoogle().then((res) => {
+      window.location.replace('/home');
+    });
+  }
 
-   login(value) {
-     this.authService.loginWhitEmail(value).then((res) => {
-       window.location.replace('/home');
-     });
-   }
+  login(value) {
+    this.authService.loginWhitEmail(value).then((res) => {
+      window.location.replace('/home');
+    });
+  }
 
-   newUser() {
-     window.location.replace('/');
-   }
+  newUser() {
+    window.location.replace('/');
+  }
 }
