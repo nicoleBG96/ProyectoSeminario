@@ -11,12 +11,15 @@ import { LoginComponent } from './login/login.component';
 // Service
 import { AuthentificationService } from './shared/authentification.service';
 
+import { MaterialModule } from '../material';
+
 @NgModule({
   declarations: [LoginComponent],
   imports: [
     CommonModule,
     AuthentificationRoutingModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ],
   providers: [AuthentificationService]
 })
