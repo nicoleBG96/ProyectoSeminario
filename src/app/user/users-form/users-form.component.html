@@ -1,3 +1,14 @@
-<p>
-  users-form works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Crea tu cuenta</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form #formNew="ngForm" novalidate>
+      <mat-form-field>
+        <input class="input" [(ngModel)]="user.firstName" type="text" name="firstName" #firstName="ngModel"
+          id="firstName" placeholder="Enter First Name" maxlength="20" required pattern="^[a-zA-Z]*$" matInput
+          placeholder="Nombres">
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+</mat-card>
