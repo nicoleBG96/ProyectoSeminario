@@ -1,0 +1,14 @@
+.card {
+    width: 30%;
+    margin-left: 35%;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    margin-left: 5%;
+    margin-right: 5%;
+}
