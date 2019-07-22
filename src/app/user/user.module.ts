@@ -13,14 +13,26 @@ import { RegisterUserComponent } from './register-user/register-user.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { UsersFormComponent } from './users-form/users-form.component';
 
+// Design
+import { MaterialModule } from '../material-module/material-module.module';
+
 @NgModule({
-  declarations: [RegisterUserComponent, EditUserComponent, UsersFormComponent],
+  declarations: [
+    RegisterUserComponent,
+    EditUserComponent,
+    UsersFormComponent
+  ],
   imports: [
     CommonModule,
     UserRoutingModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ],
-  exports: [RegisterUserComponent, EditUserComponent, UsersFormComponent],
+  exports: [
+    RegisterUserComponent,
+    EditUserComponent,
+    UsersFormComponent
+  ],
   providers: [AuthentificationService]
 })
 export class UserModule { }
