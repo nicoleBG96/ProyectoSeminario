@@ -44,6 +44,16 @@
       <div *ngIf="password.errors.minlength">{{password.errors.minlength.requiredLength}} mínimo de caracteres.</div>
     </div>
     <br>
+    <mat-form-field class="text">
+        <mat-label>Cargo</mat-label>
+        <select matNativeControl required>
+          <option value="administrador">Administrador</option>
+          <option value="profesor">Profesor</option>
+          <option value="psicologo">Psicologo</option>
+          <option value="medico">Medico</option>
+        </select>
+    </mat-form-field>
+    <br>
     <a href="/auth/login"><button class="button" mat-raised-button color="warn">Cancelar</button></a>
     <button type="submit" (click)="save()" class="button" mat-raised-button color="primary">Guardar</button>
     </form>
