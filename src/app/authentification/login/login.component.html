@@ -4,19 +4,25 @@
   </mat-card-header>
   <br>
   <mat-card-content>
-    <mat-form-field>
-      <input class="input" matInput placeholder="Correo electronico o usuario">
-    </mat-form-field>
-    <br><br>
-    <mat-form-field>
-      <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
-    </mat-form-field>
+    <form [formGroup]="loginForm">
+      <mat-form-field>
+        <input class="input" matInput placeholder="Correo electronico o usuario">
+      </mat-form-field>
+      <br><br>
+      <mat-form-field>
+        <input matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <br>
+      <button mat-button color="primary">¿Olvidaste tu contraseña?</button>
+      <br><br><br>
+      <button mat-raised-button color="primary" class="button" (click)="login(loginForm.value)">Iniciar Sesión</button>
+      <button mat-raised-button color="primary" class="button" (click)="gmailLogin()">Google</button>
+      <br><br>
+      <a href="/users/createUser"><button mat-button color="primary" class="button_center" >Crear Cuenta</button> </a>
+    </form>
   </mat-card-content>
-  <button mat-button color="primary">¿Olvidaste tu contraseña?</button>
-  <br><br><br>
-  <a href="/users/createUser"><button mat-button color="primary" class="button">Crear Cuenta</button> </a>
-  <button mat-raised-button color="primary" class="button">Iniciar Sesión</button>
 </mat-card>

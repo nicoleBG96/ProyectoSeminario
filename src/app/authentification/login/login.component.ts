@@ -28,17 +28,13 @@ export class LoginComponent {
 
   gmailLogin() {
     this.authService.loginWithGoogle().then((res) => {
-      window.location.replace('/home');
+      window.location.replace('/');
     });
   }
 
   login(value) {
     this.authService.loginWhitEmail(value).then((res) => {
-      window.location.replace('/home');
+      window.location.replace('/');
     });
-  }
-
-  newUser() {
-    window.location.replace('/');
   }
 }
