@@ -6,12 +6,12 @@ export const environment = {
   production: false,
   firebase: {
     apiKey: 'AIzaSyD3ECurNzF3nk6DHKNaXPoiFR96RyRgD-E',
-  authDomain: 'proyectoseminario-1d37f.firebaseapp.com',
-  databaseURL: 'https://proyectoseminario-1d37f.firebaseio.com',
-  projectId: 'proyectoseminario-1d37f',
-  storageBucket: 'proyectoseminario-1d37f.appspot.com',
-  messagingSenderId: '596036750679',
-  appId: '1:596036750679:web:721b5a172078bf31'
+    authDomain: 'proyectoseminario-1d37f.firebaseapp.com',
+    databaseURL: 'https://proyectoseminario-1d37f.firebaseio.com',
+    projectId: 'proyectoseminario-1d37f',
+    storageBucket: 'proyectoseminario-1d37f.appspot.com',
+    messagingSenderId: '596036750679',
+    appId: '1:596036750679:web:721b5a172078bf31'
   }
 };
 

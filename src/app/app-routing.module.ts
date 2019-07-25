@@ -3,15 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'auth', loadChildren: () => import('./authentification/authentification.module').then(m => m.AuthentificationModule)},
-  { path: 'users', loadChildren: './user/user.module#UserModule'}
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'auth', loadChildren: () => import('./authentification/authentification.module').then(m => m.AuthentificationModule) },
+  { path: 'users', loadChildren: './user/user.module#UserModule' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     scrollPositionRestoration: 'enabled',
-    anchorScrolling: 'enabled'})
+    anchorScrolling: 'enabled'
+  })
   ],
   exports: [RouterModule],
   providers: [AuthGuard]
