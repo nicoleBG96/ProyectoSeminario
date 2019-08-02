@@ -18,12 +18,14 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { AppComponent } from './app.component';
+import { ChildRegisterComponent } from './child/register/child-register/child-register.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ChildRegisterComponent,
   ],
   imports: [
     BrowserModule,
