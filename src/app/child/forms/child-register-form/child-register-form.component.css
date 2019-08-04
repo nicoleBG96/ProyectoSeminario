@@ -61,3 +61,12 @@
     font-size: 15px;
     margin-left: 5%;
 }
+
+.buttons {
+    margin-left: 35%;
+}
+
+.button {
+    margin-left: 5%;
+    margin-right: 5%;
+}
