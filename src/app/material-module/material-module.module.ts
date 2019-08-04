@@ -8,6 +8,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [],
@@ -18,7 +19,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatRadioModule
   ],
   exports: [
     MatCardModule,
@@ -26,7 +28,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatRadioModule
   ]
 })
 export class MaterialModule { }

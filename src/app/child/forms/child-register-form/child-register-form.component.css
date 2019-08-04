@@ -32,10 +32,32 @@
 
 .left {
     float: left;
-    width: 10%;
+    width: 70%;
 }
 
 .right {
-    margin-left: 600px;
-    width: 500px;
+    margin-left: 50%;
+    width: 50%;
+}
+
+.subtitle {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 25px;
+}
+
+.option {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+
+.compromise {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.rules {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    margin-left: 5%;
 }
