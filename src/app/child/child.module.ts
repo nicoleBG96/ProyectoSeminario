@@ -5,21 +5,28 @@ import { SharedModule } from '../shared/shared.module';
 // Routing
 import { ChildRoutingModule } from './child-routing.module';
 
+// Design
+import { MaterialModule } from '../material-module/material-module.module';
+
 // Components
 import { ChildRegisterComponent } from './register/child-register/child-register.component';
+import { ChildRegisterFormComponent } from './forms/child-register-form/child-register-form.component';
 
 
 @NgModule({
   declarations: [
-    ChildRegisterComponent
+    ChildRegisterComponent,
+    ChildRegisterFormComponent
   ],
   imports: [
     CommonModule,
     ChildRoutingModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ],
   exports: [
-    ChildRegisterComponent
+    ChildRegisterComponent,
+    ChildRegisterFormComponent
   ]
 })
 export class ChildModule { }
