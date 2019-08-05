@@ -11,12 +11,14 @@ import { MaterialModule } from '../material-module/material-module.module';
 // Components
 import { ChildRegisterComponent } from './register/child-register/child-register.component';
 import { ChildRegisterFormComponent } from './forms/child-register-form/child-register-form.component';
+import { EditRegisterChildComponent } from './register/edit-register-child/edit-register-child.component';
 
 
 @NgModule({
   declarations: [
     ChildRegisterComponent,
-    ChildRegisterFormComponent
+    ChildRegisterFormComponent,
+    EditRegisterChildComponent
   ],
   imports: [
     CommonModule,
