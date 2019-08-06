@@ -1,1 +1,73 @@
-<p>child-medical-record-form works!</p>
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title class="title">Ficha Médica</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form #formNew="ngForm" novalidate>
+            <div class="main">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="left">
+                            <br><br>
+                            <mat-form-field class="text">
+                                <input class="input" [(ngModel)]="child.fisrtName" type="text" name="fisrtName"
+                                    #fisrtName="ngModel" id="fisrtName" maxlength="30" required
+                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput placeholder="Nombres">
+                            </mat-form-field>
+                            <div *ngIf="(fisrtName.touched || fisrtName.dirty) && !fisrtName.valid && fisrtName.errors"
+                                class="text-alert">
+                                <div *ngIf="fisrtName.errors.required">Se requiere nombre</div>
+                                <div *ngIf="fisrtName.errors.pattern">Este campo solo acepta letras</div>
+                            </div>
+                            <br>
+                            <mat-form-field class="text">
+                                <input class="input" [(ngModel)]="child.lastName" type="text" name="lastName"
+                                    #lastName="ngModel" id="lastName" maxlength="30" required
+                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput
+                                    placeholder="Apellido Paterno">
+                            </mat-form-field>
+                            <div *ngIf="(lastName.touched || lastName.dirty) && !lastName.valid && lastName.errors"
+                                class="text-alert">
+                                <div *ngIf="lastName.errors.required">Se requiere Apellido Paterno</div>
+                                <div *ngIf="lastName.errors.pattern">Este campo solo acepta letras</div>
+                            </div>
+                            <br>
+                            <mat-form-field class="text">
+                                <input class="input" [(ngModel)]="child.mothersLastName" type="text"
+                                    name="mothersLastName" #mothersLastName="ngModel" id="mothersLastName"
+                                    maxlength="30" required pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput
+                                    placeholder="Apellido Materno">
+                            </mat-form-field>
+                            <div *ngIf="(mothersLastName.touched || mothersLastName.dirty) && !mothersLastName.valid && mothersLastName.errors"
+                                class="text-alert">
+                                <div *ngIf="mothersLastName.errors.required">Se requiere Apellido Materno</div>
+                                <div *ngIf="mothersLastName.errors.pattern">Este campo solo acepta letras</div>
+                            </div>
+                            <mat-form-field class="text">
+                                <input class="input" [(ngModel)]="child.age" type="text" name="age" #age="ngModel"
+                                    id="age" maxlength="2" required pattern="^[0-9]*$" matInput placeholder="Edad">
+                            </mat-form-field>
+                            <div *ngIf="(age.touched || age.dirty) && !age.valid && age.errors" class="text-alert">
+                                <div *ngIf="age.errors.required">Se requiere Edad</div>
+                                <div *ngIf="age.errors.pattern">Este campo solo acepta números</div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="right">
+                            <mat-form-field class="text">
+                                <input class="input" [(ngModel)]="child.address" type="text" name="address"
+                                    #address="ngModel" id="address" maxlength="30" required
+                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç 0-9]*$" matInput placeholder="Direccion">
+                            </mat-form-field>
+                            <div *ngIf="(address.touched || address.dirty) && !address.valid && address.errors"
+                                class="text-alert">
+                                <div *ngIf="address.errors.required">Se requiere Direccion</div>
+                                <div *ngIf="address.errors.pattern">Este campo acepta letras y números</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
