@@ -12,13 +12,15 @@ import { MaterialModule } from '../material-module/material-module.module';
 import { ChildRegisterComponent } from './register/child-register/child-register.component';
 import { ChildRegisterFormComponent } from './forms/child-register-form/child-register-form.component';
 import { EditRegisterChildComponent } from './register/edit-register-child/edit-register-child.component';
+import { RegisterChildMedicalRecordComponent } from './medicalRecord/register-child-medical-record/register-child-medical-record.component';
 
 
 @NgModule({
   declarations: [
     ChildRegisterComponent,
     ChildRegisterFormComponent,
-    EditRegisterChildComponent
+    EditRegisterChildComponent,
+    RegisterChildMedicalRecordComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,9 @@ import { EditRegisterChildComponent } from './register/edit-register-child/edit-
   ],
   exports: [
     ChildRegisterComponent,
-    ChildRegisterFormComponent
+    ChildRegisterFormComponent,
+    EditRegisterChildComponent,
+    RegisterChildMedicalRecordComponent
   ]
 })
 export class ChildModule { }
