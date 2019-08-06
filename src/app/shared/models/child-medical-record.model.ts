@@ -1,4 +1,4 @@
-export class MedicalRecord {
+export class ChildMedicalRecordModel {
     firstName: string;
     lastName: string;
     mothersLastName: string;
