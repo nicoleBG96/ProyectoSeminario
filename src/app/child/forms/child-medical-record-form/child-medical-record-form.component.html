@@ -31,7 +31,6 @@
                                 <div *ngIf="lastName.errors.required">Se requiere Apellido Paterno</div>
                                 <div *ngIf="lastName.errors.pattern">Este campo solo acepta letras</div>
                             </div>
-                            <br>
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.mothersLastName" type="text"
                                     name="mothersLastName" #mothersLastName="ngModel" id="mothersLastName"
@@ -55,6 +54,15 @@
                         <br>
                         <div class="right">
                             <mat-form-field class="text">
+                                <mat-label>Sexo</mat-label>
+                                <select matNativeControl required [(ngModel)]="child.sex"
+                                    [ngModelOptions]="{standalone: true}">
+                                    <option value="femenino">Femenino</option>
+                                    <option value="masculino">Masculino</option>
+                                </select>
+                            </mat-form-field>
+                            <br>
+                            <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.address" type="text" name="address"
                                     #address="ngModel" id="address" maxlength="30" required
                                     pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç 0-9]*$" matInput placeholder="Direccion">
@@ -64,6 +72,31 @@
                                 <div *ngIf="address.errors.required">Se requiere Direccion</div>
                                 <div *ngIf="address.errors.pattern">Este campo acepta letras y números</div>
                             </div>
+                            <br>
+                            <mat-form-field class="text">
+                                <input class="input" [(ngModel)]="child.date" type="date" name="date" #date="ngModel"
+                                    id="date" matInput placeholder="Fecha de Revision">
+                            </mat-form-field>
+                            <br>
+                            <mat-form-field>
+                                <textarea type="text" class="input" name="description" id="description"
+                                    [(ngModel)]="child.description" #description="ngModel" required
+                                    pattern="[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç,.0-9]*$" matInput
+                                    placeholder="Descripcion"></textarea>
+                            </mat-form-field>
+                            <div *ngIf="(description.touched || description.dirty) && !description.valid && description.errors"
+                                class="errorBar">
+                                <div class="errorText" *ngIf="description.errors.required">Se requiere descripcion</div>
+                                <div class="errorText" *ngIf="description.errors.pattern">Este campo acepta letras y
+                                    números</div>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="buttons">
+                            <button class="button" type="submit" mat-raised-button color="primary"
+                                (click)="saveMedicalRecord()">Guardar</button>
+                            <a href="/"><button class="button" type="button" mat-raised-button
+                                    color="warn">Cancelar</button></a>
                         </div>
                     </div>
                 </div>

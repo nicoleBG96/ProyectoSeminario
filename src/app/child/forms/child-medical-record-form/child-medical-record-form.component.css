@@ -1,6 +1,6 @@
 .card {
-    width: 90%;
-    margin-left: 5%;
+    width: 70%;
+    margin-left: 15%;
 }
 
 .title {
@@ -32,10 +32,19 @@
 
 .left {
     float: left;
-    width: 70%;
+    width: 60%;
 }
 
 .right {
-    margin-left: 50%;
-    width: 50%;
+    margin-left: 90%;
+    width: 70%;
+}
+
+.buttons {
+    margin-left: 35%;
+}
+
+.button {
+    margin-left: 5%;
+    margin-right: 5%;
 }
