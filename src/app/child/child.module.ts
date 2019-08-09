@@ -14,6 +14,7 @@ import { ChildRegisterFormComponent } from './forms/child-register-form/child-re
 import { EditRegisterChildComponent } from './register/edit-register-child/edit-register-child.component';
 import { RegisterChildMedicalRecordComponent } from './medicalRecord/register-child-medical-record/register-child-medical-record.component';
 import { ChildMedicalRecordFormComponent } from './forms/child-medical-record-form/child-medical-record-form.component';
+import { EditChildMedicalRecordComponent } from './medicalRecord/edit-child-medical-record/edit-child-medical-record.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ChildMedicalRecordFormComponent } from './forms/child-medical-record-fo
     ChildRegisterFormComponent,
     EditRegisterChildComponent,
     RegisterChildMedicalRecordComponent,
-    ChildMedicalRecordFormComponent
+    ChildMedicalRecordFormComponent,
+    EditChildMedicalRecordComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,9 @@ import { ChildMedicalRecordFormComponent } from './forms/child-medical-record-fo
     ChildRegisterComponent,
     ChildRegisterFormComponent,
     EditRegisterChildComponent,
-    RegisterChildMedicalRecordComponent
+    RegisterChildMedicalRecordComponent,
+    ChildMedicalRecordFormComponent,
+    EditChildMedicalRecordComponent
   ]
 })
 export class ChildModule { }
