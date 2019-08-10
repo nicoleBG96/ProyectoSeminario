@@ -40,7 +40,8 @@ import { RegisterChildProgressComponent } from './progress/register-child-progre
     EditRegisterChildComponent,
     RegisterChildMedicalRecordComponent,
     ChildMedicalRecordFormComponent,
-    EditChildMedicalRecordComponent
+    EditChildMedicalRecordComponent,
+    RegisterChildProgressComponent
   ]
 })
 export class ChildModule { }
