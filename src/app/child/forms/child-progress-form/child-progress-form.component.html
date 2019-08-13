@@ -8,6 +8,38 @@
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
                         <div class="left">
+                            <mat-label class="subtitle">Folio</mat-label>
+                            <br>
+                            <mat-form-field class="text">
+                                <input class="input" [(ngModel)]="child.folio" type="text" name="folio" #folio="ngModel"
+                                    id="folio" maxlength="4" required pattern="^[0-9]*$" matInput placeholder="Folio">
+                            </mat-form-field>
+                            <div *ngIf="(folio.touched || folio.dirty) && !folio.valid && folio.errors"
+                                class="text-alert">
+                                <div *ngIf="folio.errors.required">Se requiere folio</div>
+                                <div *ngIf="folio.errors.pattern">Este campo solo acepta números</div>
+                            </div>
+                            <mat-form-field class="text">
+                                <input class="input" [(ngModel)]="child.numberOrder" type="text" name="numberOrder"
+                                    #numberOrder="ngModel" id="numberOrder" maxlength="2" required pattern="^[0-9]*$"
+                                    matInput placeholder="Numero de Orden">
+                            </mat-form-field>
+                            <div *ngIf="(numberOrder.touched || numberOrder.dirty) && !numberOrder.valid && numberOrder.errors"
+                                class="text-alert">
+                                <div *ngIf="numberOrder.errors.required">Se requiere numero de orden</div>
+                                <div *ngIf="numberOrder.errors.pattern">Este campo solo acepta números</div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <br><br>
+                            <mat-form-field class="text">
+                                <input class="input" [(ngModel)]="child.date" type="date" name="date" #date="ngModel"
+                                    id="date" matInput placeholder="Fecha de Entrevista">
+                            </mat-form-field>
+                        </div>
+                        <br><br><br><br>
+                        <div class="left">
+                            <mat-label class="subtitle">Identificacion</mat-label>
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.fisrtName" type="text" name="fisrtName"
                                     #fisrtName="ngModel" id="fisrtName" maxlength="30" required
@@ -18,10 +50,87 @@
                                 <div *ngIf="fisrtName.errors.required">Se requiere nombre</div>
                                 <div *ngIf="fisrtName.errors.pattern">Este campo solo acepta letras</div>
                             </div>
+                            <mat-form-field class="text">
+                                <input class="input" [(ngModel)]="child.lastName" type="text" name="lastName"
+                                    #lastName="ngModel" id="lastName" maxlength="30" required
+                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput
+                                    placeholder="Apellido Paterno">
+                            </mat-form-field>
+                            <br>
+                            <div *ngIf="(lastName.touched || lastName.dirty) && !lastName.valid && lastName.errors"
+                                class="text-alert">
+                                <div *ngIf="lastName.errors.required">Se requiere apellido paterno</div>
+                                <div *ngIf="lastName.errors.pattern">Este campo solo acepta letras</div>
+                            </div>
+                            <mat-form-field class="text">
+                                <input class="input" [(ngModel)]="child.mothersLastName" type="text"
+                                    name="mothersLastName" #mothersLastName="ngModel" id="mothersLastName"
+                                    maxlength="30" required pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput
+                                    placeholder="Apellido Materno">
+                            </mat-form-field>
+                            <div *ngIf="(mothersLastName.touched || mothersLastName.dirty) && !mothersLastName.valid && mothersLastName.errors"
+                                class="text-alert">
+                                <div *ngIf="mothersLastName.errors.required">Se requiere apellido materno</div>
+                                <div *ngIf="mothersLastName.errors.pattern">Este campo solo acepta letras</div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <br><br>
+                            <mat-form-field class="text">
+                                <input class="input" [(ngModel)]="child.birthDate" type="date" name="birthDate"
+                                    #birthDate="ngModel" id="birthDate" matInput placeholder="Fecha de Nacimiento">
+                            </mat-form-field>
+                            <br>
+                            <mat-form-field class="text">
+                                <input class="input" [(ngModel)]="child.age" type="text" name="age" #age="ngModel"
+                                    id="age" maxlength="2" required pattern="^[0-9]*$" matInput
+                                    placeholder="Edad en meses">
+                            </mat-form-field>
+                            <div *ngIf="(age.touched || age.dirty) && !age.valid && age.errors" class="text-alert">
+                                <div *ngIf="age.errors.required">Se requiere edad</div>
+                                <div *ngIf="age.errors.pattern">Este campo solo acepta números</div>
+                            </div>
+                            <br>
+                            <mat-form-field class="text">
+                                <mat-label>Sexo</mat-label>
+                                <select matNativeControl required [(ngModel)]="child.sex"
+                                    [ngModelOptions]="{standalone: true}">
+                                    <option value="femenino">Femenino</option>
+                                    <option value="masculino">Masculino</option>
+                                </select>
+                            </mat-form-field>
+                        </div>
+                        <br><br><br>
+                        <div class="left">
+                            <mat-label class="subtitle">Antropometría</mat-label>
+                            <mat-form-field class="text">
+                                <input class="input" [(ngModel)]="child.weight" type="text" name="weight"
+                                    #weight="ngModel" id="weight" maxlength="5" required pattern="^[0-9]*$" matInput
+                                    placeholder="Peso Kg (2 decimales)">
+                            </mat-form-field>
+                            <div *ngIf="(weight.touched || weight.dirty) && !weight.valid && weight.errors"
+                                class="text-alert">
+                                <div *ngIf="weight.errors.required">Se requiere Peso</div>
+                                <div *ngIf="weight.errors.pattern">Este campo solo acepta números</div>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <br><br>
+                            <mat-form-field class="text">
+                                <input class="input" [(ngModel)]="child.size" type="text" name="size" #size="ngModel"
+                                    id="size" maxlength="4" required pattern="^[0-9]*$" matInput
+                                    placeholder="Talla m (2 decimales)">
+                            </mat-form-field>
+                            <div *ngIf="(size.touched || size.dirty) && !size.valid && size.errors" class="text-alert">
+                                <div *ngIf="size.errors.required">Se requiere Talla</div>
+                                <div *ngIf="size.errors.pattern">Este campo solo acepta números</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <table >
+            </table>
         </form>
     </mat-card-content>
 </mat-card>

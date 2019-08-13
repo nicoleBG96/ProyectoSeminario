@@ -9,6 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [],
@@ -20,7 +21,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatButtonModule,
     MatIconModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTableModule
   ],
   exports: [
     MatCardModule,
@@ -29,7 +31,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatButtonModule,
     MatIconModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTableModule
   ]
 })
 export class MaterialModule { }
