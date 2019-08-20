@@ -18,12 +18,14 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { AppComponent } from './app.component';
+import { RegisterDonationComponent } from './finance/donations/register-donation/register-donation.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    RegisterDonationComponent,
   ],
   imports: [
     BrowserModule,

@@ -35,8 +35,4 @@ export class DonationsService {
     const ref = fb.database().ref('donations');
     return ref.child(id).once('value').then((snapshot) => snapshot.val());
   }
-
-  updateDonation(id: string, donation: DonationsModel) {
-    this.firebase.list('donations').update(id, donation);
-  }
 }
