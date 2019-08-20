@@ -1,4 +1,5 @@
-export class Donations {
+export class DonationsModel {
+    $key: string;
     date: Date;
     amount: string;
     description: string;
