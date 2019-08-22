@@ -5,7 +5,8 @@ import { AuthGuard } from './shared/auth.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'auth', loadChildren: () => import('./authentification/authentification.module').then(m => m.AuthentificationModule) },
-  { path: 'users', loadChildren: './user/user.module#UserModule' }
+  { path: 'users', loadChildren: './user/user.module#UserModule' },
+  { path: 'finances', loadChildren: './finance/finance.module#FinanceModule'}
 ];
 
 @NgModule({
