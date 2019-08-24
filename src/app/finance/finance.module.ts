@@ -5,13 +5,11 @@ import { SharedModule } from '../shared/shared.module';
 import { FinanceRoutingModule } from './finance-routing.module';
 
 import { RegisterDonationComponent } from './donations/register-donation/register-donation.component';
-import { DonationFormComponent } from '../forms/donation-form/donation-form.component';
 
 
 @NgModule({
   declarations: [
-    RegisterDonationComponent,
-    DonationFormComponent
+    RegisterDonationComponent
   ],
   imports: [
     CommonModule,
@@ -19,8 +17,7 @@ import { DonationFormComponent } from '../forms/donation-form/donation-form.comp
     SharedModule
   ],
   exports: [
-    RegisterDonationComponent,
-    DonationFormComponent
+    RegisterDonationComponent
   ]
 })
 export class FinanceModule { }
