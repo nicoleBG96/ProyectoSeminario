@@ -6,7 +6,11 @@ import { RegisterDonationComponent } from './donations/register-donation/registe
 
 
 const routes: Routes = [
+<<<<<<< HEAD
   {path: 'registerDonations', component: RegisterDonationComponent}
+=======
+  {path: 'registerDonation', component: RegisterDonationComponent}
+>>>>>>> 657fe9005ba70f3ff2c9994519e831cc5f6043f6
 ];
 
 @NgModule({
