@@ -3,14 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Components
 import { RegisterDonationComponent } from './donations/register-donation/register-donation.component';
+import { RegisterMensualityComponent } from './mensuality/register-mensuality/register-mensuality.component';
 
 
 const routes: Routes = [
-<<<<<<< HEAD
-  {path: 'registerDonations', component: RegisterDonationComponent}
-=======
-  {path: 'registerDonation', component: RegisterDonationComponent}
->>>>>>> 657fe9005ba70f3ff2c9994519e831cc5f6043f6
+  {path: 'registerDonation', component: RegisterDonationComponent},
+  {path: 'registerMensuality', component: RegisterMensualityComponent}
 ];
 
 @NgModule({

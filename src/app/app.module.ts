@@ -18,18 +18,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { AppComponent } from './app.component';
-import { RegisterDonationComponent } from './finance/donations/register-donation/register-donation.component';
 
 
 
 @NgModule({
   declarations: [
-<<<<<<< HEAD
     AppComponent
-=======
-    AppComponent,
-    RegisterDonationComponent,
->>>>>>> 657fe9005ba70f3ff2c9994519e831cc5f6043f6
   ],
   imports: [
     BrowserModule,
