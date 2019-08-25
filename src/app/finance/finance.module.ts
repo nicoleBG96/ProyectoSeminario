@@ -4,6 +4,8 @@ import { SharedModule } from '../shared/shared.module';
 
 import { FinanceRoutingModule } from './finance-routing.module';
 
+import { MaterialModule } from '../material-module/material-module.module';
+
 import { RegisterDonationComponent } from './donations/register-donation/register-donation.component';
 import { DonationFormComponent } from './forms/donation-form/donation-form.component';
 
@@ -16,10 +18,12 @@ import { DonationFormComponent } from './forms/donation-form/donation-form.compo
   imports: [
     CommonModule,
     FinanceRoutingModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ],
   exports: [
-    RegisterDonationComponent
+    RegisterDonationComponent,
+    DonationFormComponent
   ]
 })
 export class FinanceModule { }
