@@ -9,13 +9,15 @@ import { MaterialModule } from '../material-module/material-module.module';
 import { RegisterDonationComponent } from './donations/register-donation/register-donation.component';
 import { DonationFormComponent } from './forms/donation-form/donation-form.component';
 import { RegisterMensualityComponent } from './mensuality/register-mensuality/register-mensuality.component';
+import { MensualityFormComponent } from './forms/mensuality-form/mensuality-form.component';
 
 
 @NgModule({
   declarations: [
     RegisterDonationComponent,
     DonationFormComponent,
-    RegisterMensualityComponent
+    RegisterMensualityComponent,
+    MensualityFormComponent
   ],
   imports: [
     CommonModule,
