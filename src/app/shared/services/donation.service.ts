@@ -4,8 +4,6 @@ import {AngularFireDatabase} from 'angularfire2/database';
 import {AngularFireList} from 'angularfire2/database';
 import { AngularFireStorage } from 'angularfire2/storage';
 
-import * as fb from 'firebase';
-
 // Model
 import { DonationsModel } from '../models/donations.model';
 

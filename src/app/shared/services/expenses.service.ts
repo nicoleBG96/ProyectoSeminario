@@ -4,18 +4,18 @@ import {AngularFireDatabase} from 'angularfire2/database';
 import {AngularFireList} from 'angularfire2/database';
 import { AngularFireStorage } from 'angularfire2/storage';
 
-import { MensualityModel } from '../models/mensuality.model';
+import { ExpensesModel } from '../models/expenses.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MensualityService {
-  mensualityList: AngularFireList<any>;
+export class ExpensesService {
+  expensesList: AngularFireList<any>;
 
   constructor(private firebase: AngularFireDatabase, private storage: AngularFireStorage) { }
 
   getMensuality() {
-    return this.firebase.list('mensualities').snapshotChanges().pipe(
+    return this.firebase.list('expenses').snapshotChanges().pipe(
       map(action => action.map(data => {
         return {
           key: data.payload.key,
@@ -24,7 +24,7 @@ export class MensualityService {
       })));
   }
 
-  createMensuality(mensuality: MensualityModel) {
-    this.firebase.list('mensualities').push(mensuality);
+  createMensuality(expenses: ExpensesModel) {
+    this.firebase.list('expemses').push(expenses);
   }
 }
