@@ -1,0 +1,72 @@
+.card {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.title {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 30px;
+    text-align: center;
+    color:  #1d1545;
+}
+
+.input {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+
+.text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+.text-alert {
+    color: red;
+}
+
+.main{
+    display: flex;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+.left {
+    float: left;
+    width: 70%;
+}
+
+.right {
+    margin-left: 50%;
+    width: 50%;
+}
+
+.subtitle {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 25px;
+}
+
+.option {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+
+.compromise {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.rules {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    margin-left: 5%;
+}
+
+.buttons {
+    margin-left: 35%;
+}
+
+.button {
+    margin-left: 5%;
+    margin-right: 5%;
+}
