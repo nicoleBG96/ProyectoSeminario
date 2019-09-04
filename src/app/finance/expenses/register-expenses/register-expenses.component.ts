@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { ExpensesModel } from '../../../shared/models/expenses.model';
+
+import { ExpensesService } from '../../../shared/services/expenses.service';
 
 @Component({
   selector: 'app-register-expenses',
@@ -7,9 +12,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterExpensesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private expensesService: ExpensesService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  registerExpenses(event: ExpensesModel) {
+    this.expensesService.createExpenses(event);
   }
 
 }

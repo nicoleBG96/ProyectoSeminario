@@ -17,7 +17,9 @@ export class ExpensesFormComponent implements OnInit {
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onSubmit: EventEmitter<any>;
 
-  constructor(private expensesService: ExpensesService, private formBuilder: FormBuilder) { }
+  constructor(private expensesService: ExpensesService, private formBuilder: FormBuilder) { 
+    this.onSubmit = new EventEmitter<any>();
+  }
 
   ngOnInit() {
     this.expenses = new ExpensesModel();
