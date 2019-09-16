@@ -11,7 +11,6 @@ import { MaterialModule } from '../material-module/material-module.module';
 // Components
 import { ChildRegisterComponent } from './register/child-register/child-register.component';
 import { ChildRegisterFormComponent } from './forms/child-register-form/child-register-form.component';
-import { EditRegisterChildComponent } from './register/edit-register-child/edit-register-child.component';
 import { RegisterChildMedicalRecordComponent } from './medicalRecord/register-child-medical-record/register-child-medical-record.component';
 import { ChildMedicalRecordFormComponent } from './forms/child-medical-record-form/child-medical-record-form.component';
 import { EditChildMedicalRecordComponent } from './medicalRecord/edit-child-medical-record/edit-child-medical-record.component';
@@ -23,7 +22,6 @@ import { ChildProgressFormComponent } from './forms/child-progress-form/child-pr
   declarations: [
     ChildRegisterComponent,
     ChildRegisterFormComponent,
-    EditRegisterChildComponent,
     RegisterChildMedicalRecordComponent,
     ChildMedicalRecordFormComponent,
     EditChildMedicalRecordComponent,
@@ -39,7 +37,6 @@ import { ChildProgressFormComponent } from './forms/child-progress-form/child-pr
   exports: [
     ChildRegisterComponent,
     ChildRegisterFormComponent,
-    EditRegisterChildComponent,
     RegisterChildMedicalRecordComponent,
     ChildMedicalRecordFormComponent,
     EditChildMedicalRecordComponent,

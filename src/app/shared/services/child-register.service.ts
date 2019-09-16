@@ -15,8 +15,6 @@ import { ChildRegisterModel } from '../models/child-register.model';
 export class ChildRegisterService {
   childList: AngularFireList<any>;
 
-  private createdObject: any;
-
   constructor(private firebase: AngularFireDatabase, private storage: AngularFireStorage) { }
 
   getChild() {
@@ -36,17 +34,5 @@ export class ChildRegisterService {
   getChildbyId(id: string) {
     const ref = fb.database().ref('children');
     return ref.child(id).once('value').then((snapshot) => snapshot.val());
-  }
-
-  updateChild(id: string, child: ChildRegisterModel) {
-    this.firebase.list('children').update(id, child);
-  }
-
-  getCreatedObject() {
-    return this.createdObject;
-  }
-
-  setCreatedObject(createdObject: any) {
-    this.createdObject = createdObject;
   }
 }
