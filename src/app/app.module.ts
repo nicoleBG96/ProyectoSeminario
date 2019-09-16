@@ -18,13 +18,13 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { AppComponent } from './app.component';
-import { MenuComponent} from './menu/menu.component';
 
+
+import { MaterialModule } from './material-module/material-module.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MenuComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +36,7 @@ import { MenuComponent} from './menu/menu.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     AngularFirestoreModule,
-
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
