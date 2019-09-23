@@ -1,0 +1,25 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title class="title">Registro Niños</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <table class="text-center" class="table-Table">
+            <thead>
+              <tr>
+                <td scope="col">Apellido Paterno</td>
+                <td scope="col">Apellido Materno</td>
+                <td scope="col">Nombre</td>
+                <td scope=col>Fecha de Nacimiento</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let child of childList" class="table-Table">
+                <td>{{child.lastName}}</td>
+                <td>{{child.mothersLastName}}</td>
+                <td>{{child.firstName}}</td>
+                <td>{{child.birthDate}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </mat-card-content>
+</mat-card>
