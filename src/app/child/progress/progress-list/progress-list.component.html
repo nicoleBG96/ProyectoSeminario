@@ -1,1 +1,25 @@
-<p>progress-list works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title class="title">Ficha de Desarrollo Infantil</mat-card-title>
+    </mat-card-header>
+    <br><br>
+    <mat-card-content>
+        <table mat table class="mat-elevation-z8">
+            <ng-container>
+                <th class="subtitle" scope="col">Apellido Paterno  </th>
+                <th class="subtitle" scope="col">Apellido Materno  </th>
+                <th class="subtitle" scope="col">Nombre  </th>
+                <th class="subtitle" scope=col>Fecha de Entrevista</th>
+            </ng-container>
+            <ng-container>
+                <tr *ngFor="let child of progressList" class="table-Table">
+                    <td class="text">{{child.lastName}}</td>
+                    <td class="text">{{child.mothersLastName}}</td>
+                    <td class="text">{{child.firstName}}</td>
+                    <td class="text">{{child.date}}</td>
+                    <td><button  type="button" class="button" mat-raised-button color="accent">Editar</button></td>
+                </tr>
+            </ng-container>
+        </table>
+    </mat-card-content>
+</mat-card>

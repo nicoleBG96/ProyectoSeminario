@@ -49,7 +49,8 @@ import { ProgressListComponent } from './progress/progress-list/progress-list.co
     RegisterChildProgressComponent,
     ChildProgressFormComponent,
     RegisterListComponent,
-    MedicalRecordListComponent
+    MedicalRecordListComponent,
+    ProgressListComponent
   ]
 })
 export class ChildModule { }
