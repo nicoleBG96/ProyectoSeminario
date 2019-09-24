@@ -10,14 +10,14 @@
                         <div class="left">
                             <br><br>
                             <mat-form-field class="text">
-                                <input class="input" [(ngModel)]="child.fisrtName" type="text" name="fisrtName"
-                                    #fisrtName="ngModel" id="fisrtName" maxlength="30" required
+                                <input class="input" [(ngModel)]="child.firstName" type="text" name="firstName"
+                                    #firstName="ngModel" id="firstName" maxlength="30" required
                                     pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput placeholder="Nombres">
                             </mat-form-field>
-                            <div *ngIf="(fisrtName.touched || fisrtName.dirty) && !fisrtName.valid && fisrtName.errors"
+                            <div *ngIf="(firstName.touched || firstName.dirty) && !firstName.valid && firstName.errors"
                                 class="text-alert">
-                                <div *ngIf="fisrtName.errors.required">Se requiere nombre</div>
-                                <div *ngIf="fisrtName.errors.pattern">Este campo solo acepta letras</div>
+                                <div *ngIf="firstName.errors.required">Se requiere nombre</div>
+                                <div *ngIf="firstName.errors.pattern">Este campo solo acepta letras</div>
                             </div>
                             <br>
                             <mat-form-field class="text">
