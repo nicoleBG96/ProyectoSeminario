@@ -18,6 +18,7 @@ import { RegisterChildProgressComponent } from './progress/register-child-progre
 import { ChildProgressFormComponent } from './forms/child-progress-form/child-progress-form.component';
 import { RegisterListComponent } from './register/register-list/register-list.component';
 import { MedicalRecordListComponent } from './medicalRecord/medical-record-list/medical-record-list.component';
+import { ProgressListComponent } from './progress/progress-list/progress-list.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { MedicalRecordListComponent } from './medicalRecord/medical-record-list/
     RegisterChildProgressComponent,
     ChildProgressFormComponent,
     RegisterListComponent,
-    MedicalRecordListComponent
+    MedicalRecordListComponent,
+    ProgressListComponent
   ],
   imports: [
     CommonModule,
