@@ -2,24 +2,24 @@
     <mat-card-header>
         <mat-card-title class="title">Registro Niños</mat-card-title>
     </mat-card-header>
+    <br><br>
     <mat-card-content>
-        <table class="text-center" class="table-Table">
-            <thead>
-              <tr>
-                <td scope="col">Apellido Paterno</td>
-                <td scope="col">Apellido Materno</td>
-                <td scope="col">Nombre</td>
-                <td scope=col>Fecha de Nacimiento</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let child of childList" class="table-Table">
-                <td>{{child.lastName}}</td>
-                <td>{{child.mothersLastName}}</td>
-                <td>{{child.firstName}}</td>
-                <td>{{child.birthDate}}</td>
-              </tr>
-            </tbody>
-          </table>
+        <table mat table class="mat-elevation-z8">
+            <ng-container>
+                <th class="subtitle" scope="col">Apellido Paterno  </th>
+                <th class="subtitle" scope="col">Apellido Materno  </th>
+                <th class="subtitle" scope="col">Nombre  </th>
+                <th class="subtitle" scope=col>Fecha de Nacimiento  </th>
+            </ng-container>
+            <ng-container>
+                <tr *ngFor="let child of childList" class="table-Table">
+                    <td class="text">{{child.lastName}}</td>
+                    <td class="text">{{child.mothersLastName}}</td>
+                    <td class="text">{{child.firstName}}</td>
+                    <td class="text">{{child.birthDate}}</td>
+                    <td><button  type="button" class="button" mat-raised-button color="accent">Editar</button></td>
+                </tr>
+            </ng-container>
+        </table>
     </mat-card-content>
 </mat-card>
