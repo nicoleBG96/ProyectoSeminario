@@ -19,16 +19,34 @@ export class ChildRegisterFormComponent implements OnInit {
   @Input() child: ChildRegisterModel;
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onSubmit: EventEmitter<any>;
+  // tslint:disable-next-line:no-output-on-prefix
+  @Output() onEdit: EventEmitter<any>;
 
   constructor(private childRegisterService: ChildRegisterService, private formBuilder: FormBuilder) {
     this.onSubmit = new EventEmitter<any>();
+    this.onEdit = new EventEmitter<any>();
    }
 
   ngOnInit() {
-    this.child = new ChildRegisterModel();
+    if (!this.child) {
+      this.child = new ChildRegisterModel();
+      this.isEdit = false;
+    } else {
+      this.isEdit = true;
+    }
   }
 
   save() {
     this.onSubmit.emit(this.child);
+  }
+
+  edit(child: ChildRegisterModel) {
+    this.onEdit.emit(this.child);
+  }
+
+  editChild(child: ChildRegisterModel) {
+    if (this.isEdit) {
+      this.receivedObject = this.childRegisterService.setCreatedObject(child);
+    }
   }
 }

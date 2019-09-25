@@ -22,4 +22,9 @@ export class RegisterListComponent implements OnInit {
     });
   }
 
+  editChild(child: any) {
+    this.childRegisterService.setCreatedObject(child);
+    this.router.navigate (['child/editRegisterChild']);
+  }
+
 }
