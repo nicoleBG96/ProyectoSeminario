@@ -16,3 +16,9 @@
     background-color: blue ;
     margin-left: 90%;
 }
+
+.cards {
+    width: 20%;
+    height: 30%;
+    margin-left: 10px;
+}
