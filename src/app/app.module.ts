@@ -18,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
 
 
 import { MaterialModule } from './material-module/material-module.module';
@@ -28,6 +29,7 @@ import { MaterialModule } from './material-module/material-module.module';
   ],
   imports: [
     BrowserModule,
+    CoreModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule,

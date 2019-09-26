@@ -1,0 +1,22 @@
+.space {
+    margin-right: 30%;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 30px;
+    color: white;
+}
+
+
+.title {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 20px;
+}
+
+.subtitle {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 20px;
+}
+
+.toolbar { 
+    background-color: #375A7F;
+    color: white;
+}
