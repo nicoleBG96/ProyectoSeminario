@@ -7,11 +7,12 @@ import { WrapperComponent } from './wrapper/wrapper.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 import { MaterialModule } from '../material-module/material-module.module';
+import { FooterComponent } from './footer/footer.component';
 
 
 
 @NgModule({
-  declarations: [WrapperComponent, NavbarComponent],
+  declarations: [WrapperComponent, NavbarComponent, FooterComponent],
   imports: [
     CommonModule,
     RouterModule,
