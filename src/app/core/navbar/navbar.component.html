@@ -1,15 +1,16 @@
 <mat-toolbar class="toolbar">
-        <span class=space >Inicio  </span>
-        <button mat-button [matMenuTriggerFor]="menu" class="title">Infantes</button>
+        <a href=""><button mat-button class=" space">Inicio</button></a>
+        <button mat-button [matMenuTriggerFor]="menu" class="title">Afiliados</button>
         <mat-menu #menu="matMenu">
-            <a href="child/registerChild"><button mat-menu-item class="subtitle">Registro Infantil</button></a>
-            <a href="child/registerMedicalRecord"><button mat-menu-item class="subtitle">Ficha Médica</button></a>
-            <a href="child/registerProgress"><button mat-menu-item class="subtitle">Desarrollo Infantil</button></a>
+            <a href="child/childs"><button mat-menu-item class="subtitle">Infantes</button></a>
         </mat-menu>
         <button mat-button [matMenuTriggerFor]="finanzas" class="title">Finanzas</button>
         <mat-menu #finanzas="matMenu">
-            <a href="finances/registerDonation"><button mat-menu-item class="subtitle">Registro Donaciones</button></a>
-            <a href="finances/registerMensuality"><button mat-menu-item class="subtitle">Registro Mensualidades</button></a>
             <a href="finances/registerExpenses"><button mat-menu-item class="subtitle">Registro Egresos</button></a>
+            <button mat-menu-item class="subtitle" [matMenuTriggerFor]="ingresos" class="title">Registro Ingresos</button>
+            <mat-menu #ingresos="matMenu">
+                <a href="finances/registerDonation"><button mat-menu-item class="subtitle">Registro Donaciones</button></a>
+                <a href="finances/registerMensuality"><button mat-menu-item class="subtitle">Registro Mensualidades</button></a>
+            </mat-menu>
         </mat-menu>
 </mat-toolbar>
