@@ -7,16 +7,12 @@
     <button mat-button [matMenuTriggerFor]="finanzas" class="title">Finanzas</button>
     <mat-menu #finanzas="matMenu">
         <a href="finances/registerExpenses"><button mat-menu-item class="subtitle">Registro Egresos</button></a>
-        <button mat-menu-item class="subtitle" [matMenuTriggerFor]="ingresos" class="title">Registro Ingresos</button>
-        <mat-menu #ingresos="matMenu">
-            <a href="finances/registerDonation"><button mat-menu-item class="subtitle">Registro Donaciones</button></a>
-            <a href="finances/registerMensuality"><button mat-menu-item class="subtitle">Registro
-                    Mensualidades</button></a>
-        </mat-menu>
+        <a href="finances/registerDonation"><button mat-menu-item class="subtitle">Registro Donaciones</button></a>
+        <a href="finances/registerMensuality"><button mat-menu-item class="subtitle">Registro Mensualidades</button></a>
     </mat-menu>
     <button mat-button [matMenuTriggerFor]="reportes" class="title">Reportes</button>
     <mat-menu #reportes="matMenu">
-        <button mat-menu-item class="subtitle" [matMenuTriggerFor]="asistencia" class="title">Asistencia</button>
+        <button mat-menu-item class="subtitle" [matMenuTriggerFor]="asistencia" class="subtitle">Asistencia</button>
         <mat-menu #asistencia="matMenu">
             <button mat-menu-item class="subtitle">Asistencia</button>
             <button mat-menu-item class="subtitle">Asistencia Global</button>
