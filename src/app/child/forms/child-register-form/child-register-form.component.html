@@ -12,14 +12,14 @@
                             <mat-label class="subtitle">Información Niño</mat-label>
                             <br>
                             <mat-form-field class="text">
-                                <input class="input" [(ngModel)]="child.fisrtName" type="text" name="fisrtName"
-                                    #fisrtName="ngModel" id="fisrtName" maxlength="30" required
+                                <input class="input" [(ngModel)]="child.firstName" type="text" name="firstName"
+                                    #firstName="ngModel" id="firstName" maxlength="30" required
                                     pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput placeholder="Nombres">
                             </mat-form-field>
-                            <div *ngIf="(fisrtName.touched || fisrtName.dirty) && !fisrtName.valid && fisrtName.errors"
+                            <div *ngIf="(firstName.touched || firstName.dirty) && !firstName.valid && firstName.errors"
                                 class="text-alert">
-                                <div *ngIf="fisrtName.errors.required">Se requiere nombre</div>
-                                <div *ngIf="fisrtName.errors.pattern">Este campo solo acepta letras</div>
+                                <div *ngIf="firstName.errors.required">Se requiere nombre</div>
+                                <div *ngIf="firstName.errors.pattern">Este campo solo acepta letras</div>
                             </div>
                             <br>
                             <mat-form-field class="text">
@@ -223,7 +223,8 @@
         </form>
         <br>
         <div class="buttons">
-            <button class="button" type="submit" mat-raised-button color="primary" (click)="save()">Guardar</button>
+            <button *ngIf="!isEdit" class="button" type="submit" mat-raised-button color="primary" (click)="save()">Guardar</button>
+            <button *ngIf="isEdit" class="button" type="submit" mat-raised-button color="primary" (click)="edit()">Actualizar   </button>
             <a href="/"><button class="button" type="button" mat-raised-button color="warn">Cancelar</button></a>
         </div>
     </mat-card-content>

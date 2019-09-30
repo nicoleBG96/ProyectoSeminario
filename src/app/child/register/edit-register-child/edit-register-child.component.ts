@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-// Service
 import { ChildRegisterService } from '../../../shared/services/child-register.service';
 
 @Component({
@@ -20,6 +19,6 @@ export class EditRegisterChildComponent implements OnInit {
 
   update(event: any) {
     this.childRegisterService.updateChild(event.key, event);
+    this.router.navigate (['child/showRegisterChild']);
   }
-
 }

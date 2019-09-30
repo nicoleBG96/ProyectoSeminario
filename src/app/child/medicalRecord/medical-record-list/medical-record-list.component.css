@@ -1,0 +1,23 @@
+.title {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 30px;
+    text-align: center;
+    color:  #1d1545;
+}
+
+.subtitle {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 20px;
+    border-collapse: separate;
+    border-spacing: 40px;
+}
+
+.text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+.button {
+    margin-left: 5%;
+    margin-right: 5%;
+}

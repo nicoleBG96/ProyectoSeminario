@@ -14,7 +14,6 @@ import { ChildRegisterModel } from '../models/child-register.model';
 })
 export class ChildRegisterService {
   childList: AngularFireList<any>;
-
   private createdObject: any;
 
   constructor(private firebase: AngularFireDatabase, private storage: AngularFireStorage) { }

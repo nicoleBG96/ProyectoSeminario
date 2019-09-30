@@ -21,6 +21,7 @@ export class RegisterChildMedicalRecordComponent implements OnInit {
 
   registerMedicalRecord(event: ChildMedicalRecordModel) {
     this.childMedicalRecordService.createChildMedicalRecord(event);
+    this.router.navigate(['child/registerMedicalRecord']);
   }
 
 }

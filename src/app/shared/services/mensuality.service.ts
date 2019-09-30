@@ -14,7 +14,7 @@ export class MensualityService {
 
   constructor(private firebase: AngularFireDatabase, private storage: AngularFireStorage) { }
 
-  getMensuality() {
+  getMensualities() {
     return this.firebase.list('mensualities').snapshotChanges().pipe(
       map(action => action.map(data => {
         return {

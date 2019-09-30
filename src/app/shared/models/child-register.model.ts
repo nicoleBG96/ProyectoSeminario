@@ -1,7 +1,7 @@
 export class ChildRegisterModel {
     $key: string;
     image: string;
-    fisrtName: string;
+    firstName: string;
     lastName: string;
     mothersLastName: string;
     admissionDate: Date;
@@ -21,7 +21,7 @@ export class ChildRegisterModel {
 
     constructor() {
         this.image = '';
-        this.fisrtName = '';
+        this.firstName = '';
         this.lastName = '';
         this.mothersLastName = '';
         this.admissionDate = null;

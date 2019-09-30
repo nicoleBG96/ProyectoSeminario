@@ -11,6 +11,9 @@ import { DonationFormComponent } from './forms/donation-form/donation-form.compo
 import { RegisterMensualityComponent } from './mensuality/register-mensuality/register-mensuality.component';
 import { MensualityFormComponent } from './forms/mensuality-form/mensuality-form.component';
 import { RegisterExpensesComponent } from './expenses/register-expenses/register-expenses.component';
+import { DonationsListComponent } from './donations/donations-list/donations-list.component';
+import { MensualityListComponent } from './mensuality/mensuality-list/mensuality-list.component';
+import { ExpensesListComponent } from './expenses/expenses-list/expenses-list.component';
 import { ExpensesFormComponent } from './forms/expenses-form/expenses-form.component';
 
 
@@ -21,6 +24,9 @@ import { ExpensesFormComponent } from './forms/expenses-form/expenses-form.compo
     RegisterMensualityComponent,
     MensualityFormComponent,
     RegisterExpensesComponent,
+    DonationsListComponent,
+    MensualityListComponent,
+    ExpensesListComponent,
     ExpensesFormComponent
   ],
   imports: [
@@ -34,7 +40,10 @@ import { ExpensesFormComponent } from './forms/expenses-form/expenses-form.compo
     DonationFormComponent,
     RegisterMensualityComponent,
     MensualityFormComponent,
-    RegisterExpensesComponent
+    RegisterExpensesComponent,
+    DonationsListComponent,
+    MensualityListComponent,
+    ExpensesListComponent
   ]
 })
 export class FinanceModule { }
