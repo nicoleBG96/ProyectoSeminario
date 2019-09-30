@@ -21,6 +21,5 @@ export class ChildRegisterComponent implements OnInit {
 
   register(event: ChildRegisterModel) {
     this.childRegisterService.createChild (event);
-    this.childRegisterService.setCreatedObject(event);
   }
 }
