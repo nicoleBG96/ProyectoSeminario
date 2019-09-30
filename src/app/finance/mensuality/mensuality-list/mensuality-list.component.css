@@ -1,0 +1,27 @@
+.card {
+    width: 40%;
+    margin-left: 30%;
+}
+
+.title {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 30px;
+    color:  #1d1545;
+}
+
+.subtitle {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 20px;
+    border-collapse: separate;
+    border-spacing: 40px;
+}
+
+.text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+.table {
+    margin-left: 20%;
+    border-spacing: 0px 50px;
+}

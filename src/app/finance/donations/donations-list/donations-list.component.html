@@ -1,0 +1,29 @@
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title class="title">Registro Donaciones</mat-card-title>
+    </mat-card-header>
+    <br><br>
+    <mat-card-content class="table">
+        <table mat table class="mat-elevation-z8">
+            <ng-container>
+                <th class="subtitle" scope="col">Fecha  </th>
+                <th class="subtitle" scope="col">Descripción  </th>
+                <th class="subtitle" scope="col">Monto </th>
+            </ng-container>
+            <ng-container >
+                <tr *ngFor="let donation of donationsList" class="table-Table">
+                    <td class="text">{{donation.date}}</td>
+                    <td class="text">{{donation.description}}</td>
+                    <td class="text">{{donation.amount}}</td>
+                </tr>
+            </ng-container>
+            <br>
+            <ng-container>
+                <tr>
+                    <td>Total</td>
+                    <td>{{total}}</td>
+                </tr>
+            </ng-container>
+        </table>
+    </mat-card-content>
+</mat-card>

@@ -12,10 +12,11 @@ import { DonationsModel } from '../models/donations.model';
 })
 export class DonationService {
   donationsList: AngularFireList<any>;
+  donation: DonationsModel;
 
   constructor(private firebase: AngularFireDatabase, private storage: AngularFireStorage) { }
 
-  getDonation() {
+  getDonations() {
     return this.firebase.list('donations').snapshotChanges().pipe(
       map(action => action.map(data => {
         return {
@@ -28,4 +29,5 @@ export class DonationService {
   createDonation(donation: DonationsModel) {
     this.firebase.list('donations').push(donation);
   }
+
 }

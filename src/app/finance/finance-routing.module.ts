@@ -5,12 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegisterDonationComponent } from './donations/register-donation/register-donation.component';
 import { RegisterMensualityComponent } from './mensuality/register-mensuality/register-mensuality.component';
 import { RegisterExpensesComponent } from './expenses/register-expenses/register-expenses.component';
+import { DonationsListComponent } from './donations/donations-list/donations-list.component';
 
 
 const routes: Routes = [
   {path: 'registerDonation', component: RegisterDonationComponent},
   {path: 'registerMensuality', component: RegisterMensualityComponent},
-  {path: 'registerExpenses', component: RegisterExpensesComponent}
+  {path: 'registerExpenses', component: RegisterExpensesComponent},
+  {path: 'showDonations', component: DonationsListComponent}
 ];
 
 @NgModule({

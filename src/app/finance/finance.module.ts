@@ -11,6 +11,8 @@ import { DonationFormComponent } from './forms/donation-form/donation-form.compo
 import { RegisterMensualityComponent } from './mensuality/register-mensuality/register-mensuality.component';
 import { MensualityFormComponent } from './forms/mensuality-form/mensuality-form.component';
 import { RegisterExpensesComponent } from './expenses/register-expenses/register-expenses.component';
+import { DonationsListComponent } from './donations/donations-list/donations-list.component';
+import { MensualityListComponent } from './mensuality/mensuality-list/mensuality-list.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { RegisterExpensesComponent } from './expenses/register-expenses/register
     DonationFormComponent,
     RegisterMensualityComponent,
     MensualityFormComponent,
-    RegisterExpensesComponent
+    RegisterExpensesComponent,
+    DonationsListComponent,
+    MensualityListComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +36,8 @@ import { RegisterExpensesComponent } from './expenses/register-expenses/register
     DonationFormComponent,
     RegisterMensualityComponent,
     MensualityFormComponent,
-    RegisterExpensesComponent
+    RegisterExpensesComponent,
+    DonationsListComponent
   ]
 })
 export class FinanceModule { }
