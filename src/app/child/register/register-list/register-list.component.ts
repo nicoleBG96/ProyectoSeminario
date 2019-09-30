@@ -15,10 +15,7 @@ export class RegisterListComponent implements OnInit {
 
   ngOnInit() {
     this.childRegisterService.getChild().subscribe (item => {
-      this.childList = [];
-      item.forEach (element => {
-        this.childList.push (element);
-      });
+      this.childList = item;
     });
   }
 

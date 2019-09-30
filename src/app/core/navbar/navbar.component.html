@@ -1,0 +1,36 @@
+<mat-toolbar class="toolbar">
+    <a href=""><button mat-button class=" space">Inicio</button></a>
+    <button mat-button [matMenuTriggerFor]="menu" class="title">Afiliados</button>
+    <mat-menu #menu="matMenu">
+        <a href="child/showRegister"><button mat-menu-item class="subtitle">Infantes</button></a>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="finanzas" class="title">Finanzas</button>
+    <mat-menu #finanzas="matMenu">
+        <a href="finances/registerExpenses"><button mat-menu-item class="subtitle">Registro Egresos</button></a>
+        <button mat-menu-item class="subtitle" [matMenuTriggerFor]="ingresos" class="title">Registro Ingresos</button>
+        <mat-menu #ingresos="matMenu">
+            <a href="finances/registerDonation"><button mat-menu-item class="subtitle">Registro Donaciones</button></a>
+            <a href="finances/registerMensuality"><button mat-menu-item class="subtitle">Registro
+                    Mensualidades</button></a>
+        </mat-menu>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="reportes" class="title">Reportes</button>
+    <mat-menu #reportes="matMenu">
+        <button mat-menu-item class="subtitle" [matMenuTriggerFor]="asistencia" class="title">Asistencia</button>
+        <mat-menu #asistencia="matMenu">
+            <button mat-menu-item class="subtitle">Asistencia</button>
+            <button mat-menu-item class="subtitle">Asistencia Global</button>
+        </mat-menu>
+        <button mat-menu-item class="subtitle" [matMenuTriggerFor]="financiero" class="title">Financiero</button>
+        <mat-menu #financiero="matMenu">
+            <button mat-menu-item class="subtitle">Mensual</button>
+            <button mat-menu-item class="subtitle">Anual</button>
+            <button mat-menu-item class="subtitle" [matMenuTriggerFor]="ingresos" class="title">Ingresos</button>
+            <mat-menu #ingresos="matMenu">
+                <button mat-menu-item class="subtitle">Mensualidades</button>
+                <button mat-menu-item class="subtitle">Donaciones</button>
+            </mat-menu>
+            <button mat-menu-item class="subtitle">Egresos</button>
+        </mat-menu>
+    </mat-menu>
+</mat-toolbar>
