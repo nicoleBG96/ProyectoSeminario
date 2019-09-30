@@ -25,3 +25,8 @@
     margin-left: 20%;
     border-spacing: 0px 50px;
 }
+
+.result {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+}

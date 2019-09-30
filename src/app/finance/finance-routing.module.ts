@@ -6,13 +6,15 @@ import { RegisterDonationComponent } from './donations/register-donation/registe
 import { RegisterMensualityComponent } from './mensuality/register-mensuality/register-mensuality.component';
 import { RegisterExpensesComponent } from './expenses/register-expenses/register-expenses.component';
 import { DonationsListComponent } from './donations/donations-list/donations-list.component';
+import { MensualityListComponent } from './mensuality/mensuality-list/mensuality-list.component';
 
 
 const routes: Routes = [
   {path: 'registerDonation', component: RegisterDonationComponent},
   {path: 'registerMensuality', component: RegisterMensualityComponent},
   {path: 'registerExpenses', component: RegisterExpensesComponent},
-  {path: 'showDonations', component: DonationsListComponent}
+  {path: 'showDonations', component: DonationsListComponent},
+  {path: 'showMensualities', component: MensualityListComponent}
 ];
 
 @NgModule({

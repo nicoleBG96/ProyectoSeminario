@@ -37,7 +37,8 @@ import { MensualityListComponent } from './mensuality/mensuality-list/mensuality
     RegisterMensualityComponent,
     MensualityFormComponent,
     RegisterExpensesComponent,
-    DonationsListComponent
+    DonationsListComponent,
+    MensualityListComponent
   ]
 })
 export class FinanceModule { }
