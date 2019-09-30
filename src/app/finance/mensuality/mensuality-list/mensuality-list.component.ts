@@ -16,8 +16,8 @@ export class MensualityListComponent implements OnInit {
   ngOnInit() {
     this.mensualityService.getMensualities().subscribe(item => {
       this.mensualitiesList = item;
-      this.mensualitiesList.forEach((donation: any) => {
-        this.total = this.total + donation.amount;
+      this.mensualitiesList.forEach((mensuality: any) => {
+        this.total = this.total + mensuality.amount;
       });
     });
   }

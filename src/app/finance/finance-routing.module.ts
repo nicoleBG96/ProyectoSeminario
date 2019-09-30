@@ -7,6 +7,7 @@ import { RegisterMensualityComponent } from './mensuality/register-mensuality/re
 import { RegisterExpensesComponent } from './expenses/register-expenses/register-expenses.component';
 import { DonationsListComponent } from './donations/donations-list/donations-list.component';
 import { MensualityListComponent } from './mensuality/mensuality-list/mensuality-list.component';
+import { ExpensesListComponent } from './expenses/expenses-list/expenses-list.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'registerMensuality', component: RegisterMensualityComponent},
   {path: 'registerExpenses', component: RegisterExpensesComponent},
   {path: 'showDonations', component: DonationsListComponent},
-  {path: 'showMensualities', component: MensualityListComponent}
+  {path: 'showMensualities', component: MensualityListComponent},
+  {path: 'showExpenses', component: ExpensesListComponent}
 ];
 
 @NgModule({

@@ -14,7 +14,7 @@ export class ExpensesService {
 
   constructor(private firebase: AngularFireDatabase, private storage: AngularFireStorage) { }
 
-  getMensuality() {
+  getExpenses() {
     return this.firebase.list('expenses').snapshotChanges().pipe(
       map(action => action.map(data => {
         return {
@@ -24,7 +24,7 @@ export class ExpensesService {
       })));
   }
 
-  createMensuality(expenses: ExpensesModel) {
-    this.firebase.list('expemses').push(expenses);
+  createExpense(expenses: ExpensesModel) {
+    this.firebase.list('expenses').push(expenses);
   }
 }
