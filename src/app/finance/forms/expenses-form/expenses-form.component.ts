@@ -6,18 +6,18 @@ import { ExpensesModel } from '../../../shared/models/expenses.model';
 import { ExpensesService } from '../../../shared/services/expenses.service';
 
 @Component({
-  selector: 'app-expense-form',
-  templateUrl: './expense-form.component.html',
-  styleUrls: ['./expense-form.component.css']
+  selector: 'app-expenses-form',
+  templateUrl: './expenses-form.component.html',
+  styleUrls: ['./expenses-form.component.css']
 })
-export class ExpenseFormComponent implements OnInit {
+export class ExpensesFormComponent implements OnInit {
   myForm: FormGroup;
 
   @Input() expenses: ExpensesModel;
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onSubmit: EventEmitter<any>;
 
-  constructor(private expensesService: ExpensesService, private formBuilder: FormBuilder) {
+  constructor(private expensesService: ExpensesService, private formBuilder: FormBuilder) { 
     this.onSubmit = new EventEmitter<any>();
   }
 

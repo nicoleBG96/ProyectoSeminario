@@ -17,7 +17,7 @@ export class DonationsListComponent implements OnInit {
     this.donationService.getDonations().subscribe(item => {
       this.donationsList = item;
       this.donationsList.forEach((donation: any) => {
-        this.total = this.total + donation.amount;
+        this.total = this.total + parseInt(donation.amount, 10);
       });
     });
   }

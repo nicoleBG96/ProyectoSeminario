@@ -9,6 +9,7 @@ import { MensualityService } from '../../../shared/services/mensuality.service';
 })
 export class MensualityListComponent implements OnInit {
   mensualitiesList: any[];
+  itemList: any[];
   total = 0;
 
   constructor(private mensualityService: MensualityService) { }
@@ -17,9 +18,8 @@ export class MensualityListComponent implements OnInit {
     this.mensualityService.getMensualities().subscribe(item => {
       this.mensualitiesList = item;
       this.mensualitiesList.forEach((mensuality: any) => {
-        this.total = this.total + mensuality.amount;
+        this.total = this.total + parseInt(mensuality.amount, 10);
       });
     });
   }
-
 }

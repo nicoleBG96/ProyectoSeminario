@@ -18,7 +18,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
 
+
+import { MaterialModule } from './material-module/material-module.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    CoreModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule,
@@ -34,7 +38,7 @@ import { AppComponent } from './app.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     AngularFirestoreModule,
-
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

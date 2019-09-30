@@ -1,39 +1,34 @@
-<mat-card class="card">
-    <mat-card-header>
-        <mat-card-title class="title">Registro Mensualidades</mat-card-title>
-    </mat-card-header>
-    <br><br>
-    <mat-card-content class="table">
-        <table mat table class="mat-elevation-z8">
-            <ng-container>
-                <th class="subtitle" scope="col">Fecha  </th>
-                <th class="subtitle" scope="col">Apellido Paterno  </th>
-                <th class="subtitle" scope="col">Apellido Materno </th>
-                <th class="subtitle" scope="col">Nombres  </th>
-                <th class="subtitle" scope="col">Mes  </th>
-                <th class="subtitle" scope="col">Monto  </th>
-            </ng-container>
-            <ng-container >
-                <tr *ngFor="let mensuality of mensualitiesList" class="table-Table">
-                    <td class="text">{{mensuality.date}}</td>
-                    <td class="text">{{mensuality.lastName}}</td>
-                    <td class="text">{{mensuality.mothersLastName}}</td>
-                    <td class="text">{{mensuality.firstName}}</td>
-                    <td class="text">{{mensuality.monthToPay}}</td>
-                    <td class="text">{{mensuality.amount}}</td>
-                </tr>
-            </ng-container>
-            <br>
-            <ng-container>
-                <tr>
-                    <td class="result">Total</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="result">{{total}}</td>
-                </tr>
-            </ng-container>
-        </table>
-    </mat-card-content>
-</mat-card>
+<h1 class="title">Registro Mensualidades</h1>
+<br>
+
+<table mat table class="table">
+    <ng-container>
+        <th class="subtitle" scope="col">Fecha </th>
+        <th class="subtitle" scope="col">Apellido Paterno </th>
+        <th class="subtitle" scope="col">Apellido Materno </th>
+        <th class="subtitle" scope="col">Nombres </th>
+        <th class="subtitle" scope="col">Mes </th>
+        <th class="subtitle" scope="col">Monto </th>
+    </ng-container>
+    <ng-container>
+        <tr *ngFor="let mensuality of mensualitiesList" class="table-Table">
+            <td class="text">{{mensuality.date}}</td>
+            <td class="text">{{mensuality.lastName}}</td>
+            <td class="text">{{mensuality.mothersLastName}}</td>
+            <td class="text">{{mensuality.firstName}}</td>
+            <td class="text">{{mensuality.monthToPay}}</td>
+            <td class="text">{{mensuality.amount}}</td>
+        </tr>
+    </ng-container>
+    <br>
+    <ng-container>
+        <tr>
+            <td class="result">Total</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="result">{{total}}</td>
+        </tr>
+    </ng-container>
+</table>

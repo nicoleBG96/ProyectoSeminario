@@ -17,7 +17,7 @@ export class ExpensesListComponent implements OnInit {
     this.expensesService.getExpenses().subscribe(item => {
       this.expensesList = item;
       this.expensesList.forEach((expense: any) => {
-        this.total = this.total + expense.amount;
+        this.total = this.total + parseInt(expense.amount, 10);
       });
     });
   }
