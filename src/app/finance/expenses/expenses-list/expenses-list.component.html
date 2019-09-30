@@ -1,0 +1,27 @@
+<h1 class="title">Registro Egresos</h1>
+<br><br>
+
+<table mat table class="table">
+    <ng-container>
+        <th class="subtitle" scope="col">Fecha </th>
+        <th class="subtitle" scope="col">Mes </th>
+        <th class="subtitle" scope="col">Detalle </th>
+        <th class="subtitle" scope="col">Monto </th>
+    </ng-container>
+    <ng-container>
+        <tr *ngFor="let expenses of expensesList" class="table-Table">
+            <td class="text">{{expenses.date}}</td>
+            <td class="text">{{expenses.month}}</td>
+            <td class="text">{{expenses.description}}</td>
+            <td class="text">{{expenses.amount}}</td>
+        </tr>
+    </ng-container>
+    <br>
+    <ng-container>
+        <tr>
+            <td class="result">Total</td>
+            <td></td>
+            <td></td>
+            <td class="result">{{total}}</td>
+        </tr>
+    </ng-container>

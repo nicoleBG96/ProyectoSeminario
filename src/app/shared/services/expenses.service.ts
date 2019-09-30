@@ -24,7 +24,7 @@ export class ExpensesService {
       })));
   }
 
-  createExpenses(expenses: ExpensesModel) {
+  createExpense(expenses: ExpensesModel) {
     this.firebase.list('expenses').push(expenses);
   }
 }
