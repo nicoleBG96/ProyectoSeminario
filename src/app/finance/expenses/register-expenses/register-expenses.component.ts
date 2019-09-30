@@ -19,6 +19,7 @@ export class RegisterExpensesComponent implements OnInit {
 
   registerExpenses(event: ExpensesModel) {
     this.expensesService.createExpenses(event);
+    this.router.navigate(['finances/registerExpenser']);
   }
 
 }

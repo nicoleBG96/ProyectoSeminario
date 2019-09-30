@@ -19,5 +19,6 @@ export class RegisterMensualityComponent implements OnInit {
 
   registerMensuality(event: MensualityModel) {
     this.mensualityService.createMensuality(event);
+    this.router.navigate(['finances/registerMensualities']);
   }
 }
