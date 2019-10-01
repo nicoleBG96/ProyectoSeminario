@@ -19,6 +19,7 @@ export class RegisterDonationComponent implements OnInit {
 
   registerDonation(event: DonationsModel) {
     this.donationService.createDonation(event);
+    this.router.navigate(['/finances/registerDonations']);
   }
 
 }

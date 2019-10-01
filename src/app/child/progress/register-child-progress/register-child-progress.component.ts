@@ -21,5 +21,6 @@ export class RegisterChildProgressComponent implements OnInit {
 
   registerProgress(event: ChildProgressModel) {
     this.childProgressService.createChildProgress(event);
+    this.router.navigate(['child/registerProgress']);
   }
 }
