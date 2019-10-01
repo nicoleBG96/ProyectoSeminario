@@ -15,11 +15,8 @@ export class ProgressListComponent implements OnInit {
 
   ngOnInit() {
     this.childProgressService.getChildProgress().subscribe (item => {
-      this.progressList = [];
-      item.forEach (element => {
-        this.progressList.push (element);
+      this.progressList = item;
       });
-    });
   }
 
 }

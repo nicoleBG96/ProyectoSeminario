@@ -15,10 +15,7 @@ export class MedicalRecordListComponent implements OnInit {
 
   ngOnInit() {
     this.childMedicalRecordService.getChildMedicalRecord().subscribe (item => {
-      this.medicalRecordList = [];
-      item.forEach (element => {
-        this.medicalRecordList.push (element);
-      });
+      this.medicalRecordList = item;
     });
   }
 

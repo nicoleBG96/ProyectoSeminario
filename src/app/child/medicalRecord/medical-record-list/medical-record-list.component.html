@@ -1,25 +1,26 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title class="title">Ficha Medica Niños</mat-card-title>
-    </mat-card-header>
-    <br><br>
-    <mat-card-content>
-        <table mat table class="mat-elevation-z8">
-            <ng-container>
-                <th class="subtitle" scope="col">Apellido Paterno </th>
-                <th class="subtitle" scope="col">Apellido Materno </th>
-                <th class="subtitle" scope="col">Nombre </th>
-                <th class="subtitle" scope=col>Fecha de Evaluación </th>
-            </ng-container>
-            <ng-container>
-                <tr *ngFor="let child of medicalRecordList" class="table-Table">
-                    <td class="text">{{child.lastName}}</td>
-                    <td class="text">{{child.mothersLastName}}</td>
-                    <td class="text">{{child.firstName}}</td>
-                    <td class="text">{{child.date}}</td>
-                    <td><button type="button" class="button" mat-raised-button color="accent">Editar</button></td>
-                </tr>
-            </ng-container>
-        </table>
-    </mat-card-content>
-</mat-card>
+<h1 class="title">Registro Ficha Médica</h1>
+<br>
+<a href="/child/registerChild"><button mat-fab class="button">
+    <i class="material-icons">add_circle_outline</i>
+</button></a>
+<br>
+<table mat table class="table">
+    <ng-container>
+        <th class="subtitle" scope="col">Apellido Paterno </th>
+        <th class="subtitle" scope="col">Apellido Materno </th>
+        <th class="subtitle" scope="col">Nombre </th>
+        <th class="subtitle" scope=col>Fecha de Revisión </th>
+    </ng-container>
+    <ng-container>
+        <tr *ngFor="let child of medicalRecordList" class="table-Table">
+            <td class="text">{{child.lastName}}</td>
+            <td class="text">{{child.mothersLastName}}</td>
+            <td class="text">{{child.firstName}}</td>
+            <td class="text">{{child.date}}</td>
+        </tr>
+    </ng-container>
+</table>
+<div class="buttons">
+    <a href="child/showProgress"><button mat-stroked-button class="buttonShow" color="primary">Ficha Desarrollo</button></a>
+    <a href="child/showRegisterChild"><button mat-stroked-button class="buttonShow" color="primary">Ficha de Registro</button></a>
+</div>

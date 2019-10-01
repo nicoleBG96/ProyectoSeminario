@@ -17,8 +17,11 @@
             <td class="text">{{child.mothersLastName}}</td>
             <td class="text">{{child.firstName}}</td>
             <td class="text">{{child.birthDate}}</td>
-            <td><button (click)="editChild(child)" type="button" mat-raised-button
-                    color="primary">Editar</button></td>
         </tr>
     </ng-container>
 </table>
+<br><br>
+<div class="buttons">
+    <a href="child/showMedicalRecord"><button mat-stroked-button class="buttonShow" color="primary">Ficha Médica</button></a>
+    <a href="child/showProgress"><button mat-stroked-button class="buttonShow" color="primary">Ficha de Desarrollo</button></a>
+</div>
