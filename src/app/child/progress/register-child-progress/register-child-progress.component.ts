@@ -17,6 +17,7 @@ export class RegisterChildProgressComponent implements OnInit {
   constructor(private childProgressService: ChildProgressService, private router: Router) { }
 
   ngOnInit() {
+
   }
 
   registerProgress(event: ChildProgressModel) {

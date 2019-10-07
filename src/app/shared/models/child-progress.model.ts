@@ -10,23 +10,18 @@ export class ChildProgressModel {
     date: Date;
     size: string;
     weight: string;
-    pointA1: string;
-    pointA2: string;
-    pointA3: string;
-    pointB1: string;
-    pointB2: string;
-    pointB3: string;
-    pointC1: string;
-    pointC2: string;
-    pointC3: string;
-    pointD1: string;
-    pointD2: string;
-    pointD3: string;
-    totalA: string;
-    totalB: string;
-    totalC: string;
-    totalD: string;
-    total: string;
+    pointA1: number;
+    pointA2: number;
+    pointA3: number;
+    pointB1: number;
+    pointB2: number;
+    pointB3: number;
+    pointC1: number;
+    pointC2: number;
+    pointC3: number;
+    pointD1: number;
+    pointD2: number;
+    pointD3: number;
 
 
     constructor() {
@@ -41,22 +36,17 @@ export class ChildProgressModel {
         this.date = null;
         this.size =  '';
         this.weight = '';
-        this.pointA1 = '';
-        this.pointA2 = '';
-        this.pointA3 = '';
-        this.pointB1 = '';
-        this.pointB2 = '';
-        this.pointB3 = '';
-        this.pointC1 = '';
-        this.pointC2 = '';
-        this.pointC3 = '';
-        this.pointD1 = '';
-        this.pointD2 = '';
-        this.pointD3 = '';
-        this.totalA = '';
-        this.totalB = '';
-        this.totalC = '';
-        this.totalD = '';
-        this.total = '';
+        this.pointA1 = null;
+        this.pointA2 = null;
+        this.pointA3 = null;
+        this.pointB1 = null;
+        this.pointB2 = null;
+        this.pointB3 = null;
+        this.pointC1 = null;
+        this.pointC2 = null;
+        this.pointC3 = null;
+        this.pointD1 = null;
+        this.pointD2 = null;
+        this.pointD3 = null;
     }
 }
