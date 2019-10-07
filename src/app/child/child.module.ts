@@ -13,13 +13,11 @@ import { ChildRegisterComponent } from './register/child-register/child-register
 import { ChildRegisterFormComponent } from './forms/child-register-form/child-register-form.component';
 import { RegisterChildMedicalRecordComponent } from './medicalRecord/register-child-medical-record/register-child-medical-record.component';
 import { ChildMedicalRecordFormComponent } from './forms/child-medical-record-form/child-medical-record-form.component';
-import { EditChildMedicalRecordComponent } from './medicalRecord/edit-child-medical-record/edit-child-medical-record.component';
 import { RegisterChildProgressComponent } from './progress/register-child-progress/register-child-progress.component';
 import { ChildProgressFormComponent } from './forms/child-progress-form/child-progress-form.component';
 import { RegisterListComponent } from './register/register-list/register-list.component';
 import { MedicalRecordListComponent } from './medicalRecord/medical-record-list/medical-record-list.component';
 import { ProgressListComponent } from './progress/progress-list/progress-list.component';
-import { EditRegisterChildComponent } from './register/edit-register-child/edit-register-child.component';
 import { ChildsComponent } from './interfaces/childs/childs.component';
 
 
@@ -29,13 +27,11 @@ import { ChildsComponent } from './interfaces/childs/childs.component';
     ChildRegisterFormComponent,
     RegisterChildMedicalRecordComponent,
     ChildMedicalRecordFormComponent,
-    EditChildMedicalRecordComponent,
     RegisterChildProgressComponent,
     ChildProgressFormComponent,
     RegisterListComponent,
     MedicalRecordListComponent,
     ProgressListComponent,
-    EditRegisterChildComponent,
     ChildsComponent
   ],
   imports: [
@@ -49,13 +45,11 @@ import { ChildsComponent } from './interfaces/childs/childs.component';
     ChildRegisterFormComponent,
     RegisterChildMedicalRecordComponent,
     ChildMedicalRecordFormComponent,
-    EditChildMedicalRecordComponent,
     RegisterChildProgressComponent,
     ChildProgressFormComponent,
     RegisterListComponent,
     MedicalRecordListComponent,
     ProgressListComponent,
-    EditRegisterChildComponent,
     ChildsComponent
   ]
 })

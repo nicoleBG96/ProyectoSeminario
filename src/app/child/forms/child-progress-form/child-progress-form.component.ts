@@ -32,15 +32,18 @@ export class ChildProgressFormComponent implements OnInit {
 
   ngOnInit() {
     this.child = new ChildProgressModel();
-    this.totalA += this.child.pointA1 + this.child.pointA2 + this.child.pointA3;
-    this.totalB = this.child.pointB1 + this.child.pointB2 + this.child.pointB3;
-    this.totalC = this.child.pointC1 + this.child.pointC2 + this.child.pointC3;
-    this.totalD = this.child.pointD1 + this.child.pointD2 + this.child.pointD3;
-    this.total = this.totalA + this.totalB + this.totalC + this.totalD;
   }
 
   saveProgress() {
     this.onSubmit.emit(this.child);
+  }
+
+  calculateTotal(point1: string, point2: string, point3: string) {
+    if (point1 == null || point2 == null || point3 == null) {
+      return 0;
+    } else {
+      return (parseInt(point1, 10) + parseInt(point2, 10) + parseInt(point3, 10));
+    }
   }
 
 }
