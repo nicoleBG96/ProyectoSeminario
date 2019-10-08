@@ -6,6 +6,7 @@ import { ChildProgressModel } from '../../../shared/models/child-progress.model'
 
 // Services
 import { ChildProgressService } from '../../../shared/services/child-progress.service';
+import { ChildRegisterService } from '../../../shared/services/child-register.service';
 
 @Component({
   selector: 'app-child-progress-form',
@@ -18,18 +19,16 @@ export class ChildProgressFormComponent implements OnInit {
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onSubmit: EventEmitter<any>;
   private receivedObject: any;
-  totalA = 0;
-  totalB = 0;
-  totalC = 0;
-  totalD = 0;
-  total = 0;
 
-  constructor(private childProgressService: ChildProgressService, private formBuilder: FormBuilder) {
+  constructor(private childProgressService: ChildProgressService, private formBuilder: FormBuilder,
+              private childRegisterService: ChildRegisterService) {
     this.onSubmit = new EventEmitter<any>();
    }
 
   ngOnInit() {
     this.child = new ChildProgressModel();
+    this.receivedObject = this.childRegisterService.getCreatedObject();
+    this.calculateAgeIntMonths(this.receivedObject.birthday, this.child.date);
   }
 
   saveProgress() {
@@ -44,4 +43,11 @@ export class ChildProgressFormComponent implements OnInit {
     }
   }
 
+  calculateAgeIntMonths(d1: Date, d2: Date) {
+    let months = 0;
+    months = (d2.getFullYear() - d1.getFullYear()) * 12;
+    months -= d1.getMonth() + 1;
+    months += d2.getMonth();
+    return months;
+  }
 }

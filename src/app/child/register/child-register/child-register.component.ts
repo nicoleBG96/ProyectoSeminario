@@ -28,6 +28,7 @@ export class ChildRegisterComponent implements OnInit {
     this.childRegisterService.createChild (event);
     this.createMedicalRecord(event);
     this.createProgress(event);
+    this.childRegisterService.setCreatedObject(event);
   }
 
   createMedicalRecord(event: any) {

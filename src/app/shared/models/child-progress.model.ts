@@ -5,7 +5,7 @@ export class ChildProgressModel {
     birthDate: Date;
     numberOrder: string;
     folio: string;
-    age: string;
+    age: number;
     sex: string;
     date: Date;
     size: string;
@@ -31,7 +31,7 @@ export class ChildProgressModel {
         this.birthDate = null;
         this.numberOrder = '';
         this.folio = '';
-        this.age = '';
+        this.age = null;
         this.sex = '';
         this.date = null;
         this.size =  '';
