@@ -6,7 +6,6 @@ import { ChildProgressModel } from '../../../shared/models/child-progress.model'
 
 // Services
 import { ChildProgressService } from '../../../shared/services/child-progress.service';
-import { ChildRegisterService } from '../../../shared/services/child-register.service';
 
 @Component({
   selector: 'app-child-progress-form',
@@ -25,8 +24,7 @@ export class ChildProgressFormComponent implements OnInit {
   totalD = 0;
   total = 0;
 
-  constructor(private childProgressService: ChildProgressService, private formBuilder: FormBuilder,
-              private childRegisterService: ChildRegisterService) {
+  constructor(private childProgressService: ChildProgressService, private formBuilder: FormBuilder) {
     this.onSubmit = new EventEmitter<any>();
    }
 
