@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 
 // Service
 import { ChildMedicalRecordService } from '../../../shared/services/child-medical-record.service';
-import { ChildRegisterService } from '../../../shared/services/child-register.service';
 
 // Model
 import { ChildMedicalRecordModel } from '../../../shared/models/child-medical-record.model';
@@ -20,15 +19,12 @@ export class ChildMedicalRecordFormComponent implements OnInit {
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onSubmit: EventEmitter<any>;
 
-  constructor(private childMedicalRecordService: ChildMedicalRecordService, private formBuilder: FormBuilder,
-              private childRegisterService: ChildRegisterService) {
+  constructor(private childMedicalRecordService: ChildMedicalRecordService, private formBuilder: FormBuilder) {
     this.onSubmit = new EventEmitter<any>();
   }
 
   ngOnInit() {
-    if (!this.child) {
     this.child = new ChildMedicalRecordModel();
-    }
   }
 
   saveMedicalRecord() {
