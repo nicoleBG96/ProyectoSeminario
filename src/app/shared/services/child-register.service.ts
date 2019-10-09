@@ -34,7 +34,8 @@ export class ChildRegisterService {
 
   getChildbyId(id: string) {
     const ref = fb.database().ref('children');
-    return ref.child(id).once('value').then((snapshot) => snapshot.val());
+    return ref.child('LqggUsEp5u3uvv293-H').once('value').then((snapshot) => console.log(snapshot));
+    // snapshot.val());
   }
 
   updateChild(id: string, child: ChildRegisterModel) {

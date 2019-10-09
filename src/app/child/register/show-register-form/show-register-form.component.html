@@ -1,8 +1,4 @@
-<h1 class="title">Registro Niños</h1>
-<br>
-<a href="/child/registerChild"><button mat-fab class="button">
-    <i class="material-icons">add_circle_outline</i>
-</button></a>
+<h1 class="title">Perfil Niños</h1>
 <br>
 <table mat table class="table">
     <ng-container>
@@ -10,19 +6,15 @@
         <th class="subtitle" scope="col">Apellido Materno </th>
         <th class="subtitle" scope="col">Nombre </th>
         <th class="subtitle" scope=col>Fecha de Nacimiento </th>
+        <th class="subtitle" scope=col>Fecha de admisión</th>
     </ng-container>
     <ng-container>
-        <tr *ngFor="let child of childList" class="table-Table">
+        <tr>
             <td class="text">{{child.lastName}}</td>
             <td class="text">{{child.mothersLastName}}</td>
             <td class="text">{{child.firstName}}</td>
             <td class="text">{{child.birthDate}}</td>
-            
+            <td class="text">{{child.admissionDate}}</td>
         </tr>
     </ng-container>
 </table>
-<br><br>
-<div class="buttons">
-    <a href="child/showMedicalRecord"><button mat-stroked-button class="buttonShow" color="primary">Ficha Médica</button></a>
-    <a href="child/showProgress"><button mat-stroked-button class="buttonShow" color="primary">Ficha de Desarrollo</button></a>
-</div>
