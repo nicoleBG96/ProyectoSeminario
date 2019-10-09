@@ -24,7 +24,7 @@ export class ShowRegisterFormComponent implements OnInit {
   }
 
   view(id: string) {
-    this.childRegisterService.getChildbyId('LqggUsEp5u3uvv293-H').then(child =>  console.log(child));
+    this.childRegisterService.getChildbyId(id).then(child => this.child = child);
   }
 
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import {AngularFireDatabase} from 'angularfire2/database';
-import {AngularFireList} from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireList } from 'angularfire2/database';
 import { AngularFireStorage } from 'angularfire2/storage';
 
 import * as fb from 'firebase';
@@ -34,8 +34,7 @@ export class ChildRegisterService {
 
   getChildbyId(id: string) {
     const ref = fb.database().ref('children');
-    return ref.child('LqggUsEp5u3uvv293-H').once('value').then((snapshot) => console.log(snapshot));
-    // snapshot.val());
+    return ref.child(id).once('value').then((snapshot) => snapshot.val());
   }
 
   updateChild(id: string, child: ChildRegisterModel) {
