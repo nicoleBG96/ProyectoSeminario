@@ -1,4 +1,5 @@
 export class ChildMedicalRecordModel {
+    key: string;
     firstName: string;
     lastName: string;
     mothersLastName: string;
@@ -9,6 +10,7 @@ export class ChildMedicalRecordModel {
     description: string;
 
     constructor() {
+        this.key = '';
         this.firstName = '';
         this.lastName = '';
         this.mothersLastName = '';

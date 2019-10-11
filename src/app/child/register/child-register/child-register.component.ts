@@ -29,6 +29,7 @@ export class ChildRegisterComponent implements OnInit {
     this.createMedicalRecord(event);
     this.createProgress(event);
     this.childRegisterService.setCreatedObject(event);
+    console.log(this.childRegisterService.getKey());
   }
 
   createMedicalRecord(event: any) {
@@ -39,6 +40,8 @@ export class ChildRegisterComponent implements OnInit {
     medicalRecord.mothersLastName = event.mothersLastName;
     medicalRecord.sex = event.sex;
     medicalRecord.address = event.street;
+    medicalRecord.key = this.childRegisterService.getKey();
+    console.log(medicalRecord.key);
     this.childMedicalRecordService.createChildMedicalRecord(event);
   }
 

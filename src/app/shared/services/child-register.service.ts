@@ -48,4 +48,10 @@ export class ChildRegisterService {
   setCreatedObject(createdObject: any) {
     this.createdObject = createdObject;
   }
+
+  getKey() {
+    // tslint:disable-next-line:prefer-const
+    let id = fb.database().ref('children').push().key;
+    return id;
+  }
 }
