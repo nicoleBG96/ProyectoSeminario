@@ -19,12 +19,13 @@ import { ChildProgressModel } from '../../../shared/models/child-progress.model'
 export class ChildRegisterComponent implements OnInit {
 
   constructor(private childRegisterService: ChildRegisterService, private router: Router,
-    private childMedicalRecordService: ChildMedicalRecordService, private childProgressService: ChildProgressService) { }
+              private childMedicalRecordService: ChildMedicalRecordService, private childProgressService: ChildProgressService) { }
 
   ngOnInit() {
   }
 
   register(event: ChildRegisterModel) {
+    // tslint:disable-next-line:prefer-const
     let latestKey = this.childRegisterService.createChild(event);
     this.createMedicalRecord(event, latestKey);
     this.createProgress(event, latestKey);
