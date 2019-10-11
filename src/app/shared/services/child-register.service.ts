@@ -29,7 +29,8 @@ export class ChildRegisterService {
   }
 
   createChild(child: ChildRegisterModel) {
-    this.firebase.list('children').push(child);
+    // this.firebase.list('children').push(child);
+    return this.firebase.list('children').push(child).key;
   }
 
   getChildbyId(id: string) {
@@ -51,7 +52,9 @@ export class ChildRegisterService {
 
   getKey() {
     // tslint:disable-next-line:prefer-const
-    let id = fb.database().ref('children').push().key;
-    return id;
+
+    // let id = fb.database().ref('children').push().key;
+    // return this.latestKey;
+    return "";
   }
 }

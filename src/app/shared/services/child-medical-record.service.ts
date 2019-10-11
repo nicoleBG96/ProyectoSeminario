@@ -28,8 +28,10 @@ export class ChildMedicalRecordService {
       })));
   }
 
-  createChildMedicalRecord(child: ChildMedicalRecordModel) {
-    this.firebase.list('childrenMedical').push(child);
+  createChildMedicalRecord(child: ChildMedicalRecordModel, id: any) {
+    // this.firebase.list('childrenMedical').push(child);
+    this.firebase.list('childrenMedical').update(id, child);
+
   }
 
   getChildMedicalRecordbyId(id: string) {

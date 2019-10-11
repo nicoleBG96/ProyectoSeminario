@@ -19,20 +19,19 @@ import { ChildProgressModel } from '../../../shared/models/child-progress.model'
 export class ChildRegisterComponent implements OnInit {
 
   constructor(private childRegisterService: ChildRegisterService, private router: Router,
-              private childMedicalRecordService: ChildMedicalRecordService, private childProgressService: ChildProgressService) { }
+    private childMedicalRecordService: ChildMedicalRecordService, private childProgressService: ChildProgressService) { }
 
   ngOnInit() {
   }
 
   register(event: ChildRegisterModel) {
-    this.childRegisterService.createChild (event);
-    this.createMedicalRecord(event);
-    this.createProgress(event);
+    let latestKey = this.childRegisterService.createChild(event);
+    this.createMedicalRecord(event, latestKey);
+    this.createProgress(event, latestKey);
     this.childRegisterService.setCreatedObject(event);
-    console.log(this.childRegisterService.getKey());
   }
 
-  createMedicalRecord(event: any) {
+  createMedicalRecord(event: any, latestKey: any) {
     // tslint:disable-next-line:prefer-const
     let medicalRecord = new ChildMedicalRecordModel();
     medicalRecord.firstName = event.firstName;
@@ -40,12 +39,10 @@ export class ChildRegisterComponent implements OnInit {
     medicalRecord.mothersLastName = event.mothersLastName;
     medicalRecord.sex = event.sex;
     medicalRecord.address = event.street;
-    medicalRecord.key = this.childRegisterService.getKey();
-    console.log(medicalRecord.key);
-    this.childMedicalRecordService.createChildMedicalRecord(event);
+    this.childMedicalRecordService.createChildMedicalRecord(event, latestKey);
   }
 
-  createProgress(event: any) {
+  createProgress(event: any, latestKey: any) {
     // tslint:disable-next-line:prefer-const
     let progress = new ChildProgressModel();
     progress.firstName = event.firstName;
@@ -54,6 +51,7 @@ export class ChildRegisterComponent implements OnInit {
     progress.size = event.size;
     progress.weight = event.weight;
     progress.sex = event.sex;
+    // progress.key = latestKey;
     this.childProgressService.createChildProgress(event);
   }
 }
