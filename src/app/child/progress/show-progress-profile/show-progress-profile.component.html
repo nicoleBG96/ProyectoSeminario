@@ -1,7 +1,36 @@
 <h1 class="title">Ficha de Desarrollo Infantil</h1>
 <br>
 <mat-card>
+    <label class="subtitle-folio">Folio: </label>
+    <label> {{child.folio}}</label>
+    <br>
+    <label class="subtitle-folio">Número de Orden: </label>
+    <label> {{child.numberOrder}}</label>
+    <br>
+    <label class="subtitle-folio">Fecha de Entrevista: </label>
+    <label> {{child.date}}</label>
+    <br>
     <label class="subtitle">Apellido Paterno: </label>
     <label> {{child.lastName}}</label>
     <br>
+    <label class="subtitle">Apellido Materno: </label>
+    <label> {{child.mothersLastName}}</label>
+    <br>
+    <label class="subtitle">Nombres: </label>
+    <label> {{child.firstName}}</label>
+    <br><br>
+    <label class="subtitle">Fecha de Nacimiento: </label>
+    <label class="subtitle-space"> {{child.birthDate}}</label>
+    <label class="subtitle">Edad en Meses: </label>
+    <label class="subtitle-space"> {{child.age}}</label>
+    <label class="subtitle">Sexo: </label>
+    <label class="subtitle-space"> {{child.sex}}</label>
+    <br>
+    <label class="subtitle">Peso: </label>
+    <label> {{child.weight}}</label>
+    <label class="subtitle-space">Kg.</label>
+    <label class="subtitle">Talla: </label>
+    <label> {{child.size}}</label>
+    <label class="subtitle-space">m.</label>
+
 </mat-card>
