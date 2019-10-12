@@ -1,1 +1,25 @@
-<p>show-medical-record-form works!</p>
+<h1 class="title">Ficha médica</h1>
+<br>
+<mat-card>
+    <label class="subtitle">Apellido Paterno: </label>
+    <label> {{child.lastName}}</label>
+    <br>
+    <label class="subtitle">Apellido Materno: </label>
+    <label> {{child.mothersLastName}}</label>
+    <br>
+    <label class="subtitle">Nombres: </label>
+    <label> {{child.firstName}}</label>
+    <br><br>
+    <label class="subtitle">Edad: </label>
+    <label class="subtitle-space"> {{child.age}}</label>
+    <label class="subtitle">Sexo: </label>
+    <label class="subtitle-space"> {{child.sex}}</label>
+    <br>
+    <label class="subtitle">Dirección: </label>
+    <label class="subtitle-space"> {{child.address}}</label>
+    <label class="subtitle">Fecha de Revisión: </label>
+    <label class="subtitle-space"> {{child.date}}</label>
+    <br><br>
+    <label class="subtitle">Diagnóstico: </label>
+    <label> {{child.description}}</label>
+</mat-card>
