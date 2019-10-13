@@ -82,14 +82,8 @@
                             </mat-form-field>
                             <br>
                             <mat-form-field class="text">
-                                <input class="input" [(ngModel)]="child.age" type="text" name="age" #age="ngModel"
-                                    id="age" maxlength="2" required pattern="^[0-9]*$" matInput
-                                    placeholder="Edad en meses">
+                                <label> {{(calculateAgeInMonths(child.birthDate, child.date))}}</label>
                             </mat-form-field>
-                            <div *ngIf="(age.touched || age.dirty) && !age.valid && age.errors" class="text-alert">
-                                <div *ngIf="age.errors.required">Se requiere edad</div>
-                                <div *ngIf="age.errors.pattern">Este campo solo acepta números</div>
-                            </div>
                             <br>
                             <mat-form-field class="text">
                                 <mat-label>Sexo</mat-label>

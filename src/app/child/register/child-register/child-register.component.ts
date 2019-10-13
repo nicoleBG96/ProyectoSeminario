@@ -52,7 +52,6 @@ export class ChildRegisterComponent implements OnInit {
     progress.size = event.size;
     progress.weight = event.weight;
     progress.sex = event.sex;
-    // progress.key = latestKey;
-    this.childProgressService.createChildProgress(event);
+    this.childProgressService.createChildProgress(event, latestKey);
   }
 }

@@ -27,8 +27,8 @@ export class ChildProgressService {
       })));
   }
 
-  createChildProgress(child: ChildProgressModel) {
-    this.firebase.list('childrenProgress').push(child);
+  createChildProgress(child: ChildProgressModel, id: any) {
+    this.firebase.list('childrenProgress').update(id, child);
   }
 
   getChildProgressbyId(id: string) {

@@ -32,5 +32,15 @@
     <label class="subtitle">Talla: </label>
     <label> {{child.size}}</label>
     <label class="subtitle-space">m.</label>
-
+    <br><br>
+    <label class="subtitle">PUNTUACIÓN</label>
+    <br><br>
+    <label class="subtitle">Motrocidad Gruesa:</label>
+    <label class="subtitle-space"> {{(calculate(child.pointA1, child.pointA2, child.pointA3))}}</label>
+    <label class="subtitle">Motrocidad Fina:</label>
+    <label class="subtitle-space"> {{(calculate(child.pointB1, child.pointB2, child.pointB3))}}</label>
+    <label class="subtitle">Audición y Lenguaje:</label>
+    <label class="subtitle-space"> {{(calculate(child.pointC1, child.pointC2, child.pointC3))}}</label>
+    <label class="subtitle">Personal Social:</label>
+    <label class="subtitle-space"> {{(calculate(child.pointD1, child.pointD2, child.pointD3))}}</label>
 </mat-card>
