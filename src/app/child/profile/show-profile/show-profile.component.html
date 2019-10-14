@@ -1,0 +1,27 @@
+<h1 class="title">Perfil </h1>
+<br>
+<mat-card>
+    <label class="subtitle">Apellido Paterno: </label>
+    <label> {{profile.lastName}}</label>
+    <br>
+    <label class="subtitle">Apellido Materno: </label>
+    <label> {{profile.morthersLastName}}</label>
+    <br>
+    <label class="subtitle"> Nombres:</label>
+    <label> {{profile.firstName}}</label>
+    <br>
+    <label class="subtitle">Fecha de Nacimiento: </label>
+    <label> {{profile.birthDate}}</label>
+    <br>
+    <label class="subtitle"> Sexo:</label>
+    <label> {{profile.sex}}</label>
+    <br>
+    <label class="subtitle"> Fecha de Admisión:</label>
+    <label> {{profile.admissionDate}}</label>
+    <br><br>
+    <div class="buttons">
+        <a href="child/showRegisterProfile/{{profile.key}}"><button mat-stroked-button color="primary">Registro</button></a>
+        <a href="child/showMedicalRecordProfile/id"><button mat-stroked-button color="primary">Ficha Médica</button></a>
+        <a href="child/showProgressProfile/id"><button mat-stroked-button color="primary">Ficha Desarrollo Infantil</button></a>
+    </div>
+</mat-card>

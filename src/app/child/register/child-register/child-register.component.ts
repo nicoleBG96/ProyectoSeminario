@@ -5,11 +5,13 @@ import { Router } from '@angular/router';
 import { ChildRegisterService } from '../../../shared/services/child-register.service';
 import { ChildMedicalRecordService } from '../../../shared/services/child-medical-record.service';
 import { ChildProgressService } from '../../../shared/services/child-progress.service';
+import { ProfileService } from '../../../shared/services/profile.service';
 
 // Model
 import { ChildRegisterModel } from '../../../shared/models/child-register.model';
 import { ChildMedicalRecordModel } from '../../../shared/models/child-medical-record.model';
 import { ChildProgressModel } from '../../../shared/models/child-progress.model';
+import { ProfileModel } from '../../../shared/models/profile.model';
 
 @Component({
   selector: 'app-child-register',
@@ -19,7 +21,8 @@ import { ChildProgressModel } from '../../../shared/models/child-progress.model'
 export class ChildRegisterComponent implements OnInit {
 
   constructor(private childRegisterService: ChildRegisterService, private router: Router,
-              private childMedicalRecordService: ChildMedicalRecordService, private childProgressService: ChildProgressService) { }
+              private childMedicalRecordService: ChildMedicalRecordService, private childProgressService: ChildProgressService,
+              private profileService: ProfileService) { }
 
   ngOnInit() {
   }
@@ -29,6 +32,7 @@ export class ChildRegisterComponent implements OnInit {
     let latestKey = this.childRegisterService.createChild(event);
     this.createMedicalRecord(event, latestKey);
     this.createProgress(event, latestKey);
+    this.createProfile(event, latestKey);
     this.childRegisterService.setCreatedObject(event);
   }
 
@@ -53,5 +57,17 @@ export class ChildRegisterComponent implements OnInit {
     progress.weight = event.weight;
     progress.sex = event.sex;
     this.childProgressService.createChildProgress(event, latestKey);
+  }
+
+  createProfile(event: any, latestKey: any) {
+    // tslint:disable-next-line:prefer-const
+    let profile = new ProfileModel();
+    profile.firstName = event.firstName;
+    profile.lastName = event.lastName;
+    profile.mothersLastName = event.mothersLastName;
+    profile.birthDate = event.birthDate;
+    profile.sex = event.sex;
+    profile.date = event.admissionDate;
+    this.profileService.createProfile(event, latestKey);
   }
 }
