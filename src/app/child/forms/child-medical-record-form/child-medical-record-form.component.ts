@@ -49,4 +49,15 @@ export class ChildMedicalRecordFormComponent implements OnInit {
       this.receivedObject = this.childMedicalRecordService.setCreatedObject(child);
     }
   }
+
+  calculateAge(d1: Date, d2: Date) {
+    // tslint:disable-next-line:prefer-const
+    let age = d2.getFullYear() - d1.getFullYear();
+    // tslint:disable-next-line:prefer-const
+    let months = d2.getMonth() - d1.getMonth();
+    if (months < 0 || (months === 0 && d2.getDate() < d1.getDate())) {
+      age--;
+    }
+    return age;
+  }
 }

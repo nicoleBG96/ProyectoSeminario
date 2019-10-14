@@ -19,4 +19,9 @@ export class ProgressListComponent implements OnInit {
       });
   }
 
+  editProgress(child: any) {
+    this.childProgressService.setCreatedObject(child);
+    this.router.navigate (['child/editProgress']);
+  }
+
 }

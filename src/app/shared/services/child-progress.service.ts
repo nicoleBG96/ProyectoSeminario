@@ -14,6 +14,7 @@ import { ChildProgressModel } from '../models/child-progress.model';
 })
 export class ChildProgressService {
   childList: AngularFireList<any>;
+  private createdObject: any;
 
   constructor(private firebase: AngularFireDatabase, private storage: AngularFireStorage) { }
 
@@ -38,5 +39,13 @@ export class ChildProgressService {
 
   updateChildProgress(id: string, child: ChildProgressModel) {
     this.firebase.list('childrenProgress').update(id, child);
+  }
+
+  getCreatedObject() {
+    return this.createdObject;
+  }
+
+  setCreatedObject(createdObject: any) {
+    this.createdObject = createdObject;
   }
 }

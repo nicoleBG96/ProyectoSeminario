@@ -15,24 +15,41 @@ import { ChildRegisterService } from '../../../shared/services/child-register.se
 })
 export class ChildProgressFormComponent implements OnInit {
   myForm: FormGroup;
+  isEdit: boolean;
   @Input() child: ChildProgressModel;
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onSubmit: EventEmitter<any>;
+  // tslint:disable-next-line:no-output-on-prefix
+  @Output() onEdit: EventEmitter<any>;
   private receivedObject: any;
 
   constructor(private childProgressService: ChildProgressService, private formBuilder: FormBuilder,
               private childRegisterService: ChildRegisterService) {
     this.onSubmit = new EventEmitter<any>();
+    this.onEdit = new EventEmitter<any>();
    }
 
   ngOnInit() {
-    this.child = new ChildProgressModel();
-    this.receivedObject = this.childRegisterService.getCreatedObject();
-    this.calculateAgeIntMonths(this.receivedObject.birthday, this.child.date);
+    if (!this.child) {
+      this.child = new ChildProgressModel();
+      this.isEdit = false;
+    } else {
+      this.isEdit = true;
+    }
   }
 
   saveProgress() {
     this.onSubmit.emit(this.child);
+  }
+
+  editProgress(child: ChildProgressModel) {
+    this.onEdit.emit(this.child);
+  }
+
+  editProgressChild(child: ChildProgressModel) {
+    if (this.isEdit) {
+      this.receivedObject = this.childProgressService.setCreatedObject(child);
+    }
   }
 
   calculateTotal(point1: string, point2: string, point3: string) {

@@ -82,7 +82,9 @@
                             </mat-form-field>
                             <br>
                             <mat-form-field class="text">
-                                <label> {{(calculateAgeInMonths(child.birthDate, child.date))}}</label>
+                                <input class="input" [(ngModel)]="child.age" type="text" name="age" #age="ngModel"
+                                    id="age" maxlength="2" required pattern="^[0-9]*$" matInput
+                                    placeholder="Edad en meses">
                             </mat-form-field>
                             <br>
                             <mat-form-field class="text">
@@ -1091,8 +1093,10 @@
                 </ng-container>
             </table>
             <div class="buttons">
-                <button class="button" type="submit" mat-raised-button color="primary"
+                <button *ngIf="!isEdit" class="button" type="submit" mat-raised-button color="primary"
                     (click)="saveProgress()">Guardar</button>
+                <button *ngIf="isEdit" class="button" type="submit" mat-raised-button color="primary"
+                    (click)="editProgress(child)">Actualizar</button>
                 <a href="/"><button class="button" type="button" mat-raised-button
                         color="warn">Cancelar</button></a>
             </div>
