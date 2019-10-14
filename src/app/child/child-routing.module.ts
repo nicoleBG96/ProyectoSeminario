@@ -10,6 +10,7 @@ import { ChildsComponent } from './interfaces/childs/childs.component';
 import { ShowRegisterFormComponent } from './register/show-register-form/show-register-form.component';
 import { ShowMedicalRecordFormComponent } from './medicalRecord/show-medical-record-form/show-medical-record-form.component';
 import { ShowProgressProfileComponent } from './progress/show-progress-profile/show-progress-profile.component';
+import { EditRegisterChildComponent } from './register/edit-register-child/edit-register-child.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'showRegister', component: RegisterListComponent},
   {path: 'showRegisterProfile/:id', component: ShowRegisterFormComponent},
   {path: 'showMedicalRecordProfile/:id', component: ShowMedicalRecordFormComponent},
-  {path: 'showProgressProfile/:id', component: ShowProgressProfileComponent}
+  {path: 'showProgressProfile/:id', component: ShowProgressProfileComponent},
+  {path: 'editRegisterChild', component: EditRegisterChildComponent}
 ];
 
 @NgModule({

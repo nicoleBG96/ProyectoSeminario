@@ -20,6 +20,7 @@ import { ChildsComponent } from './interfaces/childs/childs.component';
 import { ShowRegisterFormComponent } from './register/show-register-form/show-register-form.component';
 import { ShowMedicalRecordFormComponent } from './medicalRecord/show-medical-record-form/show-medical-record-form.component';
 import { ShowProgressProfileComponent } from './progress/show-progress-profile/show-progress-profile.component';
+import { EditRegisterChildComponent } from './register/edit-register-child/edit-register-child.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { ShowProgressProfileComponent } from './progress/show-progress-profile/s
     ChildsComponent,
     ShowRegisterFormComponent,
     ShowMedicalRecordFormComponent,
-    ShowProgressProfileComponent
+    ShowProgressProfileComponent,
+    EditRegisterChildComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +55,8 @@ import { ShowProgressProfileComponent } from './progress/show-progress-profile/s
     ChildsComponent,
     ShowRegisterFormComponent,
     ShowMedicalRecordFormComponent,
-    ShowProgressProfileComponent
+    ShowProgressProfileComponent,
+    EditRegisterChildComponent
   ]
 })
 export class ChildModule { }
