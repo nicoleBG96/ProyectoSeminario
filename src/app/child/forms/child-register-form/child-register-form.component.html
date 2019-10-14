@@ -3,6 +3,15 @@
         <mat-card-title class="title">Registro Niños</mat-card-title>
     </mat-card-header>
     <mat-card-content>
+        <label>Foto:</label><br>
+        <div *ngIf="child.image =='' " class="photo-container">
+            <img id="img" src="./assets/images/empty-image.png" alt="" height="150" width="150">
+        </div>
+        <div *ngIf="child.image !='' " class="photo-container">
+            <img id="img" src="{{child.image}}" alt="" height="150" width="150">
+        </div>
+        <br>
+        <input type="file" name="image" (change)="setImage($event)">
         <form #formNew="ngForm" novalidate>
             <div class="main">
                 <div class="row">

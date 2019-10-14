@@ -21,6 +21,7 @@ export class ChildRegisterFormComponent implements OnInit {
   @Output() onSubmit: EventEmitter<any>;
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onEdit: EventEmitter<any>;
+  file: File;
 
   constructor(private childRegisterService: ChildRegisterService, private formBuilder: FormBuilder) {
     this.onSubmit = new EventEmitter<any>();
@@ -50,8 +51,8 @@ export class ChildRegisterFormComponent implements OnInit {
     }
   }
 
-  getImage(event) {
-    this.childRegisterService.file = event.target.files[0];
+  setImage(event) {
+    this.childRegisterService.setCurrentImage(event.target.files[0]);
   }
 }
 

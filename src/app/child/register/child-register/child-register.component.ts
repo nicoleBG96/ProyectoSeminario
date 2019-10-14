@@ -30,6 +30,7 @@ export class ChildRegisterComponent implements OnInit {
   register(event: ChildRegisterModel) {
     // tslint:disable-next-line:prefer-const
     let latestKey = this.childRegisterService.createChild(event);
+    this.childRegisterService.chargePhoto(event, latestKey);
     this.createMedicalRecord(event, latestKey);
     this.createProgress(event, latestKey);
     this.createProfile(event, latestKey);

@@ -15,7 +15,7 @@ import { ChildRegisterModel } from '../models/child-register.model';
 export class ChildRegisterService {
   childList: AngularFireList<any>;
   private createdObject: any;
-  file: File;
+  currentImage: File;
 
   constructor(private firebase: AngularFireDatabase, private storage: AngularFireStorage) { }
 
@@ -27,6 +27,22 @@ export class ChildRegisterService {
           ...data.payload.val()
         };
       })));
+  }
+
+  setCurrentImage(image: any) {
+    this.currentImage = image;
+  }
+
+  chargePhoto(child: ChildRegisterModel, id: string) {
+    const childPath = 'child-photos/' + this.currentImage.name;
+    const ref = this.storage.ref(childPath);
+    const task  = ref.put(this.currentImage).then((res) => {
+      const childUrl = ref.getDownloadURL();
+      childUrl.subscribe(aux => {
+        child.image = aux;
+        this.updateChild(id, child);
+      });
+    });
   }
 
   createChild(child: ChildRegisterModel) {
@@ -49,4 +65,6 @@ export class ChildRegisterService {
   setCreatedObject(createdObject: any) {
     this.createdObject = createdObject;
   }
+
+  
 }
