@@ -49,5 +49,9 @@ export class ChildRegisterFormComponent implements OnInit {
       this.receivedObject = this.childRegisterService.setCreatedObject(child);
     }
   }
+
+  getImage(event) {
+    this.childRegisterService.file = event.target.files[0];
+  }
 }
 

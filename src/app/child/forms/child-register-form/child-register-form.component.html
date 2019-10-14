@@ -179,9 +179,9 @@
                             </mat-form-field>
                             <br>
                             <mat-form-field class="text">
-                                <input class="input" [(ngModel)]="child.anotherReference" type="text" name="anotherReference"
-                                    #anotherReference="ngModel" id="anotherReference" maxlength="40" required
-                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput
+                                <input class="input" [(ngModel)]="child.anotherReference" type="text"
+                                    name="anotherReference" #anotherReference="ngModel" id="anotherReference"
+                                    maxlength="40" required pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput
                                     placeholder="Otra referencia">
                             </mat-form-field>
                             <br>
@@ -223,8 +223,10 @@
         </form>
         <br>
         <div class="buttons">
-            <button *ngIf="!isEdit" class="button" type="submit" mat-raised-button color="primary" (click)="save()">Guardar</button>
-            <button *ngIf="isEdit" class="button" type="submit" mat-raised-button color="primary" (click)="edit(child)">Actualizar   </button>
+            <button *ngIf="!isEdit" class="button" type="submit" mat-raised-button color="primary"
+                (click)="save()">Guardar</button>
+            <button *ngIf="isEdit" class="button" type="submit" mat-raised-button color="primary"
+                (click)="edit(child)">Actualizar </button>
             <a href="/"><button class="button" type="button" mat-raised-button color="warn">Cancelar</button></a>
         </div>
     </mat-card-content>
