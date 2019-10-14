@@ -11,7 +11,7 @@ import { ChildMedicalRecordService } from '../../../shared/services/child-medica
 export class MedicalRecordListComponent implements OnInit {
   medicalRecordList: any[];
 
-  constructor(private childMedicalRecordService: ChildMedicalRecordService) { }
+  constructor(private childMedicalRecordService: ChildMedicalRecordService, private router: Router) { }
 
   ngOnInit() {
     this.childMedicalRecordService.getChildMedicalRecord().subscribe (item => {
@@ -19,4 +19,8 @@ export class MedicalRecordListComponent implements OnInit {
     });
   }
 
+  editMedicalRecord(child: any) {
+    this.childMedicalRecordService.setCreatedObject(child);
+    this.router.navigate (['child/editMedicalRecord']);
+  }
 }

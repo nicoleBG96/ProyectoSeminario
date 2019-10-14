@@ -15,19 +15,38 @@ import { ChildMedicalRecordModel } from '../../../shared/models/child-medical-re
 export class ChildMedicalRecordFormComponent implements OnInit {
   myForm: FormGroup;
   isEdit: boolean;
+  private receivedObject: any;
   @Input() child: ChildMedicalRecordModel;
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onSubmit: EventEmitter<any>;
+  // tslint:disable-next-line:no-output-on-prefix
+  @Output() onEdit: EventEmitter<any>;
 
   constructor(private childMedicalRecordService: ChildMedicalRecordService, private formBuilder: FormBuilder) {
     this.onSubmit = new EventEmitter<any>();
+    this.onEdit = new EventEmitter<any>();
   }
 
   ngOnInit() {
-    this.child = new ChildMedicalRecordModel();
+    if (!this.child) {
+      this.child = new ChildMedicalRecordModel();
+      this.isEdit = false;
+    } else {
+      this.isEdit = true;
+    }
   }
 
   saveMedicalRecord() {
     this.onSubmit.emit(this.child);
+  }
+
+  editMedicalRecord(child: ChildMedicalRecordModel) {
+    this.onEdit.emit(this.child);
+  }
+
+  editMedicalRecordChild(child: ChildMedicalRecordModel) {
+    if (this.isEdit) {
+      this.receivedObject = this.childMedicalRecordService.setCreatedObject(child);
+    }
   }
 }
