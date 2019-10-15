@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ChildMedicalRecordService } from '../../../shared/services/child-medical-record.service';
-import { ChildRegisterService } from '../../../shared/services/child-register.service';
-import { ChildMedicalRecordModel } from 'src/app/shared/models/child-medical-record.model';
 
 @Component({
   selector: 'app-edit-medical-record',
@@ -13,13 +11,12 @@ import { ChildMedicalRecordModel } from 'src/app/shared/models/child-medical-rec
 export class EditMedicalRecordComponent implements OnInit {
   child: any;
 
-  constructor(private childMedicalRecordService: ChildMedicalRecordService, private router: ActivatedRoute,
-    private childRegisterService: ChildRegisterService) { }
+  constructor(private childMedicalRecordService: ChildMedicalRecordService, private router: ActivatedRoute) { }
 
   ngOnInit() {
     this.child = this.childMedicalRecordService.getCreatedObject();
-    // tslint:disable-next-line:prefer-const
     this.child.age = this.calculateAge();
+    this.child.date = new Date();
   }
 
   updateMedicalRecord(event: any) {
@@ -27,14 +24,13 @@ export class EditMedicalRecordComponent implements OnInit {
   }
 
   calculateAge() {
-    let today = new Date();
-    let childBirth = new Date(this.child.birthDate);
-    // tslint:disable-next-line:prefer-const
+    const today = new Date();
+    const childBirth = new Date(this.child.birthDate);
     let age = today.getFullYear() - childBirth.getFullYear();
-    // tslint:disable-next-line:prefer-const
-    let months = today.getMonth() - childBirth.getMonth();
-    if (months < 0 || (months === 0 && today.getDate() < childBirth.getDate()))
+    const months = today.getMonth() - childBirth.getMonth();
+    if (months < 0 || (months === 0 && today.getDate() < childBirth.getDate())) {
       age--;
+    }
     return age;
   }
 }

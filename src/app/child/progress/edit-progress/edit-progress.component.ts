@@ -15,20 +15,20 @@ export class EditProgressComponent implements OnInit {
 
   ngOnInit() {
     this.child = this.childProgressService.getCreatedObject();
-    // tslint:disable-next-line:prefer-const
-    let today = new Date();
-    this.child.age = this.calculateAgeIntMonths(this.child.birthDate, today);
+    this.child.age = this.calculateAgeIntMonths();
+    this.child.date = new Date();
   }
 
   updateProgress(event: any) {
     this.childProgressService.updateChildProgress(event.key, event);
   }
 
-  calculateAgeIntMonths(d1: Date, d2: Date) {
-    let months = 0;
-    months = (d2.getFullYear() - d1.getFullYear()) * 12;
-    months -= d1.getMonth() + 1;
-    months += d2.getMonth();
+  calculateAgeIntMonths() {
+    const today = new Date();
+    const childBirth = new Date(this.child.birthDate);
+    let months = (today.getFullYear() - childBirth.getFullYear()) * 12;
+    months -= childBirth.getMonth() + 1;
+    months += today.getMonth();
     return months;
   }
 }
