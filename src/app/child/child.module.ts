@@ -13,9 +13,6 @@ import { ChildRegisterComponent } from './register/child-register/child-register
 import { ChildRegisterFormComponent } from './forms/child-register-form/child-register-form.component';
 import { ChildMedicalRecordFormComponent } from './forms/child-medical-record-form/child-medical-record-form.component';
 import { ChildProgressFormComponent } from './forms/child-progress-form/child-progress-form.component';
-import { RegisterListComponent } from './register/register-list/register-list.component';
-import { MedicalRecordListComponent } from './medicalRecord/medical-record-list/medical-record-list.component';
-import { ProgressListComponent } from './progress/progress-list/progress-list.component';
 import { ChildsComponent } from './interfaces/childs/childs.component';
 import { ShowRegisterFormComponent } from './register/show-register-form/show-register-form.component';
 import { ShowMedicalRecordFormComponent } from './medicalRecord/show-medical-record-form/show-medical-record-form.component';
@@ -33,9 +30,6 @@ import { ProfileListComponent } from './profile/profile-list/profile-list.compon
     ChildRegisterFormComponent,
     ChildMedicalRecordFormComponent,
     ChildProgressFormComponent,
-    RegisterListComponent,
-    MedicalRecordListComponent,
-    ProgressListComponent,
     ChildsComponent,
     ShowRegisterFormComponent,
     ShowMedicalRecordFormComponent,
@@ -57,9 +51,6 @@ import { ProfileListComponent } from './profile/profile-list/profile-list.compon
     ChildRegisterFormComponent,
     ChildMedicalRecordFormComponent,
     ChildProgressFormComponent,
-    RegisterListComponent,
-    MedicalRecordListComponent,
-    ProgressListComponent,
     ChildsComponent,
     ShowRegisterFormComponent,
     ShowMedicalRecordFormComponent,

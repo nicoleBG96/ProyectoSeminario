@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ChildProgressModel } from '../../../shared/models/child-progress.model';
 
@@ -12,7 +12,7 @@ import { ChildProgressService } from '../../../shared/services/child-progress.se
 })
 export class ShowProgressProfileComponent implements OnInit {
 
-  constructor(private childProgressService: ChildProgressService, private route: ActivatedRoute) { }
+  constructor(private childProgressService: ChildProgressService, private route: ActivatedRoute, private router: Router) { }
   child = new ChildProgressModel();
 
   ngOnInit() {
@@ -31,5 +31,10 @@ export class ShowProgressProfileComponent implements OnInit {
     } else {
       return (parseInt(point1, 10) + parseInt(point2, 10) + parseInt(point3, 10));
     }
+  }
+
+  editProgress(child: any) {
+    this.childProgressService.setCreatedObject(child);
+    this.router.navigate (['child/editProgress']);
   }
 }

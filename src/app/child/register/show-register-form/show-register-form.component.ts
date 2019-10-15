@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // Service
 import { ChildRegisterService } from '../../../shared/services/child-register.service';
@@ -15,7 +15,7 @@ import { ChildRegisterModel } from '../../../shared/models/child-register.model'
 export class ShowRegisterFormComponent implements OnInit {
   child = new ChildRegisterModel();
 
-  constructor(private childRegisterService: ChildRegisterService, private route: ActivatedRoute) { }
+  constructor(private childRegisterService: ChildRegisterService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap: any) => {
@@ -25,6 +25,15 @@ export class ShowRegisterFormComponent implements OnInit {
 
   view(id: string) {
     this.childRegisterService.getChildbyId(id).then(child => this.child = child);
+  }
+
+  goToProfiles() {
+    this.router.navigate(['child/profiles']);
+  }
+
+  editRegister(child: any) {
+    this.childRegisterService.setCreatedObject(child);
+    this.router.navigate(['child/editRegisterChild']);
   }
 
 }

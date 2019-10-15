@@ -48,4 +48,9 @@
     <label class="subtitle-space"> {{child.activity}}</label>
     <label class="subtitle">Otra referencia: </label>
     <label class="subtitle-space"> {{child.anotherReference}}</label>
+    <br><br>
+    <div class="buttons">
+        <button mat-stroked-button (click)="editRegister(child)" color="primary">Editar</button>
+        <button mat-stroked-button (click)="goToProfiles()" color="warn">Cancelar</button>
+    </div>
 </mat-card>

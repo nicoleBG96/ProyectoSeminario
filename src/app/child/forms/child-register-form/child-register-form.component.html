@@ -236,7 +236,7 @@
                 (click)="save()">Guardar</button>
             <button *ngIf="isEdit" class="button" type="submit" mat-raised-button color="primary"
                 (click)="edit(child)">Actualizar </button>
-            <a href="/"><button class="button" type="button" mat-raised-button color="warn">Cancelar</button></a>
+            <button class="button" type="button" mat-raised-button color="warn" (click)="goToProfile()">Cancelar</button>
         </div>
     </mat-card-content>
 </mat-card>

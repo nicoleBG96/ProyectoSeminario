@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {FormGroup, FormBuilder} from '@angular/forms';
+import { Router } from '@angular/router';
 
 // Service
 import { ChildRegisterService } from '../../../shared/services/child-register.service';
@@ -23,7 +24,7 @@ export class ChildRegisterFormComponent implements OnInit {
   @Output() onEdit: EventEmitter<any>;
   file: File;
 
-  constructor(private childRegisterService: ChildRegisterService, private formBuilder: FormBuilder) {
+  constructor(private childRegisterService: ChildRegisterService, private formBuilder: FormBuilder, private router: Router) {
     this.onSubmit = new EventEmitter<any>();
     this.onEdit = new EventEmitter<any>();
    }
@@ -39,6 +40,7 @@ export class ChildRegisterFormComponent implements OnInit {
 
   save() {
     this.onSubmit.emit(this.child);
+    this.router.navigate(['child/profiles']);
   }
 
   edit(child: ChildRegisterModel) {
@@ -53,6 +55,10 @@ export class ChildRegisterFormComponent implements OnInit {
 
   setImage(event) {
     this.childRegisterService.setCurrentImage(event.target.files[0]);
+  }
+
+  goToProfile() {
+    this.router.navigate(['child/profiles']);
   }
 }
 
