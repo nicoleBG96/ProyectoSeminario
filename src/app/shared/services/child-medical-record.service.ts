@@ -29,8 +29,6 @@ export class ChildMedicalRecordService {
   }
 
   createChildMedicalRecord(child: ChildMedicalRecordModel, id: any) {
-    console.log(child);
-    console.log(id);
     this.firebase.list('childrenMedical').update(id, child);
 }
 

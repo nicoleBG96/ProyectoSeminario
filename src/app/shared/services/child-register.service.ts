@@ -65,6 +65,4 @@ export class ChildRegisterService {
   setCreatedObject(createdObject: any) {
     this.createdObject = createdObject;
   }
-
-  
 }

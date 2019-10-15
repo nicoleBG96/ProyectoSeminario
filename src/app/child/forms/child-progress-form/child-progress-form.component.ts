@@ -59,12 +59,4 @@ export class ChildProgressFormComponent implements OnInit {
       return (parseInt(point1, 10) + parseInt(point2, 10) + parseInt(point3, 10));
     }
   }
-
-  calculateAgeIntMonths(d1: Date, d2: Date) {
-    let months = 0;
-    months = (d2.getFullYear() - d1.getFullYear()) * 12;
-    months -= d1.getMonth() + 1;
-    months += d2.getMonth();
-    return months;
-  }
 }
