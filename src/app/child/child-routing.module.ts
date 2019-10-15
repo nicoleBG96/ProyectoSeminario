@@ -14,6 +14,7 @@ import { EditRegisterChildComponent } from './register/edit-register-child/edit-
 import { EditMedicalRecordComponent } from './medicalRecord/edit-medical-record/edit-medical-record.component';
 import { EditProgressComponent } from './progress/edit-progress/edit-progress.component';
 import { ShowProfileComponent } from './profile/show-profile/show-profile.component';
+import { ProfileListComponent } from './profile/profile-list/profile-list.component';
 
 
 const routes: Routes = [
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path: 'editRegisterChild', component: EditRegisterChildComponent},
   {path: 'editMedicalRecord', component: EditMedicalRecordComponent},
   {path: 'editProgress', component: EditProgressComponent},
-  {path: 'showProfile/:id', component: ShowProfileComponent}
+  {path: 'showProfile/:id', component: ShowProfileComponent},
+  {path: 'profileList', component: ProfileListComponent}
 ];
 
 @NgModule({

@@ -17,7 +17,7 @@ export class ProfileService {
 
   constructor(private firebase: AngularFireDatabase, private storage: AngularFireStorage) { }
 
-  getChild() {
+  getProfile() {
     return this.firebase.list('profiles').snapshotChanges().pipe(
       map(action => action.map(data => {
         return {

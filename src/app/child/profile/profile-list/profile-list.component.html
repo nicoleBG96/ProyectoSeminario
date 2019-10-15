@@ -1,0 +1,25 @@
+<h1 class="title"> Perfiles</h1>
+<br>
+<table mat table class="table">
+    <ng-container>
+        <th class="subtitle" scope="col">Apellido Paterno </th>
+        <th class="subtitle" scope="col">Apellido Materno </th>
+        <th class="subtitle" scope="col">Nombre </th>
+        <th class="subtitle" scope=col>Fecha de Nacimiento </th>
+        <th class="subtitle" scope="col">Sexo</th>
+        <th class="subtitle" scope="col">Fecha de Ingreso</th>
+    </ng-container>
+    <ng-container>
+        <tr *ngFor="let child of profileList" class="table-Table">
+            <td class="text">{{child.lastName}}</td>
+            <td class="text">{{child.mothersLastName}}</td>
+            <td class="text">{{child.firstName}}</td>
+            <td class="text">{{child.birthDate}}</td>
+            <td class="text">{{child.sex}}</td>
+            <td class="text">{{child.admissionDate}}</td>
+            <button mat-stroked-button (click)="registerProfile(child)" color="primary">Registro</button>
+            <button mat-stroked-button (click)="medicalRecordProfile(child)" color="primary">Ficha Médica</button>
+            <button mat-stroked-button (click)="progressProfile(child)" color="primary">Desarrollo Infantil</button>
+        </tr>
+    </ng-container>
+</table>

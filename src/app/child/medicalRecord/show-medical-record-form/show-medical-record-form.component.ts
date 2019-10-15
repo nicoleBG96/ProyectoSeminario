@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ChildMedicalRecordService } from '../../../shared/services/child-medical-record.service';
 
@@ -13,7 +13,7 @@ import { ChildMedicalRecordModel } from '../../../shared/models/child-medical-re
 })
 export class ShowMedicalRecordFormComponent implements OnInit {
 
-  constructor(private childMedicalRecordService: ChildMedicalRecordService, private route: ActivatedRoute) { }
+  constructor(private childMedicalRecordService: ChildMedicalRecordService, private route: ActivatedRoute, private router: Router) { }
   child = new ChildMedicalRecordModel();
 
   ngOnInit() {
@@ -26,4 +26,8 @@ export class ShowMedicalRecordFormComponent implements OnInit {
     this.childMedicalRecordService.getChildMedicalRecordbyId(id).then(child => this.child = child);
   }
 
+  editMedicalRecord(child: any) {
+    this.childMedicalRecordService.setCreatedObject(child);
+    this.router.navigate (['child/editMedicalRecord']);
+  }
 }

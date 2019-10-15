@@ -24,6 +24,7 @@ import { EditRegisterChildComponent } from './register/edit-register-child/edit-
 import { EditMedicalRecordComponent } from './medicalRecord/edit-medical-record/edit-medical-record.component';
 import { EditProgressComponent } from './progress/edit-progress/edit-progress.component';
 import { ShowProfileComponent } from './profile/show-profile/show-profile.component';
+import { ProfileListComponent } from './profile/profile-list/profile-list.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ShowProfileComponent } from './profile/show-profile/show-profile.compon
     EditRegisterChildComponent,
     EditMedicalRecordComponent,
     EditProgressComponent,
-    ShowProfileComponent
+    ShowProfileComponent,
+    ProfileListComponent
   ],
   imports: [
     CommonModule,
@@ -65,7 +67,8 @@ import { ShowProfileComponent } from './profile/show-profile/show-profile.compon
     EditRegisterChildComponent,
     EditMedicalRecordComponent,
     EditProgressComponent,
-    ShowProfileComponent
+    ShowProfileComponent,
+    ProfileListComponent
   ]
 })
 export class ChildModule { }
