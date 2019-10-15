@@ -12,34 +12,29 @@ import { ChildMedicalRecordModel } from 'src/app/shared/models/child-medical-rec
 })
 export class EditMedicalRecordComponent implements OnInit {
   child: any;
-  receivedObject: any;
 
   constructor(private childMedicalRecordService: ChildMedicalRecordService, private router: ActivatedRoute,
-              private childRegisterService: ChildRegisterService) { }
+    private childRegisterService: ChildRegisterService) { }
 
   ngOnInit() {
     this.child = this.childMedicalRecordService.getCreatedObject();
     // tslint:disable-next-line:prefer-const
-    let today = new Date();
-    console.log(this.child);
-    console.log(this.child.key);
-    this.childRegisterService.getChildbyId(this.child.key).then(child =>  this.receivedObject = child);
-    console.log(this.receivedObject);
-    this.child.age = this.calculateAge(this.receivedObject.birthDate, today);
+    this.child.age = this.calculateAge();
   }
 
   updateMedicalRecord(event: any) {
     this.childMedicalRecordService.updateChildMedicalRecord(event.key, event);
   }
 
-  calculateAge(d1: Date, d2: Date) {
+  calculateAge() {
+    let today = new Date();
+    let childBirth = new Date(this.child.birthDate);
     // tslint:disable-next-line:prefer-const
-    let age = d2.getFullYear() - d1.getFullYear();
+    let age = today.getFullYear() - childBirth.getFullYear();
     // tslint:disable-next-line:prefer-const
-    let months = d2.getMonth() - d1.getMonth();
-    if (months < 0 || (months === 0 && d2.getDate() < d1.getDate())) {
+    let months = today.getMonth() - childBirth.getMonth();
+    if (months < 0 || (months === 0 && today.getDate() < childBirth.getDate()))
       age--;
-    }
     return age;
   }
 }
