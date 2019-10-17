@@ -15,6 +15,7 @@ export class ShowMedicalRecordFormComponent implements OnInit {
 
   constructor(private childMedicalRecordService: ChildMedicalRecordService, private route: ActivatedRoute, private router: Router) { }
   child = new ChildMedicalRecordModel();
+  childId: any;
 
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap: any) => {
@@ -23,11 +24,12 @@ export class ShowMedicalRecordFormComponent implements OnInit {
   }
 
   view(id: string) {
+    this.childId = id;
     this.childMedicalRecordService.getChildMedicalRecordbyId(id).then(child => this.child = child);
   }
 
   editMedicalRecord(child: any) {
     this.childMedicalRecordService.setCreatedObject(child);
-    this.router.navigate (['child/editMedicalRecord']);
+    this.router.navigate (['child/editMedicalRecord/' + this.childId]);
   }
 }

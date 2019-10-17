@@ -21,8 +21,8 @@ const routes: Routes = [
   {path: 'showMedicalRecordProfile/:id', component: ShowMedicalRecordFormComponent},
   {path: 'showProgressProfile/:id', component: ShowProgressProfileComponent},
   {path: 'editRegisterChild/:id', component: EditRegisterChildComponent},
-  {path: 'editMedicalRecord', component: EditMedicalRecordComponent},
-  {path: 'editProgress', component: EditProgressComponent},
+  {path: 'editMedicalRecord/:id', component: EditMedicalRecordComponent},
+  {path: 'editProgress/:id', component: EditProgressComponent},
   {path: 'showProfile/:id', component: ShowProfileComponent},
   {path: 'profiles', component: ProfileListComponent}
 ];

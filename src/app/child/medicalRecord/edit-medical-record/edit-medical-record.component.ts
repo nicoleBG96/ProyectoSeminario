@@ -10,17 +10,21 @@ import { ChildMedicalRecordService } from '../../../shared/services/child-medica
 })
 export class EditMedicalRecordComponent implements OnInit {
   child: any;
+  id: any;
 
-  constructor(private childMedicalRecordService: ChildMedicalRecordService, private router: ActivatedRoute) { }
+  constructor(private childMedicalRecordService: ChildMedicalRecordService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.child = this.childMedicalRecordService.getCreatedObject();
     this.child.age = this.calculateAge();
     this.child.date = new Date();
+    this.route.paramMap.subscribe((paramMap: any) => {
+      this.id = (paramMap.params.id);
+    });
   }
 
   updateMedicalRecord(event: any) {
-    this.childMedicalRecordService.updateChildMedicalRecord(event.key, event);
+    this.childMedicalRecordService.updateChildMedicalRecord(this.id, event);
   }
 
   calculateAge() {

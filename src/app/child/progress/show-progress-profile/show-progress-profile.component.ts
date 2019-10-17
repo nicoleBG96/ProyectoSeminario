@@ -14,6 +14,7 @@ export class ShowProgressProfileComponent implements OnInit {
 
   constructor(private childProgressService: ChildProgressService, private route: ActivatedRoute, private router: Router) { }
   child = new ChildProgressModel();
+  childId: any;
 
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap: any) => {
@@ -22,6 +23,7 @@ export class ShowProgressProfileComponent implements OnInit {
   }
 
   view(id: string) {
+    this.childId = id;
     this.childProgressService.getChildProgressbyId(id).then(child => this.child = child);
   }
 
@@ -35,6 +37,6 @@ export class ShowProgressProfileComponent implements OnInit {
 
   editProgress(child: any) {
     this.childProgressService.setCreatedObject(child);
-    this.router.navigate (['child/editProgress']);
+    this.router.navigate (['child/editProgress/' + this.childId]);
   }
 }
