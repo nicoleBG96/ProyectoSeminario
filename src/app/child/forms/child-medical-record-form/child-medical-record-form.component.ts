@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 // Service
 import { ChildMedicalRecordService } from '../../../shared/services/child-medical-record.service';
@@ -22,7 +23,7 @@ export class ChildMedicalRecordFormComponent implements OnInit {
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onEdit: EventEmitter<any>;
 
-  constructor(private childMedicalRecordService: ChildMedicalRecordService, private formBuilder: FormBuilder) {
+  constructor(private childMedicalRecordService: ChildMedicalRecordService, private formBuilder: FormBuilder, private router: Router) {
     this.onSubmit = new EventEmitter<any>();
     this.onEdit = new EventEmitter<any>();
   }
@@ -48,6 +49,7 @@ export class ChildMedicalRecordFormComponent implements OnInit {
     if (this.isEdit) {
       this.receivedObject = this.childMedicalRecordService.setCreatedObject(child);
     }
+    this.router.navigate(['child/profiles']);
   }
 
 }

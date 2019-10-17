@@ -30,4 +30,8 @@ export class ProfileListComponent implements OnInit {
   progressProfile(childProgress: any) {
     this.router.navigate(['child/showProgressProfile/' + childProgress.key]);
   }
+
+  createChild() {
+    this.router.navigate(['child/registerChild']);
+  }
 }

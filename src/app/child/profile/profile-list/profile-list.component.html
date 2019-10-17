@@ -1,25 +1,36 @@
 <h1 class="title"> Perfiles</h1>
+<br><br>
+<button mat-fab class="button" (click)="createChild()">
+    <i class="material-icons">add_circle_outline</i>
+</button>
 <br>
-<table mat table class="table">
-    <ng-container>
-        <th class="subtitle" scope="col">Apellido Paterno </th>
-        <th class="subtitle" scope="col">Apellido Materno </th>
-        <th class="subtitle" scope="col">Nombre </th>
-        <th class="subtitle" scope=col>Fecha de Nacimiento </th>
-        <th class="subtitle" scope="col">Sexo</th>
-        <th class="subtitle" scope="col">Fecha de Ingreso</th>
-    </ng-container>
-    <ng-container>
-        <tr *ngFor="let child of profileList" class="table-Table">
-            <td class="text">{{child.lastName}}</td>
-            <td class="text">{{child.mothersLastName}}</td>
-            <td class="text">{{child.firstName}}</td>
-            <td class="text">{{child.birthDate}}</td>
-            <td class="text">{{child.sex}}</td>
-            <td class="text">{{child.admissionDate}}</td>
-            <button mat-stroked-button (click)="registerProfile(child)" color="primary">Registro</button>
-            <button mat-stroked-button (click)="medicalRecordProfile(child)" color="primary">Ficha Médica</button>
-            <button mat-stroked-button (click)="progressProfile(child)" color="primary">Desarrollo Infantil</button>
-        </tr>
-    </ng-container>
-</table>
+<select class="select">
+    <option *ngFor="let resource of resourcesList" value="{{resource.id}}"> {{resource.type}} </option>
+</select>
+
+<mat-card *ngFor="let child of profileList">
+    <mat-card class="card">
+        <mat-toolbar class="toolbar">
+            <button mat-button (click)="registerProfile(child)" >Registro</button>
+            <button mat-button (click)="medicalRecordProfile(child)">F. Médica</button>
+            <button mat-button (click)="progressProfile(child)">Desarrollo</button>
+        </mat-toolbar>
+        <label class="subtitle"> Apellido Paterno:</label>
+        <label> {{child.lastName}}</label>
+        <br>
+        <label class="subtitle"> Apellido Materno:</label>
+        <label> {{child.mothersLastName}}</label>
+        <br>
+        <label class="subtitle"> Nombres:</label>
+        <label> {{child.firstName}}</label>
+        <br>
+        <label class="subtitle">Fecha de Nacimiento: </label>
+        <label> {{child.birthDate}}</label>
+        <br>
+        <label class="subtitle">Sexo: </label>
+        <label> {{child.sex}}</label>
+        <br>
+        <label class="subtitle">Fecha de Admisión:</label>
+        <label> {{child.admissionDate}}</label>
+    </mat-card>
+</mat-card>

@@ -34,6 +34,8 @@ export class ChildRegisterFormComponent implements OnInit {
       this.child = new ChildRegisterModel();
       this.isEdit = false;
     } else {
+      console.log("FORM EDIT")
+      console.log(this.child)
       this.isEdit = true;
     }
   }

@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: 'showRegisterProfile/:id', component: ShowRegisterFormComponent},
   {path: 'showMedicalRecordProfile/:id', component: ShowMedicalRecordFormComponent},
   {path: 'showProgressProfile/:id', component: ShowProgressProfileComponent},
-  {path: 'editRegisterChild', component: EditRegisterChildComponent},
+  {path: 'editRegisterChild/:id', component: EditRegisterChildComponent},
   {path: 'editMedicalRecord', component: EditMedicalRecordComponent},
   {path: 'editProgress', component: EditProgressComponent},
   {path: 'showProfile/:id', component: ShowProfileComponent},

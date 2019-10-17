@@ -14,7 +14,7 @@ import { ChildRegisterModel } from '../../../shared/models/child-register.model'
 })
 export class ShowRegisterFormComponent implements OnInit {
   child = new ChildRegisterModel();
-
+  childId: any;
   constructor(private childRegisterService: ChildRegisterService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -24,6 +24,7 @@ export class ShowRegisterFormComponent implements OnInit {
   }
 
   view(id: string) {
+    this.childId = id;
     this.childRegisterService.getChildbyId(id).then(child => this.child = child);
   }
 
@@ -33,7 +34,7 @@ export class ShowRegisterFormComponent implements OnInit {
 
   editRegister(child: any) {
     this.childRegisterService.setCreatedObject(child);
-    this.router.navigate(['child/editRegisterChild']);
+    this.router.navigate(['child/editRegisterChild/' + this.childId]);
   }
 
 }
