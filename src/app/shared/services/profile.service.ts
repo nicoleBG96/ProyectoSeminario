@@ -79,6 +79,12 @@ export class ProfileService {
           { id: 4, name: '2018' },
           { id: 5, name: '2019' }
         ]
+      },
+      {
+        id: 4, type: 'Estado', values: [
+          {id: 1, name: 'habilidado'},
+          {id: 2, name: 'inhabilitado'}
+        ]
       }
     ];
     return this.resourcesList;

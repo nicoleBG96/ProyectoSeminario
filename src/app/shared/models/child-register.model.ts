@@ -18,6 +18,7 @@ export class ChildRegisterModel {
     degreeOfInstruction: string;
     activity: string;
     anotherReference: string;
+    isDisable: boolean;
 
     constructor() {
         this.image = '';
@@ -38,5 +39,6 @@ export class ChildRegisterModel {
         this.degreeOfInstruction = '';
         this.activity = '';
         this.anotherReference = '';
+        this.isDisable = false;
     }
 }

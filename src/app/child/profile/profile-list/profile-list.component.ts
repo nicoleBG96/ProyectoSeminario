@@ -71,6 +71,11 @@ export class ProfileListComponent implements OnInit {
         this.profileList = this.profileList.filter(profile => this.calculateYear(profile.admissionDate).toString() === this.selectedValue );
       }
     }
+    if (this.selectedResource === 'Estado') {
+      if (this.selectedValue !== '') {
+        this.profileList = this.profileList.filter(profile => (profile.isDisable).toString() === this.selectedValue);
+      }
+    }
     this.selectedResource = '';
     this.selectedValue = '';
   }
@@ -94,7 +99,7 @@ export class ProfileListComponent implements OnInit {
     return age;
   }
 
-  calculateYear(date: string) {    
+  calculateYear(date: string) {
     return new Date(date).getFullYear();
   }
 }

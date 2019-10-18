@@ -70,6 +70,7 @@ export class ChildRegisterComponent implements OnInit {
     profile.birthDate = event.birthDate;
     profile.sex = event.sex;
     profile.date = event.admissionDate;
+    profile.isDisable = event.isDisable;
     this.profileService.createProfile(event, latestKey);
   }
 }
