@@ -14,36 +14,8 @@ import { ProfileModel } from '../models/profile.model';
 export class ProfileService {
   childList: AngularFireList<any>;
   private createdObject: any;
-  resourcesList: any = [
-    {
-      id: 1, type: 'age', age: [
-        { id: 1, name: '0' },
-        { id: 2, name: '1' },
-        { id: 3, name: '2' },
-        { id: 4, name: '3' },
-        { id: 5, name: '4' },
-        { id: 6, name: '5' },
-        { id: 7, name: '6' },
-        { id: 8, name: '7' },
-        { id: 9, name: '8' }
-      ]
-    },
-    {
-      id: 2, type: 'sex', sex: [
-        { id: 1, name: 'femenino'},
-        { id: 2, name: 'masculino'}
-      ]
-    },
-    {
-      id: 3, type: 'yearOfAdmission', admissionDate: [
-        { id: 1, name: '2015'},
-        { id: 2, name: '2016'},
-        { id: 3, name: '2017'},
-        { id: 4, name: '2018'},
-        { id: 5, name: '2019'}
-      ]
-    }
-  ];
+  resourcesList: any [];
+  selectResource: any;
 
   constructor(private firebase: AngularFireDatabase, private storage: AngularFireStorage) { }
 
@@ -76,5 +48,39 @@ export class ProfileService {
 
   setCreatedObject(createdObject: any) {
     this.createdObject = createdObject;
+  }
+
+  getResource(event: any) {
+    this.resourcesList = [
+      {
+        id: 1, type: 'age', age: [
+          { id: 1, name: '0' },
+          { id: 2, name: '1' },
+          { id: 3, name: '2' },
+          { id: 4, name: '3' },
+          { id: 5, name: '4' },
+          { id: 6, name: '5' },
+          { id: 7, name: '6' },
+          { id: 8, name: '7' },
+          { id: 9, name: '8' }
+        ]
+      },
+      {
+        id: 2, type: 'sex', sex: [
+          { id: 1, name: 'femenino'},
+          { id: 2, name: 'masculino'}
+        ]
+      },
+      {
+        id: 3, type: 'yearOfAdmission', admissionDate: [
+          { id: 1, name: '2015'},
+          { id: 2, name: '2016'},
+          { id: 3, name: '2017'},
+          { id: 4, name: '2018'},
+          { id: 5, name: '2019'}
+        ]
+      }
+    ];
+    return this.resourcesList.filter(resource => resource.type === event.type);
   }
 }

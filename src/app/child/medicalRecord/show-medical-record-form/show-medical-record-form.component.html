@@ -1,6 +1,5 @@
 <h1 class="title">Ficha médica</h1>
 <br>
-<button mat-stroked-button (click)="editMedicalRecord(child)" color="primary">Editar</button>
 <mat-card>
     <label class="subtitle">Apellido Paterno: </label>
     <label> {{child.lastName}}</label>
@@ -23,4 +22,8 @@
     <br><br>
     <label class="subtitle">Diagnóstico: </label>
     <label> {{child.description}}</label>
+    <div class="buttons">
+        <button  mat-stroked-button (click)="editMedicalRecord(child)" color="primary">Editar</button>
+        <button  mat-stroked-button (click)="goToProfiles()" color="warn">Cancelar</button>
+    </div>
 </mat-card>

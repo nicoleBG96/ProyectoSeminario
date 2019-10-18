@@ -25,6 +25,7 @@ export class EditProgressComponent implements OnInit {
 
   updateProgress(event: any) {
     this.childProgressService.updateChildProgress(this.id, event);
+    this.router.navigate(['child/showProgress/' + this.id]);
   }
 
   calculateAgeIntMonths() {

@@ -18,10 +18,13 @@
     <br>
     <label class="subtitle"> Fecha de Admisión:</label>
     <label> {{profile.admissionDate}}</label>
+    <br>
+    <label class="subtitle">Estado: </label>
+    <label> {{(getStatus(profile))}}</label>
     <br><br>
     <div class="buttons">
-        <a href="child/showRegisterProfile/{{profile.key}}"><button mat-stroked-button color="primary">Registro</button></a>
-        <a href="child/showMedicalRecordProfile/id"><button mat-stroked-button color="primary">Ficha Médica</button></a>
-        <a href="child/showProgressProfile/id"><button mat-stroked-button color="primary">Ficha Desarrollo Infantil</button></a>
+        <button mat-stroked-button *ngIf="!profile.isDisable" color="primary" (click)="status(profile, true)">Inhabilitar</button>
+        <button mat-stroked-button *ngIf="profile.isDisable" color="primary" (click)="status(profile, false)">Habilitar</button>
+        <button  mat-stroked-button (click)="goToProfiles()" color="warn">Cancelar</button>
     </div>
 </mat-card>

@@ -34,8 +34,6 @@ export class ChildRegisterFormComponent implements OnInit {
       this.child = new ChildRegisterModel();
       this.isEdit = false;
     } else {
-      console.log("FORM EDIT")
-      console.log(this.child)
       this.isEdit = true;
     }
   }
@@ -47,12 +45,14 @@ export class ChildRegisterFormComponent implements OnInit {
 
   edit(child: ChildRegisterModel) {
     this.onEdit.emit(this.child);
+    this.router.navigate(['child/showRegister/' + this.childRegisterService.getCreatedObject().key]);
   }
 
   editChild(child: ChildRegisterModel) {
     if (this.isEdit) {
       this.receivedObject = this.childRegisterService.setCreatedObject(child);
     }
+    this.router.navigate(['child/profiles']);
   }
 
   setImage(event) {

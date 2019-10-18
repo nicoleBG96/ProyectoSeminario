@@ -24,6 +24,7 @@ export class EditRegisterChildComponent implements OnInit {
 
   update(event: any) {
     this.childRegisterService.updateChild(this.id, event);
+    this.router.navigate(['child/showRegister/' + this.id]);
   }
 
 

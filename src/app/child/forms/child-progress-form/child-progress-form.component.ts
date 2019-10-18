@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 // Model
 import { ChildProgressModel } from '../../../shared/models/child-progress.model';
@@ -24,7 +25,7 @@ export class ChildProgressFormComponent implements OnInit {
   private receivedObject: any;
 
   constructor(private childProgressService: ChildProgressService, private formBuilder: FormBuilder,
-              private childRegisterService: ChildRegisterService) {
+              private router: Router) {
     this.onSubmit = new EventEmitter<any>();
     this.onEdit = new EventEmitter<any>();
    }
@@ -44,6 +45,7 @@ export class ChildProgressFormComponent implements OnInit {
 
   editProgress(child: ChildProgressModel) {
     this.onEdit.emit(this.child);
+    this.router.navigate(['child/profiles']);
   }
 
   editProgressChild(child: ChildProgressModel) {
@@ -58,5 +60,9 @@ export class ChildProgressFormComponent implements OnInit {
     } else {
       return (parseInt(point1, 10) + parseInt(point2, 10) + parseInt(point3, 10));
     }
+  }
+
+  goToProfiles() {
+    this.router.navigate(['child/profiles']);
   }
 }

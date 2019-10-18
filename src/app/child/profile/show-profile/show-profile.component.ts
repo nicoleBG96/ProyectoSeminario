@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ProfileService } from '../../../shared/services/profile.service';
 import { ProfileModel } from '../../../shared/models/profile.model';
@@ -11,8 +11,9 @@ import { ProfileModel } from '../../../shared/models/profile.model';
 })
 export class ShowProfileComponent implements OnInit {
   profile = new ProfileModel();
+  childId: any;
 
-  constructor(private profileService: ProfileService, private route: ActivatedRoute) { }
+  constructor(private profileService: ProfileService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap: any) => {
@@ -21,7 +22,24 @@ export class ShowProfileComponent implements OnInit {
   }
 
   view(id: string) {
+    this.childId = id;
     this.profileService.getProfilebyId(id).then(child => this.profile = child);
   }
 
+  status(child: any, state: boolean) {
+    child.isDisable = state;
+    this.profileService.updateProfile(this.childId, child);
+  }
+
+  getStatus(child: any) {
+    if (child.isDisable) {
+      return 'Inhabilitado';
+    } else {
+      return 'Habilitado';
+    }
+  }
+
+  goToProfiles() {
+    this.router.navigate(['child/profiles']);
+  }
 }

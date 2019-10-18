@@ -1097,8 +1097,8 @@
                     (click)="saveProgress()">Guardar</button>
                 <button *ngIf="isEdit" class="button" type="submit" mat-raised-button color="primary"
                     (click)="editProgress(child)">Actualizar</button>
-                <a href="/"><button class="button" type="button" mat-raised-button
-                        color="warn">Cancelar</button></a>
+                <button (click)="goToProfiles()" class="button" type="button" mat-raised-button
+                        color="warn">Cancelar</button>
             </div>
         </form>
     </mat-card-content>

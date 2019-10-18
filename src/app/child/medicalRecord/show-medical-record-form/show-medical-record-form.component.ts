@@ -32,4 +32,8 @@ export class ShowMedicalRecordFormComponent implements OnInit {
     this.childMedicalRecordService.setCreatedObject(child);
     this.router.navigate (['child/editMedicalRecord/' + this.childId]);
   }
+
+  goToProfiles() {
+    this.router.navigate(['child/profiles']);
+  }
 }

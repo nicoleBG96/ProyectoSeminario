@@ -34,4 +34,16 @@ export class ProfileListComponent implements OnInit {
   createChild() {
     this.router.navigate(['child/registerChild']);
   }
+
+  goToProfile(childProfile: any) {
+    this.router.navigate(['child/showProfile/' + childProfile.key]);
+  }
+
+  getStatus(child: any) {
+    if (child.isDisable) {
+      return 'Inhabilitado';
+    } else {
+      return 'Habilitado';
+    }
+  }
 }
