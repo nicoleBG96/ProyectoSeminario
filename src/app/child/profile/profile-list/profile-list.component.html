@@ -5,13 +5,13 @@
 </button>
 <br>
 <select class="select" [(ngModel)]="selectedResource" (change)="loadValues()">
-  <option value="">Select option</option>
+  <option value="">Seleccione opción</option>
   <option *ngFor="let resource of resourcesList" value={{resource.type}}> {{resource.type}} </option>
 </select>
 
 <!-- second filter -->
-<select *ngIf="selectedResource!=''" class="select" [(ngModel)]="selectedValue">
-  <option value="">Select option</option>
+<select *ngIf="selectedResource!=''" (change)="filter()" class="select" [(ngModel)]="selectedValue">
+  <option value="">Seleccione opción</option>
   <option *ngFor="let value of valuesList" value={{value.name}}> {{value.name}} </option>
 </select>
 
