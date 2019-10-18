@@ -40,7 +40,6 @@ export class ChildRegisterFormComponent implements OnInit {
 
   save() {
     this.onSubmit.emit(this.child);
-    this.router.navigate(['child/profiles']);
   }
 
   edit(child: any) {

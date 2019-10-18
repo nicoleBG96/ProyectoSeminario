@@ -45,13 +45,6 @@ export class ChildProgressFormComponent implements OnInit {
 
   editProgress(child: ChildProgressModel) {
     this.onEdit.emit(this.child);
-    this.router.navigate(['child/profiles']);
-  }
-
-  editProgressChild(child: ChildProgressModel) {
-    if (this.isEdit) {
-      this.receivedObject = this.childProgressService.setCreatedObject(child);
-    }
   }
 
   calculateTotal(point1: string, point2: string, point3: string) {

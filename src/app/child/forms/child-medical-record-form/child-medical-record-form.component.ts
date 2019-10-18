@@ -43,14 +43,12 @@ export class ChildMedicalRecordFormComponent implements OnInit {
 
   editMedicalRecord(child: ChildMedicalRecordModel) {
     this.onEdit.emit(this.child);
-    this.router.navigate(['child/profiles']);
   }
 
   editMedicalRecordChild(child: ChildMedicalRecordModel) {
     if (this.isEdit) {
       this.receivedObject = this.childMedicalRecordService.setCreatedObject(child);
     }
-    this.router.navigate(['child/showMedicalRecord/' + child.key]);
   }
 
   goToProfiles() {

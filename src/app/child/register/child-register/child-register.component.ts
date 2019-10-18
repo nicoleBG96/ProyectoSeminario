@@ -35,6 +35,7 @@ export class ChildRegisterComponent implements OnInit {
     this.createProgress(event, latestKey);
     this.createProfile(event, latestKey);
     this.childRegisterService.setCreatedObject(event);
+    this.router.navigate(['child/showRegisterProfile/' + latestKey]);
   }
 
   createMedicalRecord(event: any, latestKey: any) {

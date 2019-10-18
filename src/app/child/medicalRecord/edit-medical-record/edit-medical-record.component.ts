@@ -25,7 +25,7 @@ export class EditMedicalRecordComponent implements OnInit {
 
   updateMedicalRecord(event: any) {
     this.childMedicalRecordService.updateChildMedicalRecord(this.id, event);
-    this.router.navigate(['child/showMedicalRecord/' + this.id]);
+    this.router.navigate(['child/showMedicalRecordProfile/' + this.id]);
   }
 
   calculateAge() {
