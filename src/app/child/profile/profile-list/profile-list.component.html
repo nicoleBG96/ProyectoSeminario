@@ -1,40 +1,48 @@
 <h1 class="title"> Perfiles</h1>
 <br><br>
 <button mat-fab class="button" (click)="createChild()">
-    <i class="material-icons">add_circle_outline</i>
+  <i class="material-icons">add_circle_outline</i>
 </button>
 <br>
-<select class="select" [(ngModel)]="selectResource">
-    <option *ngFor="let resource of resourcesList" value={{resource.id}}> {{resource.type}} </option>
+<select class="select" [(ngModel)]="selectedResource" (change)="loadValues()">
+  <option value="">Select option</option>
+  <option *ngFor="let resource of resourcesList" value={{resource.type}}> {{resource.type}} </option>
 </select>
 
+<!-- second filter -->
+<select *ngIf="selectedResource!=''" class="select" [(ngModel)]="selectedValue">
+  <option value="">Select option</option>
+  <option *ngFor="let value of valuesList" value={{value.name}}> {{value.name}} </option>
+</select>
+
+
 <mat-card *ngFor="let child of profileList">
-    <mat-card class="card">
-        <mat-toolbar class="toolbar">
-            <button mat-button (click)="goToProfile(child)" >Perfil</button>
-            <button mat-button (click)="registerProfile(child)" >Registro</button>
-            <button mat-button (click)="medicalRecordProfile(child)">F. Médica</button>
-            <button mat-button (click)="progressProfile(child)">Desarrollo</button>
-        </mat-toolbar>
-        <label class="subtitle"> Apellido Paterno:</label>
-        <label> {{child.lastName}}</label>
-        <br>
-        <label class="subtitle"> Apellido Materno:</label>
-        <label> {{child.mothersLastName}}</label>
-        <br>
-        <label class="subtitle"> Nombres:</label>
-        <label> {{child.firstName}}</label>
-        <br>
-        <label class="subtitle">Fecha de Nacimiento: </label>
-        <label> {{child.birthDate}}</label>
-        <br>
-        <label class="subtitle">Sexo: </label>
-        <label> {{child.sex}}</label>
-        <br>
-        <label class="subtitle">Fecha de Admisión:</label>
-        <label> {{child.admissionDate}}</label>
-        <br>
-        <label class="subtitle">Estado:</label>
-        <label> {{(getStatus(child))}}</label>
-    </mat-card>
+  <mat-card class="card">
+    <mat-toolbar class="toolbar">
+      <button mat-button (click)="goToProfile(child)">Perfil</button>
+      <button mat-button (click)="registerProfile(child)">Registro</button>
+      <button mat-button (click)="medicalRecordProfile(child)">F. Médica</button>
+      <button mat-button (click)="progressProfile(child)">Desarrollo</button>
+    </mat-toolbar>
+    <label class="subtitle"> Apellido Paterno:</label>
+    <label> {{child.lastName}}</label>
+    <br>
+    <label class="subtitle"> Apellido Materno:</label>
+    <label> {{child.mothersLastName}}</label>
+    <br>
+    <label class="subtitle"> Nombres:</label>
+    <label> {{child.firstName}}</label>
+    <br>
+    <label class="subtitle">Fecha de Nacimiento: </label>
+    <label> {{child.birthDate}}</label>
+    <br>
+    <label class="subtitle">Sexo: </label>
+    <label> {{child.sex}}</label>
+    <br>
+    <label class="subtitle">Fecha de Admisión:</label>
+    <label> {{child.admissionDate}}</label>
+    <br>
+    <label class="subtitle">Estado:</label>
+    <label> {{(getStatus(child))}}</label>
+  </mat-card>
 </mat-card>
