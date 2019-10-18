@@ -43,16 +43,14 @@ export class ChildRegisterFormComponent implements OnInit {
     this.router.navigate(['child/profiles']);
   }
 
-  edit(child: ChildRegisterModel) {
+  edit(child: any) {
     this.onEdit.emit(this.child);
-    this.router.navigate(['child/showRegister/' + this.childRegisterService.getCreatedObject().key]);
   }
 
   editChild(child: ChildRegisterModel) {
     if (this.isEdit) {
       this.receivedObject = this.childRegisterService.setCreatedObject(child);
     }
-    this.router.navigate(['child/profiles']);
   }
 
   setImage(event) {
