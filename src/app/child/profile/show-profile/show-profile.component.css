@@ -17,3 +17,7 @@
 .buttons {
     margin-left: 30%;
 }
+
+.button {
+    margin-right: 5px;
+}

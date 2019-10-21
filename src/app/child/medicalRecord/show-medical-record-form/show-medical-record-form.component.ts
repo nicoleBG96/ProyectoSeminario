@@ -34,6 +34,6 @@ export class ShowMedicalRecordFormComponent implements OnInit {
   }
 
   goToProfiles() {
-    this.router.navigate(['child/profiles']);
+    this.router.navigate(['child/showProfile/' + this.childId]);
   }
 }

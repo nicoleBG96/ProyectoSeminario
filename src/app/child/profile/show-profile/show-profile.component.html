@@ -22,9 +22,13 @@
     <label class="subtitle">Estado: </label>
     <label> {{(getStatus(profile))}}</label>
     <br><br>
+    <button mat-stroked-button *ngIf="!profile.isDisable" color="accent" (click)="status(profile, true)">Inhabilitar</button>
+    <button mat-stroked-button *ngIf="profile.isDisable" color="accent" (click)="status(profile, false)">Habilitar</button>
+    <br><br>
     <div class="buttons">
-        <button mat-stroked-button *ngIf="!profile.isDisable" color="primary" (click)="status(profile, true)">Inhabilitar</button>
-        <button mat-stroked-button *ngIf="profile.isDisable" color="primary" (click)="status(profile, false)">Habilitar</button>
+        <button class="button" mat-stroked-button (click)="goToRegister(child)" color="primary">Registro</button>
+        <button class="button" mat-stroked-button (click)="goToMedicalRecord()" color="primary">Ficha Médica</button>
+        <button class="button" mat-stroked-button (click)="goToProgress()" color="primary">Ficha Desarrollo</button>
         <button  mat-stroked-button (click)="goToProfiles()" color="warn">Cancelar</button>
     </div>
 </mat-card>

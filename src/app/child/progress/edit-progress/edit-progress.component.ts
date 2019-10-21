@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 import { ChildProgressService } from '../../../shared/services/child-progress.service';
 
@@ -12,7 +13,8 @@ export class EditProgressComponent implements OnInit {
   child: any;
   id: any;
 
-  constructor(private childProgressService: ChildProgressService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private childProgressService: ChildProgressService, private router: Router, private route: ActivatedRoute,
+              private toastrService: ToastrService) { }
 
   ngOnInit() {
     this.child = this.childProgressService.getCreatedObject();
@@ -24,8 +26,14 @@ export class EditProgressComponent implements OnInit {
   }
 
   updateProgress(event: any) {
-    this.childProgressService.updateChildProgress(this.id, event);
-    this.router.navigate(['child/showProgressProfile/' + this.id]);
+    if (this.validate(event)) {
+      this.childProgressService.updateChildProgress(this.id, event);
+      this.router.navigate(['child/showProgressProfile/' + this.id]);
+      this.toastrService.success('exito al editar', 'ÉXITO');
+    } else {
+      this.toastrService.error('error al editar', 'ERROR');
+    }
+
   }
 
   calculateAgeIntMonths() {
@@ -35,5 +43,18 @@ export class EditProgressComponent implements OnInit {
     months -= childBirth.getMonth() + 1;
     months += today.getMonth();
     return months;
+  }
+
+  validate(event: any) {
+    let correct = false;
+    if (event.firstName !== '' && event.lastName !== '' && event.mothersLastName !== '' && event.date !== null &&
+        event.birthDate !== null && event.sex !== '' && event.size !== '' && event.weight !== '' && event.numberOrder !== '' &&
+        event.folio !== '' && event.age !== null && event.pointA1 !== null && event.pointB1 !== null && event.pointC1 !== null &&
+        event.pointD1 !== null) {
+      correct = true;
+    } else {
+      correct = false;
+    }
+    return correct;
   }
 }

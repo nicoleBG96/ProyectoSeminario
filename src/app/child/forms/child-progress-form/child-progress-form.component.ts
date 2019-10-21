@@ -1,13 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 // Model
 import { ChildProgressModel } from '../../../shared/models/child-progress.model';
 
-// Services
-import { ChildProgressService } from '../../../shared/services/child-progress.service';
-import { ChildRegisterService } from '../../../shared/services/child-register.service';
 
 @Component({
   selector: 'app-child-progress-form',
@@ -22,10 +19,8 @@ export class ChildProgressFormComponent implements OnInit {
   @Output() onSubmit: EventEmitter<any>;
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onEdit: EventEmitter<any>;
-  private receivedObject: any;
 
-  constructor(private childProgressService: ChildProgressService, private formBuilder: FormBuilder,
-              private router: Router) {
+  constructor(private router: Router) {
     this.onSubmit = new EventEmitter<any>();
     this.onEdit = new EventEmitter<any>();
    }

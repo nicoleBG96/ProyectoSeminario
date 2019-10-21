@@ -24,3 +24,7 @@
 .buttons {
     margin-left: 40%;
 }
+
+.button {
+    margin-right: 5px;
+}

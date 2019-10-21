@@ -1,9 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
-// Service
-import { ChildMedicalRecordService } from '../../../shared/services/child-medical-record.service';
 
 // Model
 import { ChildMedicalRecordModel } from '../../../shared/models/child-medical-record.model';
@@ -16,14 +14,13 @@ import { ChildMedicalRecordModel } from '../../../shared/models/child-medical-re
 export class ChildMedicalRecordFormComponent implements OnInit {
   myForm: FormGroup;
   isEdit: boolean;
-  private receivedObject: any;
   @Input() child: ChildMedicalRecordModel;
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onSubmit: EventEmitter<any>;
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onEdit: EventEmitter<any>;
 
-  constructor(private childMedicalRecordService: ChildMedicalRecordService, private formBuilder: FormBuilder, private router: Router) {
+  constructor( private router: Router) {
     this.onSubmit = new EventEmitter<any>();
     this.onEdit = new EventEmitter<any>();
   }
@@ -43,12 +40,6 @@ export class ChildMedicalRecordFormComponent implements OnInit {
 
   editMedicalRecord(child: ChildMedicalRecordModel) {
     this.onEdit.emit(this.child);
-  }
-
-  editMedicalRecordChild(child: ChildMedicalRecordModel) {
-    if (this.isEdit) {
-      this.receivedObject = this.childMedicalRecordService.setCreatedObject(child);
-    }
   }
 
   goToProfiles() {

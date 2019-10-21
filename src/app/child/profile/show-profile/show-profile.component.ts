@@ -42,4 +42,16 @@ export class ShowProfileComponent implements OnInit {
   goToProfiles() {
     this.router.navigate(['child/profiles']);
   }
+
+  goToRegister(child: any) {
+    this.router.navigate(['child/showRegisterProfile/' + this.childId]);
+  }
+
+  goToMedicalRecord(child: any) {
+    this.router.navigate(['child/showMedicalRecordProfile/' + this.childId]);
+  }
+
+  goToProgress(child: any) {
+    this.router.navigate(['child/showProgressProfile/' + this.childId]);
+  }
 }

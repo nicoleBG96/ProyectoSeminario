@@ -29,7 +29,7 @@ export class ShowRegisterFormComponent implements OnInit {
   }
 
   goToProfiles() {
-    this.router.navigate(['child/profiles']);
+    this.router.navigate(['child/showProfile/' + this.childId]);
   }
 
   editRegister(child: any) {

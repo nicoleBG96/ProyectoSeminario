@@ -41,6 +41,6 @@ export class ShowProgressProfileComponent implements OnInit {
   }
 
   goToProfiles() {
-    this.router.navigate(['child/profiles']);
+    this.router.navigate(['child/showProfile/' + this.childId]);
   }
 }

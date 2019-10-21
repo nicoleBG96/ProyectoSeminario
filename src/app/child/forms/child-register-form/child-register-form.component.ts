@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {FormGroup, FormBuilder} from '@angular/forms';
-import { Router } from '@angular/router';
+import {FormGroup } from '@angular/forms';
+import { Router} from '@angular/router';
 
 // Service
 import { ChildRegisterService } from '../../../shared/services/child-register.service';
@@ -23,8 +23,9 @@ export class ChildRegisterFormComponent implements OnInit {
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onEdit: EventEmitter<any>;
   file: File;
+  id: any;
 
-  constructor(private childRegisterService: ChildRegisterService, private formBuilder: FormBuilder, private router: Router) {
+  constructor(private childRegisterService: ChildRegisterService, private router: Router) {
     this.onSubmit = new EventEmitter<any>();
     this.onEdit = new EventEmitter<any>();
    }
@@ -54,10 +55,6 @@ export class ChildRegisterFormComponent implements OnInit {
 
   setImage(event) {
     this.childRegisterService.setCurrentImage(event.target.files[0]);
-  }
-
-  goToProfile() {
-    this.router.navigate(['child/profiles']);
   }
 }
 

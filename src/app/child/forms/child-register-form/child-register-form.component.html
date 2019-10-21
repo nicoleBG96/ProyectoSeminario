@@ -21,11 +21,11 @@
                             <mat-label class="subtitle">Información Niño</mat-label>
                             <br>
                             <mat-form-field class="text">
-                                <input class="input" [(ngModel)]="child.firstName" type="text" name="firstName"
-                                    #firstName="ngModel" id="firstName" maxlength="30" required
+                                <input class="input"  type="text" name="firstName" id="firstName" required
+                                    #firstName="ngModel"  maxlength="30" [(ngModel)]="child.firstName"
                                     pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput placeholder="Nombres">
                             </mat-form-field>
-                            <div *ngIf="(firstName.touched || firstName.dirty) && !firstName.valid && firstName.errors"
+                            <div *ngIf="(firstName.touched || firstName.dirty) && !firstName.value && !firstName.valid && firstName.errors"
                                 class="text-alert">
                                 <div *ngIf="firstName.errors.required">Se requiere nombre</div>
                                 <div *ngIf="firstName.errors.pattern">Este campo solo acepta letras</div>
@@ -70,6 +70,7 @@
                                 <mat-label>Sexo</mat-label>
                                 <select matNativeControl required [(ngModel)]="child.sex"
                                     [ngModelOptions]="{standalone: true}">
+                                    <option value=""></option>
                                     <option value="femenino">Femenino</option>
                                     <option value="masculino">Masculino</option>
                                 </select>
@@ -171,6 +172,7 @@
                                 <mat-label>Grado de instrucción</mat-label>
                                 <select matNativeControl required [(ngModel)]="child.degreeOfInstruction"
                                     [ngModelOptions]="{standalone: true}">
+                                    <option value=""></option>
                                     <option value="primaria">Primaria</option>
                                     <option value="secundaria">Secundaria</option>
                                     <option value="tecnicoSuperior">Técnico Superior</option>
@@ -182,6 +184,7 @@
                                 <mat-label>Ocupación</mat-label>
                                 <select matNativeControl required [(ngModel)]="child.activity"
                                     [ngModelOptions]="{standalone: true}">
+                                    <option value=""></option>
                                     <option value="ocupado">Ocupado</option>
                                     <option value="desocupado">Desocupado</option>
                                 </select>
@@ -236,7 +239,7 @@
                 (click)="save()">Guardar</button>
             <button *ngIf="isEdit" class="button" type="submit" mat-raised-button color="primary"
                 (click)="edit(child)">Actualizar </button>
-            <button class="button" type="button" mat-raised-button color="warn" (click)="goToProfile()">Cancelar</button>
+            <button class="button" type="button" mat-raised-button color="warn" >Cancelar</button>
         </div>
     </mat-card-content>
 </mat-card>
