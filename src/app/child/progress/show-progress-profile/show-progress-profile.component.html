@@ -35,6 +35,15 @@
     <br><br>
     <label class="subtitle">PUNTUACIÓN</label>
     <br><br>
+    <label class="subtitle">Motrocidad Gruesa</label>
+    <label class="subtitle-space"> {{(calculateTotal(child.pointA1, child.pointA2, child.pointA3))}}</label>
+    <label class="subtitle">Motrocidad Fina</label>
+    <label class="subtitle-space"> {{(calculateTotal(child.pointB1, child.pointB2, child.pointB3))}}</label>
+    <label class="subtitle">Audición Lenguaje</label>
+    <label class="subtitle-space"> {{(calculateTotal(child.pointC1, child.pointC2, child.pointC3))}}</label>
+    <label class="subtitle">Personal Social</label>
+    <label class="subtitle-space"> {{(calculateTotal(child.pointD1, child.pointD2, child.pointD3))}}</label>
+    <br><br>
     <div class="buttons">
         <button class="button" mat-stroked-button (click)="editProgress(child)" color="primary">Editar</button>
         <button  mat-stroked-button (click)="goToProfiles()" color="warn">Cancelar</button>
