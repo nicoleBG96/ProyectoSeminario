@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 import { ChildRegisterService } from '../../../shared/services/child-register.service';
-import { ChildRegisterModel } from 'src/app/shared/models/child-register.model';
+
 
 @Component({
   selector: 'app-edit-register-child',
@@ -13,7 +14,8 @@ export class EditRegisterChildComponent implements OnInit {
   child: any;
   id: any;
 
-  constructor(private childRegisterService: ChildRegisterService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private childRegisterService: ChildRegisterService, private router: Router, private route: ActivatedRoute,
+              private toastrService: ToastrService) { }
 
   ngOnInit() {
     this.child = this.childRegisterService.getCreatedObject();
@@ -23,9 +25,13 @@ export class EditRegisterChildComponent implements OnInit {
   }
 
   update(event: any) {
-    console.log(this.id);
-    this.childRegisterService.updateChild(this.id, event);
-    this.router.navigate(['child/showRegisterProfile/' + this.id]);
+    if (this.validate(event)) {
+      this.childRegisterService.updateChild(this.id, event);
+      this.router.navigate(['child/showRegisterProfile/' + this.id]);
+      this.toastrService.success('éxito al editar', 'ÉXITO');
+    } else {
+      this.toastrService.error('error al editar, exiten campos vacíos', 'ERROR');
+    }
   }
 
   validate(event: any) {

@@ -12,7 +12,7 @@
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.firstName" type="text" name="firstName"
                                     #firstName="ngModel" id="firstName" maxlength="30" required
-                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput placeholder="Nombres">
+                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ]*$" matInput placeholder="Nombres">
                             </mat-form-field>
                             <div *ngIf="(firstName.touched || firstName.dirty) && !firstName.valid && firstName.errors"
                                 class="text-alert">
@@ -23,7 +23,7 @@
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.lastName" type="text" name="lastName"
                                     #lastName="ngModel" id="lastName" maxlength="30" required
-                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput
+                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ]*$" matInput
                                     placeholder="Apellido Paterno">
                             </mat-form-field>
                             <div *ngIf="(lastName.touched || lastName.dirty) && !lastName.valid && lastName.errors"
@@ -34,7 +34,7 @@
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.mothersLastName" type="text"
                                     name="mothersLastName" #mothersLastName="ngModel" id="mothersLastName"
-                                    maxlength="30" required pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput
+                                    maxlength="30" required pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ]*$" matInput
                                     placeholder="Apellido Materno">
                             </mat-form-field>
                             <div *ngIf="(mothersLastName.touched || mothersLastName.dirty) && !mothersLastName.valid && mothersLastName.errors"
@@ -65,7 +65,7 @@
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.address" type="text" name="address"
                                     #address="ngModel" id="address" maxlength="30" required
-                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç 0-9]*$" matInput placeholder="Direccion">
+                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ #0-9]*$" matInput placeholder="Direccion">
                             </mat-form-field>
                             <div *ngIf="(address.touched || address.dirty) && !address.valid && address.errors"
                                 class="text-alert">
@@ -81,7 +81,7 @@
                             <mat-form-field>
                                 <textarea type="text" class="input" name="description" id="description"
                                     [(ngModel)]="child.description" #description="ngModel" required
-                                    pattern="[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç,.0-9]*$" matInput
+                                    pattern="[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ,.0-9]*$" matInput
                                     placeholder="Descripcion"></textarea>
                             </mat-form-field>
                             <div *ngIf="(description.touched || description.dirty) && !description.valid && description.errors"

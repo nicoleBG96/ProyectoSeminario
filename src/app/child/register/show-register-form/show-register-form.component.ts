@@ -6,6 +6,7 @@ import { ChildRegisterService } from '../../../shared/services/child-register.se
 
 // Model
 import { ChildRegisterModel } from '../../../shared/models/child-register.model';
+import { storage } from 'firebase';
 
 @Component({
   selector: 'app-show-register-form',
@@ -36,5 +37,4 @@ export class ShowRegisterFormComponent implements OnInit {
     this.childRegisterService.setCreatedObject(child);
     this.router.navigate(['child/editRegisterChild/' + this.childId]);
   }
-
 }

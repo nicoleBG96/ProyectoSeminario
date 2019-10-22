@@ -28,6 +28,16 @@ export class EditProgressComponent implements OnInit {
   }
 
   updateProgress(event: any) {
+    if (event.age === 0) {
+      event.pointA2 = 0;
+      event.pointA3 = 0;
+      event.pointB2 = 0;
+      event.pointB3 = 0;
+      event.pointC2 = 0;
+      event.pointC3 = 0;
+      event.pointD2 = 0;
+      event.pointD3 = 0;
+    }
     if (this.validate(event)) {
       this.childProgressService.updateChildProgress(this.id, event);
       this.router.navigate(['child/showProgressProfile/' + this.id]);
@@ -72,14 +82,21 @@ export class EditProgressComponent implements OnInit {
     childProgress.pointD2 = event.pointD2;
     childProgress.pointD3 = event.pointD3;
     childProgress.numberOrder = event.numberOrder;
-    console.log(childProgress);
     if (childProgress.firstName === '' || childProgress.lastName === '' || childProgress.mothersLastName === '' ||
       childProgress.birthDate === null || childProgress.sex === '' || childProgress.size === '' ||
       childProgress.weight === '' || childProgress.date === null || childProgress.age === null || childProgress.folio === ''
-      || childProgress.numberOrder === '' || childProgress.numberOrder === undefined) {
+      || childProgress.numberOrder === '' || childProgress.numberOrder === undefined || childProgress.pointA1 === null ||
+      childProgress.pointA1 === undefined || childProgress.pointB1 === null || childProgress.pointB1 === undefined
+      || childProgress.pointC1 === null || childProgress.pointC1 === undefined || childProgress.pointD1 === null
+      || childProgress.pointD1 === undefined || childProgress.pointA2 === null ||  childProgress.pointA2 === undefined
+      || childProgress.pointB2 === null || childProgress.pointB2 === undefined || childProgress.pointC2 === null
+      || childProgress.pointC2 === undefined || childProgress.pointD2 === null || childProgress.pointD2 === undefined
+      || childProgress.pointA3 === null || childProgress.pointA3 === undefined || childProgress.pointB3 === null
+      || childProgress.pointB3 === undefined || childProgress.pointC3 === null || childProgress.pointC3 === undefined
+      || childProgress.pointD3 === null || childProgress.pointD3 === undefined) {
         correct = false;
-      } else {
-      correct = true;
+        } else {
+        correct = true;
     }
     return correct;
   }

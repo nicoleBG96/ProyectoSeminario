@@ -21,11 +21,11 @@
                             <mat-label class="subtitle">Información Niño</mat-label>
                             <br>
                             <mat-form-field class="text">
-                                <input class="input"  type="text" name="firstName" id="firstName" required
-                                    #firstName="ngModel"  maxlength="30" [(ngModel)]="child.firstName"
-                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput placeholder="Nombres">
+                                <input class="input"  type="text" name="firstName" id="firstName" #firstName="ngModel"
+                                    required maxlength="30" [(ngModel)]="child.firstName"
+                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ]*$" matInput placeholder="Nombres">
                             </mat-form-field>
-                            <div *ngIf="(firstName.touched || firstName.dirty) && !firstName.value && !firstName.valid && firstName.errors"
+                            <div *ngIf="(firstName.touched || firstName.dirty)  && !firstName.valid && firstName.errors"
                                 class="text-alert">
                                 <div *ngIf="firstName.errors.required">Se requiere nombre</div>
                                 <div *ngIf="firstName.errors.pattern">Este campo solo acepta letras</div>
@@ -34,7 +34,7 @@
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.lastName" type="text" name="lastName"
                                     #lastName="ngModel" id="lastName" maxlength="30" required
-                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput
+                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ]*$" matInput
                                     placeholder="Apellido Paterno">
                             </mat-form-field>
                             <div *ngIf="(lastName.touched || lastName.dirty) && !lastName.valid && lastName.errors"
@@ -46,7 +46,7 @@
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.mothersLastName" type="text"
                                     name="mothersLastName" #mothersLastName="ngModel" id="mothersLastName"
-                                    maxlength="30" required pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput
+                                    maxlength="30" required pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ]*$" matInput
                                     placeholder="Apellido Materno">
                             </mat-form-field>
                             <div *ngIf="(mothersLastName.touched || mothersLastName.dirty) && !mothersLastName.valid && mothersLastName.errors"
@@ -79,22 +79,22 @@
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.size" type="text" name="size" #size="ngModel"
                                     id="size" maxlength="4" required pattern="^[0-9]+.[0-9]+[0-9]$" matInput
-                                    placeholder="Talla m (2 decimales)">
+                                    placeholder="Talla m (ejm 1.23)">
                             </mat-form-field>
                             <div *ngIf="(size.touched || size.dirty) && !size.valid && size.errors" class="text-alert">
                                 <div *ngIf="size.errors.required">Se requiere Talla</div>
-                                <div *ngIf="size.errors.pattern">Este campo solo acepta números</div>
+                                <div *ngIf="size.errors.pattern">Patrón incorrecto</div>
                             </div>
                             <br>
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.weight" type="text" name="weight"
-                                    #weight="ngModel" id="weight" maxlength="6" required pattern="^[0-9]+.[0-9]+[0-9]$"
-                                    matInput placeholder="Peso Kg (2 decimales)">
+                                    #weight="ngModel" id="weight" maxlength="5" required pattern="^[0-9]+[0-9]+.[0-9]+[0-9]$"
+                                    matInput placeholder="Peso Kg (ejm 38.22)">
                             </mat-form-field>
                             <div *ngIf="(weight.touched || weight.dirty) && !weight.valid && weight.errors"
                                 class="text-alert">
                                 <div *ngIf="weight.errors.required">Se requiere Peso</div>
-                                <div *ngIf="weight.errors.pattern">Este campo solo acepta números</div>
+                                <div *ngIf="weight.errors.pattern">Patrón incorrecto</div>
                             </div>
                         </div>
                         <div class="right">
@@ -104,7 +104,7 @@
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.municipality" type="text" name="municipality"
                                     #municipality="ngModel" id="municipality" maxlength="30" required
-                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput placeholder="Municipalidad">
+                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ]*$" matInput placeholder="Municipalidad">
                             </mat-form-field>
                             <div *ngIf="(municipality.touched || municipality.dirty) && !municipality.valid && municipality.errors"
                                 class="text-alert">
@@ -115,7 +115,7 @@
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.district" type="text" name="district"
                                     #district="ngModel" id="district" maxlength="30" required
-                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput placeholder="Distrito">
+                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ]*$" matInput placeholder="Distrito">
                             </mat-form-field>
                             <div *ngIf="(district.touched || district.dirty) && !district.valid && district.errors"
                                 class="text-alert">
@@ -125,7 +125,7 @@
                             <br>
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.zone" type="text" name="zone" #zone="ngModel"
-                                    id="zone" maxlength="30" required pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$"
+                                    id="zone" maxlength="30" required pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ]*$"
                                     matInput placeholder="Zona">
                             </mat-form-field>
                             <div *ngIf="(zone.touched || zone.dirty) && !zone.valid && zone.errors" class="text-alert">
@@ -135,7 +135,7 @@
                             <br>
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.street" type="text" name="street"
-                                    #street="ngModel" id="street" maxlength="30" required pattern="^[a-zA-Z #0-9]*$"
+                                    #street="ngModel" id="street" maxlength="30" required pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ #0-9]*$"
                                     matInput placeholder="Calle">
                             </mat-form-field>
                             <div *ngIf="(street.touched || street.dirty) && !street.valid && street.errors"
@@ -148,7 +148,7 @@
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.nameOfTutor" type="text" name="nameOfTutor"
                                     #nameOfTutor="ngModel" id="nameOfTutor" maxlength="40" required
-                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput
+                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ]*$" matInput
                                     placeholder="Nombre del tutor">
                             </mat-form-field>
                             <div *ngIf="(nameOfTutor.touched || nameOfTutor.dirty) && !nameOfTutor.valid && nameOfTutor.errors"
@@ -159,13 +159,14 @@
                             <br>
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.phone" type="text" name="phone" #phone="ngModel"
-                                    id="phone" maxlength="8" required pattern="^[0-9]*$" matInput
+                                    id="phone" maxlength="8" minlength="7" required pattern="^[0-9]*$" matInput
                                     placeholder="Teléfono">
                             </mat-form-field>
                             <div *ngIf="(phone.touched || phone.dirty) && !phone.valid && phone.errors"
                                 class="text-alert">
                                 <div *ngIf="phone.errors.required">Se requiere Telefono</div>
                                 <div *ngIf="phone.errors.pattern">Este campo solo acepta números</div>
+                                <div *ngIf="phone.errors.minlength">Mínimo 7 números</div>
                             </div>
                             <br>
                             <mat-form-field class="text">
@@ -193,7 +194,7 @@
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.anotherReference" type="text"
                                     name="anotherReference" #anotherReference="ngModel" id="anotherReference"
-                                    maxlength="40" required pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç]*$" matInput
+                                    maxlength="40" required pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ #0-9]*$" matInput
                                     placeholder="Otra referencia">
                             </mat-form-field>
                             <br>
