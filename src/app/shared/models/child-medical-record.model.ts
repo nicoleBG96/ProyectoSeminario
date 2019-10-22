@@ -1,20 +1,18 @@
 export class ChildMedicalRecordModel {
-    key: string;
     firstName: string;
     lastName: string;
     mothersLastName: string;
-    age: string;
+    age: number;
     sex: string;
     address: string;
     date: Date;
     description: string;
 
     constructor() {
-        this.key = '';
         this.firstName = '';
         this.lastName = '';
         this.mothersLastName = '';
-        this.age = '';
+        this.age = null;
         this.sex = '';
         this.address = '';
         this.date = null;

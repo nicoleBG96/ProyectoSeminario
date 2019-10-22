@@ -40,7 +40,7 @@ export class ChildRegisterComponent implements OnInit {
       this.router.navigate(['child/showRegisterProfile/' + latestKey]);
       this.toastrService.success('exito al registrar', 'ÉXITO');
     } else {
-      this.toastrService.error('error al registrar', 'ERROR');
+      this.toastrService.error('error al registrar, existen campos vacios', 'ERROR');
     }
   }
 

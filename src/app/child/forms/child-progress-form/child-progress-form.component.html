@@ -101,7 +101,7 @@
                             <mat-label class="subtitle">Antropometría</mat-label>
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.weight" type="text" name="weight"
-                                    #weight="ngModel" id="weight" maxlength="5" required pattern="^[0-9]*$" matInput
+                                    #weight="ngModel" id="weight" maxlength="5" required pattern="^[0-9]+.[0-9]+[0-9]$" matInput
                                     placeholder="Peso Kg (2 decimales)">
                             </mat-form-field>
                             <div *ngIf="(weight.touched || weight.dirty) && !weight.valid && weight.errors"
@@ -114,7 +114,7 @@
                             <br><br>
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.size" type="text" name="size" #size="ngModel"
-                                    id="size" maxlength="4" required pattern="^[0-9]*$" matInput
+                                    id="size" maxlength="4" required pattern="^[0-9]+.[0-9]+[0-9]$" matInput
                                     placeholder="Talla m (2 decimales)">
                             </mat-form-field>
                             <div *ngIf="(size.touched || size.dirty) && !size.valid && size.errors" class="text-alert">

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 import { ChildMedicalRecordService } from '../../../shared/services/child-medical-record.service';
+
+import { ChildMedicalRecordModel } from '../../../shared/models/child-medical-record.model';
 
 @Component({
   selector: 'app-edit-medical-record',
@@ -12,7 +15,8 @@ export class EditMedicalRecordComponent implements OnInit {
   child: any;
   id: any;
 
-  constructor(private childMedicalRecordService: ChildMedicalRecordService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private childMedicalRecordService: ChildMedicalRecordService, private route: ActivatedRoute, private router: Router,
+              private toastrService: ToastrService) { }
 
   ngOnInit() {
     this.child = this.childMedicalRecordService.getCreatedObject();
@@ -24,8 +28,13 @@ export class EditMedicalRecordComponent implements OnInit {
   }
 
   updateMedicalRecord(event: any) {
-    this.childMedicalRecordService.updateChildMedicalRecord(this.id, event);
-    this.router.navigate(['child/showMedicalRecordProfile/' + this.id]);
+    if (this.validate(event)) {
+      this.childMedicalRecordService.updateChildMedicalRecord(this.id, event);
+      this.router.navigate(['child/showMedicalRecordProfile/' + this.id]);
+      this.toastrService.success('éxito al editar', 'ÉXITO');
+    } else {
+      this.toastrService.error('error al editar, existen campos vacíos', 'ERROR');
+    }
   }
 
   calculateAge() {
@@ -37,5 +46,26 @@ export class EditMedicalRecordComponent implements OnInit {
       age--;
     }
     return age;
+  }
+
+  validate(event: any) {
+    let correct = true;
+    const childMedical = new ChildMedicalRecordModel();
+    childMedical.firstName = event.firstName;
+    childMedical.lastName = event.lastName;
+    childMedical.mothersLastName = event.mothersLastName;
+    childMedical.sex = event.sex;
+    childMedical.age = this.calculateAge();
+    childMedical.date = new Date();
+    childMedical.address = event.address;
+    childMedical.description = event.description;
+    if (childMedical.firstName === '' || childMedical.lastName === '' || childMedical.mothersLastName === '' ||
+      childMedical.sex === '' || childMedical.age === null || childMedical.date === null || childMedical.address === ''
+      || childMedical === undefined || childMedical.description === null || childMedical.description === undefined) {
+      correct = false;
+    } else {
+      correct = true;
+    }
+    return correct;
   }
 }
