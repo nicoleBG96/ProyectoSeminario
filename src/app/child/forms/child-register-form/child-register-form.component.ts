@@ -56,5 +56,13 @@ export class ChildRegisterFormComponent implements OnInit {
   setImage(event) {
     this.childRegisterService.setCurrentImage(event.target.files[0]);
   }
+
+  disabledButton() {
+    if (this.child.image === '') {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
