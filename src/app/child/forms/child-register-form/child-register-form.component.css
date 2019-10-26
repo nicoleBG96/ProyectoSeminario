@@ -1,23 +1,24 @@
 .card {
-    width: 90%;
-    margin-left: 5%;
+    width: 70%;
+    margin-left: 15%;
 }
 
 .title {
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 30px;
-    text-align: center;
     color:  #1d1545;
+    margin-left: 30%;
 }
 
 .input {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 25px;
+    font-size: 22px;
 }
 
 .text {
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
+    margin-left: 5%;
 }
 
 .text-alert {
@@ -32,17 +33,17 @@
 
 .left {
     float: left;
-    width: 70%;
+    width: 60%;
 }
 
 .right {
-    margin-left: 50%;
+    margin-left: 45%;
     width: 50%;
 }
 
 .subtitle {
     font-family: "Arial Black", Gadget, sans-serif;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .option {
@@ -53,7 +54,7 @@
 .compromise {
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .rules {
@@ -73,4 +74,9 @@
 
 .photo-container{
     margin: 5px 0;
+    margin-left: 60%;
+}
+
+.right-subtitle {
+    margin-left: 70%;
 }

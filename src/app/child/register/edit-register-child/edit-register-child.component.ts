@@ -39,7 +39,7 @@ export class EditRegisterChildComponent implements OnInit {
     if (event.firstName === '' || event.lastName === '' || event.mothersLastName === '' || event.admissionDate === null ||
         event.birthDate === null || event.sex === '' || event.size === '' || event.weight === '' || event.municipality === '' ||
         event.district === '' || event.zone === '' || event.street === '' || event.nameOfTutor === '' || event.phone === '' ||
-        event.degreeOfInstruction === '' || event.activity === '' ) {
+        event.degreeOfInstruction === '' || event.activity === '' || event.image === '') {
       correct = false;
     }
     return correct;
