@@ -1,25 +1,32 @@
-.subtitle {
+.card {
+    width: 80%;
+    margin-left: 10%;
+}
+
+.subtitle1 {
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+}
+
+.subtitle {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
     font-weight: 800;
 }
 
 .subtitle-space {
-    margin-right: 10%;
+    margin-right: 5%;
 }
 
 .title {
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
     font-weight: 800;
+    text-align: center;
 }
 
-.subtitle-folio {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-    font-weight: 800;
-    margin-left: 65%;
-}
 
 .buttons {
     margin-left: 40%;
@@ -27,4 +34,48 @@
 
 .button {
     margin-right: 5px;
+} 
+
+.main {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.left {
+    width: 33%;
+    height: 100%;
+    float: left;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.center {
+    width: auto;
+    height: 100%; 
+    float: left;
+}
+
+.right {
+    width: 33%;
+    height: 100%;            
+    float: right;
+}
+
+.main_second {
+    margin-top: 15%;
+    width: 70%;
+    margin-left: 15%;
+}
+
+
+.left_second {
+    width: 50%;
+    float: left;
+    margin-left: 5%;
+}
+
+.right_second {
+    margin-left: 50%;
+    width: 50%;   
 }

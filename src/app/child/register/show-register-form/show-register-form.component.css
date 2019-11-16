@@ -1,7 +1,20 @@
-.subtitle {
+.card {
+    width: 70%;
+    margin-left: 15%;
+}
+
+.subtitle1 {
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
-    font-weight: 800;
+    font-weight: 700;
+    margin-left: 5%;
+    line-height: 20px;
+}
+
+.subtitle {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: 700;
 }
 
 .subtitle-space {
@@ -12,6 +25,7 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
     font-weight: 800;
+    text-align: center;
 }
 
 .buttons {
@@ -24,4 +38,14 @@
 
 .image {
     margin-left: 70%;
+}
+
+.left {
+    float: left;
+    width: 60%;
+}
+
+.right {
+    margin-left: 45%;
+    width: 50%;
 }

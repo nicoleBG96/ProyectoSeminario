@@ -6,6 +6,7 @@ export class ProfileModel {
     sex: string;
     date: Date;
     isDisable: boolean;
+    image: string;
 
     constructor() {
         this.firstName = '';
@@ -15,5 +16,6 @@ export class ProfileModel {
         this.sex = '';
         this.date = null;
         this.isDisable = false;
+        this.image = '';
     }
 }

@@ -8,6 +8,7 @@
 .subtitle {
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 15px;
+    font-weight: 700;
 }
 
 .button {
@@ -37,4 +38,8 @@
     height: 5%;
     background-color: darkcyan;
     color: white;
+}
+
+.image {
+    margin-left: 70%;
 }

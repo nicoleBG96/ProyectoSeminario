@@ -1,51 +1,68 @@
-<h1 class="title">Ficha de Desarrollo Infantil</h1>
-<br>
-<mat-card>
-    <label class="subtitle-folio">Folio: </label>
-    <label> {{child.folio}}</label>
-    <br>
-    <label class="subtitle-folio">Número de Orden: </label>
-    <label> {{child.numberOrder}}</label>
-    <br>
-    <label class="subtitle-folio">Fecha de Entrevista: </label>
-    <label> {{child.date}}</label>
-    <br>
-    <label class="subtitle">Apellido Paterno: </label>
-    <label> {{child.lastName}}</label>
-    <br>
-    <label class="subtitle">Apellido Materno: </label>
-    <label> {{child.mothersLastName}}</label>
-    <br>
-    <label class="subtitle">Nombres: </label>
-    <label> {{child.firstName}}</label>
-    <br><br>
-    <label class="subtitle">Fecha de Nacimiento: </label>
-    <label class="subtitle-space"> {{child.birthDate}}</label>
-    <label class="subtitle">Edad en Meses: </label>
-    <label class="subtitle-space"> {{child.age}}</label>
-    <label class="subtitle">Sexo: </label>
-    <label class="subtitle-space"> {{child.sex}}</label>
-    <br>
-    <label class="subtitle">Peso: </label>
-    <label> {{child.weight}}</label>
-    <label class="subtitle-space">Kg.</label>
-    <label class="subtitle">Talla: </label>
-    <label> {{child.size}}</label>
-    <label class="subtitle-space">m.</label>
+<mat-card class="card">
+    <h1 class="title">Ficha de Desarrollo Infantil</h1>
+    <br><br><br>
+    <div class="main">
+        <div class="left">
+            <label class="subtitle1">Nombres: </label>
+            <label> {{child.firstName}}</label>
+            <br>
+            <label class="subtitle1">Apellido Paterno: </label>
+            <label> {{child.lastName}}</label>
+            <br>
+            <label class="subtitle1">Apellido Materno: </label>
+            <label> {{child.mothersLastName}}</label>
+            <br>
+            <label class="subtitle1">Fecha de Nacimiento: </label>
+            <label class="subtitle-space"> {{child.birthDate}}</label>
+        </div>
+        <div class="center">
+            <label class="subtitle1">Número de Orden: </label>
+            <label> {{child.numberOrder}}</label>
+            <br>
+            <label class="subtitle1">Edad en Meses: </label>
+            <label class="subtitle-space"> {{child.age}}</label>
+        </div>
+        <div class="right">
+            <label class="subtitle1">Folio: </label>
+            <label> {{child.folio}}</label>
+            <br>
+            <label class="subtitle1">Sexo: </label>
+            <label class="subtitle1-space"> {{child.sex}}</label>
+            <br>
+            <label class="subtitle1">Fecha de Entrevista: </label>
+            <label> {{child.date}}</label>
+        </div>
+    </div>
+    <div class="main_second">
+        <label class="subtitle">ANTROPOMETRÍA</label>
+        <br><br>
+        <div class="left_second">
+            <label class="subtitle1">Peso: </label>
+            <label> {{child.weight}} </label>
+            <label class="subtitle-space">Kg.</label>
+        </div>
+        <div class="right_second">
+            <br>
+            <label class="subtitle1">Talla: </label>
+            <label> {{child.size}}</label>
+            <label>m.</label>
+        </div>
+    </div>
     <br><br>
     <label class="subtitle">PUNTUACIÓN</label>
     <br><br>
-    <label class="subtitle">Motrocidad Gruesa</label>
+    <label class="subtitle1">Motrocidad Gruesa</label>
     <label class="subtitle-space"> {{(calculateTotal(child.pointA1, child.pointA2, child.pointA3))}}</label>
-    <label class="subtitle">Motrocidad Fina</label>
+    <label class="subtitle1">Motrocidad Fina</label>
     <label class="subtitle-space"> {{(calculateTotal(child.pointB1, child.pointB2, child.pointB3))}}</label>
-    <label class="subtitle">Audición Lenguaje</label>
+    <label class="subtitle1">Audición Lenguaje</label>
     <label class="subtitle-space"> {{(calculateTotal(child.pointC1, child.pointC2, child.pointC3))}}</label>
-    <label class="subtitle">Personal Social</label>
+    <label class="subtitle1">Personal Social</label>
     <label class="subtitle-space"> {{(calculateTotal(child.pointD1, child.pointD2, child.pointD3))}}</label>
+    <br><br>
     <br><br>
     <div class="buttons">
         <button class="button" mat-stroked-button (click)="editProgress(child)" color="primary">Editar</button>
-        <button  mat-stroked-button (click)="goToProfiles()" color="warn">Cancelar</button>
+        <button mat-stroked-button (click)="goToProfiles()" color="warn">Cancelar</button>
     </div>
 </mat-card>

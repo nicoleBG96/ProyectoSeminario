@@ -3,12 +3,23 @@
     position: fixed;
     margin-top: auto;
     width: 100%;
-    height: 80px;
-    color: black;
+    height: 5%;
+    color: white;
     text-align: center;
     padding: 0.9em;
-    background-color: #fefdfd;
-    z-index: 18;
+    background-color: #375A7F;
+    z-index: 16;
     font-family: Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 15px;
+}
+
+.left {
+    float: left;
+    margin-left: 0%;
+    text-align: left;
+}
+
+.right {
+    margin-left: 65%;
+    width: 50%;
 }

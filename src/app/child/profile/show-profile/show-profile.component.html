@@ -1,34 +1,39 @@
-<h1 class="title">Perfil </h1>
-<br>
-<mat-card>
-    <label class="subtitle">Apellido Paterno: </label>
-    <label> {{profile.lastName}}</label>
-    <br>
-    <label class="subtitle">Apellido Materno: </label>
-    <label> {{profile.morthersLastName}}</label>
-    <br>
-    <label class="subtitle"> Nombres:</label>
-    <label> {{profile.firstName}}</label>
-    <br>
-    <label class="subtitle">Fecha de Nacimiento: </label>
-    <label> {{profile.birthDate}}</label>
-    <br>
-    <label class="subtitle"> Sexo:</label>
-    <label> {{profile.sex}}</label>
-    <br>
-    <label class="subtitle"> Fecha de Admisión:</label>
-    <label> {{profile.admissionDate}}</label>
-    <br>
-    <label class="subtitle">Estado: </label>
-    <label> {{(getStatus(profile))}}</label>
+<mat-card class="card">
+    <h1 class="title">Perfil </h1>
+    <img class="image" src="{{profile.image}}" alt="" height="100" width="100">
     <br><br>
-    <button mat-stroked-button *ngIf="!profile.isDisable" color="accent" (click)="status(profile, true)">Inhabilitar</button>
-    <button mat-stroked-button *ngIf="profile.isDisable" color="accent" (click)="status(profile, false)">Habilitar</button>
+    <div class="left">
+        <label class="subtitle"> Nombres:</label>
+        <label> {{profile.firstName}}</label>
+        <br>
+        <label class="subtitle">Apellido Paterno: </label>
+        <label> {{profile.lastName}}</label>
+        <br>
+        <label class="subtitle">Apellido Materno: </label>
+        <label> {{profile.morthersLastName}}</label>
+        <br>
+        <label class="subtitle">Fecha de Nacimiento: </label>
+        <label> {{profile.birthDate}}</label>
+    </div>
+    <div class="right">
+        <label class="subtitle"> Sexo:</label>
+        <label> {{profile.sex}}</label>
+        <br>
+        <label class="subtitle"> Fecha de Admisión:</label>
+        <label> {{profile.admissionDate}}</label>
+        <br>
+        <label class="subtitle">Estado: </label>
+        <label class="subtitle-space"> {{(getStatus(profile))}}</label>
+        <button mat-stroked-button *ngIf="!profile.isDisable" color="accent"
+            (click)="status(profile, true)">Inhabilitar</button>
+        <button mat-stroked-button *ngIf="profile.isDisable" color="accent"
+            (click)="status(profile, false)">Habilitar</button>
+    </div>
     <br><br>
     <div class="buttons">
         <button class="button" mat-stroked-button (click)="goToRegister(child)" color="primary">Registro</button>
         <button class="button" mat-stroked-button (click)="goToMedicalRecord()" color="primary">Ficha Médica</button>
         <button class="button" mat-stroked-button (click)="goToProgress()" color="primary">Ficha Desarrollo</button>
-        <button  mat-stroked-button (click)="goToProfiles()" color="warn">Cancelar</button>
+        <button mat-stroked-button (click)="goToProfiles()" color="warn">Cancelar</button>
     </div>
 </mat-card>
