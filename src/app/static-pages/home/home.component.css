@@ -1,0 +1,29 @@
+.title {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 40px;
+    margin-left: 30%;
+}
+
+.subtitle {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 25px;
+}
+
+.card {
+    width: 70%;
+    margin-left: 15%;
+}
+
+.description {
+    font-family: Helvetica, sans-serif;
+    font-size: 25px;
+    margin-left: 5%;
+    margin-right: 5%;
+    color: black;
+    line-height: 30px;
+}
+
+.toolbar {
+    margin-left: 2%;
+    background-color: white;
+}

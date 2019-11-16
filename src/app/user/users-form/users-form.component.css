@@ -1,0 +1,30 @@
+.card {
+    width: 30%;
+    margin-left: 35%;
+}
+
+.text-alert {
+    color: red;
+}
+
+.input {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+.text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+.title {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 30px;
+    text-align: center;
+    color: #2b52cb;
+}
+
+.button {
+    margin-left: 5%;
+    margin-right: 5%;
+}

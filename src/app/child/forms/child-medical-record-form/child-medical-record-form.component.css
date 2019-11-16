@@ -1,0 +1,57 @@
+.card {
+    width: 60%;
+    margin-left: 20%;
+}
+
+.title {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 30px;
+    margin-left: 30%;
+    color:  #1d1545;
+}
+
+.input {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+
+.text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+.text-alert {
+    color: red;
+}
+
+.main{
+    display: flex;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+.left {
+    float: left;
+    margin-left: 10%;
+    width: 70%;
+}
+
+.right {
+    margin-left: 60%;
+    width: 60%;
+}
+
+.buttons {
+    margin-left: 35%;
+}
+
+.button {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.description {
+    margin-left: 10%;
+    height: 100%;
+    width: 100%;
+}

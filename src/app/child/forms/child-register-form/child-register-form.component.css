@@ -1,0 +1,78 @@
+.card {
+    width: 70%;
+    margin-left: 15%;
+}
+
+.title {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 30px;
+    color:  #1d1545;
+    margin-left: 30%;
+}
+
+.input {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+}
+
+.text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin-left: 5%;
+}
+
+.text-alert {
+    color: red;
+}
+
+.main{
+    display: flex;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+.left {
+    float: left;
+    width: 60%;
+}
+
+.right {
+    margin-left: 45%;
+    width: 50%;
+}
+
+.subtitle {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 20px;
+}
+
+.option {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+
+.compromise {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.rules {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    margin-left: 5%;
+}
+
+.buttons {
+    margin-left: 35%;
+}
+
+.button {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.photo-container{
+    margin: 5px 0;
+    margin-left: 60%;
+}

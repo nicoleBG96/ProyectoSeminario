@@ -9,7 +9,7 @@ export const environment = {
     authDomain: 'proyectoseminario-1d37f.firebaseapp.com',
     databaseURL: 'https://proyectoseminario-1d37f.firebaseio.com',
     projectId: 'proyectoseminario-1d37f',
-    storageBucket: '',
+    storageBucket: 'proyectoseminario-1d37f.appspot.com',
     messagingSenderId: '596036750679',
     appId: '1:596036750679:web:721b5a172078bf31'
   }
