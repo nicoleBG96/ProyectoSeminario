@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 import { MensualityModel } from '../../../shared/models/mensuality.model';
 
@@ -12,13 +13,27 @@ import { MensualityService } from '../../../shared/services/mensuality.service';
 })
 export class RegisterMensualityComponent implements OnInit {
 
-  constructor(private mensualityService: MensualityService, private router: Router) { }
+  constructor(private mensualityService: MensualityService, private router: Router, private toastrService: ToastrService) { }
 
   ngOnInit() {
   }
 
   registerMensuality(event: MensualityModel) {
+    if (this.validate (event)) {
     this.mensualityService.createMensuality(event);
     this.router.navigate(['finances/registerMensualities']);
+    this.toastrService.success('exito al registrar', 'ÉXITO');
+    } else {
+      this.toastrService.error('error al registrar existen campos vacios, ERROR')
+    }
+  }
+
+  validate(event: any) {
+    let correct = true;
+    if (event.firstName === '' || event.lastName === '' || event.mothersLastName === '' || event.monthToPay === ''
+        || event.amount === '' || event.date === null) {
+      correct = false;
+    }
+    return correct;
   }
 }

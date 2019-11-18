@@ -9,7 +9,6 @@ export class MensualityModel {
 
     constructor() {
         this.firstName = '';
-        this.firstName = '';
         this.lastName = '';
         this.mothersLastName = '';
         this.date = null;

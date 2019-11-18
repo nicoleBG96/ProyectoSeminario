@@ -25,9 +25,25 @@
 }
 
 .buttons {
-    margin-left: 5%;
+    margin-left: 35%;
 }
 
 .button {
     margin-left: 5%;
+}
+
+.main{
+    display: flex;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+.left {
+    float: left;
+    width: 60%;
+}
+
+.right {
+    margin-left: 45%;
+    width: 50%;
 }
