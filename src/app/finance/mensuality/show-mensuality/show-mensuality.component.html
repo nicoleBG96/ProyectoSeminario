@@ -1,0 +1,28 @@
+<mat-card class="card">
+    <h1 class="title">Registro Mensualidad</h1>
+    <br><br>
+    <div class="main">
+        <label class="subtitle">Nombres: </label>
+        <label> {{mensuality.firstName}}</label>
+        <br>
+        <label class="subtitle">Apellido Paterno: </label>
+        <label> {{mensuality.lastName}}</label>
+        <br>
+        <label class="subtitle">Apellido Materno: </label>
+        <label> {{mensuality.mothersLastName}}</label>
+        <br>
+        <label class="subtitle">Fecha: </label>
+        <label> {{mensuality.date}}</label>
+        <br>
+        <label class="subtitle">Mes a pagar: </label>
+        <label> {{mensuality.monthToPay}}</label>
+        <br>
+        <label class="subtitle">Monto: </label>
+        <label> {{mensuality.amount}}</label>
+    </div>
+    <br><br>
+    <div class="buttons">
+        <button class="button" mat-stroked-button  color="primary">Todas las papeletas</button>
+        <button class="button" mat-stroked-button (click)="goToMensualities()" color="warn">Cancelar</button>
+    </div>
+</mat-card>

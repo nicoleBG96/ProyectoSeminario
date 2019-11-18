@@ -3,8 +3,10 @@ import { map } from 'rxjs/operators';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {AngularFireList} from 'angularfire2/database';
 import { AngularFireStorage } from 'angularfire2/storage';
+import * as fb from 'firebase';
 
 import { MensualityModel } from '../models/mensuality.model';
+import { Key } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +27,11 @@ export class MensualityService {
   }
 
   createMensuality(mensuality: MensualityModel) {
-    this.firebase.list('mensualities').push(mensuality);
+    return this.firebase.list('mensualities').push(mensuality).key;
+  }
+
+  getMensualitybyId(id: string) {
+    const ref = fb.database().ref('mensualities');
+    return ref.child(id).once('value').then((snapshot) => snapshot.val());
   }
 }

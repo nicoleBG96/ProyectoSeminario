@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { MensualityService } from '../../../shared/services/mensuality.service';
 
@@ -12,7 +13,7 @@ export class MensualityListComponent implements OnInit {
   itemList: any[];
   total = 0;
 
-  constructor(private mensualityService: MensualityService) { }
+  constructor(private mensualityService: MensualityService, private router: Router) { }
 
   ngOnInit() {
     this.mensualityService.getMensualities().subscribe(item => {
@@ -21,5 +22,9 @@ export class MensualityListComponent implements OnInit {
         this.total = this.total + parseInt(mensuality.amount, 10);
       });
     });
+  }
+
+  goToMensuality(mensuality: any) {
+    this.router.navigate(['finances/showMensuality/' + mensuality.key]);
   }
 }
