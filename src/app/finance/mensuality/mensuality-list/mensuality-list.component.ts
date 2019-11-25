@@ -41,6 +41,7 @@ export class MensualityListComponent implements OnInit {
   }
 
   filter() {
+    this.total = 0;
     this.mensualitiesList = this.originalList;
     if (this.selectedValue !== '') {
       // tslint:disable-next-line:max-line-length
