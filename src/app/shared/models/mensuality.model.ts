@@ -1,5 +1,6 @@
 export class MensualityModel {
     $key: string;
+    childKey: string;
     firstName: string;
     lastName: string;
     mothersLastName: string;
@@ -8,6 +9,7 @@ export class MensualityModel {
     amount: string;
 
     constructor() {
+        this.childKey = '';
         this.firstName = '';
         this.lastName = '';
         this.mothersLastName = '';

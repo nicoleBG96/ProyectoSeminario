@@ -7,12 +7,14 @@ import { ChildRegisterService } from '../../../shared/services/child-register.se
 import { ChildMedicalRecordService } from '../../../shared/services/child-medical-record.service';
 import { ChildProgressService } from '../../../shared/services/child-progress.service';
 import { ProfileService } from '../../../shared/services/profile.service';
+import { MensualityService } from '../../../shared/services/mensuality.service';
 
 // Model
 import { ChildRegisterModel } from '../../../shared/models/child-register.model';
 import { ChildMedicalRecordModel } from '../../../shared/models/child-medical-record.model';
 import { ChildProgressModel } from '../../../shared/models/child-progress.model';
 import { ProfileModel } from '../../../shared/models/profile.model';
+import { MensualityModel } from '../../../shared/models/mensuality.model';
 
 @Component({
   selector: 'app-child-register',
@@ -23,7 +25,8 @@ export class ChildRegisterComponent implements OnInit {
 
   constructor(private childRegisterService: ChildRegisterService, private router: Router,
               private childMedicalRecordService: ChildMedicalRecordService, private childProgressService: ChildProgressService,
-              private profileService: ProfileService, private toastrService: ToastrService) { }
+              private profileService: ProfileService, private toastrService: ToastrService,
+              private mensualityService: MensualityService) { }
 
   ngOnInit() {
   }

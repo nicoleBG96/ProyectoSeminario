@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { ProfileService } from '../../../shared/services/profile.service';
 import { ProfileModel } from '../../../shared/models/profile.model';
+import { MensualityService } from 'src/app/shared/services/mensuality.service';
 
 @Component({
   selector: 'app-show-profile',
@@ -13,7 +14,8 @@ export class ShowProfileComponent implements OnInit {
   profile = new ProfileModel();
   childId: any;
 
-  constructor(private profileService: ProfileService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private profileService: ProfileService, private route: ActivatedRoute, private router: Router,
+              private mensualityService: MensualityService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap: any) => {
@@ -53,5 +55,10 @@ export class ShowProfileComponent implements OnInit {
 
   goToProgress(child: any) {
     this.router.navigate(['child/showProgressProfile/' + this.childId]);
+  }
+
+  goToMensualities(child: any) {
+    this.mensualityService.setMensuality(this.childId);
+    this.router.navigate(['finances/registerMensuality']);
   }
 }

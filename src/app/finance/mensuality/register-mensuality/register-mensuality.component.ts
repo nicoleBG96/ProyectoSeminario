@@ -20,9 +20,9 @@ export class RegisterMensualityComponent implements OnInit {
 
   registerMensuality(event: MensualityModel) {
     if (this.validate (event)) {
-    const latestKey = this.mensualityService.createMensuality(event);
-    this.router.navigate(['finances/showMensuality/' + latestKey]);
-    this.toastrService.success('exito al registrar', 'ÉXITO');
+      const latestKey = this.mensualityService.createMensuality(event);
+      this.router.navigate(['finances/showMensuality/' + latestKey]);
+      this.toastrService.success('exito al registrar', 'ÉXITO');
     } else {
       this.toastrService.error('error al registrar existen campos vacios, ERROR');
     }

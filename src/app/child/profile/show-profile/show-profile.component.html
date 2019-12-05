@@ -10,7 +10,7 @@
         <label> {{profile.lastName}}</label>
         <br>
         <label class="subtitle">Apellido Materno: </label>
-        <label> {{profile.morthersLastName}}</label>
+        <label> {{profile.mothersLastName}}</label>
         <br>
         <label class="subtitle">Fecha de Nacimiento: </label>
         <label> {{profile.birthDate}}</label>
@@ -32,8 +32,9 @@
     <br><br>
     <div class="buttons">
         <button class="button" mat-stroked-button (click)="goToRegister(child)" color="primary">Registro</button>
-        <button class="button" mat-stroked-button (click)="goToMedicalRecord()" color="primary">Ficha Médica</button>
-        <button class="button" mat-stroked-button (click)="goToProgress()" color="primary">Ficha Desarrollo</button>
+        <button class="button" mat-stroked-button (click)="goToMedicalRecord(child)" color="primary">Ficha Médica</button>
+        <button class="button" mat-stroked-button (click)="goToProgress(child)" color="primary">Ficha Desarrollo</button>
+        <button class="button" mat-stroked-button (click)="goToMensualities(child)" color="primary">Mensualidades</button>
         <button mat-stroked-button (click)="goToProfiles()" color="warn">Cancelar</button>
     </div>
 </mat-card>
