@@ -4,6 +4,7 @@ export class ChildRegisterModel {
     firstName: string;
     lastName: string;
     mothersLastName: string;
+    numberOfIdentity: string;
     admissionDate: Date;
     birthDate: Date;
     sex: string;
@@ -25,6 +26,7 @@ export class ChildRegisterModel {
         this.firstName = '';
         this.lastName = '';
         this.mothersLastName = '';
+        this.numberOfIdentity = '';
         this.admissionDate = null;
         this.birthDate = null;
         this.sex = '';
