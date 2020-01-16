@@ -4,7 +4,10 @@
     <i class="material-icons">
         search
     </i>
-    <input class="input" type="text" placeholder="Buscar" aria-label="Search" mdbInput>
+    <input class="input" type="text" placeholder="Buscar" aria-label="Search" onkeyup="search()" mdbInput>
+    <div>
+        <ul id="demo"></ul>
+    </div>
     <br>
     <form #formNew="ngForm" novalidate>
         <div class="main">

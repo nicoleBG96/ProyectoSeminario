@@ -20,6 +20,7 @@ export class ChildRegisterModel {
     activity: string;
     anotherReference: string;
     isDisable: boolean;
+    isPayMensuality: boolean;
 
     constructor() {
         this.image = '';
@@ -42,5 +43,6 @@ export class ChildRegisterModel {
         this.activity = '';
         this.anotherReference = '';
         this.isDisable = false;
+        this.isPayMensuality = false;
     }
 }

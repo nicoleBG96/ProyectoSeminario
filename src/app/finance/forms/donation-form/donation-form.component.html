@@ -16,7 +16,7 @@
                             <br>
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="donation.amount" type="text" name="amount"
-                                    #amount="ngModel" id="amount" required pattern="^[0-9]$" matInput
+                                    #amount="ngModel" id="amount" required pattern="^[0-9]*$" matInput
                                     placeholder="Monto">
                             </mat-form-field>
                             <div *ngIf="(amount.touched || amount.dirty) && !amount.valid && amount.errors"

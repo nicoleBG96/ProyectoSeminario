@@ -5,6 +5,8 @@ import { MensualityService } from '../../../shared/services/mensuality.service';
 import { ProfileService } from '../../../shared/services/profile.service';
 
 import { MensualityModel } from '../../../shared/models/mensuality.model';
+import { stringify } from 'querystring';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-mensuality-form',
@@ -25,14 +27,39 @@ export class MensualityFormComponent implements OnInit {
   ngOnInit() {
     this.mensuality = new MensualityModel();
     const childKey = this.mensualityService.getChildKey();
+    let child: any;
     this.profileService.getProfilebyId(childKey).then((profile: any) => {
-     this.mensuality = profile;
-     this.mensuality.childKey = childKey;
-    });
+      child = profile;
+      if (child.isPayMensuality) {
+        this.mensuality = profile;
+        this.mensuality.childKey = childKey;
+      }
+     });
+    if (!child.isPayMensuality) {
+     }
   }
 
   saveMensuality() {
     this.onSubmit.emit(this.mensuality);
   }
 
+  getChild(ci: string) {
+    let perfiles: any[];
+    this.profileService.getProfile().subscribe(item => {
+      perfiles = item;
+      // tslint:disable-next-line:no-shadowed-variable
+      perfiles.forEach(element => {
+        if (element.numberOfIdentity === ci) {
+          return element;
+        } else {
+          return 'ERROR';
+        }
+      });
+    });
+  }
+
+  search() {
+    // tslint:disable-next-line:no-unused-expression
+    document.getElementById('demo').innerHTML;
+  }
 }

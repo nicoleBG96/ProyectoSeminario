@@ -7,6 +7,7 @@ export class ProfileModel {
     date: Date;
     isDisable: boolean;
     image: string;
+    isPayMensuality: boolean;
 
     constructor() {
         this.firstName = '';
@@ -17,5 +18,6 @@ export class ProfileModel {
         this.date = null;
         this.isDisable = false;
         this.image = '';
+        this.isPayMensuality = false;
     }
 }

@@ -58,6 +58,8 @@ export class ShowProfileComponent implements OnInit {
   }
 
   goToMensualities(child: any) {
+    child.isPayMensuality = true;
+    this.profileService.updateProfile(this.childId, child);
     this.mensualityService.setMensuality(this.childId);
     this.router.navigate(['finances/registerMensuality']);
   }
