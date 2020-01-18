@@ -1,6 +1,15 @@
 <h1 class="title">Registro Egresos</h1>
-<br><br>
+<br>
+<select class="select" [(ngModel)]="selectedResource" (change)="loadValues()">
+    <option value="">Seleccione opción</option>
+    <option *ngFor="let resource of resourcesList" value={{resource.type}}> {{resource.type}} </option>
+</select>
 
+<select *ngIf="selectedResource!=''" (change)="filter()" class="select" [(ngModel)]="selectedValue">
+    <option value="">Seleccione opción</option>
+    <option *ngFor="let value of valuesList" value={{value.name}}> {{value.name}} </option>
+  </select>
+<br><br>
 <table mat table class="table">
     <ng-container>
         <th class="subtitle" scope="col">Fecha </th>

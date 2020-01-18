@@ -36,10 +36,6 @@ export class DonationsListComponent implements OnInit {
     });
   }
 
-  goToDonation(donation: any) {
-    this.route.navigate(['']);
-  }
-
   filter() {
     this.total = 0;
     this.donationsList = this.originalList;
