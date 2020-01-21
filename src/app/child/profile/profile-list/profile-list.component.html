@@ -10,11 +10,13 @@
 </select>
 
 <!-- second filter -->
-<select *ngIf="selectedResource!=''" (change)="filter()" class="select" [(ngModel)]="selectedValue">
+<select *ngIf="(selectedResource!='' && selectedResource!='Edad')" (change)="filter()" class="select" [(ngModel)]="selectedValue">
   <option value="">Seleccione opción</option>
   <option *ngFor="let value of valuesList" value={{value.name}}> {{value.name}} </option>
 </select>
 
+<br>
+<input *ngIf="(selectedResource!='' && selectedResource =='Edad')"  class="select" [(ngModel)]="selectedValue" class="input" type="text"  matInput placeholder="Edad">
 
 <mat-card *ngFor="let child of profileList">
   <mat-card class="card">

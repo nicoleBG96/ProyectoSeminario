@@ -104,4 +104,8 @@ export class DonationsListComponent implements OnInit {
     return month;
   }
 
+  createDonation() {
+    this.route.navigate(['finances/registerDonation']);
+  }
+
 }

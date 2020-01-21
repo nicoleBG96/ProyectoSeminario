@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 
 import { ExpensesService } from '../../../shared/services/expenses.service';
 
@@ -17,7 +18,7 @@ export class ExpensesListComponent implements OnInit {
   originalList: any;
   selectedValue: any = '';
 
-  constructor(private expensesService: ExpensesService) { }
+  constructor(private expensesService: ExpensesService, private router: Router) { }
 
   ngOnInit() {
     this.expensesService.getExpenses().subscribe(item => {
@@ -101,5 +102,9 @@ export class ExpensesListComponent implements OnInit {
         break;
     }
     return month;
+  }
+
+  createExpense() {
+    this.router.navigate(['finances/registerExpenses']);
   }
 }

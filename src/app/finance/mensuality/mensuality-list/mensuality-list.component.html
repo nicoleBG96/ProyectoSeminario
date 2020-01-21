@@ -1,5 +1,9 @@
 <h1 class="title">Registro Mensualidades</h1>
 <br>
+<button mat-fab class="button" (click)="createMensuality()">
+    <i class="material-icons">add_circle_outline</i>
+  </button>
+  <br>
 <select class="select" [(ngModel)]="selectedResource" (change)="loadValues()">
     <option value="">Seleccione opción</option>
     <option *ngFor="let resource of resourcesList" value={{resource.type}}> {{resource.type}} </option>

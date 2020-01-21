@@ -34,3 +34,10 @@
     font-size: 20px;
     margin-left: 40%;
 }
+
+.button {
+    size: 70px;
+    color:white;
+    background-color: blue ;
+    margin-left: 90%;
+}

@@ -107,4 +107,8 @@ export class MensualityListComponent implements OnInit {
     }
     return month;
   }
+
+  createMensuality() {
+    this.router.navigate(['finances/registerMensuality']);
+  }
 }

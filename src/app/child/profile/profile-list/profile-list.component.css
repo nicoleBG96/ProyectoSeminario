@@ -2,7 +2,7 @@
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 30px;
     color:  #1d1545;
-    margin-left: 35%;
+    text-align: center;
 }
 
 .subtitle {
@@ -16,10 +16,6 @@
     color:white;
     background-color: blue ;
     margin-left: 90%;
-}
-
-.buttons {
-    margin-left: 30%;
 }
 
 .card {
@@ -36,10 +32,20 @@
 
 .toolbar {
     height: 5%;
-    background-color: darkcyan;
+    background-color: #00a5a5;
     color: white;
+}
+
+.toolbar :hover{
+    background-color:#008b8b;
 }
 
 .image {
     margin-left: 70%;
+}
+
+.input {
+    height: 15;
+    width: 140px;
+    margin-left: 50%;
 }
