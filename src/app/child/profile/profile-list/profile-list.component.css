@@ -19,15 +19,9 @@
 }
 
 .card {
-    width: 25%;
+    width: 30%;
     height: 20%;
     margin-right: 10%;
-}
-
-.select {
-    margin-left: 50%;
-    font-size: 15px;
-    border-color: #1d1545;
 }
 
 .toolbar {
@@ -41,11 +35,16 @@
 }
 
 .image {
-    margin-left: 70%;
+    margin-left: 80%;
 }
 
-.input {
+.search {
     height: 15;
     width: 140px;
+    margin-left: 50%;
+    font-size: 20px;
+}
+
+.date {
     margin-left: 50%;
 }

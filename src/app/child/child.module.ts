@@ -23,6 +23,7 @@ import { EditProgressComponent } from './progress/edit-progress/edit-progress.co
 import { ShowProfileComponent } from './profile/show-profile/show-profile.component';
 import { ProfileListComponent } from './profile/profile-list/profile-list.component';
 
+import {FilterPipe} from '../pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ProfileListComponent } from './profile/profile-list/profile-list.compon
     EditMedicalRecordComponent,
     EditProgressComponent,
     ShowProfileComponent,
-    ProfileListComponent
+    ProfileListComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,
@@ -59,7 +61,8 @@ import { ProfileListComponent } from './profile/profile-list/profile-list.compon
     EditMedicalRecordComponent,
     EditProgressComponent,
     ShowProfileComponent,
-    ProfileListComponent
+    ProfileListComponent,
+    FilterPipe
   ]
 })
 export class ChildModule { }

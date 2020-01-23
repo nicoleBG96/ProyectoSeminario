@@ -4,30 +4,39 @@
   <i class="material-icons">add_circle_outline</i>
 </button>
 <br>
-<select class="select" [(ngModel)]="selectedResource" (change)="loadValues()">
-  <option value="">Seleccione opción</option>
-  <option *ngFor="let resource of resourcesList" value={{resource.type}}> {{resource.type}} </option>
-</select>
-
-<!-- second filter -->
-<select *ngIf="(selectedResource!='' && selectedResource!='Edad')" (change)="filter()" class="select" [(ngModel)]="selectedValue">
-  <option value="">Seleccione opción</option>
-  <option *ngFor="let value of valuesList" value={{value.name}}> {{value.name}} </option>
-</select>
-
+<div>
+  <label class="search">Búsqueda: &nbsp;</label>
+  <input type="text" placeholder="Nombre,Apellido,sexo,edad" [(ngModel)]="searchQuery" height="30" width="170">
+</div>
 <br>
-<input *ngIf="(selectedResource!='' && selectedResource =='Edad')"  class="select" [(ngModel)]="selectedValue" class="input" type="text"  matInput placeholder="Edad">
+<div class="row">
+  <div class="col-xs-12 col-12 col-md-4 form-group">
+    <input type="text"
+           placeholder="Datepicker"
+           class="form-control"
+           bsDatepicker>
+  </div>
+  <div class="col-xs-12 col-12 col-md-4 form-group">
+    <input type="text"
+           placeholder="Daterangepicker"
+           class="form-control"
+           bsDaterangepicker>
+  </div>
+</div>
 
-<mat-card *ngFor="let child of profileList">
+<mat-card
+  *ngFor="let child of profileList | filter: {firstName:searchQuery,lastName:searchQuery, mothersLastName:searchQuery, sex:searchQuery, age:searchQuery} ">
   <mat-card class="card">
     <mat-toolbar class="toolbar">
       <button mat-button (click)="goToProfile(child)">Perfil</button>
       <button mat-button (click)="registerProfile(child)">Registro</button>
       <button mat-button (click)="medicalRecordProfile(child)">F. Médica</button>
       <button mat-button (click)="progressProfile(child)">Desarrollo</button>
+      <button mat-button (click)="goToMensualities()">Mensualidades</button>
     </mat-toolbar>
     <br>
     <img class="image" src="{{child.image}}" alt="" height="50" width="50">
+    <br>
     <label class="subtitle"> Apellido Paterno:</label>
     <label> {{child.lastName}}</label>
     <br>
@@ -38,7 +47,7 @@
     <label> {{child.firstName}}</label>
     <br>
     <label class="subtitle">Fecha de Nacimiento: </label>
-    <label> {{child.birthDate}}</label>
+    <label> {{child.birthDate | date:'dd - MMM - yyyy'}}</label>
     <br>
     <label class="subtitle">Sexo: </label>
     <label> {{child.sex}}</label>

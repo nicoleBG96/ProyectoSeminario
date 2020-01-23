@@ -9,21 +9,19 @@ import { ProfileService } from '../../../shared/services/profile.service';
   styleUrls: ['./profile-list.component.css']
 })
 export class ProfileListComponent implements OnInit {
-  profileList: any[];
-  resourcesList: any = [];
-  valuesList: any = [];
-  selectedResource: any = '';
-  originalList: any;
-  selectedValue: any = '';
+  profileList: any = [];
+  searchQuery: any;
+  filterDate: any;
+
   constructor(private profileService: ProfileService, private router: Router) { }
 
   ngOnInit() {
     this.profileService.getProfile().subscribe(item => {
       this.profileList = item;
-      this.originalList = item;
+      this.profileList.forEach((profile: any) => {
+        profile.age = this.calculateAge(profile.birthDate);
+      });
     });
-
-    this.resourcesList = this.profileService.getResource();
   }
 
   registerProfile(childRegister: any) {
@@ -46,38 +44,8 @@ export class ProfileListComponent implements OnInit {
     this.router.navigate(['child/showProfile/' + childProfile.key]);
   }
 
-  loadValues() {
-    this.resourcesList.forEach((resource: any) => {
-      if (resource.type === this.selectedResource) {
-        this.valuesList = resource.values;
-      }
-    });
-  }
-
-  filter() {
-    this.profileList = this.originalList;
-    if (this.selectedResource === 'Sexo') {
-      if (this.selectedValue !== '') {
-        this.profileList = this.profileList.filter(profile => profile.sex === this.selectedValue);
-      }
-    }
-    if (this.selectedResource === 'Edad') {
-      if (this.selectedValue !== '') {
-        this.profileList = this.profileList.filter(profile => this.calculateAge(profile.birthDate).toString() === this.selectedValue);
-      }
-    }
-    if (this.selectedResource === 'Año de Admisión') {
-      if (this.selectedValue !== '') {
-        this.profileList = this.profileList.filter(profile => this.calculateYear(profile.admissionDate).toString() === this.selectedValue );
-      }
-    }
-    if (this.selectedResource === 'Estado') {
-      if (this.selectedValue !== '') {
-        this.profileList = this.profileList.filter(profile => (profile.isDisable).toString() === this.selectedValue);
-      }
-    }
-    this.selectedResource = '';
-    this.selectedValue = '';
+  goToMensualities() {
+    this.router.navigate(['finances/registerMensuality']);
   }
 
   getStatus(child: any) {
@@ -99,8 +67,18 @@ export class ProfileListComponent implements OnInit {
     return age;
   }
 
-  calculateYear(date: string) {
-    return new Date(date).getFullYear();
+  filterByDate(date: Date) {
+    if (date) {
+      const startDate = date[0];
+      const endDate = date[1];
+      const filtered: any = [];
+      this.profileList.forEach((event: any) => {
+        if (new Date(event.eventTime).getTime() >= startDate.getTime() && new Date(event.eventTime).getTime() <= endDate.getTime()) {
+          filtered.push(event);
+        }
+      });
+      this.profileList = filtered;
+    }
   }
 }
 
