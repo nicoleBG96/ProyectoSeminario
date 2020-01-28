@@ -39,12 +39,18 @@
 }
 
 .search {
-    height: 15;
-    width: 140px;
-    margin-left: 50%;
+    height: 15%;
+    margin-left: 45%;
     font-size: 20px;
 }
 
-.date {
-    margin-left: 50%;
+.input {
+    width: 10%;
+    height: 15;
 }
+
+.date {
+    margin-left: 65%;
+}
+
+.material-icons.md-30 { font-size: 30px; }

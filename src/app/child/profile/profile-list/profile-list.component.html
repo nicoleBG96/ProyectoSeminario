@@ -6,23 +6,16 @@
 <br>
 <div>
   <label class="search">Búsqueda: &nbsp;</label>
-  <input type="text" placeholder="Nombre,Apellido,sexo,edad" [(ngModel)]="searchQuery" height="30" width="170">
+  <input class="input" type="text" placeholder="Nombre,Apellido,sexo,edad" [(ngModel)]="searchQuery"  >
+  <i class="material-icons md-30 " > search</i>
 </div>
+
 <br>
-<div class="row">
-  <div class="col-xs-12 col-12 col-md-4 form-group">
-    <input type="text"
-           placeholder="Datepicker"
-           class="form-control"
-           bsDatepicker>
-  </div>
-  <div class="col-xs-12 col-12 col-md-4 form-group">
-    <input type="text"
-           placeholder="Daterangepicker"
-           class="form-control"
-           bsDaterangepicker>
-  </div>
-</div>
+<input type="text" placeholder="Rango de fechas"  style="width:340px" class="date"
+  bsDaterangepicker (bsValueChange)="filterByDate($event)" [(ngModel)]="filterDate"
+  [bsConfig]="{showWeekNumbers:false, adaptivePosition: true, isAnimated:true, containerClass: 'theme-blue', dateInputFormat: 'DD-MM-YYYY'}">
+
+  <i class="material-icons md-30" > calendar_today</i>
 
 <mat-card
   *ngFor="let child of profileList | filter: {firstName:searchQuery,lastName:searchQuery, mothersLastName:searchQuery, sex:searchQuery, age:searchQuery} ">

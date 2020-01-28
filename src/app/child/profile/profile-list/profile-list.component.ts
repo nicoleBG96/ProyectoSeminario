@@ -67,13 +67,14 @@ export class ProfileListComponent implements OnInit {
     return age;
   }
 
-  filterByDate(date: Date) {
+  filterByDate(date?) {
     if (date) {
       const startDate = date[0];
       const endDate = date[1];
       const filtered: any = [];
       this.profileList.forEach((event: any) => {
-        if (new Date(event.eventTime).getTime() >= startDate.getTime() && new Date(event.eventTime).getTime() <= endDate.getTime()) {
+        if (new Date(event.admissionDate).getTime() >= startDate.getTime() &&
+        new Date(event.admissionDate).getTime() <= endDate.getTime()) {
           filtered.push(event);
         }
       });

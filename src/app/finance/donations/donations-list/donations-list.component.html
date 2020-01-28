@@ -2,37 +2,33 @@
 <br>
 <button mat-fab class="button" (click)="createDonation()">
     <i class="material-icons">add_circle_outline</i>
-  </button>
-  <br>
-<select class="select" [(ngModel)]="selectedResource" (change)="loadValues()">
-    <option value="">Seleccione opción</option>
-    <option *ngFor="let resource of resourcesList" value={{resource.type}}> {{resource.type}} </option>
-</select>
+</button>
+<br>
+<input type="text" placeholder="Rango de fechas"  style="width:340px" class="date"
+  bsDaterangepicker (bsValueChange)="filterByDate($event)" [(ngModel)]="filterDate"
+  [bsConfig]="{showWeekNumbers:false, adaptivePosition: true, isAnimated:true, containerClass: 'theme-blue', dateInputFormat: 'DD-MM-YYYY'}">
 
-<select *ngIf="selectedResource!=''" (change)="filter()" class="select" [(ngModel)]="selectedValue">
-    <option value="">Seleccione opción</option>
-    <option *ngFor="let value of valuesList" value={{value.name}}> {{value.name}} </option>
-  </select>
-<br><br>
-<table mat table class="table">
-    <ng-container>
-        <th class="subtitle" scope="col">Fecha </th>
-        <th class="subtitle" scope="col">Descripción </th>
-        <th class="subtitle" scope="col">Monto </th>
-    </ng-container>
-    <ng-container>
-        <tr *ngFor="let donation of donationsList" class="table-Table">
-            <td class="text">{{donation.date}}</td>
-            <td class="text">{{donation.description}}</td>
-            <td class="text">{{donation.amount}}</td>
-        </tr>
-    </ng-container>
-    <br>
-    <ng-container>
-        <tr>
-            <td class="result">Total</td>
-            <td></td>
-            <td class="result">{{total}}</td>
-        </tr>
-    </ng-container>
-</table>
+  <i class="material-icons md-30" > calendar_today</i>
+    <br><br>
+    <table mat table class="table">
+        <ng-container>
+            <th class="subtitle" scope="col">Fecha </th>
+            <th class="subtitle" scope="col">Descripción </th>
+            <th class="subtitle" scope="col">Monto </th>
+        </ng-container>
+        <ng-container>
+            <tr *ngFor="let donation of donationsList" class="table-Table">
+                <td class="text">{{donation.date}}</td>
+                <td class="text">{{donation.description}}</td>
+                <td class="text">{{donation.amount}}</td>
+            </tr>
+        </ng-container>
+        <br>
+        <ng-container>
+            <tr>
+                <td class="result">Total</td>
+                <td></td>
+                <td class="result">{{total}}</td>
+            </tr>
+        </ng-container>
+    </table>
