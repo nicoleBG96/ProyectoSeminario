@@ -20,19 +20,14 @@
 .table {
     border-spacing: 10px 20px;
     text-align: left;
-    margin-left: 25%;
+    margin-left: 20%;
     border: 4px solid #80cfa9;
+    width: 60%;
 }
 
 .result {
     font-family: 'Times New Roman', Times, serif;
     font-size: 22px;
-}
-
-.select {
-    font-family: "Arial Black", Gadget, sans-serif;
-    font-size: 20px;
-    margin-left: 40%;
 }
 
 .button {
@@ -41,3 +36,9 @@
     background-color: blue ;
     margin-left: 90%;
 }
+
+.date {
+    margin-left: 40%;
+}
+
+.material-icons.md-30 { font-size: 30px; }

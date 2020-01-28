@@ -12,22 +12,6 @@ import { MensualityModel } from '../models/mensuality.model';
 })
 export class MensualityService {
   mensualityList: AngularFireList<any>;
-  resourcesList: any[];
-  selectResource: any;
-  months: any = [
-    { id: 1, name: 'Enero' },
-    { id: 2, name: 'Febrero' },
-    { id: 3, name: 'Marzo' },
-    { id: 4, name: 'Abril' },
-    { id: 5, name: 'Mayo' },
-    { id: 6, name: 'Junio' },
-    { id: 7, name: 'Julio' },
-    { id: 8, name: 'Agosto' },
-    { id: 9, name: 'Septiembre' },
-    { id: 10, name: 'Octubre' },
-    { id: 11, name: 'Noviembre' },
-    { id: 12, name: 'Diciembre'}
-  ];
   childKey: any;
 
 
@@ -50,18 +34,6 @@ export class MensualityService {
   getMensualitybyId(id: string) {
     const ref = fb.database().ref('mensualities');
     return ref.child(id).once('value').then((snapshot) => snapshot.val());
-  }
-
-  getResource() {
-    let index = 1;
-    this.resourcesList = [];
-    for (let i = 2015; i <= 2090; i++) {
-      this.resourcesList.push({
-        id: index, type: i, values: this.months
-      });
-      index++;
-    }
-    return this.resourcesList;
   }
 
   setMensuality( childKey: any) {
