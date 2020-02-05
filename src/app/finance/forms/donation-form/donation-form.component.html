@@ -1,12 +1,12 @@
 <mat-card class="card">
     <mat-card-header>
-        <mat-card-title class="title">Registro Donación</mat-card-title>
+        <label class="title">Registro Donación</label>
     </mat-card-header>
     <mat-card-content>
         <form #formNew="ngForm" novalidate>
             <div class="main">
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
+                    <div class="col-md-6 ">
                         <div class="left">
                             <br><br><br>
                             <mat-form-field class="text">
@@ -25,8 +25,10 @@
                                 <div *ngIf="amount.errors.pattern">Este campo solo acepta números</div>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-6">
                         <div class="right">
-                            <br>
+                            <br><br>
                             <mat-form-field>
                                 <textarea type="text" class="input" name="description" id="description"
                                     [(ngModel)]="donation.description" #description="ngModel" required
@@ -41,14 +43,14 @@
                             </div>
                         </div>
                         <br><br>
-                        <div class="buttons">
-                            <button class="button" type="submit" mat-raised-button color="primary"
-                                (click)="saveDonation()">Guardar</button>
-                            <a href="/"><button class="button" type="button" mat-raised-button
-                                    color="warn">Cancelar</button></a>
-                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="buttons">
+                <button class="button" type="submit" mat-raised-button color="primary"
+                    (click)="saveDonation()">Guardar</button>
+                <a href="/"><button class="button" type="button" mat-raised-button
+                        color="warn">Cancelar</button></a>
             </div>
         </form>
     </mat-card-content>
