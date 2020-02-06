@@ -34,6 +34,7 @@ export class ChildRegisterService {
   }
 
   chargePhoto(child: ChildRegisterModel, id: string) {
+    let resp = false;
     const childPath = 'child-photos/' + this.currentImage.name;
     const ref = this.storage.ref(childPath);
     const task  = ref.put(this.currentImage).then((res) => {
@@ -41,8 +42,10 @@ export class ChildRegisterService {
       childUrl.subscribe(aux => {
         child.image = aux;
         this.updateChild(id, child);
+        resp = true;
       });
     });
+    return resp;
   }
 
   createChild(child: ChildRegisterModel) {
