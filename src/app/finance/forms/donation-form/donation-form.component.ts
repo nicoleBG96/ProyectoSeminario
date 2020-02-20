@@ -29,7 +29,6 @@ export class DonationFormComponent implements OnInit {
 
   saveDonation() {
     this.onSubmit.emit(this.donation);
-    
   }
 
 }

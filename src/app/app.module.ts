@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-// import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
-
 
 // Firebase
 import { AngularFireModule } from 'angularfire2';
@@ -13,8 +11,6 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
-
 
 // Routing
 import { AppRoutingModule } from './app-routing.module';

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { MensualityService } from '../../../shared/services/mensuality.service';
+import { ExportService } from '../../../shared/services/export.service';
+
+import { MensualityModel } from '../../../shared/models/mensuality.model';
 
 @Component({
   selector: 'app-mensuality-list',
@@ -10,10 +13,9 @@ import { MensualityService } from '../../../shared/services/mensuality.service';
 })
 export class MensualityListComponent implements OnInit {
   mensualitiesList: any[];
-  itemList: any[];
   total = 0;
 
-  constructor(private mensualityService: MensualityService, private router: Router) { }
+  constructor(private mensualityService: MensualityService, private router: Router, private exportService: ExportService) { }
 
   ngOnInit() {
     this.mensualityService.getMensualities().subscribe(item => {
@@ -47,5 +49,21 @@ export class MensualityListComponent implements OnInit {
       });
       this.mensualitiesList = filtered;
     }
+  }
+
+  export() {
+    const mensualitiesAux: any = [];
+    const mensualityAux: any = {};
+    console.log(this.mensualitiesList);
+    this.mensualitiesList.forEach(mensuality => {
+      mensualityAux.Nombre = mensuality.firstName;
+      mensualityAux.ApellidoPaterno = mensuality.lastName;
+      mensualityAux.ApellidoMaterno = mensuality.mothersLastName;
+      mensualityAux.Fecha = mensuality.date;
+      mensualityAux.MesAPagar = mensuality.monthToPay;
+      mensualityAux.Monto = mensuality.amount;
+      mensualitiesAux.push(mensualityAux);
+    });
+    this.exportService.exportExcel(mensualitiesAux, 'mensualidades');
   }
 }

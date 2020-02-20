@@ -67,13 +67,14 @@
                                 <br>
                                 <mat-form-field class="text">
                                     <input class="input" [(ngModel)]="child.numberOfIdentity" type="text" name="numberOfIdentity"
-                                    #numberOfIdentity="ngModel" id="numberOfIdentity" maxlength="10" minlength="5" 
+                                    #numberOfIdentity="ngModel" id="numberOfIdentity" maxlength="10" minlength="6" 
                                    matInput placeholder="Número de carnet" required pattern="^[0-9]*$">
                                 </mat-form-field>
                                 <div *ngIf="(numberOfIdentity.touched || numberOfIdentity.dirty) && !numberOfIdentity.valid && 
                                     numberOfIdentity.errors" class="text-alert">
                                     <div *ngIf="numberOfIdentity.errors.required">Se requiere Carnet de Identidad</div>
                                     <div *ngIf="numberOfIdentity.errors.pattern">Este campo solo acepta números</div>
+                                    <div *ngIf="numberOfIdentity.errors.minlength">Mínimo 6 caractéres</div>
                                 </div>
                                 <br>
                                 <mat-form-field class="text">

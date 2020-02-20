@@ -36,11 +36,11 @@ export class ChildRegisterComponent implements OnInit {
       // tslint:disable-next-line:prefer-const
       const latestKey = this.childRegisterService.createChild(event);
       this.childRegisterService.chargePhoto(event, latestKey);
-      this.createMedicalRecord(event, latestKey);
-      this.createProgress(event, latestKey);
-      setTimeout(function() {
+      setTimeout(() => {
+        this.createMedicalRecord(event, latestKey);
+        this.createProgress(event, latestKey);
         this.createProfile(event, latestKey);
-      } , 1000);
+      } , 5000);
       this.childRegisterService.setCreatedObject(event);
       this.router.navigate(['child/showRegisterProfile/' + latestKey]);
       this.toastrService.success('exito al registrar', 'ÉXITO');
@@ -82,14 +82,14 @@ export class ChildRegisterComponent implements OnInit {
     profile.sex = event.sex;
     profile.date = event.admissionDate;
     profile.isDisable = event.isDisable;
-    console.log(event);
-    if(event.image)
-      console.log(event.image);
-    else 
-      console.log("vacio");
-    console.log(profile);
-    console.log(profile.image);
     profile.image = event.image;
+    console.log(event);
+    if (event.image) {
+      console.log(event.image);
+    } else {
+      console.log('vacio');
+    }
+    console.log(profile);
     this.profileService.createProfile(event, latestKey);
   }
 

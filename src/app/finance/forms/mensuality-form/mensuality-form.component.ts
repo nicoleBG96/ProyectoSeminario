@@ -5,8 +5,6 @@ import { MensualityService } from '../../../shared/services/mensuality.service';
 import { ProfileService } from '../../../shared/services/profile.service';
 
 import { MensualityModel } from '../../../shared/models/mensuality.model';
-import { stringify } from 'querystring';
-import { element } from 'protractor';
 
 @Component({
   selector: 'app-mensuality-form',

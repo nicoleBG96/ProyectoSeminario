@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+// Services
 import { DonationService } from '../../../shared/services/donation.service';
+import { ExportService } from '../../../shared/services/export.service';
 
 @Component({
   selector: 'app-donations-list',
@@ -13,7 +15,7 @@ export class DonationsListComponent implements OnInit {
   total = 0;
   filterDate: any;
 
-  constructor(private donationService: DonationService, private route: Router) { }
+  constructor(private donationService: DonationService, private route: Router, private exportService: ExportService) { }
 
   ngOnInit() {
     this.donationService.getDonations().subscribe(item => {
@@ -44,12 +46,33 @@ export class DonationsListComponent implements OnInit {
       const filtered: any = [];
       this.donationsList.forEach((event: any) => {
         if (new Date(event.date).getTime() >= startDate.getTime() &&
-        new Date(event.date).getTime() <= endDate.getTime()) {
+          new Date(event.date).getTime() <= endDate.getTime()) {
           filtered.push(event);
           this.total = this.total + parseInt(event.amount, 10);
         }
       });
       this.donationsList = filtered;
     }
+  }
+
+  export() {
+    const donationsAux: any = [];
+    let donationAux: any = {};
+    this.donationsList.forEach(donation => {
+      donationAux = {};
+      setTimeout(() => {
+        donationAux.Fecha = donation.date;
+        donationAux.Monto = donation.amount;
+        donationAux.Descripcion = donation.description;
+        setTimeout(() => {
+          console.log(donationAux,'2');
+        }, 1000);
+        donationsAux.push(donationAux);
+      }, 1000);
+    });
+    setTimeout(() => {
+      console.log(donationsAux,'3');
+    }, 4000);
+    this.exportService.exportExcel(donationsAux, 'donaciones');
   }
 }

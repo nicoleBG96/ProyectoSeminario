@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
+// Services
 import { ExpensesService } from '../../../shared/services/expenses.service';
+import { ExportService } from '../../../shared/services/export.service';
 
 @Component({
   selector: 'app-expenses-list',
@@ -12,7 +14,7 @@ export class ExpensesListComponent implements OnInit {
   expensesList: any[];
   total = 0;
 
-  constructor(private expensesService: ExpensesService, private router: Router) { }
+  constructor(private expensesService: ExpensesService, private router: Router, private exportService: ExportService) { }
 
   ngOnInit() {
     this.expensesService.getExpenses().subscribe(item => {
@@ -50,5 +52,9 @@ export class ExpensesListComponent implements OnInit {
 
   createExpense() {
     this.router.navigate(['finances/registerExpenses']);
+  }
+
+  export() {
+    this.exportService.exportExcel(this.expensesList, 'egresos');
   }
 }

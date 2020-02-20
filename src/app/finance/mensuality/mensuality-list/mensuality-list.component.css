@@ -35,7 +35,11 @@
     size: 70px;
     color:white;
     background-color: blue ;
-    margin-left: 85%;
+}
+
+.space {
+    margin-left: 75%;
+    margin-right: 2%;
 }
 
 .date {
