@@ -20,7 +20,7 @@ export class MensualityFormComponent implements OnInit {
 
   constructor(private mensualityService: MensualityService, private formBuilder: FormBuilder, private profileService: ProfileService) {
     this.onSubmit = new EventEmitter<any>();
-   }
+  }
 
   ngOnInit() {
     this.mensuality = new MensualityModel();
@@ -28,13 +28,10 @@ export class MensualityFormComponent implements OnInit {
     let child: any;
     this.profileService.getProfilebyId(childKey).then((profile: any) => {
       child = profile;
-      if (child.isPayMensuality) {
-        this.mensuality = profile;
-        this.mensuality.childKey = childKey;
-      }
-     });
-    if (!child.isPayMensuality) {
-     }
+      this.mensuality = profile;
+      this.mensuality.type = 'mensuality';
+      this.mensuality.childKey = childKey;
+    });
   }
 
   saveMensuality() {

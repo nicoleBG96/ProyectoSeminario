@@ -17,12 +17,14 @@
         <ng-container>
             <th class="subtitle" scope="col">Fecha </th>
             <th class="subtitle" scope="col">Descripción </th>
+            <th class="subtitle" scope='col'>Mes</th>
             <th class="subtitle" scope="col">Monto </th>
         </ng-container>
         <ng-container>
             <tr *ngFor="let donation of donationsList" class="table-Table">
                 <td class="text">{{donation.date}}</td>
                 <td class="text">{{donation.description}}</td>
+                <td class="text">{{donation.month}}</td>
                 <td class="text">{{donation.amount}}</td>
             </tr>
         </ng-container>

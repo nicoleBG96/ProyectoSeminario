@@ -10,7 +10,7 @@
         </mat-menu>
         <button mat-menu-item class="subtitle" [matMenuTriggerFor]="financiero" class="subtitle">Financiero</button>
         <mat-menu #financiero="matMenu">
-            <button mat-menu-item class="subtitle">Mensual</button>
+            <a href="finances/showMonthlyReport"><button mat-menu-item class="subtitle">Mensual</button></a>
             <button mat-menu-item class="subtitle">Anual</button>
             <button mat-menu-item class="subtitle" [matMenuTriggerFor]="ingresos" class="subtitle">Ingresos</button>
             <mat-menu #ingresos="matMenu">

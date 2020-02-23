@@ -29,6 +29,24 @@
                     <div class="col-md-6 col-md-offset-6">
                         <div class="right">
                             <br><br>
+                            <mat-form-field class="text">
+                                <mat-label>Mes</mat-label>
+                                <select matNativeControl required [(ngModel)]="donation.month"
+                                    [ngModelOptions]="{standalone: true}">
+                                    <option value="enero">Enero</option>
+                                    <option value="Febrero">Febrero</option>
+                                    <option value="marzo">Marzo</option>
+                                    <option value="abril">Abril</option>
+                                    <option value="mayo">Mayo</option>
+                                    <option value="junio">Junio</option>
+                                    <option value="julio">Julio</option>
+                                    <option value="agosto">Agosto</option>
+                                    <option value="septiembre">Septiembre</option>
+                                    <option value="octubre">Octubre</option>
+                                    <option value="noviembre">Noviembre</option>
+                                    <option value="diciembre">Diciembre</option>
+                                </select>
+                            </mat-form-field>
                             <mat-form-field>
                                 <textarea type="text" class="input" name="description" id="description"
                                     [(ngModel)]="donation.description" #description="ngModel" required

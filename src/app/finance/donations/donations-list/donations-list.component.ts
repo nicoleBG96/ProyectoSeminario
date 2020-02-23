@@ -65,13 +65,13 @@ export class DonationsListComponent implements OnInit {
         donationAux.Monto = donation.amount;
         donationAux.Descripcion = donation.description;
         setTimeout(() => {
-          console.log(donationAux,'2');
+          console.log(donationAux);
         }, 1000);
         donationsAux.push(donationAux);
       }, 1000);
     });
     setTimeout(() => {
-      console.log(donationsAux,'3');
+      console.log(donationsAux);
     }, 4000);
     this.exportService.exportExcel(donationsAux, 'donaciones');
   }

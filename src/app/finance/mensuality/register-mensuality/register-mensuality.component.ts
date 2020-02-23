@@ -30,7 +30,7 @@ export class RegisterMensualityComponent implements OnInit {
 
   validate(event: any) {
     let correct = true;
-    if (event.firstName === '' || event.lastName === '' || event.mothersLastName === '' || event.monthToPay === ''
+    if (event.firstName === '' || event.lastName === '' || event.mothersLastName === '' || event.month === ''
         || event.amount === '' || event.date === null) {
       correct = false;
     }
