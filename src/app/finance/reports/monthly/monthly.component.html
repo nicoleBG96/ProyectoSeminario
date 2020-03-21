@@ -1,1 +1,48 @@
-<p>monthly works!</p>
+<h1 class="title">Registro mensual</h1>
+<br>
+<button mat-stroked-button class="space" (click)="export()">Exportar
+    <i class="material-icons"> file_copy </i>
+</button>
+<br>
+<input type="text" placeholder="Rango de fechas"  style="width:340px" class="date"
+  bsDaterangepicker (bsValueChange)="filterByDate($event)" [(ngModel)]="filterDate"
+  [bsConfig]="{showWeekNumbers:false, adaptivePosition: true, isAnimated:true, containerClass: 'theme-blue', dateInputFormat: 'MM-YYYY'}">
+
+  <i class="material-icons md-30" > calendar_today</i>
+<br><br>
+<table mat table class="table">
+    <ng-container>
+        <th class="subtitle" scope="col">Fecha</th>
+        <th class="subtitle" scope="col">Mes</th>
+        <th class="subtitle" scope="col">Descripción</th>
+        <th class="subtitle" scope="col">Tipo</th>
+        <th class="subtitle" scope="col">Monto Ingreso </th>
+        <th class="subtitle" scope="col">Monto Egreso</th>
+    </ng-container>
+    <ng-container>
+        <tr *ngFor="let aux of monthlyList" class="table-Table">
+            <td class="text">{{aux.date | date:'dd/MM/yyyy'}}</td>
+            <td class="text">{{aux.month}}</td>
+            <td class="text">{{aux.description}}</td>
+            <td class="text">{{changeType(aux)}}</td>
+            <div *ngIf="aux.type != 'expense'">
+                <td class="text">{{aux.amount}}</td>
+                <td></td>
+            </div>
+            <div *ngIf="aux.type == 'expense'">
+                <td></td>
+                <td class="text">{{aux.amount}}</td>
+            </div>
+        </tr>
+    </ng-container>
+    <ng-container>
+        <tr>
+            <td class="result">Total</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="result">{{totalIncome}}</td>
+            <td class="result">{{totalExpense}}</td>
+        </tr>
+    </ng-container>
+</table>

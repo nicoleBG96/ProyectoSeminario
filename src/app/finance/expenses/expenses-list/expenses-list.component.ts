@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 // Services
 import { ExpensesService } from '../../../shared/services/expenses.service';
@@ -41,7 +41,7 @@ export class ExpensesListComponent implements OnInit {
       const filtered: any = [];
       this.expensesList.forEach((event: any) => {
         if (new Date(event.date).getTime() >= startDate.getTime() &&
-        new Date(event.date).getTime() <= endDate.getTime()) {
+          new Date(event.date).getTime() <= endDate.getTime()) {
           filtered.push(event);
           this.total = this.total + parseInt(event.amount, 10);
         }
@@ -55,6 +55,21 @@ export class ExpensesListComponent implements OnInit {
   }
 
   export() {
-    this.exportService.exportExcel(this.expensesList, 'egresos');
+    const expensesAux: any = [];
+    let expenseAux: any = {};
+    let totalExpense: any = {};
+    this.expensesList.forEach(expense => {
+      expenseAux = {};
+      expenseAux.Fecha = expense.date;
+      expenseAux.Mes = expense.month;
+      expenseAux.Descripcion = expense.description;
+      expenseAux.Monto = expense.amount;
+      expensesAux.push(expenseAux);
+    })
+    totalExpense.Total = this.total;
+    expensesAux.push(totalExpense)
+    setTimeout(() => {
+      this.exportService.exportExcel(expensesAux, 'egresos');
+    }, 2000);
   }
 }

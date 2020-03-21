@@ -8,6 +8,7 @@ export class MensualityModel {
     month: string;
     amount: string;
     type: string;
+    description: string;
 
     constructor() {
         this.childKey = '';
@@ -18,5 +19,6 @@ export class MensualityModel {
         this.month = '';
         this.amount = '';
         this.type = 'mensuality';
+        this.description = 'pago mensualidad';
     }
 }

@@ -4,8 +4,7 @@ import { MonthlyReportService } from '../../../shared/services/monthly-report.se
 import { MensualityService } from '../../../shared/services/mensuality.service';
 import { ExpensesService } from '../../../shared/services/expenses.service';
 import { DonationService } from '../../../shared/services/donation.service';
-
-import { MonthlyReport } from '../../../shared/models/monthly-report.model';
+import { ExportService } from '../../../shared/services/export.service';
 
 @Component({
   selector: 'app-monthly',
@@ -13,16 +12,121 @@ import { MonthlyReport } from '../../../shared/models/monthly-report.model';
   styleUrls: ['./monthly.component.css']
 })
 export class MonthlyComponent implements OnInit {
-  auxList: any = [];
+  monthlyList: any = [];
+  totalExpense = 0;
+  totalIncome = 0;
+  filterDate: any;
 
-  constructor(private mensualityService: MensualityService) { }
+  constructor(private mensualityService: MensualityService, private monthlyService: MonthlyReportService, private expenseService: ExpensesService,
+    private donationService: DonationService, private exportService: ExportService) { }
 
   ngOnInit() {
-    this.register();
+    this.registerExpense();
+    this.registerDonations();
+    setTimeout(() => {
+      this.monthlyList = this.monthlyService.getMonthly();
+      this.monthlyList.forEach(element => {
+        if (element.type !== 'expense')
+          this.totalIncome = this.totalIncome + parseInt(element.amount);
+        else
+          this.totalExpense = this.totalExpense + parseInt(element.amount);
+      });
+    }, 2000);
   }
 
-  register() {
-    console.log( this.mensualityService.getMensualities());
+  registerMensuality() {
+    this.mensualityService.getMensualities().subscribe(item => {
+      this.monthlyList = item;
+      this.monthlyList.forEach(aux => {
+        this.monthlyService.createFinancesReport(aux);
+      })
+    });
   }
 
+  registerExpense() {
+    this.expenseService.getExpenses().subscribe(item => {
+      this.monthlyList = item;
+      this.monthlyList.forEach(aux => {
+        this.monthlyService.createFinancesReport(aux);
+      })
+    })
+  }
+
+  registerDonations() {
+    this.donationService.getDonations().subscribe(item => {
+      this.monthlyList = item;
+      this.monthlyList.forEach(aux => {
+        this.monthlyService.createFinancesReport(aux);
+      })
+    })
+  }
+
+  changeType(aux: any) {
+    let resp = '';
+    switch (aux.type) {
+      case 'expense':
+        resp = 'egresos';
+        break;
+      case 'mensuality':
+        resp = 'mensualidades';
+        break;
+      case 'donation':
+        resp = 'donación';
+        break;
+    }
+    return resp
+  }
+
+  isExpense(aux: any) {
+    let type = false;
+    if (aux.type === 'expense')
+      type = true;
+    else type = false
+    return type;
+  }
+
+  filterByDate(date?) {
+    this.totalExpense = 0;
+    this.totalIncome = 0;
+    if (date) {
+      const startDate = date[0];
+      const endDate = date[1];
+      const filtered: any = [];
+      this.monthlyList.forEach((event: any) => {
+        if (new Date(event.date).getTime() >= startDate.getTime() &&
+          new Date(event.date).getTime() <= endDate.getTime()) {
+          filtered.push(event);
+          if (event.type === 'expense')
+            this.totalExpense = this.totalExpense + parseInt(event.amount, 10);
+          else this.totalIncome = this.totalIncome + parseInt(event.amount, 10);
+        }
+      });
+      this.monthlyList = filtered;
+    }
+  }
+
+  export() {
+    const monthlyAux: any = [];
+    let elementAux: any = {};
+    let totalMonthly: any = {};
+    this.monthlyList.forEach(element => {
+      elementAux = {};
+      elementAux.Fecha = element.date;
+      elementAux.Mes = element.month;
+      elementAux.Descripcion = element.description;
+      elementAux.Tipo = this.changeType(element);
+      if (element.type !== 'expense') {
+        elementAux.MontoIngreso = element.amount;
+        elementAux.MontoEgreso = 0;
+      } else {
+        elementAux.MontoIngreso = 0;
+        elementAux.MontoEgreso = element.amount;
+      }
+      monthlyAux.push(elementAux);
+    });
+    totalMonthly.MontoIngreso = this.totalIncome;
+    totalMonthly.MontoEgreso = this.totalExpense;
+    monthlyAux.push(totalMonthly);
+    this.exportService.exportExcel(monthlyAux, 'registro mensual');
+  }
 }

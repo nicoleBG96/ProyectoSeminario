@@ -53,9 +53,10 @@ export class MensualityListComponent implements OnInit {
 
   export() {
     const mensualitiesAux: any = [];
-    const mensualityAux: any = {};
-    console.log(this.mensualitiesList);
+    let mensualityAux: any = {};
+    let totalMensuality: any = {};
     this.mensualitiesList.forEach(mensuality => {
+      mensualityAux = {};
       mensualityAux.Nombre = mensuality.firstName;
       mensualityAux.ApellidoPaterno = mensuality.lastName;
       mensualityAux.ApellidoMaterno = mensuality.mothersLastName;
@@ -64,6 +65,10 @@ export class MensualityListComponent implements OnInit {
       mensualityAux.Monto = mensuality.amount;
       mensualitiesAux.push(mensualityAux);
     });
-    this.exportService.exportExcel(mensualitiesAux, 'mensualidades');
+    totalMensuality.Total = this.total;
+    mensualitiesAux.push(totalMensuality);
+    setTimeout(() => {
+      this.exportService.exportExcel(mensualitiesAux, 'mensualidades');
+    }, 2000);
   }
 }
