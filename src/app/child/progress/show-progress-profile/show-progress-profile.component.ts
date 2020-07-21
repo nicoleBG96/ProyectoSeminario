@@ -17,6 +17,7 @@ export class ShowProgressProfileComponent implements OnInit {
   childId: any;
 
   ngOnInit() {
+    console.log(this.child)
     this.route.paramMap.subscribe((paramMap: any) => {
       this.view(paramMap.params.id);
     });
@@ -25,6 +26,7 @@ export class ShowProgressProfileComponent implements OnInit {
   view(id: string) {
     this.childId = id;
     this.childProgressService.getChildProgressbyId(id).then(child => this.child = child);
+    this.childProgressService.getChildProgressbyId(id).then(child => console.log(child) )
   }
 
   calculateTotal(point1: string, point2: string, point3: string) {

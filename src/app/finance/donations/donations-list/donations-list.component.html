@@ -8,7 +8,7 @@
     <i class="material-icons">add_circle_outline</i>
 </button>
 <br>
-<input type="text" placeholder="Rango de fechas" style="width:340px" class="date" bsDaterangepicker
+<input type="text" placeholder="Rango de fechas" style="width:340px" class="date" bsDaterangepicker autocomplete="off"
         (bsValueChange)="filterByDate($event)" [(ngModel)]="filterDate"
         [bsConfig]="{showWeekNumbers:false, adaptivePosition: true, isAnimated:true, containerClass: 'theme-blue', dateInputFormat: 'MM-YYYY'}">
     <span class="material-icons md-30">date_range</span>

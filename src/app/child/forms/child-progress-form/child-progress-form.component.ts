@@ -46,7 +46,7 @@ export class ChildProgressFormComponent implements OnInit {
     if (point1 == null || point2 == null || point3 == null) {
       return 0;
     } else {
-      return (parseInt(point1, 10) + parseInt(point2, 10) + parseInt(point3, 10));
+      return ((parseInt(point1, 10) + parseInt(point2, 10) + parseInt(point3, 10))).toString();
     }
   }
 
