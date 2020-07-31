@@ -20,3 +20,30 @@
     margin-left: 45%;
     width: 50%;
 }
+
+@media screen and (max-width: 450px) {
+    .footer {
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+        color: white;
+        text-align: center;
+        padding: 0.5em;
+        background-color: #375A7F;
+        font-family: Helvetica, sans-serif;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .left {
+        float: left;
+        margin-left: 8%;
+        text-align: left;
+    }
+    
+    .right {
+        margin-left: 8%;
+        width: 50%;
+    }
+}

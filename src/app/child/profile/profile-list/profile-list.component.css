@@ -15,7 +15,7 @@
     size: 70px;
     color:white;
     background-color: blue ;
-    margin-left: 90%;
+    margin-left: 85%;
 }
 
 .card {
@@ -53,4 +53,19 @@
     margin-left: 65%;
 }
 
-.material-icons.md-30 { font-size: 30px; }
+.material-icons.md-30 { font-size: 30px; } 
+
+@media screen and (max-width: 300px){
+    .material-icons.md-30 { font-size: 15px; } 
+
+    .search {
+        height: 10%;
+        margin-left: 30%;
+        font-size: 15px;
+    }
+    
+    .input {
+        width: 10%;
+        height: 15%;
+    }
+}
