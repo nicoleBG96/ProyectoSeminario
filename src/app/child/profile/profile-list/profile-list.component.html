@@ -9,23 +9,22 @@
   <i class="material-icons md-30 " > search</i>
 </div>
 <br>
-<!--<input type="text" placeholder="Rango de fechas"  style="width:340px" class="date"
+<input type="text" placeholder="Rango de fechas"   class="date"
   bsDaterangepicker (bsValueChange)="filterByDate($event)" [(ngModel)]="filterDate"
   [bsConfig]="{showWeekNumbers:false, adaptivePosition: true, isAnimated:true, containerClass: 'theme-blue', dateInputFormat: 'DD-MM-YYYY'}">
 
-  <i class="material-icons md-30" > calendar_today</i>-->
+  <i class="material-icons md-30" > calendar_today</i>
 
-<mat-card
+<mat-card class="global-card" style="display:flex; flex-direction: row;"
   *ngFor="let child of profileList | filter: {firstName:searchQuery,lastName:searchQuery, mothersLastName:searchQuery, sex:searchQuery, age:searchQuery} ">
   <mat-card class="card">
     <mat-toolbar class="toolbar">
-      <button mat-button (click)="goToProfile(child)">Perfil</button>
-      <button mat-button (click)="registerProfile(child)">Registro</button>
-      <button mat-button (click)="medicalRecordProfile(child)">F. Médica</button>
-      <button mat-button (click)="progressProfile(child)">Desarrollo</button>
-      <button mat-button (click)="goToMensualities()">Mensualidades</button>
+      <button mat-button class="toolbar-subtitle" (click)="goToProfile(child)">Perfil</button>
+      <button mat-button class="toolbar-subtitle" (click)="registerProfile(child)">Registro</button>
+      <button mat-button class="toolbar-subtitle" (click)="medicalRecordProfile(child)">F. Médica</button>
+      <button mat-button class="toolbar-subtitle" (click)="progressProfile(child)">Desarrollo</button>
+      <button mat-button class="toolbar-subtitle" (click)="goToMensualities()">Mensualidades</button>
     </mat-toolbar>
-    <br>
     <img class="image" src="{{child.image}}" alt="" height="50" width="50">
     <br>
     <label class="subtitle"> Apellido Paterno:</label>

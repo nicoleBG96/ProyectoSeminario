@@ -11,6 +11,14 @@
     font-weight: 700;
 }
 
+@media screen and (max-width: 900px){
+    .subtitle {
+        font-family: "Arial Black", Gadget, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+    }
+}
+
 .button {
     size: 70px;
     color:white;
@@ -20,8 +28,13 @@
 
 .card {
     width: 35%;
-    height: 20%;
+    height: 15%;
     margin-right: 10%;
+    margin-left: 2%;
+}
+
+.global-card {
+    width: 100%;
 }
 
 .toolbar {
@@ -32,6 +45,14 @@
 
 .toolbar :hover{
     background-color:#008b8b;
+}
+
+.toolbar-subtitle {
+    font-family: "Trebuchet MS", Helvetica, sans-serif ;
+    font-size: 13px;
+    margin-right: 0;
+    font-weight: 200;
+    margin-left: 1%;
 }
 
 .image {
@@ -46,11 +67,12 @@
 
 .input {
     width: 20%;
-    height: 15;
+    height: 15%;
 }
 
 .date {
-    margin-left: 65%;
+    margin-left: 75%;
+    width: 20%;
 }
 
 .material-icons.md-30 { font-size: 30px; } 
@@ -67,5 +89,12 @@
     .input {
         width: 10%;
         height: 15%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .date {
+        margin-left: 75%;
+        width: 15%;
     }
 }
