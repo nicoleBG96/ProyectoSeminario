@@ -23,23 +23,26 @@ import { ProfileModel } from '../../../shared/models/profile.model';
 export class ChildRegisterComponent implements OnInit {
 
   constructor(private childRegisterService: ChildRegisterService, private router: Router,
-              private childMedicalRecordService: ChildMedicalRecordService, private childProgressService: ChildProgressService,
-              private profileService: ProfileService, private toastrService: ToastrService,
-              private mensualityService: MensualityService) { }
+    private childMedicalRecordService: ChildMedicalRecordService, private childProgressService: ChildProgressService,
+    private profileService: ProfileService, private toastrService: ToastrService,
+    private mensualityService: MensualityService) { }
 
   ngOnInit() {
   }
 
   register(event: ChildRegisterModel) {
+    console.log(event);
     if (this.validate(event)) {
       // tslint:disable-next-line:prefer-const
       const latestKey = this.childRegisterService.createChild(event);
+      console.log(latestKey);
+
       this.childRegisterService.chargePhoto(event, latestKey);
       setTimeout(() => {
         this.createMedicalRecord(event, latestKey);
         this.createProgress(event, latestKey);
         this.createProfile(event, latestKey);
-      } , 5000);
+      }, 5000);
       this.childRegisterService.setCreatedObject(event);
       this.router.navigate(['child/showRegisterProfile/' + latestKey]);
       this.toastrService.success('exito al registrar', 'ÉXITO');
@@ -82,22 +85,15 @@ export class ChildRegisterComponent implements OnInit {
     profile.date = event.admissionDate;
     profile.isDisable = event.isDisable;
     profile.image = event.image;
-    console.log(event);
-    if (event.image) {
-      console.log(event.image);
-    } else {
-      console.log('vacio');
-    }
-    console.log(profile);
     this.profileService.createProfile(event, latestKey);
   }
 
   validate(event: any) {
     let correct = true;
     if (event.firstName === '' || event.lastName === '' || event.mothersLastName === '' || event.admissionDate === null ||
-        event.birthDate === null || event.sex === '' || event.size === '' || event.weight === '' || event.municipality === '' ||
-        event.district === '' || event.zone === '' || event.street === '' || event.nameOfTutor === '' || event.phone === '' ||
-        event.degreeOfInstruction === '' || event.activity === '') {
+      event.birthDate === null || event.sex === '' || event.size === '' || event.weight === '' || event.municipality === '' ||
+      event.district === '' || event.zone === '' || event.street === '' || event.nameOfTutor === '' || event.phone === '' ||
+      event.degreeOfInstruction === '' || event.activity === '') {
       correct = false;
     }
     return correct;

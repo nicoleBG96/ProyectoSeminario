@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router} from '@angular/router';
+import { FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // Service
 import { ChildRegisterService } from '../../../shared/services/child-register.service';
@@ -28,7 +28,7 @@ export class ChildRegisterFormComponent implements OnInit {
   constructor(private childRegisterService: ChildRegisterService, private router: Router, private route: ActivatedRoute) {
     this.onSubmit = new EventEmitter<any>();
     this.onEdit = new EventEmitter<any>();
-   }
+  }
 
   ngOnInit() {
     if (!this.child) {
@@ -40,10 +40,12 @@ export class ChildRegisterFormComponent implements OnInit {
   }
 
   save() {
+    console.log("SAVE");
     this.onSubmit.emit(this.child);
   }
 
   edit(child: any) {
+    console.log("EDIT");
     this.onEdit.emit(this.child);
   }
 
@@ -54,7 +56,17 @@ export class ChildRegisterFormComponent implements OnInit {
   }
 
   setImage(event) {
-    this.childRegisterService.setCurrentImage(event.target.files[0]);
+    var mimeType = event.target.files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      return;
+    }
+
+    var reader = new FileReader();
+    this.child.imageFile = event.target.files[0];
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload = (_event) => {
+      this.child.image = reader.result;
+    }
     return true;
   }
 

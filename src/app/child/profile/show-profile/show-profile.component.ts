@@ -15,7 +15,7 @@ export class ShowProfileComponent implements OnInit {
   childId: any;
 
   constructor(private profileService: ProfileService, private route: ActivatedRoute, private router: Router,
-              private mensualityService: MensualityService) { }
+    private mensualityService: MensualityService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap: any) => {
@@ -26,6 +26,7 @@ export class ShowProfileComponent implements OnInit {
   view(id: string) {
     this.childId = id;
     this.profileService.getProfilebyId(id).then(child => this.profile = child);
+
   }
 
   status(child: any, state: boolean) {

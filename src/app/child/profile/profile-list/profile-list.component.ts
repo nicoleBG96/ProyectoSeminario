@@ -45,7 +45,7 @@ export class ProfileListComponent implements OnInit {
     this.router.navigate(['child/showProfile/' + childProfile.key]);
   }
 
-  goToMensualities(child:any) {
+  goToMensualities(child: any) {
     let childId = child.key;
     this.profileService.updateProfile(childId, child);
     this.mensualityService.setMensuality(childId);
@@ -78,7 +78,7 @@ export class ProfileListComponent implements OnInit {
       const filtered: any = [];
       this.profileList.forEach((event: any) => {
         if (new Date(event.admissionDate).getTime() >= startDate.getTime() &&
-        new Date(event.admissionDate).getTime() <= endDate.getTime()) {
+          new Date(event.admissionDate).getTime() <= endDate.getTime()) {
           filtered.push(event);
         }
       });
