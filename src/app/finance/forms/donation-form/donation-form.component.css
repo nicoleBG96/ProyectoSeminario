@@ -49,3 +49,10 @@
 .button {
     margin-left: 5%;
 }
+
+.description {
+    margin-left: 15%;
+    width: auto;
+    display:grid;
+    margin-right: 25%;
+}

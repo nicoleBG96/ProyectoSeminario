@@ -1,51 +1,53 @@
 <h1 class="title"> Perfiles</h1>
 <button mat-fab class="button" (click)="createChild()">
-  <i class="material-icons">add_circle_outline</i>
+  <span class="material-icons"> person_add </span>
 </button>
 <br>
 <div>
   <label class="search">Búsqueda: &nbsp;</label>
-  <input class="input" type="text" placeholder="Nombre,Apellido,sexo,edad" [(ngModel)]="searchQuery"  >
-  <i class="material-icons md-30 " > search</i>
+  <input class="input" type="text" placeholder="Nombre,Apellido,sexo,edad" [(ngModel)]="searchQuery">
+  <i class="material-icons md-30 "> search</i>
 </div>
 <br>
-<input type="text" placeholder="Rango de fechas"   class="date"
-  bsDaterangepicker (bsValueChange)="filterByDate($event)" [(ngModel)]="filterDate"
+<input type="text" placeholder="Rango de fechas" class="date" bsDaterangepicker (bsValueChange)="filterByDate($event)"
+  [(ngModel)]="filterDate"
   [bsConfig]="{showWeekNumbers:false, adaptivePosition: true, isAnimated:true, containerClass: 'theme-blue', dateInputFormat: 'DD-MM-YYYY'}">
 
-  <i class="material-icons md-30" > calendar_today</i>
-
-<mat-card class="global-card" style="display:flex; flex-direction: row;"
-  *ngFor="let child of profileList | filter: {firstName:searchQuery,lastName:searchQuery, mothersLastName:searchQuery, sex:searchQuery, age:searchQuery} ">
-  <mat-card class="card">
-    <mat-toolbar class="toolbar">
-      <button mat-button class="toolbar-subtitle" (click)="goToProfile(child)">Perfil</button>
-      <button mat-button class="toolbar-subtitle" (click)="registerProfile(child)">Registro</button>
-      <button mat-button class="toolbar-subtitle" (click)="medicalRecordProfile(child)">F. Médica</button>
-      <button mat-button class="toolbar-subtitle" (click)="progressProfile(child)">Desarrollo</button>
-      <button mat-button class="toolbar-subtitle" (click)="goToMensualities()">Mensualidades</button>
-    </mat-toolbar>
-    <img class="image" src="{{child.image}}" alt="" height="50" width="50">
-    <br>
-    <label class="subtitle"> Apellido Paterno:</label>
-    <label> {{child.lastName}}</label>
-    <br>
-    <label class="subtitle"> Apellido Materno:</label>
-    <label> {{child.mothersLastName}}</label>
-    <br>
-    <label class="subtitle"> Nombres:</label>
-    <label> {{child.firstName}}</label>
-    <br>
-    <label class="subtitle">Fecha de Nacimiento: </label>
-    <label> {{child.birthDate | date:'dd - MMM - yyyy'}}</label>
-    <br>
-    <label class="subtitle">Sexo: </label>
-    <label> {{child.sex}}</label>
-    <br>
-    <label class="subtitle">Fecha de Admisión:</label>
-    <label> {{child.admissionDate}}</label>
-    <br>
-    <label class="subtitle">Estado:</label>
-    <label> {{(getStatus(child))}}</label>
+<i class="material-icons md-30"> calendar_today</i>
+<br>
+<div fxLayout="column" fxLayoutGap="32px">
+  <mat-card class="global-card"
+    *ngFor="let child of profileList | filter: {firstName:searchQuery,lastName:searchQuery, mothersLastName:searchQuery, sex:searchQuery, age:searchQuery} ">
+    <mat-card class="card">
+      <mat-toolbar class="toolbar">
+        <button mat-button class="toolbar-subtitle" (click)="goToProfile(child)">Perfil</button>
+        <button mat-button class="toolbar-subtitle" (click)="registerProfile(child)">Registro</button>
+        <button mat-button class="toolbar-subtitle" (click)="medicalRecordProfile(child)">F. Médica</button>
+        <button mat-button class="toolbar-subtitle" (click)="progressProfile(child)">Desarrollo</button>
+        <button mat-button class="toolbar-subtitle" (click)="goToMensualities(child)">Mensualidades</button>
+      </mat-toolbar>
+      <img class="image" src="{{child.image}}" alt="" height="50" width="50">
+      <br>
+      <label class="subtitle"> Apellido Paterno:</label>
+      <label> {{child.lastName}}</label>
+      <br>
+      <label class="subtitle"> Apellido Materno:</label>
+      <label> {{child.mothersLastName}}</label>
+      <br>
+      <label class="subtitle"> Nombres:</label>
+      <label> {{child.firstName}}</label>
+      <br>
+      <label class="subtitle">Fecha de Nacimiento: </label>
+      <label> {{child.birthDate | date:'dd - MMM - yyyy'}}</label>
+      <br>
+      <label class="subtitle">Sexo: </label>
+      <label> {{child.sex}}</label>
+      <br>
+      <label class="subtitle">Fecha de Admisión:</label>
+      <label> {{child.admissionDate}}</label>
+      <br>
+      <label class="subtitle">Estado:</label>
+      <label> {{(getStatus(child))}}</label>
+    </mat-card>
   </mat-card>
-</mat-card>
+</div>

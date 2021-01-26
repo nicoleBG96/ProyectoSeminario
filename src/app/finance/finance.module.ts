@@ -17,6 +17,8 @@ import { ExpensesListComponent } from './expenses/expenses-list/expenses-list.co
 import { ExpensesFormComponent } from './forms/expenses-form/expenses-form.component';
 import { ShowMensualityComponent } from './mensuality/show-mensuality/show-mensuality.component';
 import { MonthlyComponent } from './reports/monthly/monthly.component';
+import { ShowMensualityChildComponent } from './mensuality/show-mensuality-child/show-mensuality-child.component';
+import { IncomesComponent } from './incomes/incomes.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { MonthlyComponent } from './reports/monthly/monthly.component';
     ExpensesListComponent,
     ExpensesFormComponent,
     ShowMensualityComponent,
-    MonthlyComponent
+    MonthlyComponent,
+    ShowMensualityChildComponent,
+    IncomesComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +53,9 @@ import { MonthlyComponent } from './reports/monthly/monthly.component';
     MensualityListComponent,
     ExpensesListComponent,
     ShowMensualityComponent,
-    MonthlyComponent
+    MonthlyComponent,
+    ShowMensualityChildComponent,
+    IncomesComponent
   ]
 })
 export class FinanceModule { }

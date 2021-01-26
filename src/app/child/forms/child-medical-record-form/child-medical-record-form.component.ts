@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 // Model
@@ -14,13 +14,14 @@ import { ChildMedicalRecordModel } from '../../../shared/models/child-medical-re
 export class ChildMedicalRecordFormComponent implements OnInit {
   myForm: FormGroup;
   isEdit: boolean;
+  id: any;
   @Input() child: ChildMedicalRecordModel;
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onSubmit: EventEmitter<any>;
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onEdit: EventEmitter<any>;
 
-  constructor( private router: Router) {
+  constructor( private router: Router, private route: ActivatedRoute) {
     this.onSubmit = new EventEmitter<any>();
     this.onEdit = new EventEmitter<any>();
   }
@@ -43,6 +44,9 @@ export class ChildMedicalRecordFormComponent implements OnInit {
   }
 
   goToProfiles() {
-    this.router.navigate(['child/profiles']);
+    this.route.paramMap.subscribe((paramMap: any) => {
+      this.id = (paramMap.params.id);
+    });
+    this.router.navigate(['child/showMedicalRecordProfile/' + this.id]);
   }
 }

@@ -26,15 +26,13 @@ export class LoginComponent {
     });
   }
 
-  gmailLogin() {
-    this.authService.loginWithGoogle().then((res) => {
-      window.location.replace('/');
-    });
-  }
-
   login(value) {
     this.authService.loginWhitEmail(value).then((res) => {
       window.location.replace('/');
     });
+  }
+
+  createUser() {
+    this.router.navigate(['users/createUser'])
   }
 }

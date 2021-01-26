@@ -19,7 +19,7 @@ export class RegisterMensualityComponent implements OnInit {
   }
 
   registerMensuality(event: MensualityModel) {
-    if (this.validate (event)) {
+    if(this.validate (event)) {
       const latestKey = this.mensualityService.createMensuality(event);
       this.router.navigate(['finances/showMensuality/' + latestKey]);
       this.toastrService.success('exito al registrar', 'ÉXITO');
@@ -28,10 +28,12 @@ export class RegisterMensualityComponent implements OnInit {
     }
   }
 
-  validate(event: any) {
+  validate(event: MensualityModel) {
     let correct = true;
-    if (event.firstName === '' || event.lastName === '' || event.mothersLastName === '' || event.month === ''
-        || event.amount === '' || event.date === null) {
+    console.log(event);
+    if (event.firstName === '' || event.lastName === '' || event.mothersLastName === '' || 
+    event.month === '' || event.month === undefined || event.amount === '' || event.amount === undefined 
+    || event.date === null || event.year === '' || event.year === undefined || event.date === undefined) {
       correct = false;
     }
     return correct;

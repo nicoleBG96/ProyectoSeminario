@@ -1,0 +1,18 @@
+<h1>Lista de Usuarios</h1>
+<br>
+<table mat table>
+    <ng-container>
+        <th>Nombre</th>
+        <th>Cargo</th>
+        <th>Estado</th>
+        <th>Detalle</th>
+    </ng-container>
+    <ng-container>
+        <tr *ngFor="let user of usersList">
+            <td>{{user.firstName}} {{user.lastName}}</td>
+            <td>{{user.position}}</td>
+            <td>{{changePosition(user)}}</td>
+            <td><button mat-stroked-button color="primary" (click)='goToDetail(user)'>Ver</button></td>
+        </tr>
+    </ng-container>
+</table>

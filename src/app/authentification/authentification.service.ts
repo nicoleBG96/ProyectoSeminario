@@ -24,17 +24,11 @@ export class AuthentificationService {
     }
   }
 
-  loginWithGoogle() {
-    return this.fAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(res => {
-      this.loginSubject.next(true);
-      localStorage.setItem('user', JSON.stringify(this.fAuth.auth.currentUser));
-    });
-  }
-
   loginWhitEmail(value) {
     return this.fAuth.auth.signInWithEmailAndPassword(value.email, value.password).then(res => {
       this.loginSubject.next(true);
       localStorage.setItem('user', JSON.stringify(this.fAuth.auth.currentUser));
+      
     });
   }
 

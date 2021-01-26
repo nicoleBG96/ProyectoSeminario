@@ -15,12 +15,16 @@ import { UsersFormComponent } from './users-form/users-form.component';
 
 // Design
 import { MaterialModule } from '../material-module/material-module.module';
+import { UserListComponent } from './user-list/user-list.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
     RegisterUserComponent,
     EditUserComponent,
-    UsersFormComponent
+    UsersFormComponent,
+    UserListComponent,
+    UserDetailComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +35,9 @@ import { MaterialModule } from '../material-module/material-module.module';
   exports: [
     RegisterUserComponent,
     EditUserComponent,
-    UsersFormComponent
+    UsersFormComponent,
+    UserListComponent,
+    UserDetailComponent
   ],
   providers: [AuthentificationService]
 })

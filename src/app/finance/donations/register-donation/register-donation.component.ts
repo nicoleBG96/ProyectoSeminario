@@ -30,7 +30,7 @@ export class RegisterDonationComponent implements OnInit {
 
   validate(event: any) {
     let correct = true;
-    if (event.date === null || event.amount === '' || event.description === '' || event.month === '') {
+    if (event.date === null || event.amount === '' || event.description === '' || event.date === undefined) {
       correct = false;
     }
     return correct;

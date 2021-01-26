@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
 import {AngularFireDatabase} from 'angularfire2/database';
-import {AngularFireList} from 'angularfire2/database';
-import { Observable, of } from 'rxjs';
-
-import { MonthlyReport } from '../models/monthly-report.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +15,9 @@ export class MonthlyReportService {
 
   createFinancesReport(monthly: any) {
     this.financesMonthlyList.push(monthly)
+  }
+
+  resetFinanceReport() {
+    this.financesMonthlyList = [];
   }
 }

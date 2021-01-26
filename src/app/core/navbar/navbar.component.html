@@ -1,23 +1,23 @@
 <mat-toolbar class="toolbar">
     <a href=""><button mat-button class="space">Inicio</button></a>
-    <a href="child/profiles"><button mat-button class="title">Afiliados</button></a>    
-    <!--<button mat-button [matMenuTriggerFor]="reportes" class="title">Reportes</button>
+    <button mat-button class="title" (click)='goToProfiles()'>Afiliados</button>
+    <button mat-button [matMenuTriggerFor]="reportes" class="title">Reportes</button>
     <mat-menu #reportes="matMenu">
-        <button mat-menu-item class="subtitle" [matMenuTriggerFor]="asistencia">Asistencia</button>
-        <mat-menu #asistencia="matMenu">
-            <button mat-menu-item class="subtitle">Asistencia</button>
-            <button mat-menu-item class="subtitle">Asistencia Global</button>
+        <button mat-menu-item class="subtitle" (click)='goToReport()'>Reporte Financiero</button>
+        <button mat-menu-item class="subtitle" [matMenuTriggerFor]="ingresos" class="subtitle">Ingresos</button>
+        <mat-menu #ingresos="matMenu">
+            <button mat-menu-item class="subtitle" (click)='goToIncomes()'>Ingresos</button>
+            <button mat-menu-item class="subtitle" (click)='goToMensualities()'>Mensualidades</button>
+            <button mat-menu-item class="subtitle" (click)='goToDonations()'>Donaciones</button>
         </mat-menu>
-        <button mat-menu-item class="subtitle" [matMenuTriggerFor]="financiero" class="subtitle">Financiero</button>
-        <mat-menu #financiero="matMenu">
-            <a href="finances/showMonthlyReport"><button mat-menu-item class="subtitle">Mensual</button></a>
-            <button mat-menu-item class="subtitle">Anual</button>
-            <button mat-menu-item class="subtitle" [matMenuTriggerFor]="ingresos" class="subtitle">Ingresos</button>
-            <mat-menu #ingresos="matMenu">
-                <a href="finances/showMensualities"><button mat-menu-item class="subtitle">Mensualidades</button></a>
-                <a href="finances/showDonations"><button mat-menu-item class="subtitle">Donaciones</button></a>
-            </mat-menu>
-            <a href="finances/showExpenses"><button mat-menu-item class="subtitle">Egresos</button></a>
-        </mat-menu>
-    </mat-menu>-->
+        <button mat-menu-item class="subtitle"(click)='goToExpenses()'>Egresos</button>
+    </mat-menu>
+    <button mat-button class="title" (click)='goToUsers()'>Usuarios</button>
+    <button mat-fab class="button" [matMenuTriggerFor]="account">
+        <span class="material-icons"> person </span>
+    </button>
+    <mat-menu #account="matMenu">
+        <button mat-menu-item class="subtitle" (click)='goToLogin()'>Iniciar Sesión</button>
+        <button mat-menu-item class="subtitle">Cerrar Sesión</button>
+    </mat-menu>
 </mat-toolbar>

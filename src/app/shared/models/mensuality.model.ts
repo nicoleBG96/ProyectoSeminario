@@ -6,9 +6,13 @@ export class MensualityModel {
     mothersLastName: string;
     date: Date;
     month: string;
+    year: string;
     amount: string;
+    tutor: string;
+    phoneNumber: string
     type: string;
     description: string;
+
 
     constructor() {
         this.childKey = '';
@@ -17,7 +21,10 @@ export class MensualityModel {
         this.mothersLastName = '';
         this.date = null;
         this.month = '';
+        this.year = '';
         this.amount = '';
+        this.tutor = '';
+        this.phoneNumber = '';
         this.type = 'mensuality';
         this.description = 'pago mensualidad';
     }

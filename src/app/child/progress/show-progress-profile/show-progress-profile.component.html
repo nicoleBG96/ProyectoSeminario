@@ -42,26 +42,49 @@
             <label class="subtitle-space">Kg.</label>
         </div>
         <div class="right_second">
-            <br>
             <label class="subtitle1">Talla: </label>
             <label> {{child.size}}</label>
             <label>m.</label>
         </div>
     </div>
     <br><br>
-    <label class="subtitle">PUNTUACIÓN</label>
-    <br><br>
-    <label class="subtitle1">Motrocidad Gruesa: </label>
-    <label class="subtitle-space"> {{(calculateTotal(child.pointA1, child.pointA2, child.pointA3))}}</label>
-    <label class="subtitle1">Motrocidad Fina</label>
-    <label class="subtitle-space"> {{(calculateTotal(child.pointB1, child.pointB2, child.pointB3))}}</label>
-    <label class="subtitle1">Audición Lenguaje</label>
-    <label class="subtitle-space"> {{(calculateTotal(child.pointC1, child.pointC2, child.pointC3))}}</label>
-    <label class="subtitle1">Personal Social</label>
-    <label class="subtitle-space"> {{(calculateTotal(child.pointD1, child.pointD2, child.pointD3))}}</label>
-    <label class="subtitle1">Total</label>
-    <label></label>
-    <br><br>
+    <div *ngIf='child.totalA != undefined'>
+        <table mat table class="mat-elevation-z8">
+            <ng-container>
+                <th>AREA </th>
+                <th>PUNTAJE </th>
+                <th>NIVEL </th>
+            </ng-container>
+            <ng-container>
+                <tr>
+                    <td>Motricidad Gruesa</td>
+                    <td>{{child.totalA}}</td>
+                    <td>{{(levelItem(child.points, 'A', child.age))}}</td>
+                </tr>
+                <tr>
+                    <td> Motricidad Fina</td>
+                    <td> {{child.totalB}}</td>
+                    <td>{{(levelItem(child.points, 'B', child.age))}}</td>
+                </tr>
+                <tr>
+                    <td>Audición y Lenguaje</td>
+                    <td> {{child.totalC}}</td>
+                    <td>{{(levelItem(child.points, 'C', child.age))}}</td>
+                </tr>
+                <tr>
+                    <td>Personal y Social</td>
+                    <td> {{child.totalD}}</td>
+                    <td>{{(levelItem(child.points, 'D', child.age))}}</td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td>Total</td>
+                    <td> {{(calculateTotal(child.totalA, child.totalB, child.totalC, child.totalD))}} </td>
+                    <td>{{(levelTotal(child.total, child.age))}}</td>
+                </tr>
+            </ng-container>
+        </table>
+    </div>
     <br><br>
     <div class="buttons">
         <button class="button" mat-stroked-button (click)="editProgress(child)" color="primary">Editar</button>

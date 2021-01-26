@@ -5,16 +5,19 @@ import { MensualityService } from '../../../shared/services/mensuality.service';
 
 import { MensualityModel } from '../../../shared/models/mensuality.model';
 
+
 @Component({
   selector: 'app-show-mensuality',
   templateUrl: './show-mensuality.component.html',
   styleUrls: ['./show-mensuality.component.css']
 })
 export class ShowMensualityComponent implements OnInit {
-  mensuality = new MensualityModel();
   mensualityID: any;
+  mensuality= new MensualityModel();
+  childID: any;
 
-  constructor(private mensualityService: MensualityService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private mensualityService: MensualityService, private router: Router, private route: ActivatedRoute) { }
+
 
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap: any) => {
@@ -24,10 +27,18 @@ export class ShowMensualityComponent implements OnInit {
 
   view(id: string) {
     this.mensualityID = id;
+    console.log(this.mensualityID)
     this.mensualityService.getMensualitybyId(id).then(child => this.mensuality = child);
+    this.childID = this.mensualityService.getChildKey()
   }
 
   goToMensualities() {
-    this.router.navigate(['finances/showMensualities']);
+    this.mensualityService.setMensuality(this.childID);
+    this.router.navigate(['finances/showMensuality']);
+  }
+
+  goToProfile() {
+    this.mensualityService.setMensuality(this.childID);
+    this.router.navigate(['child/showProfile/' + this.childID]);
   }
 }

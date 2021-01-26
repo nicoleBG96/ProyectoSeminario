@@ -14,7 +14,6 @@ import { ChildRegisterModel } from '../../../shared/models/child-register.model'
 import { ChildMedicalRecordModel } from '../../../shared/models/child-medical-record.model';
 import { ChildProgressModel } from '../../../shared/models/child-progress.model';
 import { ProfileModel } from '../../../shared/models/profile.model';
-import { MensualityModel } from '../../../shared/models/mensuality.model';
 
 @Component({
   selector: 'app-child-register',

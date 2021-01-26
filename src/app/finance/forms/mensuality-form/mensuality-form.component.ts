@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { MensualityService } from '../../../shared/services/mensuality.service';
 import { ProfileService } from '../../../shared/services/profile.service';
@@ -18,7 +19,8 @@ export class MensualityFormComponent implements OnInit {
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onSubmit: EventEmitter<any>;
 
-  constructor(private mensualityService: MensualityService, private formBuilder: FormBuilder, private profileService: ProfileService) {
+  constructor(private mensualityService: MensualityService, private formBuilder: FormBuilder, 
+    private profileService: ProfileService, private router: Router) {
     this.onSubmit = new EventEmitter<any>();
   }
 
@@ -26,6 +28,7 @@ export class MensualityFormComponent implements OnInit {
     this.mensuality = new MensualityModel();
     const childKey = this.mensualityService.getChildKey();
     let child: any;
+    this.mensuality.date = new Date();
     this.profileService.getProfilebyId(childKey).then((profile: any) => {
       child = profile;
       this.mensuality = profile;
@@ -38,23 +41,8 @@ export class MensualityFormComponent implements OnInit {
     this.onSubmit.emit(this.mensuality);
   }
 
-  getChild(ci: string) {
-    let perfiles: any[];
-    this.profileService.getProfile().subscribe(item => {
-      perfiles = item;
-      // tslint:disable-next-line:no-shadowed-variable
-      perfiles.forEach(element => {
-        if (element.numberOfIdentity === ci) {
-          return element;
-        } else {
-          return 'ERROR';
-        }
-      });
-    });
-  }
-
-  search() {
-    // tslint:disable-next-line:no-unused-expression
-    document.getElementById('demo').innerHTML;
+  goToProfile() {
+    const childKey = this.mensualityService.getChildKey();
+    this.router.navigate(['finances/showMensuality']);
   }
 }

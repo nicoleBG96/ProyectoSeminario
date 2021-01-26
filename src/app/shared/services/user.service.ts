@@ -22,7 +22,7 @@ export class UserService {
   }
 
   getUser() {
-    return this.firebase.list('user').snapshotChanges().pipe(
+    return this.firebase.list('users').snapshotChanges().pipe(
       map(action => action.map(data => {
         return {
           key: data.payload.key,

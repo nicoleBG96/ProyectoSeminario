@@ -1,7 +1,7 @@
 .title {
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 40px;
-    margin-left: 30%;
+    margin-left: 28%;
 }
 
 @media screen and (min-width: 550px){
@@ -28,6 +28,7 @@
 .card {
     width: 70%;
     margin-left: 15%;
+    border: 0ch;
 }
 
 .description {

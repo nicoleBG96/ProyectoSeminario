@@ -13,6 +13,6 @@ export class UserModel {
         this.email = '';
         this.password = '';
         this.position = '';
-        this.isDisable = null;
+        this.isDisable = false;
     }
 }

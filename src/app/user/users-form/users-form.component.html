@@ -47,15 +47,14 @@
     <mat-form-field class="text">
         <mat-label>Cargo</mat-label>
         <select matNativeControl required [(ngModel)]="user.position" [ngModelOptions]="{standalone: true}">
-          <option value="administrador">Administrador</option>
-          <option value="profesor">Profesor</option>
           <option value="psicologo">Psicologo</option>
           <option value="medico">Medico</option>
+          <option value="contador">Contador</option>
         </select>
     </mat-form-field>
     <br>
-    <a href="/auth/login"><button class="button" mat-raised-button color="warn">Cancelar</button></a>
     <button type="submit" (click)="save()" class="button" mat-raised-button color="primary">Guardar</button>
+    <button class="button" mat-raised-button color="warn" (click)='goToLogin()'>Cancelar</button>
     </form>
   </mat-card-content>
 </mat-card>

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { ExpensesModel } from '../../../shared/models/expenses.model';
 
@@ -17,7 +18,8 @@ export class ExpensesFormComponent implements OnInit {
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onSubmit: EventEmitter<any>;
 
-  constructor(private expensesService: ExpensesService, private formBuilder: FormBuilder) { 
+  constructor(private expensesService: ExpensesService, private formBuilder: FormBuilder,
+    private router: Router) { 
     this.onSubmit = new EventEmitter<any>();
   }
 
@@ -27,5 +29,9 @@ export class ExpensesFormComponent implements OnInit {
 
   saveExpenses() {
     this.onSubmit.emit(this.expenses);
+  }
+
+  goToExpenses() {
+    this.router.navigate(['/finances/showExpenses']);
   }
 }

@@ -21,9 +21,12 @@ export class MonthlyComponent implements OnInit {
     private donationService: DonationService, private exportService: ExportService) { }
 
   ngOnInit() {
+    this.monthlyService.resetFinanceReport();
     this.registerExpense();
     this.registerDonations();
+    this.registerMensuality();
     setTimeout(() => {
+      this.monthlyList = [];
       this.monthlyList = this.monthlyService.getMonthly();
       this.monthlyList.forEach(element => {
         if (element.type !== 'expense')
@@ -31,10 +34,11 @@ export class MonthlyComponent implements OnInit {
         else
           this.totalExpense = this.totalExpense + parseInt(element.amount);
       });
-    }, 2000);
+    }, 500);
   }
 
   registerMensuality() {
+    this.monthlyList = [];
     this.mensualityService.getMensualities().subscribe(item => {
       this.monthlyList = item;
       this.monthlyList.forEach(aux => {
@@ -44,6 +48,7 @@ export class MonthlyComponent implements OnInit {
   }
 
   registerExpense() {
+    this.monthlyList = [];
     this.expenseService.getExpenses().subscribe(item => {
       this.monthlyList = item;
       this.monthlyList.forEach(aux => {
@@ -53,12 +58,18 @@ export class MonthlyComponent implements OnInit {
   }
 
   registerDonations() {
+    this.monthlyList = [];
     this.donationService.getDonations().subscribe(item => {
       this.monthlyList = item;
       this.monthlyList.forEach(aux => {
         this.monthlyService.createFinancesReport(aux);
       })
     })
+  }
+
+  calculateBalance() {
+    let balance = this.totalIncome - this.totalExpense;
+    return balance
   }
 
   changeType(aux: any) {

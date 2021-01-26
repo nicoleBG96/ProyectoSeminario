@@ -38,7 +38,7 @@ import { MaterialModule } from './material-module/material-module.module';
     AngularFireStorageModule,
     AngularFirestoreModule,
     MaterialModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot()
 
   ],
   providers: [],

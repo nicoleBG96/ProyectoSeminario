@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MensualityService } from 'src/app/shared/services/mensuality.service';
 
 import { ProfileService } from '../../../shared/services/profile.service';
 
@@ -13,7 +14,7 @@ export class ProfileListComponent implements OnInit {
   searchQuery: any;
   filterDate: any;
 
-  constructor(private profileService: ProfileService, private router: Router) { }
+  constructor(private profileService: ProfileService, private router: Router, private mensualityService: MensualityService) { }
 
   ngOnInit() {
     this.profileService.getProfile().subscribe(item => {
@@ -44,8 +45,11 @@ export class ProfileListComponent implements OnInit {
     this.router.navigate(['child/showProfile/' + childProfile.key]);
   }
 
-  goToMensualities() {
-    this.router.navigate(['finances/registerMensuality']);
+  goToMensualities(child:any) {
+    let childId = child.key;
+    this.profileService.updateProfile(childId, child);
+    this.mensualityService.setMensuality(childId);
+    this.router.navigate(['finances/showMensuality']);
   }
 
   getStatus(child: any) {

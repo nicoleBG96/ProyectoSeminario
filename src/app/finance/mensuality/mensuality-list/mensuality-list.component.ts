@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import { MensualityService } from '../../../shared/services/mensuality.service';
 import { ExportService } from '../../../shared/services/export.service';
 
-import { MensualityModel } from '../../../shared/models/mensuality.model';
-
 @Component({
   selector: 'app-mensuality-list',
   templateUrl: './mensuality-list.component.html',
@@ -28,10 +26,6 @@ export class MensualityListComponent implements OnInit {
 
   goToMensuality(mensuality: any) {
     this.router.navigate(['finances/showMensuality/' + mensuality.key]);
-  }
-
-  createMensuality() {
-    this.router.navigate(['finances/registerMensuality']);
   }
 
   filterByDate(date?) {
@@ -71,4 +65,9 @@ export class MensualityListComponent implements OnInit {
       this.exportService.exportExcel(mensualitiesAux, 'mensualidades');
     }, 2000);
   }
+
+  createMensuality() {
+    this.router.navigate(['child/profiles']);
+  }
+
 }

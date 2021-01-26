@@ -16,14 +16,12 @@
 <table mat table class="table">
     <ng-container>
         <th class="subtitle" scope="col">Fecha (d/m/a) </th>
-        <th class="subtitle" scope="col">Mes </th>
         <th class="subtitle" scope="col">Detalle </th>
         <th class="subtitle" scope="col">Monto </th>
     </ng-container>
     <ng-container>
-        <tr *ngFor="let expenses of expensesList" class="table-Table">
+        <tr *ngFor="let expenses of expensesList">
             <td class="text">{{expenses.date | date:'dd-MM-yyyy'}}</td>
-            <td class="text">{{expenses.month}}</td>
             <td class="text">{{expenses.description}}</td>
             <td class="text">{{expenses.amount}}</td>
         </tr>
@@ -31,7 +29,6 @@
     <ng-container>
         <tr>
             <td class="result">Total</td>
-            <td></td>
             <td></td>
             <td class="result">{{total}}</td>
         </tr>

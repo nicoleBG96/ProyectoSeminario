@@ -18,7 +18,7 @@
 }
 
 .subtitle-space {
-    margin-right: 5%;
+    margin-right: 2%;
 }
 
 .title {
@@ -79,4 +79,9 @@
 .right_second {
     margin-left: 50%;
     width: 50%;   
+}
+
+table {
+    width: 50%;
+    margin-left: 25%;
 }

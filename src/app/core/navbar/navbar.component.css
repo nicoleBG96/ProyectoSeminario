@@ -27,3 +27,8 @@
 .toolbar :hover{
     background-color: #2f4d6d;
 }
+
+.button {
+    background-color:  #375A7F;
+    margin-left: 55%;
+}

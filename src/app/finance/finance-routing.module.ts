@@ -10,6 +10,8 @@ import { MensualityListComponent } from './mensuality/mensuality-list/mensuality
 import { ExpensesListComponent } from './expenses/expenses-list/expenses-list.component';
 import { ShowMensualityComponent } from './mensuality/show-mensuality/show-mensuality.component';
 import { MonthlyComponent } from './reports/monthly/monthly.component';
+import { ShowMensualityChildComponent } from './mensuality/show-mensuality-child/show-mensuality-child.component';
+import { IncomesComponent } from './incomes/incomes.component';
 
 const routes: Routes = [
   {path: 'registerDonation', component: RegisterDonationComponent},
@@ -19,7 +21,9 @@ const routes: Routes = [
   {path: 'showMensualities', component: MensualityListComponent},
   {path: 'showExpenses', component: ExpensesListComponent},
   {path: 'showMensuality/:id', component: ShowMensualityComponent},
-  {path: 'showMonthlyReport', component: MonthlyComponent}
+  {path: 'showMonthlyReport', component: MonthlyComponent},
+  {path: 'showMensuality', component: ShowMensualityChildComponent},
+  {path: 'showIncomes', component: IncomesComponent}
 ];
 
 @NgModule({

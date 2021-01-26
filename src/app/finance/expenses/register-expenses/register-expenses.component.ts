@@ -30,7 +30,7 @@ export class RegisterExpensesComponent implements OnInit {
 
   validate(event: any) {
     let correct = true;
-    if (event.month === '' || event.date === null || event.amount === '' || event.description === '') {
+    if (event.date === null || event.amount === '' || event.description === '' || event.date === undefined) {
       correct = false;
     }
     return correct;
