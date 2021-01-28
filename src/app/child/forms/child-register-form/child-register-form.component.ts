@@ -31,6 +31,7 @@ export class ChildRegisterFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.child)
     if (!this.child) {
       this.child = new ChildRegisterModel();
       this.isEdit = false;
@@ -40,7 +41,7 @@ export class ChildRegisterFormComponent implements OnInit {
   }
 
   save() {
-    console.log("SAVE");
+    console.log("SAVE", this.isEdit);
     this.onSubmit.emit(this.child);
   }
 

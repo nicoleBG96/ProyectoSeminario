@@ -29,4 +29,8 @@ export class UserListComponent implements OnInit {
     this.router.navigate(['users/user/'+ event.key]);
   }
 
+  deleteUser(event: any){
+    this.userService.deleteUserById(event.key);
+  }
+
 }

@@ -66,19 +66,6 @@
                             </div>
                             <br>
                             <mat-form-field class="text">
-                                <input class="input" [(ngModel)]="child.numberOfIdentity" type="text"
-                                    name="numberOfIdentity" #numberOfIdentity="ngModel" id="numberOfIdentity"
-                                    maxlength="10" minlength="6" matInput placeholder="Número de carnet" required
-                                    pattern="^[0-9]*$">
-                            </mat-form-field>
-                            <div *ngIf="(numberOfIdentity.touched || numberOfIdentity.dirty) && !numberOfIdentity.valid && 
-                                    numberOfIdentity.errors" class="text-alert">
-                                <div *ngIf="numberOfIdentity.errors.required">Se requiere Carnet de Identidad</div>
-                                <div *ngIf="numberOfIdentity.errors.pattern">Este campo solo acepta números</div>
-                                <div *ngIf="numberOfIdentity.errors.minlength">Mínimo 6 caractéres</div>
-                            </div>
-                            <br>
-                            <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.birthDate" type="date" name="birthDate"
                                     #birthDate="ngModel" id="birthDate" matInput placeholder="Fecha de Nacimiento">
                             </mat-form-field>
@@ -96,8 +83,8 @@
                             <br>
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.size" type="text" name="size" #size="ngModel"
-                                    id="size" maxlength="4" required pattern="^[0-9]+.[0-9]+[0-9]$" matInput
-                                    placeholder="Talla m (ejm 1.23)">
+                                    id="size" maxlength="5" required pattern="^[0-9]+.[0-9]$" matInput
+                                    placeholder="Talla cm (ejm 126.2)">
                             </mat-form-field>
                             <div *ngIf="(size.touched || size.dirty) && !size.valid && size.errors" class="text-alert">
                                 <div *ngIf="size.errors.required">Se requiere Talla</div>
@@ -107,7 +94,7 @@
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.weight" type="text" name="weight"
                                     #weight="ngModel" id="weight" maxlength="5" required
-                                    pattern="^[0-9]+[0-9]+.[0-9]+[0-9]$" matInput placeholder="Peso Kg (ejm 38.22)">
+                                    pattern="^[0-9]+[0-9]+.[0-9]$" matInput placeholder="Peso Kg (ejm 38.2)">
                             </mat-form-field>
                             <div *ngIf="(weight.touched || weight.dirty) && !weight.valid && weight.errors"
                                 class="text-alert">
@@ -136,12 +123,12 @@
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.district" type="text" name="district"
                                     #district="ngModel" id="district" maxlength="30" required
-                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ]*$" matInput placeholder="Distrito">
+                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ #0-9]*$" matInput placeholder="Distrito">
                             </mat-form-field>
                             <div *ngIf="(district.touched || district.dirty) && !district.valid && district.errors"
                                 class="text-alert">
                                 <div *ngIf="district.errors.required">Se requiere Distrito</div>
-                                <div *ngIf="district.errors.pattern">Este campo solo acepta letras</div>
+                                <div *ngIf="district.errors.pattern">Este campo solo acepta letras y números</div>
                             </div>
                             <br>
                             <mat-form-field class="text">

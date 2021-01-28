@@ -72,22 +72,6 @@ export class MonthlyComponent implements OnInit {
     return balance
   }
 
-  changeType(aux: any) {
-    let resp = '';
-    switch (aux.type) {
-      case 'expense':
-        resp = 'egresos';
-        break;
-      case 'mensuality':
-        resp = 'mensualidades';
-        break;
-      case 'donation':
-        resp = 'donación';
-        break;
-    }
-    return resp
-  }
-
   isExpense(aux: any) {
     let type = false;
     if (aux.type === 'expense')
@@ -123,9 +107,10 @@ export class MonthlyComponent implements OnInit {
     this.monthlyList.forEach(element => {
       elementAux = {};
       elementAux.Fecha = element.date;
-      elementAux.Mes = element.month;
-      elementAux.Descripcion = element.description;
-      elementAux.Tipo = this.changeType(element);
+      if(element.type !== 'mensuality')
+        elementAux.Descripcion = element.description;
+      else
+        elementAux.Descripcion = element.firstName + " " + element.lastName  + " " + 'pago de' + " " + element.month + " " + element.year;
       if (element.type !== 'expense') {
         elementAux.MontoIngreso = element.amount;
         elementAux.MontoEgreso = 0;
@@ -137,6 +122,7 @@ export class MonthlyComponent implements OnInit {
     });
     totalMonthly.MontoIngreso = this.totalIncome;
     totalMonthly.MontoEgreso = this.totalExpense;
+    totalMonthly.Total = this.calculateBalance();
     monthlyAux.push(totalMonthly);
     this.exportService.exportExcel(monthlyAux, 'registro mensual');
   }

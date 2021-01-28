@@ -40,4 +40,8 @@ export class UserService {
     this.firebase.list('users').update(id, user);
   }
 
+  deleteUserById(id: string) {
+    this.firebase.list('users').remove(id);
+  }
+
 }

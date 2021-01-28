@@ -23,7 +23,7 @@ export class IncomesComponent implements OnInit {
     this.registerMensuality();
     setTimeout(() => {
       this.incomeList = [];
-    this.incomeList = this.incomesService.getIncomes();
+      this.incomeList = this.incomesService.getIncomes();
       this.incomeList.forEach(element => {
         this.totalIncome = this.totalIncome + parseInt(element.amount);
       });
@@ -46,19 +46,6 @@ export class IncomesComponent implements OnInit {
         this.incomesService.createIncomesReport(element);
       });
     })
-  }
-
-  changeType(aux: any) {
-    let resp = '';
-    switch (aux.type) {
-      case 'mensuality':
-        resp = 'mensualidades';
-        break;
-      case 'donation':
-        resp = 'donación';
-        break;
-    }
-    return resp
   }
 
   filterByDate(date?) {
@@ -85,10 +72,11 @@ export class IncomesComponent implements OnInit {
     this.incomeList.forEach(element => {
       elementAux = {};
       elementAux.Fecha = element.date;
-      elementAux.Mes = element.month;
-      elementAux.Descripcion = element.description;
-        elementAux.MontoIngreso = 0;
-        elementAux.MontoEgreso = element.amount;
+      if(element.type !== 'mensuality')
+        elementAux.Descripcion = element.description;
+      else
+        elementAux.Descripcion = element.firstName + " " + element.lastName  + " " + 'pago de' + " " + element.month + " " + element.year;
+      elementAux.MontoIngreso = element.amount;
       incomeAux.push(elementAux);
     });
     totalIncome.MontoIngreso = this.totalIncome;

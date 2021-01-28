@@ -16,7 +16,6 @@
     <tr>
         <th class="subtitle">Fecha</th>
         <th class="subtitle">Descripcion</th>
-        <th class="subtitle">Tipo</th>
         <th class="subtitle">Monto Ingreso</th>
         <th class="subtitle">Monto Egreso</th>
         <th class="subtitle">Saldo</th>
@@ -29,17 +28,15 @@
         <div *ngIf="aux.type != 'mensuality'">
             <td class="text">{{aux.description}}</td>
         </div>
-        <td class="text">{{changeType(aux)}}</td>
-        <td *ngIf="aux.type != 'expense'" class="text">{{aux.amount}}</td>
+        <td *ngIf="aux.type != 'expense'" class="text">+ {{aux.amount}}</td>
         <td *ngIf="aux.type != 'expense'"></td>
         <td *ngIf="aux.type == 'expense'"></td>
-        <td *ngIf="aux.type == 'expense'" class="text">{{aux.amount}}</td>
+        <td *ngIf="aux.type == 'expense'" class="text">- {{aux.amount}}</td>
         <td></td>
     </tr>
     <tr></tr>
     <tr>
         <td class="text">Total</td>
-        <td></td>
         <td></td>
         <td class="text">{{totalIncome}}</td>
         <td class="text">{{totalExpense}}</td>

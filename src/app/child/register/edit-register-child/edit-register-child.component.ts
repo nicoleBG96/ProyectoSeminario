@@ -22,6 +22,7 @@ export class EditRegisterChildComponent implements OnInit {
     private childMedicalRecordService: ChildMedicalRecordService, private profileService: ProfileService) { }
 
   ngOnInit() {
+    this.child = this.childRegisterService.getCreatedObject();
     this.route.paramMap.subscribe((paramMap: any) => {
       this.id = (paramMap.params.id);
       this.childRegisterService.getChildbyId(this.id).then(child => this.child = child);
