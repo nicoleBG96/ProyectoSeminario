@@ -12,16 +12,22 @@ import { ExportService } from '../../../shared/services/export.service';
 export class MensualityListComponent implements OnInit {
   mensualitiesList: any[];
   total = 0;
+  loading = false;
+  loadingButton  = false;
 
   constructor(private mensualityService: MensualityService, private router: Router, private exportService: ExportService) { }
 
   ngOnInit() {
-    this.mensualityService.getMensualities().subscribe(item => {
-      this.mensualitiesList = item;
-      this.mensualitiesList.forEach(mensuality => {
-        this.total = this.total + parseInt(mensuality.amount, 10);
+    this.loading = true; 
+    setTimeout(() => {
+      this.loading = false;
+      this.mensualityService.getMensualities().subscribe(item => {
+        this.mensualitiesList = item;
+        this.mensualitiesList.forEach(mensuality => {
+          this.total = this.total + parseInt(mensuality.amount, 10);
+        });
       });
-    });
+    }, 500);
   }
 
   goToMensuality(mensuality: any) {
@@ -67,7 +73,10 @@ export class MensualityListComponent implements OnInit {
   }
 
   createMensuality() {
-    this.router.navigate(['child/profiles']);
+    this.loadingButton = true;
+    setTimeout(() => {
+      this.router.navigate(['child/profiles']);
+    }, 300);
   }
 
 }

@@ -4,15 +4,15 @@
     <i class="material-icons"> file_copy </i>
 </button>
 <br>
-<input matInput type="text" placeholder="Rango de fechas"  style="width:340px" class="date"
-  bsDaterangepicker (bsValueChange)="filterByDate($event)" [(ngModel)]="filterDate"
-   [bsConfig]="{showWeekNumbers:false, adaptivePosition: true, 
+<input matInput type="text" placeholder="Rango de fechas" style="width:340px" class="date" bsDaterangepicker
+    (bsValueChange)="filterByDate($event)" [(ngModel)]="filterDate" [bsConfig]="{showWeekNumbers:false, adaptivePosition: true, 
     isAnimated:true, containerClass: 'theme-blue', dateInputFormat: 'MM-YYYY', startView:'year'}">
-    
 
-  <i class="material-icons md-30" > calendar_today</i>
+
+<i class="material-icons md-30"> calendar_today</i>
 <br><br>
-<table mat table >
+<mat-spinner *ngIf="loading" class="mat-spinner"></mat-spinner>
+<table mat table class="table" *ngIf="loading == false">
     <tr>
         <th class="subtitle">Fecha</th>
         <th class="subtitle">Descripcion</th>

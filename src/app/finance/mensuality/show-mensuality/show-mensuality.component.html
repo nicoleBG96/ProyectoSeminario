@@ -1,7 +1,8 @@
 <mat-card class="card">
     <h1 class="title">Registro Mensualidad</h1>
     <br><br>
-    <div class="main">
+    <mat-spinner *ngIf="loading" class="mat-spinner"></mat-spinner>
+    <div class="main" *ngIf="loading == false">
         <label class="subtitle">Nombres: </label>
         <label> {{mensuality.firstName}}</label>
         <br>
@@ -31,7 +32,8 @@
     </div>
     <br><br>
     <div class="buttons">
-        <button class="button" mat-stroked-button  color="primary" (click)="goToMensualities()">Todas las papeletas</button>
-        <button class="button" mat-stroked-button  color="warn" (click)="goToProfile()">Cancelar</button>
+        <button class="button" mat-stroked-button color="primary" (click)="goToMensualities()">Todas las
+            papeletas</button>
+        <button class="button" mat-stroked-button color="warn" (click)="goToProfile()">Cancelar</button>
     </div>
 </mat-card>

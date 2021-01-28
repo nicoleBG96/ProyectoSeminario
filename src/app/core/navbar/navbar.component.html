@@ -1,7 +1,32 @@
 <mat-toolbar class="toolbar">
-    <a href=""><button mat-button class="space">Inicio</button></a>
-    <button mat-button class="title" (click)='goToProfiles()'>Afiliados</button>
-    <button mat-button [matMenuTriggerFor]="reportes" class="title">Reportes</button>
+    <div>
+        <button mat-button class="space" *ngIf="home">
+            <mat-icon>
+                <mat-spinner color="accent" diameter="20">
+                </mat-spinner>
+            </mat-icon>Inicio
+        </button>
+        <button mat-button class="space" *ngIf="home ==false" (click)="goHome()">Inicio</button>
+    </div>
+    <div>
+        <button mat-button class="title" *ngIf="profiles">
+            <mat-icon>
+                <mat-spinner color="accent" diameter="20">
+                </mat-spinner>
+            </mat-icon>Afiliados
+        </button>
+        <button mat-button class="title" *ngIf="profiles == false" (click)='goToProfiles()'>Afiliados</button>
+    </div>
+    <div>
+        <button mat-button *ngIf="report" class="title">
+            <mat-icon>
+                <mat-spinner color="accent" diameter="20">
+                </mat-spinner>
+            </mat-icon>
+            Reportes
+        </button>
+        <button mat-button [matMenuTriggerFor]="reportes" class="title" *ngIf="report==false">Reportes</button>
+    </div>
     <mat-menu #reportes="matMenu">
         <button mat-menu-item class="subtitle" (click)='goToReport()'>Reporte Financiero</button>
         <button mat-menu-item class="subtitle" [matMenuTriggerFor]="ingresos" class="subtitle">Ingresos</button>
@@ -10,9 +35,18 @@
             <button mat-menu-item class="subtitle" (click)='goToMensualities()'>Mensualidades</button>
             <button mat-menu-item class="subtitle" (click)='goToDonations()'>Donaciones</button>
         </mat-menu>
-        <button mat-menu-item class="subtitle"(click)='goToExpenses()'>Egresos</button>
+        <button mat-menu-item class="subtitle" (click)='goToExpenses()'>Egresos</button>
     </mat-menu>
-    <button mat-button class="title" (click)='goToUsers()'>Usuarios</button>
+    <div>
+        <button mat-button *ngIf="user" class="title">
+            <mat-icon>
+                <mat-spinner color="accent" diameter="20">
+                </mat-spinner>
+            </mat-icon>
+            Usuarios
+        </button>
+        <button mat-button class="title" *ngIf="user==false" (click)='goToUsers()'>Usuarios</button>
+    </div>
     <button mat-fab class="button" [matMenuTriggerFor]="account">
         <span class="material-icons"> person </span>
     </button>

@@ -15,7 +15,8 @@
 
 <i class="material-icons md-30"> calendar_today</i>
 <br>
-<div fxLayout="column" fxLayoutGap="32px">
+<mat-spinner *ngIf="loading" class="mat-spinner"></mat-spinner>
+<div *ngIf="loading==false">
   <mat-card class="global-card"
     *ngFor="let child of profileList | filter: {firstName:searchQuery,lastName:searchQuery, mothersLastName:searchQuery, sex:searchQuery, age:searchQuery} ">
     <mat-card class="card">

@@ -15,14 +15,19 @@ export class ShowMensualityComponent implements OnInit {
   mensualityID: any;
   mensuality= new MensualityModel();
   childID: any;
+  loading = false;
 
   constructor(private mensualityService: MensualityService, private router: Router, private route: ActivatedRoute) { }
 
 
   ngOnInit() {
-    this.route.paramMap.subscribe((paramMap: any) => {
-      this.view(paramMap.params.id);
-    });
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+      this.route.paramMap.subscribe((paramMap: any) => {
+        this.view(paramMap.params.id);
+      });
+    }, 500);
   }
 
   view(id: string) {

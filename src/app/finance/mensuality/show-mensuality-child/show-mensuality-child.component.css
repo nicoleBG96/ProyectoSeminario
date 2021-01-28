@@ -57,3 +57,8 @@
     color:white;
     background-color: red ;
 }
+
+.mat-spinner {
+    margin-left: 45%;
+    margin-top: 5%;
+}

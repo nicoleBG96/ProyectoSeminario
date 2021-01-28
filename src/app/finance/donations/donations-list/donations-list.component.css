@@ -48,3 +48,8 @@
 }
 
 .material-icons.md-30 { font-size: 30px; }
+
+.mat-spinner {
+    margin-left: 45%;
+    margin-top: 5%;
+}

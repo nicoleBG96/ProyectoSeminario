@@ -13,24 +13,21 @@ import { ExportService } from '../../../shared/services/export.service';
 export class ExpensesListComponent implements OnInit {
   expensesList: any[];
   total = 0;
+  loading = false;
 
   constructor(private expensesService: ExpensesService, private router: Router, private exportService: ExportService) { }
 
   ngOnInit() {
-    this.expensesService.getExpenses().subscribe(item => {
-      this.expensesList = item;
-      this.expensesList.forEach(expense => {
-        this.total = this.total + parseInt(expense.amount, 10);
-      });
-    });
-  }
-
-  calculateYear(date: string) {
-    return new Date(date).getFullYear();
-  }
-
-  calculateMonth(date: string) {
-    return (new Date(date).getMonth()) + 1;
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false; 
+      this.expensesService.getExpenses().subscribe(item => {
+        this.expensesList = item;
+        this.expensesList.forEach(expense => {
+          this.total = this.total + parseInt(expense.amount, 10);
+        });
+      });      
+    }, 500);
   }
 
   filterByDate(date?) {
@@ -61,7 +58,6 @@ export class ExpensesListComponent implements OnInit {
     this.expensesList.forEach(expense => {
       expenseAux = {};
       expenseAux.Fecha = expense.date;
-      expenseAux.Mes = expense.month;
       expenseAux.Descripcion = expense.description;
       expenseAux.Monto = expense.amount;
       expensesAux.push(expenseAux);

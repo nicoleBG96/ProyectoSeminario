@@ -107,3 +107,8 @@
         width: 15%;
     }
 }
+
+.mat-spinner {
+    margin-left: 45%;
+    margin-top: 5%;
+}

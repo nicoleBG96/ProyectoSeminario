@@ -16,24 +16,29 @@ export class MonthlyComponent implements OnInit {
   totalExpense = 0;
   totalIncome = 0;
   filterDate: any;
+  loading = false;
 
   constructor(private mensualityService: MensualityService, private monthlyService: MonthlyReportService, private expenseService: ExpensesService,
     private donationService: DonationService, private exportService: ExportService) { }
 
   ngOnInit() {
-    this.monthlyService.resetFinanceReport();
-    this.registerExpense();
-    this.registerDonations();
-    this.registerMensuality();
+    this.loading = true;
     setTimeout(() => {
-      this.monthlyList = [];
-      this.monthlyList = this.monthlyService.getMonthly();
-      this.monthlyList.forEach(element => {
-        if (element.type !== 'expense')
-          this.totalIncome = this.totalIncome + parseInt(element.amount);
-        else
-          this.totalExpense = this.totalExpense + parseInt(element.amount);
-      });
+      this.loading = false;
+      this.monthlyService.resetFinanceReport();
+      this.registerExpense();
+      this.registerDonations();
+      this.registerMensuality();
+      setTimeout(() => {
+        this.monthlyList = [];
+        this.monthlyList = this.monthlyService.getMonthly();
+        this.monthlyList.forEach(element => {
+          if (element.type !== 'expense')
+            this.totalIncome = this.totalIncome + parseInt(element.amount);
+          else
+            this.totalExpense = this.totalExpense + parseInt(element.amount);
+        });
+      }, 500);
     }, 500);
   }
 
@@ -107,10 +112,10 @@ export class MonthlyComponent implements OnInit {
     this.monthlyList.forEach(element => {
       elementAux = {};
       elementAux.Fecha = element.date;
-      if(element.type !== 'mensuality')
+      if (element.type !== 'mensuality')
         elementAux.Descripcion = element.description;
       else
-        elementAux.Descripcion = element.firstName + " " + element.lastName  + " " + 'pago de' + " " + element.month + " " + element.year;
+        elementAux.Descripcion = element.firstName + " " + element.lastName + " " + 'pago de' + " " + element.month + " " + element.year;
       if (element.type !== 'expense') {
         elementAux.MontoIngreso = element.amount;
         elementAux.MontoEgreso = 0;

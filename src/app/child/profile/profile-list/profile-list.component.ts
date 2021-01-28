@@ -13,16 +13,21 @@ export class ProfileListComponent implements OnInit {
   profileList: any = [];
   searchQuery: any;
   filterDate: any;
+  loading = false;
 
   constructor(private profileService: ProfileService, private router: Router, private mensualityService: MensualityService) { }
 
   ngOnInit() {
-    this.profileService.getProfile().subscribe(item => {
-      this.profileList = item;
-      this.profileList.forEach((profile: any) => {
-        profile.age = this.calculateAge(profile.birthDate);
+    this.loading=true;
+    setTimeout(() => {
+      this.loading=false;
+      this.profileService.getProfile().subscribe(item => {
+        this.profileList = item;
+        this.profileList.forEach((profile: any) => {
+          profile.age = this.calculateAge(profile.birthDate);
+        });
       });
-    });
+    }, 500);
   }
 
   registerProfile(childRegister: any) {

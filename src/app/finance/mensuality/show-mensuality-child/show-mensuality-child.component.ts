@@ -16,23 +16,28 @@ export class ShowMensualityChildComponent implements OnInit {
   mensualitiesList: any[];
   childKey: any;
   total = 0;
+  loading = false;
 
   constructor(private mensualityService: MensualityService, private router: Router, private exportService: ExportService) { }
 
   ngOnInit() {
-    this.mensuality = new MensualityModel();
-    this.childKey = this.mensualityService.getChildKey();
-    const filtered: any =[];
-    this.mensualityService.getMensualities().subscribe(item => {
-      this.mensualitiesList = item;
-      this.mensualitiesList.forEach(mensuality => {
-        if(mensuality.childKey == this.childKey) {
-          filtered.push(mensuality);
-          this.total = this.total + parseInt(mensuality.amount, 10);
-        }
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+      this.mensuality = new MensualityModel();
+      this.childKey = this.mensualityService.getChildKey();
+      const filtered: any = [];
+      this.mensualityService.getMensualities().subscribe(item => {
+        this.mensualitiesList = item;
+        this.mensualitiesList.forEach(mensuality => {
+          if (mensuality.childKey == this.childKey) {
+            filtered.push(mensuality);
+            this.total = this.total + parseInt(mensuality.amount, 10);
+          }
+        });
+        this.mensualitiesList = filtered;
       });
-      this.mensualitiesList = filtered;
-    }); 
+    }, 500);
   }
 
   export() {
@@ -73,7 +78,7 @@ export class ShowMensualityChildComponent implements OnInit {
       const filtered: any = [];
       this.mensualitiesList.forEach((event: any) => {
         if (new Date(event.date).getTime() >= startDate.getTime() &&
-        new Date(event.date).getTime() <= endDate.getTime()) {
+          new Date(event.date).getTime() <= endDate.getTime()) {
           filtered.push(event);
           this.total = this.total + parseInt(event.amount, 10);
         }

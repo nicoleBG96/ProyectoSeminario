@@ -13,20 +13,25 @@ export class IncomesComponent implements OnInit {
   incomeList: any = [];
   totalIncome = 0;
   filterDate: any;
+  loading = false;
 
-  constructor(private mensualityService: MensualityService, private incomesService: IncomesService, 
+  constructor(private mensualityService: MensualityService, private incomesService: IncomesService,
     private donationService: DonationService, private exportService: ExportService) { }
 
   ngOnInit() {
-    this.incomesService.resetFinanceReport();
-    this.registerDonations();
-    this.registerMensuality();
+    this.loading = true;
     setTimeout(() => {
-      this.incomeList = [];
-      this.incomeList = this.incomesService.getIncomes();
-      this.incomeList.forEach(element => {
-        this.totalIncome = this.totalIncome + parseInt(element.amount);
-      });
+      this.loading = false;
+      this.incomesService.resetFinanceReport();
+      this.registerDonations();
+      this.registerMensuality();
+      setTimeout(() => {
+        this.incomeList = [];
+        this.incomeList = this.incomesService.getIncomes();
+        this.incomeList.forEach(element => {
+          this.totalIncome = this.totalIncome + parseInt(element.amount);
+        });
+      }, 500);
     }, 500);
   }
 
@@ -72,10 +77,10 @@ export class IncomesComponent implements OnInit {
     this.incomeList.forEach(element => {
       elementAux = {};
       elementAux.Fecha = element.date;
-      if(element.type !== 'mensuality')
+      if (element.type !== 'mensuality')
         elementAux.Descripcion = element.description;
       else
-        elementAux.Descripcion = element.firstName + " " + element.lastName  + " " + 'pago de' + " " + element.month + " " + element.year;
+        elementAux.Descripcion = element.firstName + " " + element.lastName + " " + 'pago de' + " " + element.month + " " + element.year;
       elementAux.MontoIngreso = element.amount;
       incomeAux.push(elementAux);
     });
