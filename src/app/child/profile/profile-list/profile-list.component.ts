@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
+import { AuthentificationService } from 'src/app/authentification/authentification.service';
 import { MensualityService } from 'src/app/shared/services/mensuality.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 import { ProfileService } from '../../../shared/services/profile.service';
 
@@ -14,11 +17,16 @@ export class ProfileListComponent implements OnInit {
   searchQuery: any;
   filterDate: any;
   loading = false;
+  userList: any = [];
+  role: any = {};
+  isDisable = false;
 
-  constructor(private profileService: ProfileService, private router: Router, private mensualityService: MensualityService) { }
+  constructor(private profileService: ProfileService, private router: Router, private mensualityService: MensualityService,
+    private userService: UserService, private authService: AuthentificationService) { }
 
   ngOnInit() {
     this.loading=true;
+    this.active()
     setTimeout(() => {
       this.loading=false;
       this.profileService.getProfile().subscribe(item => {
@@ -89,6 +97,40 @@ export class ProfileListComponent implements OnInit {
       });
       this.profileList = filtered;
     }
+  }
+
+  async active() {
+    this.authService.getCurrentUser().pipe(
+      tap(current => {
+        if(current)
+          this.userService.getUser().subscribe(item => {
+            this.userList = item;
+            this.userList.forEach(element => {
+              if(current.email == element.email)
+              {
+                if(element.isDisable)
+                  this.isDisable = true;
+                switch (element.position) {
+                  case 'administrador':
+                    this.role = 'admin';
+                    break;
+                  case 'medico':
+                    this.role = 'med';
+                    break;
+                  case 'psicologo':
+                    this.role = 'psico';
+                    break;
+                  case 'contador':
+                    this.role = 'cont';
+                    break;
+                  default:
+                    break;
+                }
+              }
+            });
+          });
+      })
+    ).subscribe();
   }
 }
 

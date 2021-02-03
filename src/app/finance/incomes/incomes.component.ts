@@ -20,19 +20,19 @@ export class IncomesComponent implements OnInit {
 
   ngOnInit() {
     this.loading = true;
+    this.incomesService.resetFinanceReport();
     setTimeout(() => {
       this.loading = false;
       this.incomesService.resetFinanceReport();
       this.registerDonations();
       this.registerMensuality();
       setTimeout(() => {
-        this.incomeList = [];
         this.incomeList = this.incomesService.getIncomes();
         this.incomeList.forEach(element => {
           this.totalIncome = this.totalIncome + parseInt(element.amount);
         });
-      }, 500);
-    }, 500);
+      }, 800);
+    }, 300);
   }
 
   registerMensuality() {

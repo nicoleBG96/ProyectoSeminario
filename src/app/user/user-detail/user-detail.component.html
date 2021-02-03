@@ -11,9 +11,9 @@
     <br>
     <label>Estado: {{getStatus(user)}}</label>
     <button mat-stroked-button *ngIf="!user.isDisable" color="accent"
-        (click)="status(user, true)">Inhabilitar</button>
+        (click)="status(user, true)">Habilitar</button>
     <button mat-stroked-button *ngIf="user.isDisable" color="accent"
-        (click)="status(user, false)">Habilitar</button>
+        (click)="status(user, false)">Inhabilitar</button>
     <br><br>
     <button class="cancel" mat-raised-button color="warn" (click)='goToUsers()'>Volver</button>
 </mat-card>

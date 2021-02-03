@@ -12,7 +12,7 @@
         </div>
         <input class="photo-container" type="file" name="image" (change)="setImage($event)">
         <div *ngIf="child.image == ''" class="photo-container">
-            <div class="text-alert"> SE REQUIERE IMAGEN</div>
+            <div class="text-alert"> Se requiere imagen</div>
         </div>
         <form #formNew="ngForm" novalidate>
             <div class="main">
@@ -44,12 +44,12 @@
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="child.lastName" type="text" name="lastName"
                                     #lastName="ngModel" id="lastName" maxlength="30" required
-                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ]*$" matInput
+                                    pattern="^[a-zA-Z áéíóúäëïöüçñÁÉÍÓÚÄËÏÖÜÇÑ]*$" matInput
                                     placeholder="Apellido Paterno">
                             </mat-form-field>
                             <div *ngIf="(lastName.touched || lastName.dirty) && !lastName.valid && lastName.errors"
                                 class="text-alert">
-                                <div *ngIf="lastName.errors.required">Se requiere Apellido Paterno</div>
+                                <div *ngIf="lastName.errors.required">Se requiere apellido paterno</div>
                                 <div *ngIf="lastName.errors.pattern">Este campo solo acepta letras</div>
                             </div>
                             <br>
@@ -61,7 +61,7 @@
                             </mat-form-field>
                             <div *ngIf="(mothersLastName.touched || mothersLastName.dirty) && !mothersLastName.valid && mothersLastName.errors"
                                 class="text-alert">
-                                <div *ngIf="mothersLastName.errors.required">Se requiere Apellido Materno</div>
+                                <div *ngIf="mothersLastName.errors.required">Se requiere apellido materno</div>
                                 <div *ngIf="mothersLastName.errors.pattern">Este campo solo acepta letras</div>
                             </div>
                             <br>
@@ -87,7 +87,7 @@
                                     placeholder="Talla cm (ejm 126.2)">
                             </mat-form-field>
                             <div *ngIf="(size.touched || size.dirty) && !size.valid && size.errors" class="text-alert">
-                                <div *ngIf="size.errors.required">Se requiere Talla</div>
+                                <div *ngIf="size.errors.required">Se requiere talla</div>
                                 <div *ngIf="size.errors.pattern">Patrón incorrecto</div>
                             </div>
                             <br>
@@ -98,7 +98,7 @@
                             </mat-form-field>
                             <div *ngIf="(weight.touched || weight.dirty) && !weight.valid && weight.errors"
                                 class="text-alert">
-                                <div *ngIf="weight.errors.required">Se requiere Peso</div>
+                                <div *ngIf="weight.errors.required">Se requiere peso</div>
                                 <div *ngIf="weight.errors.pattern">Patrón incorrecto</div>
                             </div>
                             <br>
@@ -116,7 +116,7 @@
                             </mat-form-field>
                             <div *ngIf="(municipality.touched || municipality.dirty) && !municipality.valid && municipality.errors"
                                 class="text-alert">
-                                <div *ngIf="municipality.errors.required">Se requiere Municipalidad</div>
+                                <div *ngIf="municipality.errors.required">Se requiere municipalidad</div>
                                 <div *ngIf="municipality.errors.pattern">Este campo solo acepta letras</div>
                             </div>
                             <br>
@@ -127,7 +127,7 @@
                             </mat-form-field>
                             <div *ngIf="(district.touched || district.dirty) && !district.valid && district.errors"
                                 class="text-alert">
-                                <div *ngIf="district.errors.required">Se requiere Distrito</div>
+                                <div *ngIf="district.errors.required">Se requiere distrito</div>
                                 <div *ngIf="district.errors.pattern">Este campo solo acepta letras y números</div>
                             </div>
                             <br>
@@ -137,7 +137,7 @@
                                     matInput placeholder="Zona">
                             </mat-form-field>
                             <div *ngIf="(zone.touched || zone.dirty) && !zone.valid && zone.errors" class="text-alert">
-                                <div *ngIf="zone.errors.required">Se requiere Zona</div>
+                                <div *ngIf="zone.errors.required">Se requiere zona</div>
                                 <div *ngIf="zone.errors.pattern">Este campo solo acepta letras</div>
                             </div>
                             <br>
@@ -148,7 +148,7 @@
                             </mat-form-field>
                             <div *ngIf="(street.touched || street.dirty) && !street.valid && street.errors"
                                 class="text-alert">
-                                <div *ngIf="street.errors.required">Se requiere Calle</div>
+                                <div *ngIf="street.errors.required">Se requiere calle</div>
                                 <div *ngIf="street.errors.pattern">Este campo solo acepta letras y números</div>
                             </div>
                             <br><br>
@@ -162,7 +162,7 @@
                             </mat-form-field>
                             <div *ngIf="(nameOfTutor.touched || nameOfTutor.dirty) && !nameOfTutor.valid && nameOfTutor.errors"
                                 class="text-alert">
-                                <div *ngIf="nameOfTutor.errors.required">Se requiere Nombre del tutor</div>
+                                <div *ngIf="nameOfTutor.errors.required">Se requiere nombre del tutor</div>
                                 <div *ngIf="nameOfTutor.errors.pattern">Este campo solo acepta letras</div>
                             </div>
                             <br>
@@ -173,7 +173,7 @@
                             </mat-form-field>
                             <div *ngIf="(phone.touched || phone.dirty) && !phone.valid && phone.errors"
                                 class="text-alert">
-                                <div *ngIf="phone.errors.required">Se requiere Telefono</div>
+                                <div *ngIf="phone.errors.required">Se requiere telefono</div>
                                 <div *ngIf="phone.errors.pattern">Este campo solo acepta números</div>
                                 <div *ngIf="phone.errors.minlength">Mínimo 7 números</div>
                             </div>

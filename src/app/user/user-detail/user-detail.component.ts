@@ -11,6 +11,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class UserDetailComponent implements OnInit {
   userId: any;
   user = new UserModel();
+  userList: any = [];
 
   constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) { }
 
@@ -32,14 +33,13 @@ export class UserDetailComponent implements OnInit {
 
   getStatus(event: any) {
     if (event.isDisable) {
-      return 'Inhabilitado';
-    } else {
       return 'Habilitado';
+    } else {
+      return 'Inhabilitado';
     }
   }
 
   goToUsers() {
     this.router.navigate(['users/userList']);
   }
-
 }

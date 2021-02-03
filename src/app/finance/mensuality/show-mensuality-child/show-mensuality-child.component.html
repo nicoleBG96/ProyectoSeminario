@@ -3,7 +3,7 @@
 <button mat-stroked-button class="space" (click)="export()">Exportar
     <i class="material-icons"> file_copy </i>
 </button>
-<button mat-fab class="button" (click)="createMensuality()">
+<button mat-fab class="button" (click)="createMensuality()" *ngIf="role =='admin'">
     <i class="material-icons">add_circle_outline</i>
 </button>
 <br>
@@ -20,7 +20,7 @@
         <th class="subtitle" scope="col">Nombre </th>
         <th class="subtitle" scope="col">Mes </th>
         <th class="subtitle" scope="col">Año</th>
-        <th class="subtitle" scope="col">Monto </th>
+        <th class="totalMensuality" scope="col">Monto </th>
     </ng-container>
     <ng-container>
         <tr *ngFor="let mensuality of mensualitiesList" class="table-Table">
@@ -28,7 +28,7 @@
             <td class="text">{{mensuality.lastName}} {{mensuality.mothersLastName}} {{mensuality.firstName}}</td>
             <td class="text">{{mensuality.month}}</td>
             <td class="text">{{mensuality.year}}</td>
-            <td class="text">{{mensuality.amount}}</td>
+            <td class="mensuality">{{mensuality.amount}}</td>
         </tr>
     </ng-container>
     <ng-container>
@@ -37,7 +37,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td class="result">{{total}}</td>
+            <td class="total">{{total}}</td>
         </tr>
     </ng-container>
 </table>

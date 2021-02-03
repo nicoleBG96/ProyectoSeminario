@@ -85,3 +85,8 @@ table {
     width: 50%;
     margin-left: 25%;
 }
+
+.mat-spinner {
+    margin-left: 45%;
+    margin-top: 5%;
+}

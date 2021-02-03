@@ -19,6 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 
+import { AuthentificationService } from '../app/authentification/authentification.service';
+
 
 import { MaterialModule } from './material-module/material-module.module';
 
@@ -41,7 +43,7 @@ import { MaterialModule } from './material-module/material-module.module';
     ToastrModule.forRoot()
 
   ],
-  providers: [],
+  providers: [AuthentificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

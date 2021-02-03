@@ -5,6 +5,10 @@ import { ExportService } from 'src/app/shared/services/export.service';
 import { MensualityModel } from '../../../shared/models/mensuality.model';
 import { MensualityService } from '../../../shared/services/mensuality.service';
 
+import { tap } from 'rxjs/operators';
+import { AuthentificationService } from 'src/app/authentification/authentification.service';
+import { UserService } from 'src/app/shared/services/user.service';
+
 @Component({
   selector: 'app-show-mensuality-child',
   templateUrl: './show-mensuality-child.component.html',
@@ -17,11 +21,16 @@ export class ShowMensualityChildComponent implements OnInit {
   childKey: any;
   total = 0;
   loading = false;
+  userList: any = [];
+  role: any = {};
+  isDisable = false;
 
-  constructor(private mensualityService: MensualityService, private router: Router, private exportService: ExportService) { }
+  constructor(private mensualityService: MensualityService, private router: Router, private exportService: ExportService,
+    private userService: UserService, private authService: AuthentificationService) { }
 
   ngOnInit() {
     this.loading = true;
+    this.active();
     setTimeout(() => {
       this.loading = false;
       this.mensuality = new MensualityModel();
@@ -29,6 +38,7 @@ export class ShowMensualityChildComponent implements OnInit {
       const filtered: any = [];
       this.mensualityService.getMensualities().subscribe(item => {
         this.mensualitiesList = item;
+        console.log(this.mensualitiesList)
         this.mensualitiesList.forEach(mensuality => {
           if (mensuality.childKey == this.childKey) {
             filtered.push(mensuality);
@@ -37,7 +47,7 @@ export class ShowMensualityChildComponent implements OnInit {
         });
         this.mensualitiesList = filtered;
       });
-    }, 500);
+    }, 300);
   }
 
   export() {
@@ -85,5 +95,38 @@ export class ShowMensualityChildComponent implements OnInit {
       });
       this.mensualitiesList = filtered;
     }
+  }
+
+  async active() {
+    this.authService.getCurrentUser().pipe(
+      tap(current => {
+        if (current)
+          this.userService.getUser().subscribe(item => {
+            this.userList = item;
+            this.userList.forEach(element => {
+              if (current.email == element.email) {
+                if (element.isDisable)
+                  this.isDisable = true;
+                switch (element.position) {
+                  case 'administrador':
+                    this.role = 'admin';
+                    break;
+                  case 'medico':
+                    this.role = 'med';
+                    break;
+                  case 'psicologo':
+                    this.role = 'psico';
+                    break;
+                  case 'contador':
+                    this.role = 'cont';
+                    break;
+                  default:
+                    break;
+                }
+              }
+            });
+          });
+      })
+    ).subscribe();
   }
 }

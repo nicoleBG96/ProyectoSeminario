@@ -1,6 +1,6 @@
 <mat-card class="card">
     <h1 class="title">Perfil </h1>
-    <img class="image" src="{{profile.image}}" alt="" height="100" width="100">
+    <img class="image" src="{{profile.image}}" alt="" height="150" width="150">
     <br><br>
     <div class="left">
         <label class="subtitle"> Nombres:</label>
@@ -13,20 +13,20 @@
         <label> {{profile.mothersLastName}}</label>
         <br>
         <label class="subtitle">Fecha de Nacimiento: </label>
-        <label> {{profile.birthDate}}</label>
+        <label> {{profile.birthDate | date:'dd-MM-yyyy'}}</label>
     </div>
     <div class="right">
         <label class="subtitle"> Sexo:</label>
         <label> {{profile.sex}}</label>
         <br>
         <label class="subtitle"> Fecha de Admisión:</label>
-        <label> {{profile.admissionDate}}</label>
+        <label> {{profile.admissionDate | date: 'dd-MM-yyyy'}}</label>
         <br>
         <label class="subtitle">Estado: </label>
         <label class="subtitle-space"> {{(getStatus(profile))}}</label>
-        <button mat-stroked-button *ngIf="!profile.isDisable" color="accent"
+        <button mat-stroked-button *ngIf="!profile.isDisable && role =='admin'" color="accent"
             (click)="status(profile, true)">Inhabilitar</button>
-        <button mat-stroked-button *ngIf="profile.isDisable" color="accent"
+        <button mat-stroked-button *ngIf="profile.isDisable && role =='admin'" color="accent"
             (click)="status(profile, false)">Habilitar</button>
     </div>
     <br><br>
@@ -34,7 +34,7 @@
         <button class="button" mat-stroked-button (click)="goToRegister(child)" color="primary">Registro</button>
         <button class="button" mat-stroked-button (click)="goToMedicalRecord(child)" color="primary">Ficha Médica</button>
         <button class="button" mat-stroked-button (click)="goToProgress(child)" color="primary">Ficha Desarrollo</button>
-        <button class="button" mat-stroked-button (click)="goToMensualities(profile)" color="primary">Mensualidades</button>
+        <button class="button" mat-stroked-button (click)="goToMensualities(profile)" color="primary" *ngIf="role=='admin'">Mensualidades</button>
         <button mat-stroked-button (click)="goToProfiles()" color="warn">Volver</button>
     </div>
 </mat-card>

@@ -26,7 +26,6 @@ export class RegisterUserComponent implements OnInit {
     if (this.validateUser(user)) {
       this.userService.createUser(user);
       this.authService.register(user);
-      console.log(user);
       this.router.navigate(['auth/login']);
       this.toastrService.success('exito al registrar', 'ÉXITO');
     } else {

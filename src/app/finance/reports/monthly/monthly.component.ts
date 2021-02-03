@@ -23,6 +23,7 @@ export class MonthlyComponent implements OnInit {
 
   ngOnInit() {
     this.loading = true;
+    this.monthlyService.resetFinanceReport();
     setTimeout(() => {
       this.loading = false;
       this.monthlyService.resetFinanceReport();
@@ -30,7 +31,6 @@ export class MonthlyComponent implements OnInit {
       this.registerDonations();
       this.registerMensuality();
       setTimeout(() => {
-        this.monthlyList = [];
         this.monthlyList = this.monthlyService.getMonthly();
         this.monthlyList.forEach(element => {
           if (element.type !== 'expense')
@@ -38,7 +38,7 @@ export class MonthlyComponent implements OnInit {
           else
             this.totalExpense = this.totalExpense + parseInt(element.amount);
         });
-      }, 500);
+      }, 700);
     }, 500);
   }
 

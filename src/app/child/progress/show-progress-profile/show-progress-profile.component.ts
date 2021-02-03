@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { type } from 'os';
 
 import { ChildProgressModel } from '../../../shared/models/child-progress.model';
 
 import { ChildProgressService } from '../../../shared/services/child-progress.service';
+
+import { tap } from 'rxjs/operators';
+import { AuthentificationService } from 'src/app/authentification/authentification.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-show-progress-profile',
@@ -13,14 +16,25 @@ import { ChildProgressService } from '../../../shared/services/child-progress.se
 })
 export class ShowProgressProfileComponent implements OnInit {
 
-  constructor(private childProgressService: ChildProgressService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private childProgressService: ChildProgressService, private route: ActivatedRoute, 
+    private router: Router,  private userService: UserService, private authService: AuthentificationService) { }
+
   child = new ChildProgressModel();
   childId: any;
+  userList: any = [];
+  role: any = {};
+  isDisable = false;
+  loading = false;
 
   ngOnInit() {
-    this.route.paramMap.subscribe((paramMap: any) => {
+    this.loading = true;
+    this.active();
+    setTimeout(() => {
+      this.loading = false;
+      this.route.paramMap.subscribe((paramMap: any) => {
       this.view(paramMap.params.id);
     });
+    }, 300);
   }
 
   view(id: string) {
@@ -44,6 +58,40 @@ export class ShowProgressProfileComponent implements OnInit {
 
   goToProfiles() {
     this.router.navigate(['child/showProfile/' + this.childId]);
+  }
+
+  async active() {
+    this.authService.getCurrentUser().pipe(
+      tap(current => {
+        if(current)
+          this.userService.getUser().subscribe(item => {
+            this.userList = item;
+            this.userList.forEach(element => {
+              if(current.email == element.email)
+              {
+                if(element.isDisable)
+                  this.isDisable = true;
+                switch (element.position) {
+                  case 'administrador':
+                    this.role = 'admin';
+                    break;
+                  case 'medico':
+                    this.role = 'med';
+                    break;
+                  case 'psicologo':
+                    this.role = 'psico';
+                    break;
+                  case 'contador':
+                    this.role = 'cont';
+                    break;
+                  default:
+                    break;
+                }
+              }
+            });
+          });
+      })
+    ).subscribe();
   }
 
   rangeAge(age:any) {

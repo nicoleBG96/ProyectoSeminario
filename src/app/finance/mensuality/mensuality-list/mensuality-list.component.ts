@@ -4,6 +4,10 @@ import { Router } from '@angular/router';
 import { MensualityService } from '../../../shared/services/mensuality.service';
 import { ExportService } from '../../../shared/services/export.service';
 
+import { tap } from 'rxjs/operators';
+import { AuthentificationService } from 'src/app/authentification/authentification.service';
+import { UserService } from 'src/app/shared/services/user.service';
+
 @Component({
   selector: 'app-mensuality-list',
   templateUrl: './mensuality-list.component.html',
@@ -14,11 +18,16 @@ export class MensualityListComponent implements OnInit {
   total = 0;
   loading = false;
   loadingButton  = false;
+  userList: any = [];
+  role: any = {};
+  isDisable = false;
 
-  constructor(private mensualityService: MensualityService, private router: Router, private exportService: ExportService) { }
+  constructor(private mensualityService: MensualityService, private router: Router, private exportService: ExportService,
+    private userService: UserService, private authService: AuthentificationService) { }
 
   ngOnInit() {
     this.loading = true; 
+    this.active();
     setTimeout(() => {
       this.loading = false;
       this.mensualityService.getMensualities().subscribe(item => {
@@ -77,6 +86,40 @@ export class MensualityListComponent implements OnInit {
     setTimeout(() => {
       this.router.navigate(['child/profiles']);
     }, 300);
+  }
+
+  async active() {
+    this.authService.getCurrentUser().pipe(
+      tap(current => {
+        if(current)
+          this.userService.getUser().subscribe(item => {
+            this.userList = item;
+            this.userList.forEach(element => {
+              if(current.email == element.email)
+              {
+                if(element.isDisable)
+                  this.isDisable = true;
+                switch (element.position) {
+                  case 'administrador':
+                    this.role = 'admin';
+                    break;
+                  case 'medico':
+                    this.role = 'med';
+                    break;
+                  case 'psicologo':
+                    this.role = 'psico';
+                    break;
+                  case 'contador':
+                    this.role = 'cont';
+                    break;
+                  default:
+                    break;
+                }
+              }
+            });
+          });
+      })
+    ).subscribe();
   }
 
 }

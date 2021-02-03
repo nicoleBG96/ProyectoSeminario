@@ -15,7 +15,7 @@
     <tr>
         <th class="subtitle">Fecha</th>
         <th class="subtitle">Descripcion</th>
-        <th class="subtitle">Monto Ingreso</th>
+        <th class="resultTitle">Monto Ingreso</th>
     </tr>
     <tr *ngFor="let aux of incomeList">
         <td class="text">{{aux.date | date:'dd/MM/yyyy'}}</td>
@@ -25,7 +25,7 @@
         <div *ngIf="aux.type != 'mensuality'">
             <td class="text">{{aux.description}}</td>
         </div>
-        <td class="text">{{aux.amount}}</td>
+        <td class="amount">{{aux.amount}}</td>
     </tr>
     <tr>
         <td></td>
@@ -35,6 +35,6 @@
     <tr>
         <td class="text">Total</td>
         <td></td>
-        <td class="text">{{totalIncome}}</td>
+        <td class="result">{{totalIncome}}</td>
     </tr>
 </table>

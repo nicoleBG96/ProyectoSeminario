@@ -1,18 +1,31 @@
 .card {
     width: 30%;
     margin-left: 35%;
-}
-
-.input {
-    display: flex;
-    flex-direction: column;
+    margin-top: 3%;
 }
 
 .button {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 10%;
+    width: 80%;
 }
 
-.button_center {
-    margin-left: 25%;
+.center {
+    margin-left: 20%;
+}
+
+.mat-spinner {
+    margin-left: 45%;
+    margin-top: 5%;
+}
+
+.title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: 600;
+    margin-left: 15%;
+}
+
+.form {
+    margin-left: 10%;
+    width: 80%;
 }

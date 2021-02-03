@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthentificationService } from 'src/app/authentification/authentification.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class UserListComponent implements OnInit {
   usersList: any [];
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private authService: AuthentificationService) { }
 
   ngOnInit() {
     this.userService.getUser().subscribe(item => {
@@ -20,7 +21,7 @@ export class UserListComponent implements OnInit {
 
   changePosition(event: any) {
     if(event.isDisable == false)
-      return 'Deshabilitado';
+      return 'Inhabilitado';
     else
       return 'Habilitado';
   }

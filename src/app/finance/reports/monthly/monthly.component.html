@@ -16,8 +16,8 @@
     <tr>
         <th class="subtitle">Fecha</th>
         <th class="subtitle">Descripcion</th>
-        <th class="subtitle">Monto Ingreso</th>
-        <th class="subtitle">Monto Egreso</th>
+        <th class="totalAmount">Monto Ingreso</th>
+        <th class="totalAmount">Monto Egreso</th>
         <th class="subtitle">Saldo</th>
     </tr>
     <tr *ngFor="let aux of monthlyList">
@@ -28,18 +28,18 @@
         <div *ngIf="aux.type != 'mensuality'">
             <td class="text">{{aux.description}}</td>
         </div>
-        <td *ngIf="aux.type != 'expense'" class="text">+ {{aux.amount}}</td>
+        <td *ngIf="aux.type != 'expense'" class="income">+ {{aux.amount}}</td>
         <td *ngIf="aux.type != 'expense'"></td>
         <td *ngIf="aux.type == 'expense'"></td>
-        <td *ngIf="aux.type == 'expense'" class="text">- {{aux.amount}}</td>
+        <td *ngIf="aux.type == 'expense'" class="expense">- {{aux.amount}}</td>
         <td></td>
     </tr>
     <tr></tr>
     <tr>
-        <td class="text">Total</td>
+        <td class="total">Total</td>
         <td></td>
-        <td class="text">{{totalIncome}}</td>
-        <td class="text">{{totalExpense}}</td>
-        <td class="text">{{calculateBalance()}}</td>
+        <td class="totalIncome"> + {{totalIncome}}</td>
+        <td class="totalExpense">- {{totalExpense}}</td>
+        <td class="total">{{calculateBalance()}}</td>
     </tr>
 </table>

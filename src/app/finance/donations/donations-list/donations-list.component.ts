@@ -4,7 +4,11 @@ import { Router } from '@angular/router';
 // Services
 import { DonationService } from '../../../shared/services/donation.service';
 import { ExportService } from '../../../shared/services/export.service';
-import { element } from 'protractor';
+
+import { tap } from 'rxjs/operators';
+import { AuthentificationService } from 'src/app/authentification/authentification.service';
+import { UserService } from 'src/app/shared/services/user.service';
+
 
 @Component({
   selector: 'app-donations-list',
@@ -15,11 +19,16 @@ export class DonationsListComponent implements OnInit {
   donationsList: any[];
   total = 0;
   loading = false;
+  userList: any = [];
+  role: any = {};
+  isDisable = false;
 
-  constructor(private donationService: DonationService, private route: Router, private exportService: ExportService) { }
+  constructor(private donationService: DonationService, private route: Router, private exportService: ExportService,
+    private userService: UserService, private authService: AuthentificationService) { }
 
   ngOnInit() {
     this.loading = true;
+    this.active();
     setTimeout(() => {
       this.loading = false; 
       this.donationService.getDonations().subscribe(item => {
@@ -77,5 +86,39 @@ export class DonationsListComponent implements OnInit {
     donationAux.Descripcion = donation.description;
     donationAux.Monto = donation.amount;
     return donationAux;
+  }
+
+  async active() {
+    this.authService.getCurrentUser().pipe(
+      tap(current => {
+        if(current)
+          this.userService.getUser().subscribe(item => {
+            this.userList = item;
+            this.userList.forEach(element => {
+              if(current.email == element.email)
+              {
+                if(element.isDisable)
+                  this.isDisable = true;
+                switch (element.position) {
+                  case 'administrador':
+                    this.role = 'admin';
+                    break;
+                  case 'medico':
+                    this.role = 'med';
+                    break;
+                  case 'psicologo':
+                    this.role = 'psico';
+                    break;
+                  case 'contador':
+                    this.role = 'cont';
+                    break;
+                  default:
+                    break;
+                }
+              }
+            });
+          });
+      })
+    ).subscribe();
   }
 }
