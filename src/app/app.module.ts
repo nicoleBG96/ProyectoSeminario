@@ -12,14 +12,14 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-
-
 // Routing
 import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+
+import { AuthentificationService } from '../app/authentification/authentification.service';
 
 
 import { MaterialModule } from './material-module/material-module.module';
@@ -41,8 +41,9 @@ import { MaterialModule } from './material-module/material-module.module';
     AngularFirestoreModule,
     MaterialModule,
     ToastrModule.forRoot()
+
   ],
-  providers: [],
+  providers: [AuthentificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

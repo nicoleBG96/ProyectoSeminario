@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 // Model
 import { DonationsModel } from '../../../shared/models/donations.model';
@@ -19,7 +20,8 @@ export class DonationFormComponent implements OnInit {
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onSubmit: EventEmitter<any>;
 
-  constructor(private donationService: DonationService, private formBuilder: FormBuilder) {
+  constructor(private donationService: DonationService, private formBuilder: FormBuilder, 
+    private router: Router) {
     this.onSubmit = new EventEmitter<any>();
    }
 
@@ -29,7 +31,10 @@ export class DonationFormComponent implements OnInit {
 
   saveDonation() {
     this.onSubmit.emit(this.donation);
-    
+  }
+
+  goToDonations() {
+    this.router.navigate(['finances/showDonations']);
   }
 
 }

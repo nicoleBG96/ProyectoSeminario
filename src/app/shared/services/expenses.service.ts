@@ -12,6 +12,7 @@ import { ExpensesModel } from '../models/expenses.model';
 export class ExpensesService {
   expensesList: AngularFireList<any>;
 
+
   constructor(private firebase: AngularFireDatabase, private storage: AngularFireStorage) { }
 
   getExpenses() {

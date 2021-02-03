@@ -22,7 +22,7 @@ export class UserService {
   }
 
   getUser() {
-    return this.firebase.list('user').snapshotChanges().pipe(
+    return this.firebase.list('users').snapshotChanges().pipe(
       map(action => action.map(data => {
         return {
           key: data.payload.key,
@@ -38,6 +38,10 @@ export class UserService {
 
   updateUser(id: string, user: UserModel) {
     this.firebase.list('users').update(id, user);
+  }
+
+  deleteUserById(id: string) {
+    this.firebase.list('users').remove(id);
   }
 
 }

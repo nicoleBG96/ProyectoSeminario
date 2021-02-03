@@ -13,6 +13,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+
 
 @NgModule({
   declarations: [],
@@ -28,7 +31,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatTableModule,
     MatToolbarModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    ScrollingModule
   ],
   exports: [
     MatCardModule,
@@ -41,7 +46,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatTableModule,
     MatToolbarModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    ScrollingModule
   ]
 })
 export class MaterialModule { }

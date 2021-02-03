@@ -1,80 +1,91 @@
 <mat-card class="card">
-    <mat-card-header>
-        <mat-card-title class="title">Registro Mensualidades</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <form #formNew="ngForm" novalidate>
-            <br><br>
-            <mat-form-field class="text">
-                <input class="input" [(ngModel)]="mensuality.firstName" type="text" name="firstName"
-                    #firstName="ngModel" id="firstName" required pattern="^[a-zA-Z áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ]*$" matInput
-                    placeholder="Nombres">
-            </mat-form-field>
-            <div *ngIf="(firstName.touched || firstName.dirty) && !firstName.valid && firstName.errors"
-                class="text-alert">
-                <div *ngIf="firstName.errors.required">Se requiere Nombre</div>
-                <div *ngIf="firstName.errors.pattern">Este campo solo acepta letras</div>
+    <h1 class="title">Registro Mensulidad</h1>
+    <br>
+    <form #formNew="ngForm" novalidate>
+        <div class="main">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="left">
+                        <br>
+                        <label class="text">Nombre </label> 
+                        <br>
+                        <label>{{mensuality.firstName}}</label>
+                        <br><br>
+                        <label class="text">Apellido Paterno</label>
+                        <br>
+                        <label>{{mensuality.lastName}}</label>
+                        <br><br>
+                        <label class="text">Apellido Materno</label>
+                        <br>
+                        <label>{{mensuality.mothersLastName}}</label>   
+                        <br><br>
+                        <label class="text">Tutor: </label>
+                        <br>
+                        <label>{{mensuality.nameOfTutor}}</label>            
+                        <br><br>
+                        <label class="text">Celular: </label>
+                        <br>
+                        <label>{{mensuality.phone}}</label> 
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-offset-6">
+                    <div class="right">
+                        <br>
+                        <label class="text">Fecha Admisión: </label>
+                        <br>
+                        <label>{{mensuality.admissionDate}}</label> 
+                        <br><br>
+                        <mat-form-field class="text">
+                            <input class="input" [(ngModel)]="mensuality.date" type="date" name="date" #date="ngModel"
+                                id="date" matInput placeholder="Fecha">
+                        </mat-form-field>    
+                        <br>
+                        <mat-form-field class="text">
+                            <mat-label>Mes a Pagar</mat-label>
+                            <select matNativeControl required [(ngModel)]="mensuality.month"
+                                [ngModelOptions]="{standalone: true}">
+                                <option value="enero">Enero</option>
+                                <option value="Febrero">Febrero</option>
+                                <option value="marzo">Marzo</option>
+                                <option value="abril">Abril</option>
+                                <option value="mayo">Mayo</option>
+                                <option value="junio">Junio</option>
+                                <option value="julio">Julio</option>
+                                <option value="agosto">Agosto</option>
+                                <option value="septiembre">Septiembre</option>
+                                <option value="octubre">Octubre</option>
+                                <option value="noviembre">Noviembre</option>
+                                <option value="diciembre">Diciembre</option>
+                            </select>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="text">
+                            <input class="input" [(ngModel)]="mensuality.year" type="text" name="year"
+                                #year="ngModel" id="year" matInput placeholder="Año">
+                        </mat-form-field>
+                        <div *ngIf="(year.touched || year.dirty) && !year.valid && year.errors"
+                            class="text-alert">
+                            <div *ngIf="year.errors.required">Se requiere año</div>
+                            <div *ngIf="year.errors.pattern">Este campo solo acepta números</div>
+                        </div>
+                        <br>
+                        <mat-form-field class="text">
+                            <input class="input" [(ngModel)]="mensuality.amount" type="text" name="amount"
+                                #amount="ngModel" id="amount" required pattern="^[0-9]*$" matInput placeholder="Monto">
+                        </mat-form-field>
+                        <div *ngIf="(amount.touched || amount.dirty) && !amount.valid && amount.errors"
+                            class="text-alert">
+                            <div *ngIf="amount.errors.required">Se requiere monto</div>
+                            <div *ngIf="amount.errors.pattern">Este campo solo acepta números</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <br>
-            <mat-form-field class="text">
-                <input class="input" [(ngModel)]="mensuality.lastName" type="text" name="firstName" #lastName="ngModel"
-                    id="lastName" required pattern="^[a-zA-Z áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ]*$" matInput
-                    placeholder="Apellido Paterno">
-            </mat-form-field>
-            <div *ngIf="(lastName.touched || lastName.dirty) && !lastName.valid && lastName.errors" class="text-alert">
-                <div *ngIf="lastName.errors.required">Se requiere Apellido Paterno</div>
-                <div *ngIf="lastName.errors.pattern">Este campo solo acepta letras</div>
-            </div>
-            <br>
-            <mat-form-field class="text">
-                <input class="input" [(ngModel)]="mensuality.mothersLastName" type="text" name="mothersLastName"
-                    #mothersLastName="ngModel" id="mothersLastName" required pattern="^[a-zA-Z áéíóúÁÉÍÓÚäëïöüÄËÏÖÜ]*$"
-                    matInput placeholder="Apellido Materno">
-            </mat-form-field>
-            <div *ngIf="(mothersLastName.touched || mothersLastName.dirty) && !mothersLastName.valid && mothersLastName.errors"
-                class="text-alert">
-                <div *ngIf="mothersLastName.errors.required">Se requiere Apellido Paterno</div>
-                <div *ngIf="mothersLastName.errors.pattern">Este campo solo acepta letras</div>
-            </div>
-            <br>
-            <mat-form-field class="text">
-                <input class="input" [(ngModel)]="mensuality.date" type="date" name="date" #date="ngModel" id="date"
-                    matInput placeholder="Fecha">
-            </mat-form-field>
-            <br>
-            <mat-form-field class="text">
-                <mat-label>Mes a Pagar</mat-label>
-                <select matNativeControl required [(ngModel)]="mensuality.monthToPay"
-                    [ngModelOptions]="{standalone: true}">
-                    <option value="enero">Enero</option>
-                    <option value="Febrero">Febrero</option>
-                    <option value="marzo">Marzo</option>
-                    <option value="abril">Abril</option>
-                    <option value="mayo">Mayo</option>
-                    <option value="junio">Junio</option>
-                    <option value="julio">Julio</option>
-                    <option value="agosto">Agosto</option>
-                    <option value="septiembre">Septiembre</option>
-                    <option value="octubre">Octubre</option>
-                    <option value="noviembre">Noviembre</option>
-                    <option value="diciembre">Diciembre</option>
-                </select>
-            </mat-form-field>
-            <br>
-            <mat-form-field class="text">
-                <input class="input" [(ngModel)]="mensuality.amount" type="text" name="amount" #amount="ngModel"
-                    id="amount" required pattern="^[0-9]*$" matInput placeholder="Monto">
-            </mat-form-field>
-            <div *ngIf="(amount.touched || amount.dirty) && !amount.valid && amount.errors" class="text-alert">
-                <div *ngIf="amount.errors.required">Se requiere Monto</div>
-                <div *ngIf="amount.errors.pattern">Este campo solo acepta números</div>
-            </div>
-            <br><br>
+        </div>
             <div class="buttons">
                 <button class="button" type="submit" mat-raised-button color="primary"
                     (click)="saveMensuality()">Guardar</button>
-                <a href="/"><button class="button" type="button" mat-raised-button color="warn">Cancelar</button></a>
+                <button class="button" type="button" mat-raised-button color="warn" (click)='goToProfile()'>Cancelar</button>
             </div>
-        </form>
-    </mat-card-content>
-</mat-card>>
+    </form>
+</mat-card>

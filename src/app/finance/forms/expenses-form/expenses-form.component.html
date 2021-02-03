@@ -1,69 +1,56 @@
 <mat-card class="card">
     <mat-card-header>
-        <mat-card-title class="title">Registro Egresos</mat-card-title>
+        <label class="title">Registro Egresos</label>
     </mat-card-header>
+    <br><br>
     <mat-card-content>
         <form #formNew="ngForm" novalidate>
             <div class="main">
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
-                            <br><br><br>
+                    <div class="col-md-6">
+                        <div class="left">
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="expenses.date" type="date" name="date" #date="ngModel"
                                     id="date" matInput placeholder="Fecha">
                             </mat-form-field>
                             <br>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-6">
+                        <div class="right">
                             <mat-form-field class="text">
                                 <input class="input" [(ngModel)]="expenses.amount" type="text" name="amount"
-                                    #amount="ngModel" id="amount" required pattern="^[0-9]$" matInput
+                                    #amount="ngModel" id="amount" required pattern="^[0-9]*$" matInput
                                     placeholder="Monto">
                             </mat-form-field>
                             <div *ngIf="(amount.touched || amount.dirty) && !amount.valid && amount.errors"
                                 class="text-alert">
-                                <div *ngIf="amount.errors.required">Se requiere Monto</div>
+                                <div *ngIf="amount.errors.required">Se requiere monto</div>
                                 <div *ngIf="amount.errors.pattern">Este campo solo acepta números</div>
                             </div>
-                            <br>
-                            <mat-form-field class="text">
-                                <mat-label>Mes</mat-label>
-                                <select matNativeControl required [(ngModel)]="expenses.month"
-                                    [ngModelOptions]="{standalone: true}">
-                                    <option value="enero">Enero</option>
-                                    <option value="Febrero">Febrero</option>
-                                    <option value="marzo">Marzo</option>
-                                    <option value="abril">Abril</option>
-                                    <option value="mayo">Mayo</option>
-                                    <option value="junio">Junio</option>
-                                    <option value="julio">Julio</option>
-                                    <option value="agosto">Agosto</option>
-                                    <option value="septiembre">Septiembre</option>
-                                    <option value="octubre">Octubre</option>
-                                    <option value="noviembre">Noviembre</option>
-                                    <option value="diciembre">Diciembre</option>
-                                </select>
-                            </mat-form-field>
-                            <br>
-                            <mat-form-field>
-                                <textarea type="text" class="input" name="description" id="description"
-                                    [(ngModel)]="expenses.description" #description="ngModel" required
-                                    pattern="[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç,.0-9]*$" matInput
-                                    placeholder="Descripcion"></textarea>
-                            </mat-form-field>
-                            <div *ngIf="(description.touched || description.dirty) && !description.valid && description.errors"
-                                class="errorBar">
-                                <div class="errorText" *ngIf="description.errors.required">Se requiere descripcion</div>
-                                <div class="errorText" *ngIf="description.errors.pattern">Este campo acepta letras y
-                                    números</div>
-                            </div>
-                        <br><br>
-                        <div class="buttons">
-                            <button class="button" type="submit" mat-raised-button color="primary"
-                                (click)="saveExpenses()">Guardar</button>
-                            <a href="/"><button class="button" type="button" mat-raised-button
-                                    color="warn">Cancelar</button></a>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="description">
+                <mat-form-field>
+                    <textarea rows="5" cols="500" type="text" class="input" name="description" id="description"
+                        [(ngModel)]="expenses.description" #description="ngModel" required
+                        pattern="[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇç,.0-9]*$" matInput
+                        placeholder="Descripcion"></textarea>
+                </mat-form-field>
+                <div *ngIf="(description.touched || description.dirty) && !description.valid && description.errors"
+                    class="errorBar">
+                    <div class="errorText" *ngIf="description.errors.required">Se requiere descripcion</div>
+                    <div class="errorText" *ngIf="description.errors.pattern">Este campo acepta letras y
+                        números</div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="button" type="submit" mat-raised-button color="primary"
+                    (click)="saveExpenses()">Guardar</button>
+                <button class="button" type="button" mat-raised-button
+                        color="warn" (click)='goToExpenses()'>Cancelar</button>
             </div>
         </form>
     </mat-card-content>

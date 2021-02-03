@@ -2,7 +2,7 @@
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 30px;
     color:  #1d1545;
-    margin-left: 35%;
+    text-align: center;
 }
 
 .subtitle {
@@ -11,35 +11,104 @@
     font-weight: 700;
 }
 
+@media screen and (max-width: 900px){
+    .subtitle {
+        font-family: "Arial Black", Gadget, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+    }
+}
+
 .button {
     size: 70px;
     color:white;
-    background-color: blue ;
-    margin-left: 90%;
-}
-
-.buttons {
-    margin-left: 30%;
+    background-color: #009688 ;
+    margin-left: 85%;
 }
 
 .card {
-    width: 25%;
-    height: 20%;
-    margin-right: 10%;
+    width: 35%;
+    height: 15%;
+    margin-right: 5%;
+    margin-left: 2%;
 }
 
-.select {
-    margin-left: 50%;
-    font-size: 15px;
-    border-color: #1d1545;
+.global-card {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
 }
 
 .toolbar {
     height: 5%;
-    background-color: darkcyan;
+    background-color: #00a5a5;
     color: white;
 }
 
+.toolbar :hover{
+    background-color:#008b8b;
+}
+
+.toolbar-subtitle {
+    font-family: "Trebuchet MS", Helvetica, sans-serif ;
+    font-size: 13px;
+    font-weight: 200;
+}
+
+@media screen and (max-width: 1350px) {
+    .toolbar-subtitle {
+        font-family: "Trebuchet MS", Helvetica, sans-serif ;
+        font-size: 12px;
+        font-weight: 200;
+    }
+}
+
 .image {
-    margin-left: 70%;
+    margin-left: 80%;
+}
+
+.search {
+    height: 15%;
+    margin-left: 35%;
+    font-size: 20px;
+}
+
+.input {
+    width: 20%;
+    height: 15%;
+}
+
+.date {
+    margin-left: 75%;
+    width: 20%;
+}
+
+.material-icons.md-30 { font-size: 30px; } 
+
+@media screen and (max-width: 300px){
+    .material-icons.md-30 { font-size: 15px; } 
+
+    .search {
+        height: 10%;
+        margin-left: 30%;
+        font-size: 15px;
+    }
+    
+    .input {
+        width: 10%;
+        height: 15%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .date {
+        margin-left: 75%;
+        width: 15%;
+    }
+}
+
+.mat-spinner {
+    margin-left: 45%;
+    margin-top: 5%;
 }

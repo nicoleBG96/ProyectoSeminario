@@ -15,6 +15,10 @@ import { DonationsListComponent } from './donations/donations-list/donations-lis
 import { MensualityListComponent } from './mensuality/mensuality-list/mensuality-list.component';
 import { ExpensesListComponent } from './expenses/expenses-list/expenses-list.component';
 import { ExpensesFormComponent } from './forms/expenses-form/expenses-form.component';
+import { ShowMensualityComponent } from './mensuality/show-mensuality/show-mensuality.component';
+import { MonthlyComponent } from './reports/monthly/monthly.component';
+import { ShowMensualityChildComponent } from './mensuality/show-mensuality-child/show-mensuality-child.component';
+import { IncomesComponent } from './incomes/incomes.component';
 
 
 @NgModule({
@@ -27,7 +31,11 @@ import { ExpensesFormComponent } from './forms/expenses-form/expenses-form.compo
     DonationsListComponent,
     MensualityListComponent,
     ExpensesListComponent,
-    ExpensesFormComponent
+    ExpensesFormComponent,
+    ShowMensualityComponent,
+    MonthlyComponent,
+    ShowMensualityChildComponent,
+    IncomesComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +51,11 @@ import { ExpensesFormComponent } from './forms/expenses-form/expenses-form.compo
     RegisterExpensesComponent,
     DonationsListComponent,
     MensualityListComponent,
-    ExpensesListComponent
+    ExpensesListComponent,
+    ShowMensualityComponent,
+    MonthlyComponent,
+    ShowMensualityChildComponent,
+    IncomesComponent
   ]
 })
 export class FinanceModule { }

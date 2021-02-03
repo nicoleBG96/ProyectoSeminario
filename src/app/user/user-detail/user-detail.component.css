@@ -1,0 +1,22 @@
+button {
+    margin-left: 2%;
+}
+
+mat-card {
+    margin-left: 30%;
+    width: 40%;
+}
+
+h1 {
+    margin-left: 30%;
+}
+
+.cancel {
+    margin-left: 40%;
+}
+
+label {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin-left: 5%;
+}

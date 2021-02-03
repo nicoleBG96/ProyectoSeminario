@@ -9,14 +9,41 @@
 .title {
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 20px;
+    color: white;
 }
 
 .subtitle {
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 20px;
+    color: black;
 }
 
 .toolbar { 
     background-color: #375A7F;
     color: white;
+    width: 100%;
+}
+
+.toolbar :hover{
+    background-color: #2f4d6d;
+}
+
+.button {
+    background-color:  #375A7F;
+    margin-left: 55%;
+}
+
+.button-logout {
+    background-color:  #375A7F;
+    margin-left: 85%;
+}
+
+.button-logout-med {
+    background-color:  #375A7F;
+    margin-left: 75%;
+}
+
+.button-logout-cont {
+    background-color:  #375A7F;
+    margin-left: 65%;
 }

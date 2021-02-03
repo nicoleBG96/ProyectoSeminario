@@ -1,0 +1,39 @@
+<mat-card class="card">
+    <h1 class="title">Registro Mensualidad</h1>
+    <br><br>
+    <mat-spinner *ngIf="loading" class="mat-spinner"></mat-spinner>
+    <div class="main" *ngIf="loading == false">
+        <label class="subtitle">Nombres: </label>
+        <label> {{mensuality.firstName}}</label>
+        <br>
+        <label class="subtitle">Apellido Paterno: </label>
+        <label> {{mensuality.lastName}}</label>
+        <br>
+        <label class="subtitle">Apellido Materno: </label>
+        <label> {{mensuality.mothersLastName}}</label>
+        <br>
+        <label class="subtitle">Tutor: </label>
+        <label> {{mensuality.nameOfTutor}}</label>
+        <br>
+        <label class="subtitle">Celular: </label>
+        <label> {{mensuality.phone}}</label>
+        <br>
+        <label class="subtitle">Fecha de Admisión: </label>
+        <label> {{mensuality.admissionDate}}</label>
+        <br>
+        <label class="subtitle">Fecha: </label>
+        <label> {{mensuality.date}}</label>
+        <br>
+        <label class="subtitle">Mes a pagar: </label>
+        <label> {{mensuality.month}} {{mensuality.year}}</label>
+        <br>
+        <label class="subtitle">Monto: </label>
+        <label> {{mensuality.amount}}</label>
+    </div>
+    <br><br>
+    <div class="buttons">
+        <button class="button" mat-stroked-button color="primary" (click)="goToMensualities()">Todas las
+            papeletas</button>
+        <button class="button" mat-stroked-button color="warn" (click)="goToProfile()">Cancelar</button>
+    </div>
+</mat-card>

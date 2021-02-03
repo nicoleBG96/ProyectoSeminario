@@ -1,6 +1,7 @@
 .card {
     width: 80%;
     margin-left: 10%;
+    margin-bottom: 5%;
 }
 
 .subtitle1 {
@@ -17,7 +18,7 @@
 }
 
 .subtitle-space {
-    margin-right: 5%;
+    margin-right: 2%;
 }
 
 .title {
@@ -78,4 +79,14 @@
 .right_second {
     margin-left: 50%;
     width: 50%;   
+}
+
+table {
+    width: 50%;
+    margin-left: 25%;
+}
+
+.mat-spinner {
+    margin-left: 45%;
+    margin-top: 5%;
 }

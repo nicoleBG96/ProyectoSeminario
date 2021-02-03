@@ -22,6 +22,7 @@ import { MaterialModule } from '../material-module/material-module.module';
     SharedModule,
     MaterialModule
   ],
-  providers: [AuthentificationService]
+  providers: [AuthentificationService],
+  exports: [LoginComponent]
 })
 export class AuthentificationModule { }

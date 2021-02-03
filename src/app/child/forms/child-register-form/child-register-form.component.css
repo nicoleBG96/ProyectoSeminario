@@ -1,6 +1,7 @@
 .card {
     width: 70%;
     margin-left: 15%;
+    margin-bottom: 5%;
 }
 
 .title {
@@ -33,12 +34,14 @@
 
 .left {
     float: left;
-    width: 60%;
+    margin-left: 10%;
+    width: 100%;
 }
 
 .right {
-    margin-left: 45%;
-    width: 50%;
+    float: left;
+    margin-left: 70%;
+    width: 100%;
 }
 
 .subtitle {
@@ -74,5 +77,5 @@
 
 .photo-container{
     margin: 5px 0;
-    margin-left: 60%;
+    margin-left: 55%;
 }

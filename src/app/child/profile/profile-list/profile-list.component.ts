@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
+import { AuthentificationService } from 'src/app/authentification/authentification.service';
+import { MensualityService } from 'src/app/shared/services/mensuality.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 import { ProfileService } from '../../../shared/services/profile.service';
 
@@ -9,21 +13,29 @@ import { ProfileService } from '../../../shared/services/profile.service';
   styleUrls: ['./profile-list.component.css']
 })
 export class ProfileListComponent implements OnInit {
-  profileList: any[];
-  resourcesList: any = [];
-  valuesList: any = [];
-  selectedResource: any = '';
-  originalList: any;
-  selectedValue: any = '';
-  constructor(private profileService: ProfileService, private router: Router) { }
+  profileList: any = [];
+  searchQuery: any;
+  filterDate: any;
+  loading = false;
+  userList: any = [];
+  role: any = {};
+  isDisable = false;
+
+  constructor(private profileService: ProfileService, private router: Router, private mensualityService: MensualityService,
+    private userService: UserService, private authService: AuthentificationService) { }
 
   ngOnInit() {
-    this.profileService.getProfile().subscribe(item => {
-      this.profileList = item;
-      this.originalList = item;
-    });
-
-    this.resourcesList = this.profileService.getResource();
+    this.loading=true;
+    this.active()
+    setTimeout(() => {
+      this.loading=false;
+      this.profileService.getProfile().subscribe(item => {
+        this.profileList = item;
+        this.profileList.forEach((profile: any) => {
+          profile.age = this.calculateAge(profile.birthDate);
+        });
+      });
+    }, 500);
   }
 
   registerProfile(childRegister: any) {
@@ -46,38 +58,11 @@ export class ProfileListComponent implements OnInit {
     this.router.navigate(['child/showProfile/' + childProfile.key]);
   }
 
-  loadValues() {
-    this.resourcesList.forEach((resource: any) => {
-      if (resource.type === this.selectedResource) {
-        this.valuesList = resource.values;
-      }
-    });
-  }
-
-  filter() {
-    this.profileList = this.originalList;
-    if (this.selectedResource === 'Sexo') {
-      if (this.selectedValue !== '') {
-        this.profileList = this.profileList.filter(profile => profile.sex === this.selectedValue);
-      }
-    }
-    if (this.selectedResource === 'Edad') {
-      if (this.selectedValue !== '') {
-        this.profileList = this.profileList.filter(profile => this.calculateAge(profile.birthDate).toString() === this.selectedValue);
-      }
-    }
-    if (this.selectedResource === 'Año de Admisión') {
-      if (this.selectedValue !== '') {
-        this.profileList = this.profileList.filter(profile => this.calculateYear(profile.admissionDate).toString() === this.selectedValue );
-      }
-    }
-    if (this.selectedResource === 'Estado') {
-      if (this.selectedValue !== '') {
-        this.profileList = this.profileList.filter(profile => (profile.isDisable).toString() === this.selectedValue);
-      }
-    }
-    this.selectedResource = '';
-    this.selectedValue = '';
+  goToMensualities(child: any) {
+    let childId = child.key;
+    this.profileService.updateProfile(childId, child);
+    this.mensualityService.setMensuality(childId);
+    this.router.navigate(['finances/showMensuality']);
   }
 
   getStatus(child: any) {
@@ -99,8 +84,53 @@ export class ProfileListComponent implements OnInit {
     return age;
   }
 
-  calculateYear(date: string) {
-    return new Date(date).getFullYear();
+  filterByDate(date?) {
+    if (date) {
+      const startDate = date[0];
+      const endDate = date[1];
+      const filtered: any = [];
+      this.profileList.forEach((event: any) => {
+        if (new Date(event.admissionDate).getTime() >= startDate.getTime() &&
+          new Date(event.admissionDate).getTime() <= endDate.getTime()) {
+          filtered.push(event);
+        }
+      });
+      this.profileList = filtered;
+    }
+  }
+
+  async active() {
+    this.authService.getCurrentUser().pipe(
+      tap(current => {
+        if(current)
+          this.userService.getUser().subscribe(item => {
+            this.userList = item;
+            this.userList.forEach(element => {
+              if(current.email == element.email)
+              {
+                if(element.isDisable)
+                  this.isDisable = true;
+                switch (element.position) {
+                  case 'administrador':
+                    this.role = 'admin';
+                    break;
+                  case 'medico':
+                    this.role = 'med';
+                    break;
+                  case 'psicologo':
+                    this.role = 'psico';
+                    break;
+                  case 'contador':
+                    this.role = 'cont';
+                    break;
+                  default:
+                    break;
+                }
+              }
+            });
+          });
+      })
+    ).subscribe();
   }
 }
 

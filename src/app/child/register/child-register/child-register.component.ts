@@ -7,6 +7,7 @@ import { ChildRegisterService } from '../../../shared/services/child-register.se
 import { ChildMedicalRecordService } from '../../../shared/services/child-medical-record.service';
 import { ChildProgressService } from '../../../shared/services/child-progress.service';
 import { ProfileService } from '../../../shared/services/profile.service';
+import { MensualityService } from '../../../shared/services/mensuality.service';
 
 // Model
 import { ChildRegisterModel } from '../../../shared/models/child-register.model';
@@ -22,20 +23,26 @@ import { ProfileModel } from '../../../shared/models/profile.model';
 export class ChildRegisterComponent implements OnInit {
 
   constructor(private childRegisterService: ChildRegisterService, private router: Router,
-              private childMedicalRecordService: ChildMedicalRecordService, private childProgressService: ChildProgressService,
-              private profileService: ProfileService, private toastrService: ToastrService) { }
+    private childMedicalRecordService: ChildMedicalRecordService, private childProgressService: ChildProgressService,
+    private profileService: ProfileService, private toastrService: ToastrService,
+    private mensualityService: MensualityService) { }
 
   ngOnInit() {
   }
 
   register(event: ChildRegisterModel) {
+    console.log(event);
     if (this.validate(event)) {
       // tslint:disable-next-line:prefer-const
-      let latestKey = this.childRegisterService.createChild(event);
+      const latestKey = this.childRegisterService.createChild(event);
+      console.log(latestKey);
+
       this.childRegisterService.chargePhoto(event, latestKey);
-      this.createMedicalRecord(event, latestKey);
-      this.createProgress(event, latestKey);
-      this.createProfile(event, latestKey);
+      setTimeout(() => {
+        this.createMedicalRecord(event, latestKey);
+        this.createProgress(event, latestKey);
+        this.createProfile(event, latestKey);
+      }, 5000);
       this.childRegisterService.setCreatedObject(event);
       this.router.navigate(['child/showRegisterProfile/' + latestKey]);
       this.toastrService.success('exito al registrar', 'ÉXITO');
@@ -84,9 +91,9 @@ export class ChildRegisterComponent implements OnInit {
   validate(event: any) {
     let correct = true;
     if (event.firstName === '' || event.lastName === '' || event.mothersLastName === '' || event.admissionDate === null ||
-        event.birthDate === null || event.sex === '' || event.size === '' || event.weight === '' || event.municipality === '' ||
-        event.district === '' || event.zone === '' || event.street === '' || event.nameOfTutor === '' || event.phone === '' ||
-        event.degreeOfInstruction === '' || event.activity === '') {
+      event.birthDate === null || event.sex === '' || event.size === '' || event.weight === '' || event.municipality === '' ||
+      event.district === '' || event.zone === '' || event.street === '' || event.nameOfTutor === '' || event.phone === '' ||
+      event.degreeOfInstruction === '' || event.activity === '') {
       correct = false;
     }
     return correct;

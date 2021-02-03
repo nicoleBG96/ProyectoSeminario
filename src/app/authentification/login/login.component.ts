@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // Service
 import { AuthentificationService } from '../authentification.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +15,12 @@ export class LoginComponent {
 
   loginForm: FormGroup;
   errorMessage: string;
+  userList: any = [];
+  user: any = {};
+  loading = false;
 
-  constructor(private authService: AuthentificationService, private router: Router, private fb: FormBuilder) {
+  constructor(private authService: AuthentificationService, private router: Router, private fb: FormBuilder,
+    private userService: UserService) {
     this.createForm();
   }
 
@@ -26,15 +31,18 @@ export class LoginComponent {
     });
   }
 
-  gmailLogin() {
-    this.authService.loginWithGoogle().then((res) => {
+  login(value) {
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+      this.authService.loginWhitEmail(value).then((res) => {
       window.location.replace('/');
     });
+    }, 700);
+    
   }
 
-  login(value) {
-    this.authService.loginWhitEmail(value).then((res) => {
-      window.location.replace('/');
-    });
+  createUser() {
+    this.router.navigate(['users/createUser'])
   }
 }

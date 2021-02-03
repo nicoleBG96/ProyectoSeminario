@@ -17,7 +17,8 @@ export class ChildRegisterService {
   private createdObject: any;
   currentImage: File;
 
-  constructor(private firebase: AngularFireDatabase, private storage: AngularFireStorage) { }
+  constructor(private firebase: AngularFireDatabase,
+    private storage: AngularFireStorage) { }
 
   getChild() {
     return this.firebase.list('children').snapshotChanges().pipe(
@@ -33,16 +34,25 @@ export class ChildRegisterService {
     this.currentImage = image;
   }
 
+  fileReference(fileName: string) {
+    return this.storage.ref(fileName);
+  }
+
+  uploadPhoto(fileName: string, data: any) {
+    return this.storage.upload(fileName, data);
+  }
+
   chargePhoto(child: ChildRegisterModel, id: string) {
-    const childPath = 'child-photos/' + this.currentImage.name;
-    const ref = this.storage.ref(childPath);
-    const task  = ref.put(this.currentImage).then((res) => {
-      const childUrl = ref.getDownloadURL();
-      childUrl.subscribe(aux => {
-        child.image = aux;
-        this.updateChild(id, child);
-      });
+    let resp = false;
+    this.uploadPhoto(`${child.firstName + id}`, child.imageFile);
+
+    let reference = this.fileReference(`${child.firstName + id}`);
+    reference.getDownloadURL().subscribe((url: any) => {
+      child.image = url;
+      this.updateChild(id, child);
+      return true;
     });
+
   }
 
   createChild(child: ChildRegisterModel) {
