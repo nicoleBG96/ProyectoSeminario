@@ -18,7 +18,7 @@
 <mat-spinner *ngIf="loading" class="mat-spinner"></mat-spinner>
 <div *ngIf="loading==false">
   <mat-card class="global-card"
-    *ngFor="let child of profileList">
+    *ngFor="let child of profileList | filter: {firstName:searchQuery,lastName:searchQuery, mothersLastName:searchQuery, sex:searchQuery, age:searchQuery} ">
     <mat-card class="card" >
       <mat-toolbar class="toolbar">
         <button mat-button class="toolbar-subtitle" (click)="goToProfile(child)" *ngIf="role!='cont'">Perfil</button>
@@ -30,25 +30,25 @@
       <img class="image" src="{{child.image}}" alt="" height="50" width="50">
       <br>
       <label class="subtitle"> Apellido Paterno:</label>
-      <label> {{child.lastName}}</label>
+      <label class="label">{{child.lastName}}</label>
       <br>
       <label class="subtitle"> Apellido Materno:</label>
-      <label> {{child.mothersLastName}}</label>
+      <label class="label">{{child.mothersLastName}}</label>
       <br>
       <label class="subtitle"> Nombres:</label>
-      <label> {{child.firstName}}</label>
+      <label class="label"> {{child.firstName}}</label>
       <br>
       <label class="subtitle">Fecha de Nacimiento: </label>
-      <label> {{child.birthDate | date:'dd - MMM - yyyy'}}</label>
+      <label class="label"> {{child.birthDate | date:'dd - MMM - yyyy'}}</label>
       <br>
       <label class="subtitle">Sexo: </label>
-      <label> {{child.sex}}</label>
+      <labe class="label"l> {{child.sex}}</label>
       <br>
       <label class="subtitle">Fecha de Admisión:</label>
-      <label> {{child.admissionDate}}</label>
+      <label class="label"> {{child.admissionDate}}</label>
       <br>
       <label class="subtitle">Estado:</label>
-      <label> {{(getStatus(child))}}</label>
+      <label class="label"> {{(getStatus(child))}}</label>
     </mat-card>
   </mat-card>
 </div>

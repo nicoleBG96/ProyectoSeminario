@@ -1,19 +1,19 @@
 .space {
     margin-right: 30%;
-    font-family: "Arial Black", Gadget, sans-serif;
+    font-family: "Arial", Gadget, sans-serif;
     font-size: 30px;
     color: white;
 }
 
 
 .title {
-    font-family: "Arial Black", Gadget, sans-serif;
+    font-family: "Arial", Gadget, sans-serif;
     font-size: 20px;
     color: white;
 }
 
 .subtitle {
-    font-family: "Arial Black", Gadget, sans-serif;
+    font-family: "Arial", Gadget, sans-serif;
     font-size: 20px;
     color: black;
 }
@@ -30,20 +30,25 @@
 
 .button {
     background-color:  #375A7F;
-    margin-left: 55%;
+    margin-left: 62%;
 }
 
 .button-logout {
     background-color:  #375A7F;
-    margin-left: 85%;
+    margin-left: 87%;
 }
 
 .button-logout-med {
     background-color:  #375A7F;
-    margin-left: 75%;
+    margin-left: 79%;
 }
 
 .button-logout-cont {
     background-color:  #375A7F;
-    margin-left: 65%;
+    margin-left: 71%;
+}
+
+.button-logout-disable {
+    background-color:  #375A7F;
+    margin-left: 88%;
 }
