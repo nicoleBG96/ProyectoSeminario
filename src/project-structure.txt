@@ -3,17 +3,9 @@
 |   +--● authentification
 |   |   +--● login
 |   |   |   |--login.component.ts|.html|.css
-|   |   |+--● user
-|   |   |   |--create.component.ts|.html|.css
-|   |   |   |--edit.component.ts|.html|.css
-|   |   |   |--delete.component.ts|.html|.css
-|   |   |   |--list.component.ts|.html|.css
 |   |   +--● shared
 |   |   |   +--● service
 |   |   |   |   |--authentification.service.ts
-|   |   |   |   |--user.service.ts
-|   |   |   +--● model
-|   |   |   |   |--user.model.ts
 |   |   |--authentification.routing.ts
 |   |   |--authentification.module.ts
 |   |   |   |
@@ -32,8 +24,8 @@
 |   |   |   |--donations.model.ts
 |   |   |   |--income.model.ts
 |   |   |   |--expenses.model.ts
-|   |   |   |--attendance-list.model.ts
 |   |   |   |--financial-report.model.ts
+|   |   |   |--user.model.ts
 |   |   +--● services
 |   |   |   |--child-register.service.ts
 |   |   |   |--medical-record.service.ts 
@@ -41,8 +33,8 @@
 |   |   |   |--donations.service.ts
 |   |   |   |--income.service.ts
 |   |   |   |--expenses.service.ts
-|   |   |   |--attendance-list.service.ts
 |   |   |   |--financial-report.service.ts
+|   |   |   |--user.service.ts
 |   |   |--shared.module.ts
 |   |   |   
 |   +--● child
@@ -66,7 +58,7 @@
 |   |   |--child.routing.ts
 |   |   |   
 |   +--● finance
-|   |   +--● income
+|   |   +--● mensualities
 |   |   |   |--create.component.ts|.html|.css
 |   |   |   |--form.component.ts|.html|.css
 |   |   |   |--list.component.ts|.html|.css
@@ -93,13 +85,14 @@
 |   |   |   |--list.component.ts|.html|.css
 |   |   |   |--generate.component.ts|.html|.css
 |   |   |   |--profile.component.ts|.html|.css
-|   |   +--● attendance-list
-|   |   |   |--form.component.ts|.html|.css
-|   |   |   |--list.component.ts|.html|.css
-|   |   |   |--create.component.ts|.html|.css
-|   |   |   |--profile.component.ts|.html|.css
 |   |   |--reports.module.ts 
 |   |   |--reports.routing.ts
+|   |   |
+|   |+--● user
+|   |   |--create.component.ts|.html|.css
+|   |   |--edit.component.ts|.html|.css
+|   |   |--delete.component.ts|.html|.css
+|   |   |--list.component.ts|.html|.css
 |   |   |   
 |   |--app.module.ts
 |   |--app.routing.ts
