@@ -2,13 +2,13 @@
     <mat-card-header>
         <label class="title">Ficha Médica</label>
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-content class="content">
         <form #formNew="ngForm" novalidate>
             <div class="main">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="left">
-                            <br><br><br>
+                            <br><br>
                             <label class="text">Nombre:</label>
                             <br>
                             <label class="input">{{child.firstName}}</label>
@@ -24,7 +24,7 @@
                     </div>
                     <div class="col-md-4 col-md-offset-4">
                         <div class="right">
-                            <br><br><br>
+                            <br><br>
                             <label class="text">Edad:</label>
                             <label class="input">{{child.age}}</label>
                             <mat-form-field class="text">
@@ -61,10 +61,22 @@
                         <div class="errorText" *ngIf="description.errors.pattern">Este campo acepta letras y
                             números</div>
                     </div>
+                    <br>
+                    <mat-form-field class="description">
+                        <textarea type="text" class="input" name="vaccines" id="vaccines"
+                        [(ngModel)]="child.vaccines" #vaccines="ngModel" required 
+                        pattern="[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ,.0-9]*$" matInput
+                        placeholder="Vacunas"></textarea>
+                    </mat-form-field>
+                    <div *ngIf="(vaccines.touched || vaccines.dirty) && !vaccines.valid && vaccines.errors"
+                        class="errorBar">
+                        <div class="errorText" *ngIf="vaccines.errors.pattern">Este campo acepta letras y
+                            números</div>
+                    </div>
                     <br><br>
                 </div>
             </div>
-            <br><br><br>
+            <br><br>
             <div class="buttons">
                 <button *ngIf="!isEdit" class="button" type="submit" mat-raised-button color="primary"
                     (click)="saveMedicalRecord()">Guardar</button>

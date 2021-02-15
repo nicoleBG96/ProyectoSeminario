@@ -4,6 +4,12 @@
     margin-bottom: 5%;
 }
 
+.content {
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 62vh;
+}
+
 .title {
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 30px;
@@ -27,7 +33,6 @@
 }
 
 .main{
-    display: flex;
     margin-right: 10%;
     margin-left: 10%;
 }
