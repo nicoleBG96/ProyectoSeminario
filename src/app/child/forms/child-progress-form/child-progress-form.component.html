@@ -5,99 +5,78 @@
         <br>
         <mat-card-content>
                 <form #formNew="ngForm" novalidate>
-                        <div class="main">
-                                <br><br><br>
-                                <div class="row">
-                                        <div class="col-md-4">
-                                                <div class="left">
-                                                        <br>
-                                                        <label class="text">Nombre:</label>
-                                                        <br>
-                                                        <label class="input">{{child.firstName}}</label>
-                                                        <br><br>
-                                                        <label class="text">Apellido Paterno:</label>
-                                                        <br>
-                                                        <label class="input">{{child.lastName}}</label>
-                                                        <br><br>
-                                                        <label class="text">Apellido Materno: </label>
-                                                        <br>
-                                                        <label class="input">{{child.mothersLastName}}</label>
+                        <div class="grid_container">
+                                <div class="left">
+                                        <label class="text">Nombre:</label>
+                                        <label class="input">{{child.firstName}}</label>
+                                        <br><br>
+                                        <label class="text">Apellido Paterno:</label>
+                                        <label class="input">{{child.lastName}}</label>
+                                        <br><br>
+                                        <label class="text">Apellido Materno: </label>
+                                        <label class="input">{{child.mothersLastName}}</label>
+                                </div>
+                                <div class="center">
+                                        <mat-form-field class="text">
+                                                <input class="input" [(ngModel)]="child.numberOrder" type="text"
+                                                        name="numberOrder" #numberOrder="ngModel" id="numberOrder"
+                                                        maxlength="2" minlength="2" required pattern="^[0-9]*$" matInput
+                                                        placeholder="Numero de Orden">
+                                        </mat-form-field>
+                                        <div *ngIf="(numberOrder.touched || numberOrder.dirty) && !numberOrder.valid && numberOrder.errors"
+                                                class="text-alert">
+                                                <div *ngIf="numberOrder.errors.required">Se requiere
+                                                        numero de orden</div>
+                                                <div *ngIf="numberOrder.errors.pattern">Este campo solo
+                                                        acepta números</div>
+                                                <div *ngIf="numberOrder.errors.minlength">2 números
+                                                        mínimo</div>
+                                        </div>
+                                        <br>
+                                        <label class="text">Edad en Meses:</label>
+                                        <label class="input">{{child.age}}</label>
+                                        <br><br>
+                                        <label class="text">Fecha de nacimiento:</label>
+                                        <label class="input">{{child.birthDate |
+                                                date:'dd/MM/yyyy'}}</label>
+                                </div>
+                                <div class="right">
+                                        <mat-form-field class="text">
+                                                <input class="input" [(ngModel)]="child.folio" type="text" name="folio"
+                                                        #folio="ngModel" id="folio" maxlength="4" minlength="4" required
+                                                        pattern="^[0-9]*$" matInput placeholder="Folio">
+                                        </mat-form-field>
+                                        <div *ngIf="(folio.touched || folio.dirty) && !folio.valid && folio.errors"
+                                                class="text-alert">
+                                                <div *ngIf="folio.errors.required">Se requiere folio
+                                                </div>
+                                                <div *ngIf="folio.errors.pattern">Este campo solo acepta
+                                                        números</div>
+                                                <div *ngIf="folio.errors.minlength">4 números mínimo
                                                 </div>
                                         </div>
-                                        <div class="col-md-4 ">
-                                                <div class="center">
-                                                        <mat-form-field class="text">
-                                                                <input class="input" [(ngModel)]="child.numberOrder"
-                                                                        type="text" name="numberOrder"
-                                                                        #numberOrder="ngModel" id="numberOrder"
-                                                                        maxlength="2" minlength="2" required
-                                                                        pattern="^[0-9]*$" matInput
-                                                                        placeholder="Numero de Orden">
-                                                        </mat-form-field>
-                                                        <div *ngIf="(numberOrder.touched || numberOrder.dirty) && !numberOrder.valid && numberOrder.errors"
-                                                                class="text-alert">
-                                                                <div *ngIf="numberOrder.errors.required">Se requiere
-                                                                        numero de orden</div>
-                                                                <div *ngIf="numberOrder.errors.pattern">Este campo solo
-                                                                        acepta números</div>
-                                                                <div *ngIf="numberOrder.errors.minlength">2 números
-                                                                        mínimo</div>
-                                                        </div>
-                                                        <br>
-                                                        <label class="text">Edad en Meses:</label>
-                                                        <br>
-                                                        <label class="input">{{child.age}}</label>
-                                                        <br><br>
-                                                        <label class="text">Fecha de nacimiento:</label>
-                                                        <br>
-                                                        <label class="input">{{child.birthDate |
-                                                                date:'dd/MM/yyyy'}}</label>
-                                                </div>
-                                        </div>
-                                        <div class="col-md-4 ">
-                                                <div class="right">
-                                                        <mat-form-field class="text">
-                                                                <input class="input" [(ngModel)]="child.folio"
-                                                                        type="text" name="folio" #folio="ngModel"
-                                                                        id="folio" maxlength="4" minlength="4" required
-                                                                        pattern="^[0-9]*$" matInput placeholder="Folio">
-                                                        </mat-form-field>
-                                                        <div *ngIf="(folio.touched || folio.dirty) && !folio.valid && folio.errors"
-                                                                class="text-alert">
-                                                                <div *ngIf="folio.errors.required">Se requiere folio
-                                                                </div>
-                                                                <div *ngIf="folio.errors.pattern">Este campo solo acepta
-                                                                        números</div>
-                                                                <div *ngIf="folio.errors.minlength">4 números mínimo
-                                                                </div>
-                                                        </div>
-                                                        <br>
-                                                        <label class="text">Sexo:</label>
-                                                        <br>
-                                                        <label class="input">{{child.sex}}</label>
-                                                        <br><br>
-                                                        <mat-form-field class="text">
-                                                                <input class="input" [(ngModel)]="child.date"
-                                                                        type="date" name="date" #date="ngModel"
-                                                                        id="date" matInput
-                                                                        placeholder="Fecha de Entrevista">
-                                                        </mat-form-field>
-                                                </div>
-                                        </div>
+                                        <br>
+                                        <label class="text">Sexo:</label>
+                                        <label class="input">{{child.sex}}</label>
+                                        <br><br>
+                                        <mat-form-field class="text">
+                                                <input class="input" [(ngModel)]="child.date" type="date" name="date"
+                                                        #date="ngModel" id="date" matInput
+                                                        placeholder="Fecha de Entrevista">
+                                        </mat-form-field>
                                 </div>
                         </div>
-                        <div class="main-second">
-                                <br>
-                                <div class="left-second">
-                                        <mat-label class="subtitle">Antropometría</mat-label>
-                                        <br>
-                                        <label class="text">Peso: </label>
-                                        <label class="input">{{child.weight}}</label>
-                                </div>
-                                <div class="right-second">
-                                        <br><br>
-                                        <label class="text">Talla: </label>
-                                        <label class="input">{{child.size}}</label>
+                        <div class="size-weight">
+                                <mat-label class="subtitle">Antropometría</mat-label>
+                                <div class="grid_second_container">
+                                        <div>
+                                                <label class="text">Peso: </label>
+                                                <label class="input">{{child.weight}}</label>
+                                        </div>
+                                        <div>
+                                                <label class="text">Talla: </label>
+                                                <label class="input">{{child.size}}</label>
+                                        </div>
                                 </div>
                         </div>
                         <br>
@@ -1256,12 +1235,12 @@
                         </table>
                         <br><br>
                         <div class="buttons">
-                                <button *ngIf="!isEdit" class="button" type="submit" mat-raised-button color="primary"
+                                <button *ngIf="!isEdit" class="button" type="submit" mat-raised-button
                                         (click)="saveProgress()">Guardar</button>
-                                <button *ngIf="isEdit" class="button" type="submit" mat-raised-button color="primary"
+                                <button *ngIf="isEdit" class="button" type="submit" mat-raised-button
                                         (click)="editProgress(child)">Actualizar</button>
-                                <button (click)="goToProfile()" class="button" type="button" mat-raised-button
-                                        color="warn">Cancelar</button>
+                                <button (click)="goToProfile()" class="cancel_button" type="button"
+                                        mat-raised-button>Cancelar</button>
                         </div>
                         <br>
                 </form>
