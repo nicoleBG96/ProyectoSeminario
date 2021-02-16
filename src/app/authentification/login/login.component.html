@@ -9,7 +9,7 @@
         <input id="email" formControlName="email" matInput placeholder="Correo electronico" maxlength="30" required
           pattern="[a-zA-Z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
       </mat-form-field>
-      <br><br>
+      <br>
       <mat-form-field class="form">
         <input matInput id="password" formControlName="password" placeholder="Contraseña"
           [type]="hide ? 'password' : 'text'" type="password">
@@ -18,18 +18,18 @@
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
-      <br>
+      <br><br>
       <button mat-mat-raised-button class="button" *ngIf="loading">
         <mat-icon>
           <mat-spinner color="accent" diameter="20">
           </mat-spinner>
         </mat-icon>Iniciar Sesión
       </button>
-      <button mat-raised-button color="primary" class="button" (click)="login(loginForm.value)"
+      <button mat-raised-button class="button" (click)="login(loginForm.value)"
         *ngIf="loading==false">Iniciar Sesión</button>
       <br><br>
       <label class="center"> No tiene una cuenta? 
-        <button mat-button color="primary" (click)='createUser()'>Crear Cuenta</button>
+        <button mat-button class="account" (click)='createUser()'>Crear Cuenta</button>
       </label>
     </form>
   </mat-card-content>

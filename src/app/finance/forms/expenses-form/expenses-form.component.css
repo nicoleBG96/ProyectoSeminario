@@ -6,7 +6,7 @@
 .title {
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 30px;
-    margin-left: 30%;
+    margin-left: 28%;
     color:  #1d1545;
 }
 
@@ -24,34 +24,43 @@
     color: red;
 }
 
-.main{
-    display: flex;
-    margin-right: 5%;
+.grid_container {
+    display: grid;
+    grid-template-columns: 50% 50%;
     margin-left: 10%;
-}
-
-.left {
-    float: left;
-    width: 60%;
-    margin-left: 15%;
-}
-
-.right {
-    margin-left: 50%;
-    width: 100%;
+    margin-top: 20px;
 }
 
 .buttons {
-    margin-left: 30%;
+    margin-left: 37%;
     margin-top: 5%;
 }
 
 .button {
-    margin-left: 5%;
+    margin-right: 15px;
+    color: #315172;
+    border: 1px solid #315172;
+}
+
+.button:hover {
+    color: white;
+    border: 1px solid white;
+    background-color: #315172;
+}
+
+.cancel_button {
+    color: #bd1b0f;
+    border: 1px solid #bd1b0f;
+}
+
+.cancel_button:hover {
+    color: white;
+    border: 1px solid white;
+    background-color: #bd1b0f;
 }
 
 .description {
-    margin-left: 15%;
+    margin-left: 10%;
     width: auto;
     display:grid;
     margin-right: 15%;

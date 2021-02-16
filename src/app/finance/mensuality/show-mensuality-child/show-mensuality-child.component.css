@@ -13,7 +13,7 @@
 }
 
 .text {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
 }
 
@@ -26,8 +26,8 @@
 }
 
 .result {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
 
 .button {
@@ -70,9 +70,9 @@
 }
 
 .total {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 22px;
-    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
     text-align: center;
 }
 
@@ -85,7 +85,7 @@
 }
 
 .mensuality {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     text-align: center;
 }

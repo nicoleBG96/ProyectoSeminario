@@ -39,12 +39,12 @@
 }
 
 .buttons {
-    margin-left: 33%;
+    margin-left: 35%;
     margin-top: 5%;
 }
 
 .button {
-    margin-right: 10px;
+    margin-right: 15px;
     color: #315172;
     border: 1px solid #315172;
 }
@@ -67,7 +67,7 @@
 }
 
 .left {
-    margin-left: 10%;
+    margin-left: 15%;
 }
 
 .material-icons {
