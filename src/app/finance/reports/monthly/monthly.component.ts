@@ -102,6 +102,14 @@ export class MonthlyComponent implements OnInit {
         }
       });
       this.monthlyList = filtered;
+    } else {
+      this.monthlyList = this.monthlyService.getMonthly();
+      this.monthlyList.forEach(element => {
+        if (element.type !== 'expense')
+          this.totalIncome = this.totalIncome + parseInt(element.amount);
+        else
+          this.totalExpense = this.totalExpense + parseInt(element.amount);
+      });
     }
   }
 

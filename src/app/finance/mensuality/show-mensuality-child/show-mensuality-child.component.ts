@@ -38,11 +38,9 @@ export class ShowMensualityChildComponent implements OnInit {
       const filtered: any = [];
       this.mensualityService.getMensualities().subscribe(item => {
         this.mensualitiesList = item;
-        console.log(this.mensualitiesList)
         this.mensualitiesList.forEach(mensuality => {
           if (mensuality.childKey == this.childKey) {
             filtered.push(mensuality);
-            this.total = this.total + parseInt(mensuality.amount, 10);
           }
         });
         this.mensualitiesList = filtered;
@@ -94,6 +92,20 @@ export class ShowMensualityChildComponent implements OnInit {
         }
       });
       this.mensualitiesList = filtered;
+    } else {
+      this.childKey = this.mensualityService.getChildKey();
+      const filtered: any = [];
+      this.mensualityService.getMensualities().subscribe(item => {
+        this.mensualitiesList = item;
+        console.log(this.mensualitiesList)
+        this.mensualitiesList.forEach(mensuality => {
+          if (mensuality.childKey == this.childKey) {
+            filtered.push(mensuality);
+            this.total = this.total + parseInt(mensuality.amount, 10);
+          }
+        });
+        this.mensualitiesList = filtered;
+      });
     }
   }
 

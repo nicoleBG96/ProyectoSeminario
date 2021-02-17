@@ -33,9 +33,6 @@ export class ExpensesListComponent implements OnInit {
       this.loading = false; 
       this.expensesService.getExpenses().subscribe(item => {
         this.expensesList = item;
-        this.expensesList.forEach(expense => {
-          this.total = this.total + parseInt(expense.amount, 10);
-        });
       });      
     }, 500);
   }
@@ -54,6 +51,13 @@ export class ExpensesListComponent implements OnInit {
         }
       });
       this.expensesList = filtered;
+    } else {
+      this.expensesService.getExpenses().subscribe(item => {
+        this.expensesList = item;
+        this.expensesList.forEach(expense => {
+          this.total = this.total + parseInt(expense.amount, 10);
+        });
+      })
     }
   }
 
