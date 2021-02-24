@@ -31,9 +31,6 @@ export class ProfileListComponent implements OnInit {
       this.loading=false;
       this.profileService.getProfile().subscribe(item => {
         this.profileList = item;
-        this.profileList.forEach((profile: any) => {
-          profile.age = this.calculateAge(profile.birthDate);
-        });
       });
     }, 500);
   }
@@ -73,17 +70,6 @@ export class ProfileListComponent implements OnInit {
     }
   }
 
-  calculateAge(date: Date) {
-    const today = new Date();
-    const childBirth = new Date(date);
-    let age = today.getFullYear() - childBirth.getFullYear();
-    const months = today.getMonth() - childBirth.getMonth();
-    if (months < 0 || (months === 0 && today.getDate() < childBirth.getDate())) {
-      age--;
-    }
-    return age;
-  }
-
   filterByDate(date?) {
     if (date) {
       const startDate = date[0];
@@ -96,6 +82,8 @@ export class ProfileListComponent implements OnInit {
         }
       });
       this.profileList = filtered;
+    } else {
+      
     }
   }
 

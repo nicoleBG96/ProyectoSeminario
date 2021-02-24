@@ -13,7 +13,7 @@
 }
 
 .text {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
 }
 
@@ -21,29 +21,30 @@
     border-spacing: 10px 20px;
     text-align: left;
     margin-left: 20%;
-    border: 4px solid #80cfa9;
+    border: 4px solid #59c9a5;
     width: 60%;
-    margin-bottom: 5%;
 }
 
 .result {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
 
 .button {
     size: 70px;
-    color:white;
-    background-color: #009688 ;
+    color:#315172;
+    background-color: #59c9a5 ;
 }
 
 .space {
     margin-left: 70%;
     margin-right: 2%;
+    border: 1px solid #315172;
+    color: #315172;
 }
 
 .date {
-    margin-left: 40%;
+    margin-left: 37%;
 }
 
 .material-icons.md-30 { font-size: 30px; }
@@ -53,9 +54,14 @@
 }
 
 .cancel_button {
-    size: 70px;
-    color:white;
-    background-color: red ;
+    color: #bd1b0f;
+    border: 1px solid #bd1b0f;
+}
+
+.cancel_button:hover {
+    color: white;
+    border: 1px solid white;
+    background-color: #bd1b0f;
 }
 
 .mat-spinner {
@@ -64,9 +70,9 @@
 }
 
 .total {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 22px;
-    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
     text-align: center;
 }
 
@@ -79,7 +85,7 @@
 }
 
 .mensuality {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     text-align: center;
 }

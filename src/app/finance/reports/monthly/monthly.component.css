@@ -2,7 +2,7 @@
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 30px;
     color:  #1d1545;
-    margin-left: 40%;
+    margin-left: 38%;
 }
 
 .subtitle {
@@ -13,12 +13,12 @@
 }
 
 .text {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
 }
 
 .text_expense {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     text-align: right;
 }
@@ -35,17 +35,19 @@ th, td {
 }
 
 .result {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 22px;
 }
 
 .date {
-    margin-left: 40%;
+    margin-left: 36%;
 }
 
 .space {
     margin-left: 75%;
     margin-right: 2%;
+    border: 1px solid #315172;
+    color: #315172;
 }
 
 
@@ -55,40 +57,40 @@ th, td {
 }
 
 .income {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
-    color: green;
+    color: #618b25;
     text-align: center;
 }
 
 .totalIncome {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 22px;
-    color: green;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #618b25;
     font-weight: 700;
     text-align: center;
 }
 
 
 .expense {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
-    color: red;
+    color: #bd1b0f;
     text-align: center;
 }
 
 .totalExpense {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 22px;
-    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #bd1b0f;
     font-weight: 700;
     text-align: center;
 }
 
 .total {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 22px;
-    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .totalAmount {

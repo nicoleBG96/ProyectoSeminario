@@ -33,9 +33,6 @@ export class DonationsListComponent implements OnInit {
       this.loading = false; 
       this.donationService.getDonations().subscribe(item => {
         this.donationsList = item;
-        this.donationsList.forEach(donation => {
-          this.total = this.total + parseInt(donation.amount, 10);
-        });
       });      
     }, 500);
   }
@@ -58,6 +55,13 @@ export class DonationsListComponent implements OnInit {
         }
       });
       this.donationsList = filtered;
+    } else {
+      this.donationService.getDonations().subscribe(item => {
+        this.donationsList = item;
+        this.donationsList.forEach(donation => {
+          this.total = this.total + parseInt(donation.amount, 10);
+        });
+      })
     }
   }
 

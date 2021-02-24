@@ -1,10 +1,10 @@
 <mat-card class="card">
-    <h1 class="title">Ficha de Desarrollo Infantil</h1>
-    <br><br><br>
+    <h1 class="title">Ficha Psicológica</h1>
+    <br><br>
     <mat-spinner *ngIf="loading" class="mat-spinner"></mat-spinner>
     <div *ngIf="loading==false">
-        <div class="main">
-            <div class="left">
+        <div class="grid_container">
+            <div class="grid_margin">
                 <label class="subtitle1">Nombres: </label>
                 <label> {{child.firstName}}</label>
                 <br>
@@ -17,14 +17,14 @@
                 <label class="subtitle1">Fecha de Nacimiento: </label>
                 <label class="subtitle-space"> {{child.birthDate}}</label>
             </div>
-            <div class="center">
+            <div class="grid_margin">
                 <label class="subtitle1">Número de Orden: </label>
                 <label> {{child.numberOrder}}</label>
                 <br>
                 <label class="subtitle1">Edad en Meses: </label>
                 <label class="subtitle-space"> {{child.age}}</label>
             </div>
-            <div class="right">
+            <div>
                 <label class="subtitle1">Folio: </label>
                 <label> {{child.folio}}</label>
                 <br>
@@ -35,18 +35,20 @@
                 <label> {{child.date}}</label>
             </div>
         </div>
-        <div class="main_second">
+        <br>
+        <div class="size_weight">
             <label class="subtitle">ANTROPOMETRÍA</label>
-            <br><br>
-            <div class="left_second">
-                <label class="subtitle1">Peso: </label>
-                <label> {{child.weight}} </label>
-                <label class="subtitle-space">Kg.</label>
-            </div>
-            <div class="right_second">
-                <label class="subtitle1">Talla: </label>
-                <label> {{child.size}}</label>
-                <label>cm.</label>
+            <div class="grid_container_second">
+                <div class="size">
+                    <label class="subtitle1">Peso: </label>
+                    <label> {{child.weight}} </label>
+                    <label class="subtitle-space">Kg.</label>
+                </div>
+                <div>
+                    <label class="subtitle1">Talla: </label>
+                    <label> {{child.size}}</label>
+                    <label>cm.</label>
+                </div>
             </div>
         </div>
         <br><br>
@@ -88,10 +90,10 @@
             </table>
         </div>
     </div>
-    <br><br>
+    <br>
     <div class="buttons">
-        <button class="button" mat-stroked-button (click)="editProgress(child)" color="primary"
+        <button class="button" mat-stroked-button (click)="editProgress(child)"
             *ngIf="role=='psico'">Editar</button>
-        <button mat-stroked-button (click)="goToProfiles()" color="warn">Volver</button>
+        <button mat-stroked-button (click)="goToProfiles()" class="cancel_button">Volver</button>
     </div>
 </mat-card>

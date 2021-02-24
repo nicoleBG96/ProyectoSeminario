@@ -10,6 +10,13 @@
     line-height: 25px;
 }
 
+.text {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    line-height: 25px;
+    margin-left: 2px;
+}
+
 .subtitle-space {
     margin-right: 10%;
 }
@@ -22,15 +29,37 @@
 }
 
 .buttons {
-    margin-left: 40%;
+    margin-left: 30%;
 }
 
 .button {
     margin-right: 5px;
+    color: #315172;
+    border: 1px solid #315172;
 }
 
-.main {
+.button:hover {
+    color: white;
+    border: 1px solid white;
+    background-color: #315172;
+}
+
+.cancel_button {
+    color: #bd1b0f;
+    border: 1px solid #bd1b0f;
+}
+
+.cancel_button:hover {
+    color: white;
+    border: 1px solid white;
+    background-color: #bd1b0f;
+}
+
+.grid_container {
+    display: grid;
+    grid-template-columns: 50% 50%;
     margin-left: 10%;
+    margin-top: 20px;
 }
 
 .mat-spinner {

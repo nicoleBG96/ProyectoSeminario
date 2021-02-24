@@ -20,6 +20,10 @@ export class EditMedicalRecordComponent implements OnInit {
 
   ngOnInit() {
     this.child = this.childMedicalRecordService.getCreatedObject();
+    this.route.paramMap.subscribe((paramMap: any) => {
+      this.id = (paramMap.params.id);
+      this.childMedicalRecordService.getChildMedicalRecordbyId(this.id).then(child => this.child = child);
+    });
     this.child.age = this.calculateAge();
     this.child.date = new Date();
     this.route.paramMap.subscribe((paramMap: any) => {

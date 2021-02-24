@@ -1,7 +1,7 @@
 .card {
     width: 70%;
     margin-left: 15%;
-    margin-bottom: 5%;
+    padding-bottom: 20px;
 }
 
 .title {
@@ -26,22 +26,24 @@
     color: red;
 }
 
-.main{
-    display: flex;
-    margin-right: 10%;
-    margin-left: 10%;
+.grid_container {
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
-.left {
-    float: left;
-    margin-left: 10%;
-    width: 100%;
+.grid_margin_left {
+    margin-left: 15%;
+    margin-top: 25%;
 }
 
-.right {
-    float: left;
-    margin-left: 70%;
-    width: 100%;
+.grid_margin_right {
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.compromise_grid {
+    margin-left: 5%;
+    width: 90%;
 }
 
 .subtitle {
@@ -71,11 +73,28 @@
 }
 
 .button {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-right: 25px;
+    color: #315172;
+    border: 1px solid #315172;
+}
+
+.button:hover {
+    color: white;
+    border: 1px solid white;
+    background-color: #315172;
+}
+
+.cancel_button {
+    color: #bd1b0f;
+    border: 1px solid #bd1b0f;
+}
+
+.cancel_button:hover {
+    color: white;
+    border: 1px solid white;
+    background-color: #bd1b0f;
 }
 
 .photo-container{
     margin: 5px 0;
-    margin-left: 55%;
 }

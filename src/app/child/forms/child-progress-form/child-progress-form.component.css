@@ -1,7 +1,6 @@
 .card {
     width: 80%;
     margin-left: 10%;
-    margin-bottom: 5%;
 }
 
 .title {
@@ -13,47 +12,63 @@
 
 .input {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 25px;    
+    font-size: 22px;   
+    margin-left: 3px; 
 }
 
 .text {
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .text-alert {
     color: red;
 }
 
-.main {
-    display: flex;
-    margin-right: 10%;
-    margin-left: 10%;
+.grid_container {
+    display: grid;
+    grid-template-columns: 35% 30% 35%;
+    margin-top: 20px;
 }
 
 .left {
-    float: left;
-    margin-left: 10%;
+    margin-left: 15%;
 }
 
 .center {
-    float: left;
-    margin-left: 45%;
+    margin-left: 10%;
 }
 
 .right {          
-    float: left;
-    margin-left: 80%;
+    margin-left: 20%;
 }
 
 .buttons {
     margin-left: 35%;
 }
 
-.button {
-    margin-left: 5%;
-    margin-right: 5%;
+button {
+    margin-right: 15px;
+    color: #315172;
+    border: 1px solid #315172;
+}
+
+.button:hover {
+    color: white;
+    border: 1px solid white;
+    background-color: #315172;
+}
+
+.cancel_button {
+    color: #bd1b0f;
+    border: 1px solid #bd1b0f;
+}
+
+.cancel_button:hover {
+    color: white;
+    border: 1px solid white;
+    background-color: #bd1b0f;
 }
 
 .subtitle {
@@ -61,17 +76,15 @@
     font-size: 25px;
 }
 
-.main-second {
+.size-weight {
+    margin-left: 15%;
     width: 70%;
-    margin-left: 25%;
 }
 
-.left-second {
-    float: left;
-}
-
-.right-second {
-    margin-left: 50%;  
+.grid_second_container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-top: 5px;
 }
 
 .textBox {

@@ -24,7 +24,7 @@
     </ng-container>
     <ng-container>
         <tr *ngFor="let mensuality of mensualitiesList" class="table-Table">
-            <td class="text">{{mensuality.date}}</td>
+            <td class="text">{{mensuality.date | date:'dd-MM-yyyy'}}</td>
             <td class="text">{{mensuality.lastName}} {{mensuality.mothersLastName}} {{mensuality.firstName}}</td>
             <td class="text">{{mensuality.month}}</td>
             <td class="text">{{mensuality.year}}</td>
@@ -42,5 +42,5 @@
     </ng-container>
 </table>
 <div class="space_button">
-    <button class="cancel_button" mat-stroked-button (click)="goToProfile()" color="warn">Cancelar</button>
+    <button class="cancel_button" mat-stroked-button (click)="goToProfile()">Volver</button>
 </div>

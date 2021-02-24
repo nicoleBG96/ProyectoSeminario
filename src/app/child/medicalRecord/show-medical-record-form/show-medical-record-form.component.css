@@ -10,12 +10,8 @@
     line-height: 25px;
 }
 
-.label_description {
-    margin-left: 5%;
-}
-
 .subtitle-space {
-    margin-right: 10%;
+    margin-left: 5px;
 }
 
 .title {
@@ -30,20 +26,42 @@
 }
 
 .button {
-    margin-right: 5px;
+    margin-right: 10px;
+    color: #315172;
+    border: 1px solid #315172;
 }
 
-.left {
-    float: left;
-    width: 60%;
+.button:hover {
+    color: white;
+    border: 1px solid white;
+    background-color: #315172;
 }
 
-.right {
-    margin-left: 45%;
-    width: 50%;
+.cancel_button {
+    color: #bd1b0f;
+    border: 1px solid #bd1b0f;
+}
+
+.cancel_button:hover {
+    color: white;
+    border: 1px solid white;
+    background-color: #bd1b0f;
 }
 
 .mat-spinner {
     margin-left: 45%;
     margin-top: 5%;
+}
+
+.grid_container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.left {
+    margin-left: 10%;
+}
+
+.description {
+    margin-left: 5%;
 }

@@ -2,7 +2,7 @@
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 30px;
     color:  #1d1545;
-    margin-left: 35%;
+    margin-left: 38%;
 }
 
 .subtitle {
@@ -13,37 +13,39 @@
 }
 
 .text {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
 }
 
 .table {
     border-spacing: 10px 20px;
     text-align: left;
-    margin-left: 20%;
-    border: 4px solid #80cfa9;
+    margin-left: 18%;
+    border: 4px solid #59c9a5;
     width: 65%;
     margin-bottom: 5%;
 }
 
 .result {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
 
 .button {
     size: 70px;
-    color:white;
-    background-color: #009688 ;
+    color:#315172;
+    background-color: #59c9a5 ;
 }
 
 .space {
-    margin-left: 75%;
+    margin-left: 72%;
     margin-right: 2%;
+    border: 1px solid #315172;
+    color: #315172;
 }
 
 .date {
-    margin-left: 40%;
+    margin-left: 38%;
 }
 
 .material-icons.md-30 { font-size: 30px; }
@@ -54,9 +56,9 @@
 }
 
 .total {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 22px;
-    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
     text-align: center;
 }
 
@@ -69,7 +71,7 @@
 }
 
 .mensuality {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     text-align: center;
 }

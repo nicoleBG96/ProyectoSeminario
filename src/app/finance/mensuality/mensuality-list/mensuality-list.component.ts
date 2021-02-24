@@ -32,9 +32,6 @@ export class MensualityListComponent implements OnInit {
       this.loading = false;
       this.mensualityService.getMensualities().subscribe(item => {
         this.mensualitiesList = item;
-        this.mensualitiesList.forEach(mensuality => {
-          this.total = this.total + parseInt(mensuality.amount, 10);
-        });
       });
     }, 500);
   }
@@ -57,6 +54,13 @@ export class MensualityListComponent implements OnInit {
         }
       });
       this.mensualitiesList = filtered;
+    } else {
+      this.mensualityService.getMensualities().subscribe(item => {
+        this.mensualitiesList = item;
+        this.mensualitiesList.forEach(mensuality => {
+          this.total = this.total + parseInt(mensuality.amount, 10);
+        });
+      })
     }
   }
 
