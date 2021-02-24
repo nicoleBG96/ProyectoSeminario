@@ -14,8 +14,11 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UserService, private router: Router, private authService: AuthentificationService) { }
 
   ngOnInit() {
+    this.usersList = [];
     this.userService.getUser().subscribe(item => {
-      this.usersList = item;
+      for (let index = 1; index < item.length; index++) {
+        this.usersList.push(item[index])
+      }
     })
   }
 

@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 // Service
 import { AuthentificationService } from '../authentification.service';
-import { UserService } from 'src/app/shared/services/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +20,7 @@ export class LoginComponent {
   loading = false;
 
   constructor(private authService: AuthentificationService, private router: Router, private fb: FormBuilder,
-    private userService: UserService) {
+    private toastrService: ToastrService) {
     this.createForm();
   }
 

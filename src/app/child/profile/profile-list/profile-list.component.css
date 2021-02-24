@@ -37,27 +37,21 @@
     margin-left: 75%;
 }
 
-.card {
-    width: 35%;
-    height: 10%;
-    margin-right: 2%;
-    margin-left: 1%;
-    border: 1px solid #315172;
-}
-
 .content_card {
     display: grid;
     grid-template-columns: 70% 20%;
+    margin-top: 10px;
 }
 
 .global-card {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 10px;
+    border: 2px solid #315172;
 }
 
 .toolbar {
-    height: 5%;
+    height: 30px;
     background-color: #315172;
     color: white;
     width: 100%;
@@ -142,4 +136,6 @@
     overflow: scroll;
     overflow-x: hidden;
     height: 46vh;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
