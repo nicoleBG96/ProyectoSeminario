@@ -1,15 +1,17 @@
 .space {
     margin-right: 30%;
     font-family: "Arial", Gadget, sans-serif;
-    font-size: 30px;
-    color: white;
+    font-size: 32px;
+    font-weight: 600;
+    color: #315172;
 }
 
 
 .title {
     font-family: "Arial", Gadget, sans-serif;
-    font-size: 20px;
-    color: white;
+    font-size: 22px;
+    color: #315172;
+    font-weight: 600;
 }
 
 .subtitle {
@@ -19,36 +21,46 @@
 }
 
 .toolbar { 
-    background-color: #375A7F;
-    color: white;
+    background-color: #ff7847;
+    color: #315172;
     width: 100%;
 }
 
+.grid_container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
 .toolbar :hover{
-    background-color: #2f4d6d;
+    background-color: #ff7847;
 }
 
 .button {
-    background-color:  #375A7F;
-    margin-left: 62%;
+    background-color:  #ff7847;
+    margin-left: 58%;
 }
 
 .button-logout {
-    background-color:  #375A7F;
+    background-color:  #ff7847;
     margin-left: 87%;
 }
 
 .button-logout-med {
-    background-color:  #375A7F;
-    margin-left: 79%;
+    background-color:  #ff7847;
+    margin-left: 78%;
 }
 
 .button-logout-cont {
-    background-color:  #375A7F;
-    margin-left: 71%;
+    background-color:  #ff7847;
+    margin-left: 67%;
 }
 
 .button-logout-disable {
-    background-color:  #375A7F;
-    margin-left: 88%;
+    background-color:  #ff7847;
+    margin-left: 84%;
+}
+
+.material-icons {
+    color: #315172;
+    font-size: 30px;
 }

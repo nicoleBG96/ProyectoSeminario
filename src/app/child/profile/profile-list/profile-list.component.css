@@ -5,6 +5,11 @@
     text-align: center;
 }
 
+.add_content {
+    display: grid;
+    grid-template-columns: 70% 20%;
+}
+
 .subtitle {
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 15px;
@@ -28,32 +33,32 @@
 .button {
     size: 70px;
     color:white;
-    background-color: #009688 ;
-    margin-left: 85%;
+    background-color: #59c9a5 ;
+    margin-left: 75%;
 }
 
-.card {
-    width: 35%;
-    height: 15%;
-    margin-right: 5%;
-    margin-left: 2%;
+.content_card {
+    display: grid;
+    grid-template-columns: 70% 20%;
+    margin-top: 10px;
 }
 
 .global-card {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 10px;
+    border: 2px solid #315172;
 }
 
 .toolbar {
-    height: 5%;
-    background-color: #00a5a5;
+    height: 30px;
+    background-color: #315172;
     color: white;
+    width: 100%;
 }
 
 .toolbar :hover{
-    background-color:#008b8b;
+    background-color:#2b4764;
 }
 
 .toolbar-subtitle {
@@ -71,26 +76,34 @@
 }
 
 .image {
-    margin-left: 80%;
+    margin-left: 50%;
+}
+
+.search_content {
+    margin-left: 50%;
 }
 
 .search {
     height: 15%;
-    margin-left: 35%;
     font-size: 20px;
 }
 
 .input {
-    width: 20%;
-    height: 15%;
+    width: 50%;
+    height: 30px;
 }
 
 .date {
-    margin-left: 75%;
+    margin-left: 67%;
     width: 20%;
 }
 
 .material-icons.md-30 { font-size: 30px; } 
+
+.material-icons {
+    color: #315172;
+    font-size: 30px;
+}
 
 @media screen and (max-width: 300px){
     .material-icons.md-30 { font-size: 15px; } 
@@ -117,4 +130,12 @@
 .mat-spinner {
     margin-left: 45%;
     margin-top: 5%;
+}
+
+.content {
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 46vh;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }

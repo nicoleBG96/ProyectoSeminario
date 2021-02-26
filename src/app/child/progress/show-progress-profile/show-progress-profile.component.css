@@ -1,7 +1,7 @@
 .card {
     width: 80%;
     margin-left: 10%;
-    margin-bottom: 5%;
+    padding-bottom: 20px;
 }
 
 .subtitle1 {
@@ -34,56 +34,55 @@
 }
 
 .button {
-    margin-right: 5px;
-} 
-
-.main {
-    width: 100%;
-    height: 100%;
-    position: relative;
+    margin-right: 15px;
+    color: #315172;
+    border: 1px solid #315172;
 }
 
-.left {
-    width: 33%;
-    height: 100%;
-    float: left;
-    margin-left: 5%;
-    margin-right: 5%;
+.button:hover {
+    color: white;
+    border: 1px solid white;
+    background-color: #315172;
 }
 
-.center {
-    width: auto;
-    height: 100%; 
-    float: left;
+.cancel_button {
+    color: #bd1b0f;
+    border: 1px solid #bd1b0f;
 }
 
-.right {
-    width: 33%;
-    height: 100%;            
-    float: right;
+.cancel_button:hover {
+    color: white;
+    border: 1px solid white;
+    background-color: #bd1b0f;
 }
 
-.main_second {
-    margin-top: 15%;
-    width: 70%;
+.grid_container {
+    display: grid;
+    grid-template-columns: 33% 30% 37%;
+}
+
+.grid_margin {
+    margin-left: 10%;
+}
+
+.grid_container_second {
+    display: grid;
+    grid-template-columns: 50% 50%
+}
+
+.size_weight {
     margin-left: 15%;
+    width: 70%;
 }
 
-
-.left_second {
-    width: 50%;
-    float: left;
-    margin-left: 5%;
-}
-
-.right_second {
-    margin-left: 50%;
-    width: 50%;   
+.size {
+    margin-left: 10%;
 }
 
 table {
     width: 50%;
     margin-left: 25%;
+    border: 2px solid #ff7847;
 }
 
 .mat-spinner {

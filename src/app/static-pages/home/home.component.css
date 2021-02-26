@@ -32,7 +32,7 @@
     width: 70%;
     margin-left: 15%;
     border: 1px transparent;
-    height: 58vh;
+    height: 62vh;
 }
 
 
@@ -45,7 +45,7 @@
     line-height: 30px;
     overflow: scroll;
     overflow-x: hidden;
-    height: 40vh;
+    height: 45vh;
 }
 
 .toolbar {

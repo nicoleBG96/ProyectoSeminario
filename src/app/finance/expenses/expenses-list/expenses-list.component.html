@@ -21,7 +21,7 @@
         <th class="totalExpense" scope="col">Monto </th>
     </thead>
     <tbody>
-        <tr *ngFor="let expenses of expensesList">
+        <tr *ngFor="let expenses of expensesList" class="scroll_table">
             <td class="text">{{expenses.date | date:'dd-MM-yyyy'}}</td>
             <td class="text">{{expenses.description}}</td>
             <td class="expense">{{expenses.amount}}</td>

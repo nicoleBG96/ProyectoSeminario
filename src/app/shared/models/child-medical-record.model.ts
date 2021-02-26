@@ -7,6 +7,7 @@ export class ChildMedicalRecordModel {
     address: string;
     date: Date;
     description: string;
+    vaccines: string;
 
     constructor() {
         this.firstName = '';
@@ -17,5 +18,6 @@ export class ChildMedicalRecordModel {
         this.address = '';
         this.date = null;
         this.description = '';
+        this.vaccines = '';
     }
 }

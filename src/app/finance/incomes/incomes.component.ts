@@ -67,6 +67,11 @@ export class IncomesComponent implements OnInit {
         }
       });
       this.incomeList = filtered;
+    } else {
+      this.incomeList = this.incomesService.getIncomes();
+        this.incomeList.forEach(element => {
+          this.totalIncome = this.totalIncome + parseInt(element.amount);
+        });
     }
   }
 

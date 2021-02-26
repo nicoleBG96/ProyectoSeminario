@@ -11,14 +11,14 @@
 <i class="material-icons md-30"> calendar_today</i>
 <br><br>
 <mat-spinner *ngIf="loading" class="mat-spinner"></mat-spinner>
-<table mat table *ngIf="loading == false">
+<table mat table *ngIf="loading == false" class="table">
     <thead>
         <th class="subtitle">Fecha</th>
         <th class="subtitle">Descripcion</th>
         <th class="resultTitle">Monto Ingreso</th>
     </thead>
     <tbody>
-        <tr *ngFor="let aux of incomeList">
+        <tr *ngFor="let aux of incomeList" class="scroll_table">
             <td class="text">{{aux.date | date:'dd/MM/yyyy'}}</td>
             <div *ngIf="aux.type == 'mensuality'">
                 <td class="text">{{aux.firstName}} {{aux.lastName}} pago {{aux.month}} {{aux.year}}</td>
@@ -34,7 +34,7 @@
             <td></td>
         </tr>
         <tr>
-            <td class="text">Total</td>
+            <td class="total">Total</td>
             <td></td>
             <td class="result">{{totalIncome}}</td>
         </tr>

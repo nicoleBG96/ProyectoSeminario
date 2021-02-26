@@ -4,74 +4,72 @@
     </mat-card-header>
     <mat-card-content>
         <form #formNew="ngForm" novalidate>
-            <div class="main">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="left">
-                            <br><br><br>
-                            <label class="text">Nombre:</label>
-                            <br>
-                            <label class="input">{{child.firstName}}</label>
-                            <br><br>
-                            <label class="text">Apellido Paterno:</label>
-                            <br>
-                            <label class="input">{{child.lastName}}</label>
-                            <br><br>
-                            <label class="text">Apellido Materno:</label>
-                            <br>
-                            <label class="input">{{child.mothersLastName}}</label>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-md-offset-4">
-                        <div class="right">
-                            <br><br><br>
-                            <label class="text">Edad:</label>
-                            <label class="input">{{child.age}}</label>
-                            <mat-form-field class="text">
-                                <input class="input" [(ngModel)]="child.address" type="text" name="address"
-                                    #address="ngModel" id="address" maxlength="30" required
-                                    pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ #0-9]*$" matInput
-                                    placeholder="Direccion">
-                            </mat-form-field>
-                            <div *ngIf="(address.touched || address.dirty) && !address.valid && address.errors"
-                                class="text-alert">
-                                <div *ngIf="address.errors.required">Se requiere direccion</div>
-                                <div *ngIf="address.errors.pattern">Este campo acepta letras y números</div>
-                            </div>
-                            <br>
-                            <label class="text">Sexo:</label>
-                            <label class="input">{{child.sex}}</label>
-                            <br><br>
-                            <mat-form-field class="text">
-                                <input class="input" [(ngModel)]="child.date" type="date" name="date" #date="ngModel"
-                                    id="date" matInput placeholder="Fecha de Revision">
-                            </mat-form-field>
-                            <br>
-                        </div>
-                    </div>
-                    <mat-form-field class="description">
-                        <textarea type="text" class="input" name="description" id="description"
-                            [(ngModel)]="child.description" #description="ngModel" required
-                            pattern="[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ,.0-9]*$" matInput
-                            placeholder="Descripcion"></textarea>
+            <div class="grid_container">
+                <div class="left">
+                    <label class="text">Nombre:</label>
+                    <label class="input">{{child.firstName}}</label>
+                    <br>
+                    <label class="text">Apellido Paterno:</label>
+                    <label class="input">{{child.lastName}}</label>
+                    <br>
+                    <label class="text">Apellido Materno:</label>
+                    <label class="input">{{child.mothersLastName}}</label>
+                    <br>
+                    <label class="text">Edad:</label>
+                    <label class="input">{{child.age}}</label>
+                    <br>
+                    <label class="text">Sexo:</label>
+                    <label class="input">{{child.sex}}</label>
+                </div>
+                <div class="left">
+                    <mat-form-field class="text">
+                        <input class="input" [(ngModel)]="child.address" type="text" name="address" #address="ngModel"
+                            id="address" maxlength="30" required pattern="^[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ #0-9]*$"
+                            matInput placeholder="Direccion">
                     </mat-form-field>
-                    <div *ngIf="(description.touched || description.dirty) && !description.valid && description.errors"
-                        class="errorBar">
-                        <div class="errorText" *ngIf="description.errors.required">Se requiere descripcion</div>
-                        <div class="errorText" *ngIf="description.errors.pattern">Este campo acepta letras y
-                            números</div>
+                    <div *ngIf="(address.touched || address.dirty) && !address.valid && address.errors"
+                        class="text-alert">
+                        <div *ngIf="address.errors.required">Se requiere direccion</div>
+                        <div *ngIf="address.errors.pattern">Este campo acepta letras y números</div>
                     </div>
                     <br><br>
+                    <mat-form-field class="text">
+                        <input class="input" [(ngModel)]="child.date" type="date" name="date" #date="ngModel" id="date"
+                            matInput placeholder="Fecha de Revision">
+                    </mat-form-field>
                 </div>
             </div>
-            <br><br><br>
+            <br>
+            <mat-form-field class="description">
+                <textarea type="text" class="input" name="description" id="description"
+                    [(ngModel)]="child.description" #description="ngModel" required
+                    pattern="[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ,.0-9]*$" matInput
+                    placeholder="Descripcion"></textarea>
+            </mat-form-field>
+            <div *ngIf="(description.touched || description.dirty) && !description.valid && description.errors"
+                class="errorBar">
+                <div class="errorText" *ngIf="description.errors.required">Se requiere descripcion</div>
+                <div class="errorText" *ngIf="description.errors.pattern">Este campo acepta letras y
+                    números</div>
+            </div>
+            <br>
+            <mat-form-field class="description">
+                <textarea type="text" class="input" name="vaccines" id="vaccines" [(ngModel)]="child.vaccines"
+                    #vaccines="ngModel" required pattern="[a-zA-Z ÁÉÍÓÚáéíóúÄËÏÖÜäëïöüÇçñÑ,.0-9]*$" matInput
+                    placeholder="Vacunas"></textarea>
+            </mat-form-field>
+            <div *ngIf="(vaccines.touched || vaccines.dirty) && !vaccines.valid && vaccines.errors"
+                class="errorBar">
+                <div class="errorText" *ngIf="vaccines.errors.pattern">Este campo acepta letras y
+                    números</div>
+            </div>
+            <br><br>
             <div class="buttons">
-                <button *ngIf="!isEdit" class="button" type="submit" mat-raised-button color="primary"
+                <button *ngIf="!isEdit" class="button" type="submit" mat-raised-button
                     (click)="saveMedicalRecord()">Guardar</button>
-                <button *ngIf="isEdit" class="button" type="submit" mat-raised-button color="primary"
+                <button *ngIf="isEdit" class="button" type="submit" mat-raised-button
                     (click)="editMedicalRecord(child)">Actualizar</button>
-                <button (click)="goToProfiles()" class="button" type="button" mat-raised-button
-                    color="warn">Cancelar</button>
+                <button (click)="goToProfiles()" class="cancel_button" type="button" mat-raised-button>Cancelar</button>
             </div>
         </form>
     </mat-card-content>

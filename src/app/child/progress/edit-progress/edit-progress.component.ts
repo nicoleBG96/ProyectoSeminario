@@ -20,6 +20,10 @@ export class EditProgressComponent implements OnInit {
 
   ngOnInit() {
     this.child = this.childProgressService.getCreatedObject();
+    this.route.paramMap.subscribe((paramMap: any) => {
+      this.id = (paramMap.params.id);
+      this.childProgressService.getChildProgressbyId(this.id).then(child => this.child = child);
+    });
     this.child.age = this.calculateAgeIntMonths();
     this.child.date = new Date();
     this.route.paramMap.subscribe((paramMap: any) => {

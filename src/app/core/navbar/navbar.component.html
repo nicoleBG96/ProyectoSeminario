@@ -27,7 +27,7 @@
         </button>
         <button mat-button [matMenuTriggerFor]="reportes" class="title" *ngIf="report==false">Reportes</button>
     </div>
-    <mat-menu #reportes="matMenu">
+    <mat-menu #reportes="matMenu" >
         <button mat-menu-item class="subtitle" (click)='goToReport()'>Reporte Financiero</button>
         <button mat-menu-item class="subtitle" [matMenuTriggerFor]="ingresos" class="subtitle">Ingresos</button>
         <mat-menu #ingresos="matMenu">

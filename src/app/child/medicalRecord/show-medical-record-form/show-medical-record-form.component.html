@@ -3,38 +3,44 @@
     <br><br>
     <mat-spinner *ngIf="loading" class="mat-spinner"></mat-spinner>
     <div *ngIf="loading==false">
-        <div class="left">
-            <label class="subtitle">Fecha de Revisión: </label>
-            <label class="subtitle-space"> {{child.date}}</label>
-            <br><br>
-            <label class="subtitle">Nombres: </label>
-            <label> {{child.firstName}}</label>
-            <br>
-            <label class="subtitle">Apellido Paterno: </label>
-            <label> {{child.lastName}}</label>
-            <br>
-            <label class="subtitle">Apellido Materno: </label>
-            <label> {{child.mothersLastName}}</label>
+        <div class="grid_container">
+            <div class="left">
+                <label class="subtitle">Fecha de Revisión: </label>
+                <label class="subtitle-space"> {{child.date | date:'dd - MMM - yyyy'}}</label>
+                <br><br>
+                <label class="subtitle">Nombres: </label>
+                <label class="subtitle-space">{{child.firstName}}</label>
+                <br>
+                <label class="subtitle">Apellido Paterno: </label>
+                <label class="subtitle-space">{{child.lastName}}</label>
+                <br>
+                <label class="subtitle">Apellido Materno: </label>
+                <label class="subtitle-space">{{child.mothersLastName}}</label>
+            </div>
+            <div class="left">
+                <br><br>
+                <label class="subtitle">Dirección: </label>
+                <label class="subtitle-space"> {{child.address}}</label>
+                <br>
+                <label class="subtitle">Edad: </label>
+                <label class="subtitle-space"> {{child.age}}</label>
+                <br>
+                <label class="subtitle">Sexo: </label>
+                <label class="subtitle-space"> {{child.sex}}</label>
+            </div>
         </div>
-        <div class="right">
+        <br>
+        <div class="description">
+            <label class="subtitle">Diagnóstico: </label>
+            <label class="subtitle-space"> {{child.description}}</label>
             <br><br>
-            <label class="subtitle">Dirección: </label>
-            <label class="subtitle-space"> {{child.address}}</label>
-            <br>
-            <label class="subtitle">Edad: </label>
-            <label class="subtitle-space"> {{child.age}}</label>
-            <br>
-            <label class="subtitle">Sexo: </label>
-            <label class="subtitle-space"> {{child.sex}}</label>
+            <label class="subtitle">Vacunas: </label>
+            <label class="subtitle-space"> {{child.vaccines}}</label>
         </div>
-        <br><br>
-        <label class="subtitle">Diagnóstico: </label>
-        <label> {{child.description}}</label>
     </div>
-    <br><br>
     <div class="buttons">
-        <button class="button" mat-stroked-button (click)="editMedicalRecord(child)" color="primary"
+        <button class="button" mat-stroked-button (click)="editMedicalRecord(child)" 
             *ngIf="role=='med'">Editar</button>
-        <button mat-stroked-button (click)="goToProfiles()" color="warn">Volver</button>
+        <button mat-stroked-button (click)="goToProfiles()" class="cancel_button">Volver</button>
     </div>
 </mat-card>
