@@ -98,3 +98,16 @@ th, td {
     border-spacing: 20px;
     text-align: center;
 }
+
+.scroll_table {
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 30vh;
+}
+
+tbody {
+    display: block;
+  overflow: auto;
+  height: 500px;
+  width: 100%;
+}
