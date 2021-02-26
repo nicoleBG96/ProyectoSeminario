@@ -17,7 +17,7 @@ export class MensualityListComponent implements OnInit {
   mensualitiesList: any[];
   total = 0;
   loading = false;
-  loadingButton  = false;
+  loadingButton = false;
   userList: any = [];
   role: any = {};
   isDisable = false;
@@ -26,7 +26,7 @@ export class MensualityListComponent implements OnInit {
     private userService: UserService, private authService: AuthentificationService) { }
 
   ngOnInit() {
-    this.loading = true; 
+    this.loading = true;
     this.active();
     setTimeout(() => {
       this.loading = false;
@@ -48,7 +48,7 @@ export class MensualityListComponent implements OnInit {
       const filtered: any = [];
       this.mensualitiesList.forEach((event: any) => {
         if (new Date(event.date).getTime() >= startDate.getTime() &&
-        new Date(event.date).getTime() <= endDate.getTime()) {
+          new Date(event.date).getTime() <= endDate.getTime()) {
           filtered.push(event);
           this.total = this.total + parseInt(event.amount, 10);
         }
@@ -95,13 +95,12 @@ export class MensualityListComponent implements OnInit {
   async active() {
     this.authService.getCurrentUser().pipe(
       tap(current => {
-        if(current)
+        if (current)
           this.userService.getUser().subscribe(item => {
             this.userList = item;
             this.userList.forEach(element => {
-              if(current.email == element.email)
-              {
-                if(element.isDisable)
+              if (current.email == element.email) {
+                if (element.isDisable)
                   this.isDisable = true;
                 switch (element.position) {
                   case 'administrador':
