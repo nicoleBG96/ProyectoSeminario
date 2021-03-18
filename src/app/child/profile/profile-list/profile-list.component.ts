@@ -83,7 +83,9 @@ export class ProfileListComponent implements OnInit {
       });
       this.profileList = filtered;
     } else {
-      
+      this.profileService.getProfile().subscribe(item => {
+        this.profileList = item;
+      });
     }
   }
 
