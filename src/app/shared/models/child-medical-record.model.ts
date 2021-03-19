@@ -2,6 +2,7 @@ export class ChildMedicalRecordModel {
     firstName: string;
     lastName: string;
     mothersLastName: string;
+    birthDate: Date;
     age: number;
     sex: string;
     address: string;
@@ -19,5 +20,6 @@ export class ChildMedicalRecordModel {
         this.date = null;
         this.description = '';
         this.vaccines = '';
+        this.birthDate = null;
     }
 }

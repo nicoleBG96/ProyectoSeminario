@@ -59,6 +59,7 @@ export class ChildRegisterComponent implements OnInit {
     medicalRecord.mothersLastName = event.mothersLastName;
     medicalRecord.sex = event.sex;
     medicalRecord.address = event.street;
+    medicalRecord.birthDate = event.birthDate;
     this.childMedicalRecordService.createChildMedicalRecord(event, latestKey);
   }
 

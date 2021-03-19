@@ -15,6 +15,7 @@ export class ChildMedicalRecordFormComponent implements OnInit {
   myForm: FormGroup;
   isEdit: boolean;
   id: any;
+  age: any;
   @Input() child: ChildMedicalRecordModel;
   // tslint:disable-next-line:no-output-on-prefix
   @Output() onSubmit: EventEmitter<any>;
@@ -33,6 +34,17 @@ export class ChildMedicalRecordFormComponent implements OnInit {
     } else {
       this.isEdit = true;
     }
+  }
+
+  calculateAge(date: Date) {
+    const today = new Date();
+    const childBirth = new Date(date);
+    let age = today.getFullYear() - childBirth.getFullYear();
+    const months = today.getMonth() - childBirth.getMonth();
+    if (months < 0 || (months === 0 && today.getDate() < childBirth.getDate())) {
+      age--;
+    }
+    return age;
   }
 
   saveMedicalRecord() {

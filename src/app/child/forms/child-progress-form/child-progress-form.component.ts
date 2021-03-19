@@ -74,6 +74,15 @@ export class ChildProgressFormComponent implements OnInit {
     }
   }
 
+  calculateAgeIntMonths() {
+    const today = new Date();
+    const childBirth = new Date(this.child.birthDate);
+    let months = (today.getFullYear() - childBirth.getFullYear()) * 12;
+    months -= childBirth.getMonth() + 1;
+    months += today.getMonth();
+    return months+1;
+  }
+
   goToProfile() {
     this.route.paramMap.subscribe((paramMap: any) => {
       this.id = (paramMap.params.id);

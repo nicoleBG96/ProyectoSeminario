@@ -34,7 +34,7 @@
                                         </div>
                                         <br>
                                         <label class="text">Edad en Meses:</label>
-                                        <label class="input">{{child.age}}</label>
+                                        <label class="input">{{calculateAgeIntMonths()}}</label>
                                         <br><br>
                                         <label class="text">Fecha de nacimiento:</label>
                                         <label class="input">{{child.birthDate |
@@ -81,7 +81,7 @@
                         </div>
                         <br>
                         <table mat table class="mat-elevation-z8">
-                                <ng-container *ngIf="child.age == '0'">
+                                <ng-container *ngIf="calculateAgeIntMonths() == '0'">
                                         <th>MOTROCIDAD GRUESA (0 - 1)</th>
                                         <th>PTJE </th>
                                         <th>MOTROCIDAD FINA ADECUADA (0 - 1)</th>
@@ -91,7 +91,7 @@
                                         <th>PERSONAL SOCIAL (0 - 1)</th>
                                         <th>PTJE </th>
                                 </ng-container>
-                                <ng-container *ngIf="child.age == '1' || child.age == '2' || child.age == '3'">
+                                <ng-container *ngIf="calculateAgeIntMonths() == '1' || calculateAgeIntMonths() == '2' || calculateAgeIntMonths() == '3'">
                                         <th>MOTROCIDAD GRUESA (0 - 6)</th>
                                         <th>PTJE </th>
                                         <th>MOTROCIDAD FINA ADECUADA (0 - 6)</th>
@@ -101,7 +101,7 @@
                                         <th>PERSONAL SOCIAL (0 - 6)</th>
                                         <th>PTJE </th>
                                 </ng-container>
-                                <ng-container *ngIf="child.age == '4' || child.age == '5' || child.age == '6'">
+                                <ng-container *ngIf="calculateAgeIntMonths() == '4' || calculateAgeIntMonths() == '5' || calculateAgeIntMonths() == '6'">
                                         <th>MOTROCIDAD GRUESA (0 - 10)</th>
                                         <th>PTJE </th>
                                         <th>MOTROCIDAD FINA ADECUADA (0 - 10)</th>
@@ -111,7 +111,7 @@
                                         <th>PERSONAL SOCIAL (0 - 10)</th>
                                         <th>PTJE </th>
                                 </ng-container>
-                                <ng-container *ngIf="child.age == '7' || child.age == '8' || child.age == '9'">
+                                <ng-container *ngIf="calculateAgeIntMonths() == '7' || calculateAgeIntMonths() == '8' || calculateAgeIntMonths() == '9'">
                                         <th>MOTROCIDAD GRUESA (0 - 14)</th>
                                         <th>PTJE </th>
                                         <th>MOTROCIDAD FINA ADECUADA (0 - 13)</th>
@@ -121,7 +121,7 @@
                                         <th>PERSONAL SOCIAL (0 - 13)</th>
                                         <th>PTJE </th>
                                 </ng-container>
-                                <ng-container *ngIf="child.age == '10' || child.age == '11' || child.age == '12'">
+                                <ng-container *ngIf="calculateAgeIntMonths() == '10' || calculateAgeIntMonths() == '11' || calculateAgeIntMonths() == '12'">
                                         <th>MOTROCIDAD GRUESA (0 - 17)</th>
                                         <th>PTJE </th>
                                         <th>MOTROCIDAD FINA ADECUADA (0 - 15)</th>
@@ -131,8 +131,8 @@
                                         <th>PERSONAL SOCIAL (0 - 15)</th>
                                         <th>PTJE </th>
                                 </ng-container>
-                                <ng-container *ngIf="child.age == '13' || child.age == '14' || child.age == '15'
-                                || child.age == '16' || child.age == '17' || child.age == '18'">
+                                <ng-container *ngIf="calculateAgeIntMonths() == '13' || calculateAgeIntMonths() == '14' || calculateAgeIntMonths() == '15'
+                                || calculateAgeIntMonths() == '16' || calculateAgeIntMonths() == '17' || calculateAgeIntMonths() == '18'">
                                         <th>MOTROCIDAD GRUESA (0 - 20)</th>
                                         <th>PTJE </th>
                                         <th>MOTROCIDAD FINA ADECUADA (0 - 19)</th>
@@ -142,8 +142,8 @@
                                         <th>PERSONAL SOCIAL (0 - 18)</th>
                                         <th>PTJE </th>
                                 </ng-container>
-                                <ng-container *ngIf="child.age == '19' || child.age == '20' || child.age == '21'
-                                || child.age == '22' || child.age == '23' || child.age == '24'">
+                                <ng-container *ngIf="calculateAgeIntMonths() == '19' || calculateAgeIntMonths() == '20' || calculateAgeIntMonths() == '21'
+                                || calculateAgeIntMonths() == '22' || calculateAgeIntMonths() == '23' || calculateAgeIntMonths() == '24'">
                                         <th>MOTROCIDAD GRUESA (0 - 24)</th>
                                         <th>PTJE </th>
                                         <th>MOTROCIDAD FINA ADECUADA (0 - 21)</th>
@@ -153,10 +153,10 @@
                                         <th>PERSONAL SOCIAL (0 - 23)</th>
                                         <th>PTJE </th>
                                 </ng-container>
-                                <ng-container *ngIf="child.age == '25' || child.age == '26' || child.age == '27'
-                                || child.age == '28' || child.age == '29' || child.age == '30' || child.age == '31'
-                                || child.age == '32' || child.age == '33' || child.age == '34' || child.age == '35'
-                                || child.age == '36'">
+                                <ng-container *ngIf="calculateAgeIntMonths() == '25' || calculateAgeIntMonths() == '26' || calculateAgeIntMonths() == '27'
+                                || calculateAgeIntMonths() == '28' || calculateAgeIntMonths() == '29' || calculateAgeIntMonths() == '30' || calculateAgeIntMonths() == '31'
+                                || calculateAgeIntMonths() == '32' || calculateAgeIntMonths() == '33' || calculateAgeIntMonths() == '34' || calculateAgeIntMonths() == '35'
+                                || calculateAgeIntMonths() == '36'">
                                         <th>MOTROCIDAD GRUESA (0 - 28)</th>
                                         <th>PTJE </th>
                                         <th>MOTROCIDAD FINA ADECUADA (0 - 25)</th>
@@ -166,10 +166,10 @@
                                         <th>PERSONAL SOCIAL (0 - 28)</th>
                                         <th>PTJE </th>
                                 </ng-container>
-                                <ng-container *ngIf="child.age == '37' || child.age == '38' || child.age == '39'
-                                || child.age == '40' || child.age == '41' || child.age == '42' || child.age == '43'
-                                || child.age == '44' || child.age == '45' || child.age == '46' || child.age == '47'
-                                || child.age == '48'">
+                                <ng-container *ngIf="calculateAgeIntMonths() == '37' || calculateAgeIntMonths() == '38' || calculateAgeIntMonths() == '39'
+                                || calculateAgeIntMonths() == '40' || calculateAgeIntMonths() == '41' || calculateAgeIntMonths() == '42' || calculateAgeIntMonths() == '43'
+                                || calculateAgeIntMonths() == '44' || calculateAgeIntMonths() == '45' || calculateAgeIntMonths() == '46' || calculateAgeIntMonths() == '47'
+                                || calculateAgeIntMonths() == '48'">
                                         <th>MOTROCIDAD GRUESA (0 - 30)</th>
                                         <th>PTJE </th>
                                         <th>MOTROCIDAD FINA ADECUADA (0 - 29)</th>
@@ -179,10 +179,10 @@
                                         <th>PERSONAL SOCIAL (0 - 30)</th>
                                         <th>PTJE </th>
                                 </ng-container>
-                                <ng-container *ngIf="child.age == '49' || child.age == '50' || child.age == '51'
-                                || child.age == '52' || child.age == '53' || child.age == '54' || child.age == '55'
-                                || child.age == '56' || child.age == '57' || child.age == '58' || child.age == '59'
-                                || child.age == '60'">
+                                <ng-container *ngIf="calculateAgeIntMonths() == '49' || calculateAgeIntMonths() == '50' || calculateAgeIntMonths() == '51'
+                                || calculateAgeIntMonths() == '52' || calculateAgeIntMonths() == '53' || calculateAgeIntMonths() == '54' || calculateAgeIntMonths() == '55'
+                                || calculateAgeIntMonths() == '56' || calculateAgeIntMonths() == '57' || calculateAgeIntMonths() == '58' || calculateAgeIntMonths() == '59'
+                                || calculateAgeIntMonths() == '60'">
                                         <th>MOTROCIDAD GRUESA (0 - 30)</th>
                                         <th>PTJE </th>
                                         <th>MOTROCIDAD FINA ADECUADA (0 - 29)</th>
@@ -192,10 +192,10 @@
                                         <th>PERSONAL SOCIAL (0 - 29)</th>
                                         <th>PTJE </th>
                                 </ng-container>
-                                <ng-container *ngIf="child.age == '61' || child.age == '62' || child.age == '63'
-                                || child.age == '64' || child.age == '65' || child.age == '66' || child.age == '67'
-                                || child.age == '68' || child.age == '69' || child.age == '70' || child.age == '71'
-                                || child.age == '72'">
+                                <ng-container *ngIf="calculateAgeIntMonths() == '61' || calculateAgeIntMonths() == '62' || calculateAgeIntMonths() == '63'
+                                || calculateAgeIntMonths() == '64' || calculateAgeIntMonths() == '65' || calculateAgeIntMonths() == '66' || calculateAgeIntMonths() == '67'
+                                || calculateAgeIntMonths() == '68' || calculateAgeIntMonths() == '69' || calculateAgeIntMonths() == '70' || calculateAgeIntMonths() == '71'
+                                || calculateAgeIntMonths() == '72'">
                                         <th>MOTROCIDAD GRUESA (0 - 36)</th>
                                         <th>PTJE </th>
                                         <th>MOTROCIDAD FINA ADECUADA (0 - 36)</th>
@@ -205,10 +205,10 @@
                                         <th>PERSONAL SOCIAL (0 - 36)</th>
                                         <th>PTJE </th>
                                 </ng-container>
-                                <ng-container *ngIf="child.age == '73' || child.age == '74' || child.age == '75'
-                                || child.age == '76' || child.age == '77' || child.age == '78' || child.age == '79'
-                                || child.age == '80' || child.age == '81' || child.age == '82' || child.age == '83'
-                                || child.age == '84'">
+                                <ng-container *ngIf="calculateAgeIntMonths() == '73' || calculateAgeIntMonths() == '74' || calculateAgeIntMonths() == '75'
+                                || calculateAgeIntMonths() == '76' || calculateAgeIntMonths() == '77' || calculateAgeIntMonths() == '78' || calculateAgeIntMonths() == '79'
+                                || calculateAgeIntMonths() == '80' || calculateAgeIntMonths() == '81' || calculateAgeIntMonths() == '82' || calculateAgeIntMonths() == '83'
+                                || calculateAgeIntMonths() == '84'">
                                         <th>MOTROCIDAD GRUESA (0 - 36)</th>
                                         <th>PTJE </th>
                                         <th>MOTROCIDAD FINA ADECUADA (0 - 37)</th>
@@ -219,7 +219,7 @@
                                         <th>PTJE </th>
                                 </ng-container>
                                 <ng-container>
-                                        <tr *ngIf="child.age=='0'">
+                                        <tr *ngIf="calculateAgeIntMonths()=='0'">
                                                 <td>Patalea vigorosamente</td>
                                                 <td><input type="text" class="textBox" name="pointA1" id="pointA1"
                                                                 [(ngModel)]="child.pointA1" #pointA1="ngModel" required
@@ -271,7 +271,7 @@
                                                                 valor no válido</div>
                                                 </div>
                                         </tr>
-                                        <tr *ngIf="(child.age=='1'||child.age=='2'||child.age=='3')">
+                                        <tr *ngIf="(calculateAgeIntMonths()=='1'||calculateAgeIntMonths()=='2'||calculateAgeIntMonths()=='3')">
                                                 <td>Levanta la cabeza boca-abajo</td>
                                                 <td><input type="text" class="textBox" name="pointA1" id="pointA1"
                                                                 [(ngModel)]="child.pointA1" #pointA1="ngModel" required
@@ -321,7 +321,7 @@
                                                                 valor no válido</div>
                                                 </div>
                                         </tr>
-                                        <tr *ngIf="(child.age=='1'||child.age=='2'||child.age=='3')">
+                                        <tr *ngIf="(calculateAgeIntMonths()=='1'||calculateAgeIntMonths()=='2'||calculateAgeIntMonths()=='3')">
                                                 <td>Levanta la cabeza y pocho boca-abajo</td>
                                                 <td><input type="text" class="textBox" name="pointA2" id="pointA2"
                                                                 [(ngModel)]="child.pointA2" #pointA2="ngModel" required
@@ -372,7 +372,7 @@
                                                                 valor no válido</div>
                                                 </div>
                                         </tr>
-                                        <tr *ngIf="(child.age=='1'||child.age=='2'||child.age=='3')">
+                                        <tr *ngIf="(calculateAgeIntMonths()=='1'||calculateAgeIntMonths()=='2'||calculateAgeIntMonths()=='3')">
                                                 <td>Sostiene la cabeza al levantarlo de brazos
                                                 </td>
                                                 <td><input type="text" class="textBox" name="pointA3" id="pointA3"
@@ -423,7 +423,7 @@
                                                                 valor no válido</div>
                                                 </div>
                                         </tr>
-                                        <tr *ngIf="(child.age=='4'||child.age=='5'||child.age=='6')">
+                                        <tr *ngIf="(calculateAgeIntMonths()=='4'||calculateAgeIntMonths()=='5'||calculateAgeIntMonths()=='6')">
                                                 <td>Controla la cabeza de sentado</td>
                                                 <td><input type="text" class="textBox" name="pointA1" id="pointA1"
                                                                 [(ngModel)]="child.pointA1" #pointA1="ngModel"
@@ -446,7 +446,7 @@
                                                                 pattern="[0-9 10]*$" maxlength="2">
                                                 </td>
                                         </tr>
-                                        <tr *ngIf="(child.age=='4'||child.age=='5'||child.age=='6')">
+                                        <tr *ngIf="(calculateAgeIntMonths()=='4'||calculateAgeIntMonths()=='5'||calculateAgeIntMonths()=='6')">
                                                 <td>Se voltea de un lado a otro</td>
                                                 <td><input type="text" class="textBox" name="pointA2" id="pointA2"
                                                                 [(ngModel)]="child.pointA2" #pointA2="ngModel" required
@@ -468,7 +468,7 @@
                                                                 pattern="[0-10]*$" maxlength="2">
                                                 </td>
                                         </tr>
-                                        <tr *ngIf="(child.age=='4'||child.age=='5'||child.age=='6')">
+                                        <tr *ngIf="(calculateAgeIntMonths()=='4'||calculateAgeIntMonths()=='5'||calculateAgeIntMonths()=='6')">
                                                 <td>Intenta sotenerse solo</td>
                                                 <td><input type="text" class="textBox" name="pointA3" id="pointA3"
                                                                 [(ngModel)]="child.pointA3" #pointA3="ngModel" required
@@ -490,7 +490,7 @@
                                                                 pattern="[0-10]*$" maxlength="2">
                                                 </td>
                                         </tr>
-                                        <tr *ngIf="(child.age=='7'||child.age=='8'||child.age=='9')">
+                                        <tr *ngIf="(calculateAgeIntMonths()=='7'||calculateAgeIntMonths()=='8'||calculateAgeIntMonths()=='9')">
                                                 <td>Se sostiene sentado con ayuda</td>
                                                 <td><input type="text" class="textBox" name="pointA1" id="pointA1"
                                                                 [(ngModel)]="child.pointA1" #pointA1="ngModel" required
@@ -512,7 +512,7 @@
                                                                 pattern="[0-13]*$" maxlength="2">
                                                 </td>
                                         </tr>
-                                        <tr *ngIf="(child.age=='7'||child.age=='8'||child.age=='9')">
+                                        <tr *ngIf="(calculateAgeIntMonths()=='7'||calculateAgeIntMonths()=='8'||calculateAgeIntMonths()=='9')">
                                                 <td>Se arrasta en posición boca-abajo</td>
                                                 <td><input type="text" class="textBox" name="pointA2" id="pointA2"
                                                                 [(ngModel)]="child.pointA2" #pointA2="ngModel" required
@@ -534,7 +534,7 @@
                                                                 pattern="[0-13]*$" maxlength="2">
                                                 </td>
                                         </tr>
-                                        <tr *ngIf="(child.age=='7'||child.age=='8'||child.age=='9')">
+                                        <tr *ngIf="(calculateAgeIntMonths()=='7'||calculateAgeIntMonths()=='8'||calculateAgeIntMonths()=='9')">
                                                 <td>Se sienta sin ayuda</td>
                                                 <td><input type="text" class="textBox" name="pointA3" id="pointA3"
                                                                 [(ngModel)]="child.pointA3" #pointA3="ngModel" required
@@ -557,7 +557,7 @@
                                                                 pattern="[0-13]*$" maxlength="2">
                                                 </td>
                                         </tr>
-                                        <tr *ngIf="(child.age=='10'||child.age=='11'||child.age=='12')">
+                                        <tr *ngIf="(calculateAgeIntMonths()=='10'||calculateAgeIntMonths()=='11'||calculateAgeIntMonths()=='12')">
                                                 <td>Gatea</td>
                                                 <td><input type="text" class="textBox" name="pointA1" id="pointA1"
                                                                 [(ngModel)]="child.pointA1" #pointA1="ngModel" required
@@ -579,7 +579,7 @@
                                                                 pattern="[0-15]*$" maxlength="2">
                                                 </td>
                                         </tr>
-                                        <tr *ngIf="(child.age=='10'||child.age=='11'||child.age=='12')">
+                                        <tr *ngIf="(calculateAgeIntMonths()=='10'||calculateAgeIntMonths()=='11'||calculateAgeIntMonths()=='12')">
                                                 <td>Se agarra y se sostiene de pie</td>
                                                 <td><input type="text" class="textBox" name="pointA2" id="pointA2"
                                                                 [(ngModel)]="child.pointA2" #pointA2="ngModel" required
@@ -602,7 +602,7 @@
                                                                 pattern="[0-15]*$" maxlength="2">
                                                 </td>
                                         </tr>
-                                        <tr *ngIf="(child.age=='10'||child.age=='11'||child.age=='12')">
+                                        <tr *ngIf="(calculateAgeIntMonths()=='10'||calculateAgeIntMonths()=='11'||calculateAgeIntMonths()=='12')">
                                                 <td>Se para sin ayuda</td>
                                                 <td><input type="text" class="textBox" name="pointA3" id="pointA3"
                                                                 [(ngModel)]="child.pointA3" #pointA3="ngModel" required
@@ -625,7 +625,7 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='13'||child.age=='14'||child.age=='15'||child.age=='16'||child.age=='17'||child.age=='18')">
+                                                *ngIf="(calculateAgeIntMonths()=='13'||calculateAgeIntMonths()=='14'||calculateAgeIntMonths()=='15'||calculateAgeIntMonths()=='16'||calculateAgeIntMonths()=='17'||calculateAgeIntMonths()=='18')">
                                                 <td>Da pasitos solo</td>
                                                 <td><input type="text" class="textBox" name="pointA1" id="pointA1"
                                                                 [(ngModel)]="child.pointA1" #pointA1="ngModel" required
@@ -648,7 +648,7 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='13'||child.age=='14'||child.age=='15'||child.age=='16'||child.age=='17'||child.age=='18')">
+                                                *ngIf="(calculateAgeIntMonths()=='13'||calculateAgeIntMonths()=='14'||calculateAgeIntMonths()=='15'||calculateAgeIntMonths()=='16'||calculateAgeIntMonths()=='17'||calculateAgeIntMonths()=='18')">
                                                 <td>Camina solo</td>
                                                 <td><input type="text" class="textBox" name="pointA2" id="pointA2"
                                                                 [(ngModel)]="child.pointA2" #pointA2="ngModel" required
@@ -671,7 +671,7 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='13'||child.age=='14'||child.age=='15'||child.age=='16'||child.age=='17'||child.age=='18')">
+                                                *ngIf="(calculateAgeIntMonths()=='13'||calculateAgeIntMonths()=='14'||calculateAgeIntMonths()=='15'||calculateAgeIntMonths()=='16'||calculateAgeIntMonths()=='17'||calculateAgeIntMonths()=='18')">
                                                 <td>Corre</td>
                                                 <td><input type="text" class="textBox" name="pointA3" id="pointA3"
                                                                 [(ngModel)]="child.pointA3" #pointA3="ngModel" required
@@ -694,7 +694,7 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='19'||child.age=='20'||child.age=='21'||child.age=='22'||child.age=='23'||child.age=='24')">
+                                                *ngIf="(calculateAgeIntMonths()=='19'||calculateAgeIntMonths()=='20'||calculateAgeIntMonths()=='21'||calculateAgeIntMonths()=='22'||calculateAgeIntMonths()=='23'||calculateAgeIntMonths()=='24')">
                                                 <td>Patea la pelota</td>
                                                 <td><input type="text" class="textBox" name="pointA1" id="pointA1"
                                                                 [(ngModel)]="child.pointA1" #pointA1="ngModel" required
@@ -717,7 +717,7 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='19'||child.age=='20'||child.age=='21'||child.age=='22'||child.age=='23'||child.age=='24')">
+                                                *ngIf="(calculateAgeIntMonths()=='19'||calculateAgeIntMonths()=='20'||calculateAgeIntMonths()=='21'||calculateAgeIntMonths()=='22'||calculateAgeIntMonths()=='23'||calculateAgeIntMonths()=='24')">
                                                 <td>Tira la pelota con las manos</td>
                                                 <td><input type="text" class="textBox" name="pointA2" id="pointA2"
                                                                 [(ngModel)]="child.pointA2" #pointA2="ngModel" required
@@ -740,7 +740,7 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='19'||child.age=='20'||child.age=='21'||child.age=='22'||child.age=='23'||child.age=='24')">
+                                                *ngIf="(calculateAgeIntMonths()=='19'||calculateAgeIntMonths()=='20'||calculateAgeIntMonths()=='21'||calculateAgeIntMonths()=='22'||calculateAgeIntMonths()=='23'||calculateAgeIntMonths()=='24')">
                                                 <td>Salta en dos pies</td>
                                                 <td><input type="text" class="textBox" name="pointA3" id="pointA3"
                                                                 [(ngModel)]="child.pointA3" #pointA3="ngModel" required
@@ -763,8 +763,8 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='25'||child.age=='26'||child.age=='27'||child.age=='28'||child.age=='29'||child.age=='30'
-                                ||child.age=='31'||child.age=='32'||child.age=='33'||child.age=='34'||child.age=='35'||child.age=='36')">
+                                                *ngIf="(calculateAgeIntMonths()=='25'||calculateAgeIntMonths()=='26'||calculateAgeIntMonths()=='27'||calculateAgeIntMonths()=='28'||calculateAgeIntMonths()=='29'||calculateAgeIntMonths()=='30'
+                                ||calculateAgeIntMonths()=='31'||calculateAgeIntMonths()=='32'||calculateAgeIntMonths()=='33'||calculateAgeIntMonths()=='34'||calculateAgeIntMonths()=='35'||calculateAgeIntMonths()=='36')">
                                                 <td>Se para de puntas en ambos pies</td>
                                                 <td><input type="text" class="textBox" name="pointA1" id="pointA1"
                                                                 [(ngModel)]="child.pointA1" #pointA1="ngModel" required
@@ -787,8 +787,8 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='25'||child.age=='26'||child.age=='27'||child.age=='28'||child.age=='29'||child.age=='30'
-                            ||child.age=='31'||child.age=='32'||child.age=='33'||child.age=='34'||child.age=='35'||child.age=='36')">
+                                                *ngIf="(calculateAgeIntMonths()=='25'||calculateAgeIntMonths()=='26'||calculateAgeIntMonths()=='27'||calculateAgeIntMonths()=='28'||calculateAgeIntMonths()=='29'||calculateAgeIntMonths()=='30'
+                            ||calculateAgeIntMonths()=='31'||calculateAgeIntMonths()=='32'||calculateAgeIntMonths()=='33'||calculateAgeIntMonths()=='34'||calculateAgeIntMonths()=='35'||calculateAgeIntMonths()=='36')">
                                                 <td>Se levanta sin usar las manos</td>
                                                 <td><input type="text" class="textBox" name="pointA2" id="pointA2"
                                                                 [(ngModel)]="child.pointA2" #pointA2="ngModel" required
@@ -811,8 +811,8 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='25'||child.age=='26'||child.age=='27'||child.age=='28'||child.age=='29'||child.age=='30'
-                            ||child.age=='31'||child.age=='32'||child.age=='33'||child.age=='34'||child.age=='35'||child.age=='36')">
+                                                *ngIf="(calculateAgeIntMonths()=='25'||calculateAgeIntMonths()=='26'||calculateAgeIntMonths()=='27'||calculateAgeIntMonths()=='28'||calculateAgeIntMonths()=='29'||calculateAgeIntMonths()=='30'
+                            ||calculateAgeIntMonths()=='31'||calculateAgeIntMonths()=='32'||calculateAgeIntMonths()=='33'||calculateAgeIntMonths()=='34'||calculateAgeIntMonths()=='35'||calculateAgeIntMonths()=='36')">
                                                 <td>Camina hacia atrás</td>
                                                 <td><input type="text" class="textBox" name="pointA3" id="pointA3"
                                                                 [(ngModel)]="child.pointA3" #pointA3="ngModel" required
@@ -835,8 +835,8 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='37'||child.age=='38'||child.age=='39'||child.age=='40'||child.age=='41'||child.age=='42'
-                                ||child.age=='43'||child.age=='44'||child.age=='45'||child.age=='46'||child.age=='47'||child.age=='48')">
+                                                *ngIf="(calculateAgeIntMonths()=='37'||calculateAgeIntMonths()=='38'||calculateAgeIntMonths()=='39'||calculateAgeIntMonths()=='40'||calculateAgeIntMonths()=='41'||calculateAgeIntMonths()=='42'
+                                ||calculateAgeIntMonths()=='43'||calculateAgeIntMonths()=='44'||calculateAgeIntMonths()=='45'||calculateAgeIntMonths()=='46'||calculateAgeIntMonths()=='47'||calculateAgeIntMonths()=='48')">
                                                 <td>Camina de puntas </td>
                                                 <td><input type="text" class="textBox" name="pointA1" id="pointA1"
                                                                 [(ngModel)]="child.pointA1" #pointA1="ngModel" max="30"
@@ -865,8 +865,8 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='37'||child.age=='38'||child.age=='39'||child.age=='40'||child.age=='41'||child.age=='42'
-                                    ||child.age=='43'||child.age=='44'||child.age=='45'||child.age=='46'||child.age=='47'||child.age=='48')">
+                                                *ngIf="(calculateAgeIntMonths()=='37'||calculateAgeIntMonths()=='38'||calculateAgeIntMonths()=='39'||calculateAgeIntMonths()=='40'||calculateAgeIntMonths()=='41'||calculateAgeIntMonths()=='42'
+                                    ||calculateAgeIntMonths()=='43'||calculateAgeIntMonths()=='44'||calculateAgeIntMonths()=='45'||calculateAgeIntMonths()=='46'||calculateAgeIntMonths()=='47'||calculateAgeIntMonths()=='48')">
                                                 <td>Se para en un solo pie</td>
                                                 <td><input type="text" class="textBox" name="pointA2" id="pointA2"
                                                                 [(ngModel)]="child.pointA2" #pointA2="ngModel" required
@@ -889,8 +889,8 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='37'||child.age=='38'||child.age=='39'||child.age=='40'||child.age=='41'||child.age=='42'
-                                    ||child.age=='43'||child.age=='44'||child.age=='45'||child.age=='46'||child.age=='47'||child.age=='48')">
+                                                *ngIf="(calculateAgeIntMonths()=='37'||calculateAgeIntMonths()=='38'||calculateAgeIntMonths()=='39'||calculateAgeIntMonths()=='40'||calculateAgeIntMonths()=='41'||calculateAgeIntMonths()=='42'
+                                    ||calculateAgeIntMonths()=='43'||calculateAgeIntMonths()=='44'||calculateAgeIntMonths()=='45'||calculateAgeIntMonths()=='46'||calculateAgeIntMonths()=='47'||calculateAgeIntMonths()=='48')">
                                                 <td>Tira y agarra la pelota</td>
                                                 <td><input type="text" class="textBox" name="pointA3" id="pointA3"
                                                                 [(ngModel)]="child.pointA3" #pointA3="ngModel" required
@@ -913,8 +913,8 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='49'||child.age=='50'||child.age=='51'||child.age=='52'||child.age=='53'||child.age=='54'
-                                ||child.age=='55'||child.age=='56'||child.age=='57'||child.age=='58'||child.age=='59'||child.age=='60')">
+                                                *ngIf="(calculateAgeIntMonths()=='49'||calculateAgeIntMonths()=='50'||calculateAgeIntMonths()=='51'||calculateAgeIntMonths()=='52'||calculateAgeIntMonths()=='53'||calculateAgeIntMonths()=='54'
+                                ||calculateAgeIntMonths()=='55'||calculateAgeIntMonths()=='56'||calculateAgeIntMonths()=='57'||calculateAgeIntMonths()=='58'||calculateAgeIntMonths()=='59'||calculateAgeIntMonths()=='60')">
                                                 <td>Camina en línea recta</td>
                                                 <td><input type="text" class="textBox" name="pointA1" id="pointA1"
                                                                 [(ngModel)]="child.pointA1" #pointA1="ngModel" required
@@ -937,8 +937,8 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='49'||child.age=='50'||child.age=='51'||child.age=='52'||child.age=='53'||child.age=='54'
-                                    ||child.age=='55'||child.age=='56'||child.age=='57'||child.age=='58'||child.age=='59'||child.age=='60')">
+                                                *ngIf="(calculateAgeIntMonths()=='49'||calculateAgeIntMonths()=='50'||calculateAgeIntMonths()=='51'||calculateAgeIntMonths()=='52'||calculateAgeIntMonths()=='53'||calculateAgeIntMonths()=='54'
+                                    ||calculateAgeIntMonths()=='55'||calculateAgeIntMonths()=='56'||calculateAgeIntMonths()=='57'||calculateAgeIntMonths()=='58'||calculateAgeIntMonths()=='59'||calculateAgeIntMonths()=='60')">
                                                 <td>Salta tres o más pasos en un pie</td>
                                                 <td><input type="text" class="textBox" name="pointA2" id="pointA2"
                                                                 [(ngModel)]="child.pointA2" #pointA2="ngModel" required
@@ -962,8 +962,8 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='49'||child.age=='50'||child.age=='51'||child.age=='52'||child.age=='53'||child.age=='54'
-                        ||child.age=='55'||child.age=='56'||child.age=='57'||child.age=='58'||child.age=='59'||child.age=='60')">
+                                                *ngIf="(calculateAgeIntMonths()=='49'||calculateAgeIntMonths()=='50'||calculateAgeIntMonths()=='51'||calculateAgeIntMonths()=='52'||calculateAgeIntMonths()=='53'||calculateAgeIntMonths()=='54'
+                        ||calculateAgeIntMonths()=='55'||calculateAgeIntMonths()=='56'||calculateAgeIntMonths()=='57'||calculateAgeIntMonths()=='58'||calculateAgeIntMonths()=='59'||calculateAgeIntMonths()=='60')">
                                                 <td>Hace rebotar y agarra la pelota</td>
                                                 <td><input type="text" class="textBox" name="pointA3" id="pointA3"
                                                                 [(ngModel)]="child.pointA3" #pointA3="ngModel" required
@@ -986,8 +986,8 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='61'||child.age=='62'||child.age=='63'||child.age=='64'||child.age=='65'||child.age=='66'
-                    ||child.age=='67'||child.age=='68'||child.age=='69'||child.age=='70'||child.age=='71'||child.age=='72')">
+                                                *ngIf="(calculateAgeIntMonths()=='61'||calculateAgeIntMonths()=='62'||calculateAgeIntMonths()=='63'||calculateAgeIntMonths()=='64'||calculateAgeIntMonths()=='65'||calculateAgeIntMonths()=='66'
+                    ||calculateAgeIntMonths()=='67'||calculateAgeIntMonths()=='68'||calculateAgeIntMonths()=='69'||calculateAgeIntMonths()=='70'||calculateAgeIntMonths()=='71'||calculateAgeIntMonths()=='72')">
                                                 <td>Salta con pies juntos una cuerda a 25 cms
                                                 </td>
                                                 <td><input type="text" class="textBox" name="pointA1" id="pointA1"
@@ -1011,8 +1011,8 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='61'||child.age=='62'||child.age=='63'||child.age=='64'||child.age=='65'||child.age=='66'
-                        ||child.age=='67'||child.age=='68'||child.age=='69'||child.age=='70'||child.age=='71'||child.age=='72')">
+                                                *ngIf="(calculateAgeIntMonths()=='61'||calculateAgeIntMonths()=='62'||calculateAgeIntMonths()=='63'||calculateAgeIntMonths()=='64'||calculateAgeIntMonths()=='65'||calculateAgeIntMonths()=='66'
+                        ||calculateAgeIntMonths()=='67'||calculateAgeIntMonths()=='68'||calculateAgeIntMonths()=='69'||calculateAgeIntMonths()=='70'||calculateAgeIntMonths()=='71'||calculateAgeIntMonths()=='72')">
                                                 <td>Corre saltando alternando los pies</td>
                                                 <td><input type="text" class="textBox" name="pointA2" id="pointA2"
                                                                 [(ngModel)]="child.pointA2" #pointA2="ngModel" required
@@ -1035,8 +1035,8 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='61'||child.age=='62'||child.age=='63'||child.age=='64'||child.age=='65'||child.age=='66'
-                        ||child.age=='67'||child.age=='68'||child.age=='69'||child.age=='70'||child.age=='71'||child.age=='72')">
+                                                *ngIf="(calculateAgeIntMonths()=='61'||calculateAgeIntMonths()=='62'||calculateAgeIntMonths()=='63'||calculateAgeIntMonths()=='64'||calculateAgeIntMonths()=='65'||calculateAgeIntMonths()=='66'
+                        ||calculateAgeIntMonths()=='67'||calculateAgeIntMonths()=='68'||calculateAgeIntMonths()=='69'||calculateAgeIntMonths()=='70'||calculateAgeIntMonths()=='71'||calculateAgeIntMonths()=='72')">
                                                 <td>Salta desde 40 cms de altura</td>
                                                 <td><input type="text" class="textBox" name="pointA3" id="pointA3"
                                                                 [(ngModel)]="child.pointA3" #pointA3="ngModel" required
@@ -1066,8 +1066,8 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='73'||child.age=='74'||child.age=='75'||child.age=='76'||child.age=='77'||child.age=='78'
-                    ||child.age=='79'||child.age=='80'||child.age=='81'||child.age=='82'||child.age=='83'||child.age=='84')">
+                                                *ngIf="(calculateAgeIntMonths()=='73'||calculateAgeIntMonths()=='74'||calculateAgeIntMonths()=='75'||calculateAgeIntMonths()=='76'||calculateAgeIntMonths()=='77'||calculateAgeIntMonths()=='78'
+                    ||calculateAgeIntMonths()=='79'||calculateAgeIntMonths()=='80'||calculateAgeIntMonths()=='81'||calculateAgeIntMonths()=='82'||calculateAgeIntMonths()=='83'||calculateAgeIntMonths()=='84')">
                                                 <td>Juega rayuela o tunkuña</td>
                                                 <td><input type="text" class="textBox" name="pointA1" id="pointA1"
                                                                 [(ngModel)]="child.pointA1" #pointA1="ngModel" required
@@ -1090,8 +1090,8 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='73'||child.age=='74'||child.age=='75'||child.age=='76'||child.age=='77'||child.age=='78'
-                        ||child.age=='79'||child.age=='80'||child.age=='81'||child.age=='82'||child.age=='83'||child.age=='84')">
+                                                *ngIf="(calculateAgeIntMonths()=='73'||calculateAgeIntMonths()=='74'||calculateAgeIntMonths()=='75'||calculateAgeIntMonths()=='76'||calculateAgeIntMonths()=='77'||calculateAgeIntMonths()=='78'
+                        ||calculateAgeIntMonths()=='79'||calculateAgeIntMonths()=='80'||calculateAgeIntMonths()=='81'||calculateAgeIntMonths()=='82'||calculateAgeIntMonths()=='83'||calculateAgeIntMonths()=='84')">
                                                 <td>Hace una construcción rudimentaria</td>
                                                 <td><input type="text" class="textBox" name="pointA2" id="pointA2"
                                                                 [(ngModel)]="child.pointA2" #pointA2="ngModel" required
@@ -1115,8 +1115,8 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='73'||child.age=='74'||child.age=='75'||child.age=='76'||child.age=='77'||child.age=='78'
-                         ||child.age=='79'||child.age=='80'||child.age=='81'||child.age=='82'||child.age=='83'||child.age=='84')">
+                                                *ngIf="(calculateAgeIntMonths()=='73'||calculateAgeIntMonths()=='74'||calculateAgeIntMonths()=='75'||calculateAgeIntMonths()=='76'||calculateAgeIntMonths()=='77'||calculateAgeIntMonths()=='78'
+                         ||calculateAgeIntMonths()=='79'||calculateAgeIntMonths()=='80'||calculateAgeIntMonths()=='81'||calculateAgeIntMonths()=='82'||calculateAgeIntMonths()=='83'||calculateAgeIntMonths()=='84')">
                                                 <td>Salta alternando los pies</td>
                                                 <td><input type="text" class="textBox" name="pointA3" id="pointA3"
                                                                 [(ngModel)]="child.pointA3" #pointA3="ngModel" required
@@ -1139,8 +1139,8 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='85'||child.age=='86'||child.age=='87'||child.age=='88'||child.age=='89'||child.age=='90'
-                    ||child.age=='91'||child.age=='92'||child.age=='93'||child.age=='94'||child.age=='95'||child.age=='96')">
+                                                *ngIf="(calculateAgeIntMonths()=='85'||calculateAgeIntMonths()=='86'||calculateAgeIntMonths()=='87'||calculateAgeIntMonths()=='88'||calculateAgeIntMonths()=='89'||calculateAgeIntMonths()=='90'
+                    ||calculateAgeIntMonths()=='91'||calculateAgeIntMonths()=='92'||calculateAgeIntMonths()=='93'||calculateAgeIntMonths()=='94'||calculateAgeIntMonths()=='95'||calculateAgeIntMonths()=='96')">
                                                 <td>Abre y cierra las manos alternadamente</td>
                                                 <td><input type="text" class="textBox" name="pointA1" id="pointA1"
                                                                 [(ngModel)]="child.pointA1" #pointA1="ngModel" required
@@ -1164,8 +1164,8 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='85'||child.age=='86'||child.age=='87'||child.age=='88'||child.age=='89'||child.age=='90'
-                        ||child.age=='91'||child.age=='92'||child.age=='93'||child.age=='94'||child.age=='95'||child.age=='96')">
+                                                *ngIf="(calculateAgeIntMonths()=='85'||calculateAgeIntMonths()=='86'||calculateAgeIntMonths()=='87'||calculateAgeIntMonths()=='88'||calculateAgeIntMonths()=='89'||calculateAgeIntMonths()=='90'
+                        ||calculateAgeIntMonths()=='91'||calculateAgeIntMonths()=='92'||calculateAgeIntMonths()=='93'||calculateAgeIntMonths()=='94'||calculateAgeIntMonths()=='95'||calculateAgeIntMonths()=='96')">
                                                 <td>Marcha sin perder el ritmo</td>
                                                 <td><input type="text" class="textBox" name="pointA2" id="pointA2"
                                                                 [(ngModel)]="child.pointA2" #pointA2="ngModel" required
@@ -1188,8 +1188,8 @@
                                                 </td>
                                         </tr>
                                         <tr
-                                                *ngIf="(child.age=='85'||child.age=='86'||child.age=='87'||child.age=='88'||child.age=='89'||child.age=='90'
-                        ||child.age=='91'||child.age=='92'||child.age=='93'||child.age=='94'||child.age=='95'||child.age=='96')">
+                                                *ngIf="(calculateAgeIntMonths()=='85'||calculateAgeIntMonths()=='86'||calculateAgeIntMonths()=='87'||calculateAgeIntMonths()=='88'||calculateAgeIntMonths()=='89'||calculateAgeIntMonths()=='90'
+                        ||calculateAgeIntMonths()=='91'||calculateAgeIntMonths()=='92'||calculateAgeIntMonths()=='93'||calculateAgeIntMonths()=='94'||calculateAgeIntMonths()=='95'||calculateAgeIntMonths()=='96')">
                                                 <td>Salta la cuerda</td>
                                                 <td><input type="text" class="textBox" name="pointA3" id="pointA3"
                                                                 [(ngModel)]="child.pointA3" #pointA3="ngModel" required

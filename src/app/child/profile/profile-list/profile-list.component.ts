@@ -35,6 +35,17 @@ export class ProfileListComponent implements OnInit {
     }, 500);
   }
 
+  calculateAge(date: Date) {
+    const today = new Date();
+    const childBirth = new Date(date);
+    let age = today.getFullYear() - childBirth.getFullYear();
+    const months = today.getMonth() - childBirth.getMonth();
+    if (months < 0 || (months === 0 && today.getDate() < childBirth.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
   registerProfile(childRegister: any) {
     this.router.navigate(['child/showRegisterProfile/' + childRegister.key]);
   }

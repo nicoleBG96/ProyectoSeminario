@@ -44,6 +44,17 @@ export class ShowMedicalRecordFormComponent implements OnInit {
     this.childMedicalRecordService.getChildMedicalRecordbyId(id).then(child => this.child = child);
   }
 
+  calculateAge() {
+    const today = new Date();
+    const childBirth = new Date(this.child.birthDate);
+    let age = today.getFullYear() - childBirth.getFullYear();
+    const months = today.getMonth() - childBirth.getMonth();
+    if (months < 0 || (months === 0 && today.getDate() < childBirth.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
   editMedicalRecord(child: any) {
     this.childMedicalRecordService.setCreatedObject(child);
     this.router.navigate (['child/editMedicalRecord/' + this.childId]);

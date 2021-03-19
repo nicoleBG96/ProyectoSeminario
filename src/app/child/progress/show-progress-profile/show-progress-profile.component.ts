@@ -42,6 +42,15 @@ export class ShowProgressProfileComponent implements OnInit {
     this.childProgressService.getChildProgressbyId(id).then(child => this.child = child);
   }
 
+  calculateAgeIntMonths() {
+    const today = new Date();
+    const childBirth = new Date(this.child.birthDate);
+    let months = (today.getFullYear() - childBirth.getFullYear()) * 12;
+    months -= childBirth.getMonth() + 1;
+    months += today.getMonth();
+    return months+1;
+  }
+
   calculateTotal(point1: string, point2: string, point3: string, point4: string) {
     if (point1 == null || point2 == null || point3 == null || point4 == null) {
       return 0;
